@@ -11,4 +11,16 @@
     <select id="selectAll" resultType="accountVO" parameterType="string" >
     	select * from b_account where id = #{id}
     </select>
+    
+    <!-- 계좌이체 출금 -->
+    <update id="transfer1" parameterType="accountVO" >
+    	update B_ACCOUNT set balance = balance - #{balance}
+    	where account_num=#{account_num}
+    </update>
+    
+    <!-- 계좌이체 입금 -->
+    <update id="transfer2" parameterType="accountVO" >
+    	update B_ACCOUNT set balance = balance + #{balance}
+    	where account_num=#{bank_name}
+    </update>
 </mapper>

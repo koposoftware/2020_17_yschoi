@@ -35,6 +35,28 @@ public class AccountDAOImpl implements AccountDAO {
 		
 		return accountList;
 	}
+
+	
+	
+	
+	/**
+	 * 계좌이체 출금
+	 */
+	@Override
+	public void transfer1(AccountVO account) {
+		// TODO Auto-generated method stub
+		sqlSession.update("account.dao.AccountDAO.transfer1", account);
+	}
+	
+	
+	/**
+	 * 계좌이체 입금
+	 */
+	@Override
+	public void transfer2(AccountVO account) {
+		// TODO Auto-generated method stub
+		sqlSession.update("account.dao.AccountDAO.transfer2", account);
+	}
 	
 	
 	

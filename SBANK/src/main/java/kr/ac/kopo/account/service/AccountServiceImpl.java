@@ -37,7 +37,19 @@ public class AccountServiceImpl implements AccountService {
 
 		return accountList;
 	}
-	
+
+
+
+	/**
+	 * 계좌 이체
+	 */
+	@Override
+	public void transfer(AccountVO account) {
+		
+		accountdao.transfer1(account); //출금
+		accountdao.transfer2(account); //입금
+		
+	}
 	
 	
 	

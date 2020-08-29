@@ -18,4 +18,18 @@ public interface AccountDAO {
 	 */
 	public List<AccountVO> selectAccount(String id);
 	
+	
+	/**
+	 * 계좌이체 출금
+	 * @param account
+	 */
+	public void transfer1(AccountVO account);
+	
+	
+	/**
+	 * 계좌이체 입금
+	 * @param account
+	 */
+	public void transfer2(AccountVO account);
+	
 }

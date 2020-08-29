@@ -3,6 +3,7 @@ package kr.ac.kopo.account.service;
 import java.util.List;
 
 import kr.ac.kopo.account.vo.AccountVO;
+import kr.ac.kopo.board.vo.BoardVO;
 
 
 public interface AccountService {
@@ -22,6 +23,10 @@ public interface AccountService {
 	
 	
 	/**
-	 * 
+	 * 계좌이체 
 	 */
+	public void transfer(AccountVO account);
+	
+	
+
 }

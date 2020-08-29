@@ -3,75 +3,10 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-<%@ include file="head.jsp"%>
+<%-- <%@ include file="head.jsp"%> --%>
+<jsp:include page="/WEB-INF/jsp/include/head.jsp" /> 
 
 
-    <!-- slider_area_start -->
-    <div class="slider_area">
-        <div class="slider_active owl-carousel">
-            <div class="single_slider  d-flex align-items-center slider_bg_1 overlay2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text ">
-                                <h3>Big Opportunity <br>
-                                        for your Business</h3>
-                                <div class="video_service_btn">
-                                    <a href="#" class="boxed-btn3">Our Services</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single_slider  d-flex align-items-center slider_bg_2 overlay2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text ">
-                                <h3>Big Opportunity <br>
-                                        for your Business</h3>
-                                <div class="video_service_btn">
-                                    <a href="#" class="boxed-btn3">Our Services</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single_slider  d-flex align-items-center slider_bg_1 overlay2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text ">
-                                <h3>Big Opportunity <br>
-                                        for your Business</h3>
-                                <div class="video_service_btn">
-                                    <a href="#" class="boxed-btn3">Our Services</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single_slider  d-flex align-items-center slider_bg_2 overlay2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text ">
-                                <h3>Big Opportunity <br>
-                                        for your Business</h3>
-                                <div class="video_service_btn">
-                                    <a href="#" class="boxed-btn3">Our Services</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- slider_area_end -->
 
     <!-- service_area_start -->
     <div class="service_area">
@@ -547,4 +482,5 @@
 
     
     
-<%@ include file="foot.jsp"%>
+<%-- <%@ include file="foot.jsp"%> --%>
+<%@ include file="/WEB-INF/jsp/include/foot.jsp"%>

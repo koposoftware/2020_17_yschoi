@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<hr style="width: 100%; height: 10px; background-color: #001D38; ">
+
+
     <!-- footer start -->
     <footer class="footer">
         <div class="footer_top">
@@ -10,7 +13,7 @@
                         <div class="footer_widget">
                             <div class="footer_logo">
                                 <a href="#">
-                                    <img src="resources/img/footer_logo.png" alt="">
+                                    <img src="${ pageContext.request.contextPath }/resources/img/footer_logo.png" alt="">
                                 </a>
                             </div>
                             <p>
@@ -104,33 +107,33 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
     <!-- JS here -->
-    <script src="resources/js/vendor/modernizr-3.5.0.min.js"></script>
-    <script src="resources/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="resources/js/popper.min.js"></script>
-    <script src="resources/js/bootstrap.min.js"></script>
-    <script src="resources/js/owl.carousel.min.js"></script>
-    <script src="resources/js/isotope.pkgd.min.js"></script>
-    <script src="resources/js/ajax-form.js"></script>
-    <script src="resources/js/waypoints.min.js"></script>
-    <script src="resources/js/jquery.counterup.min.js"></script>
-    <script src="resources/js/imagesloaded.pkgd.min.js"></script>
-    <script src="resources/js/scrollIt.js"></script>
-    <script src="resources/js/jquery.scrollUp.min.js"></script>
-    <script src="resources/js/wow.min.js"></script>
-    <script src="resources/js/nice-select.min.js"></script>
-    <script src="resources/js/jquery.slicknav.min.js"></script>
-    <script src="resources/js/jquery.magnific-popup.min.js"></script>
-    <script src="resources/js/plugins.js"></script>
-    <script src="resources/js/gijgo.min.js"></script>
-    <script src="resources/js/slick.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/popper.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/isotope.pkgd.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/ajax-form.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/waypoints.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/jquery.counterup.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/imagesloaded.pkgd.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/scrollIt.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/jquery.scrollUp.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/wow.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/nice-select.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/jquery.slicknav.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/jquery.magnific-popup.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/plugins.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/gijgo.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/slick.min.js"></script>
     <!--contact js-->
-    <script src="resources/js/contact.js"></script>
-    <script src="resources/js/jquery.ajaxchimp.min.js"></script>
-    <script src="resources/js/jquery.form.js"></script>
-    <script src="resources/js/jquery.validate.min.js"></script>
-    <script src="resources/js/mail-script.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/contact.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/jquery.ajaxchimp.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/jquery.form.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/jquery.validate.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/mail-script.js"></script>
 
-    <script src="resources/js/main.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/main.js"></script> 
 </body>
 
 </html>
