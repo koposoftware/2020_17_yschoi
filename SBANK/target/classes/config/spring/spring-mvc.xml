@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context   
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd ">
+    
+    
+    
+    
+	<!-- Component-scan으로 베이스 패키지만 바꿔주면 된다. -->
+	<context:component-scan base-package="kr.ac.kopo" />
+	<!-- 객체 생성과 관련된 Component, Service, 등등을 쓰기 위해 설정 -->
+    
+    
+    
+    <mvc:annotation-driven>
+    	<mvc:message-converters>
+    		<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+    			<property name="supportedMediaTypes">
+    				<list>
+    					 <value>text/html; charset=utf-8</value>
+    					 <value>application/json; charset=utf-8</value>
+    				</list>
+    			</property>
+    		</bean>
+    		<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+    			<property name="supportedMediaTypes">
+    				<list>
+    					<value>text/html; charset=UTF-8</value>
+    				</list>
+    			</property>
+    		</bean>
+    	</mvc:message-converters>
+    </mvc:annotation-driven>
+    
+     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"  >
+    	<property name="driverClassName"  value="oracle.jdbc.driver.OracleDriver"  />
+    	<property name="url" value="jdbc:oracle:thin:@34.64.73.153:1521:xe" />	
+    	<property name="username" value="cysun31" />
+    	<property name="password" value="cc07cc24"></property>
+    </bean> 
+    
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"  >
+    	<property name="driverClassName"  value="oracle.jdbc.driver.OracleDriver"  />
+    	<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl" />	
+    	<property name="username" value="scott" />
+    	<property name="password" value="tiger"></property>
+    </bean>-->
+    
+    
+     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+       <property name="dataSource" ref="dataSource" />
+       <property name="configLocation" value="classpath:config/mybatis/sqlMapConfig.xml" />
+       <property name="mapperLocations" value="classpath:config/sqlmap/oracle/*.xml" />
+    </bean>
+    
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+    	<constructor-arg ref="sqlSessionFactory" />
+    </bean>
+	
+	<mvc:default-servlet-handler />
+	
+	<!-- 최대업로드사이즈 지정 -->
+	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+		<property name="maxUploadSize" value="10485760"/>
+	</bean>
+	
+    <!-- 
+  	  어떤 요청(uri)이 들어왔을 때, 컨트롤러를 거치지 말고, 그냥 어디로 포워드시켜줘!
+   	 즉, 컨트롤러 없이 매핑하는 방식 = view-controller
+     -->	
+	<mvc:view-controller path="/file/fileUploadForm.do" view-name="file/fileUploadForm"/>
+	
+	<!-- 요청은 서블릿이 받으면 jsp가 응답할 것이기 때문에 suffix를 .jsp를 써줌. -->
+	<!-- 그래서 우리는 안써도 되는 것이다. 또 WEB-INF 밑에 만들꺼니까 외부에서 .jsp파일을 접근할 수 없음. 
+	           단, 이미지 같은 것들은 WEB-INF 밑에 있으면 접근할 수 없으므로 생각하고 만들어야 함. -->
+	<mvc:view-resolvers>
+		<mvc:jsp prefix="/WEB-INF/jsp/" suffix=".jsp" />
+	</mvc:view-resolvers>
+	
+	
+	
+	<!-- 인터셉터 처리 -->
+	<!-- /가 나온 후 뎁스가 몇이던 다 잡겠다. 문제 : 로그인 & 게시판목록도 제한됨.. 매핑에서 제외하자 -->
+	<bean class="kr.ac.kopo.interceptor.LoginInterceptor" id="LoginInterceptor" />
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**/" />  
+			
+			<mvc:exclude-mapping path="/login" />
+			<mvc:exclude-mapping path="/logout" />
+			<mvc:exclude-mapping path="/board" />
+			<mvc:exclude-mapping path="/resources/**" /> 
+			<ref bean="LoginInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors> 
+	
+	
+	
+	
+	
+	
+	
+	<!-- 트랜잭션 처리 -->
+	<bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+		  id="transactionManager" >
+		<property name="dataSource" ref="dataSource" />		  
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager"/>	
+	
+	
+	
+
+</beans>
