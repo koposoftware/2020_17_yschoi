@@ -24,7 +24,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		HttpSession session = request.getSession();
 		
 		MemberVO vo = new MemberVO();
-		vo.setId("user");
+//		vo.setId("user");
+		vo.setId("cysun31");
 		vo.setPassword("user");
 		vo.setType("U");
 		

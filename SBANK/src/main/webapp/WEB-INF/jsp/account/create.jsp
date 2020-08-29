@@ -11,21 +11,20 @@
 
 
 
+<!-- 수정할부분 시작 -->
+<section>
 
-<div class="service_area">
-	<div class="container">
+	<div class="container class="col-xl-12"">
 		<div class="row">
 			<div class="col-xl-12">
-				<div class="section_title text-center mb-50">
+				<!-- <div class="section_title text-center mb-50"> -->
+				<div class="section_title mb-50">
 					<h3>계좌 개설</h3>
 				</div>
 			</div>
 		</div>
-		<div class="row">
-
-
-
-			<form:form commandName="accountVO" method="post">
+		<div class="table-wrapper">
+									<form:form commandName="accountVO" method="post">
 				<!-- commandName과 관련이 있는 form이다. 명시해주자 -->
 				<table border="1" style="width: 80%">
 					<tr>
@@ -51,12 +50,23 @@
 								path="nick_name" cssStyle="color :red;" /></td>
 					</tr>
 				</table>
-				<button>등록</button>
+				<button class="btn btn-outline-dark">등록</button>
 			</form:form>
-
 		</div>
+
 	</div>
-</div>
+
+</section><br><br><br><br><br>
+<!-- 수정할부분 끝 -->
+
+
+
+
+
+
+
+
+
 
 
 <script src="${ pageContext.request.contextPath }/resources/js/vendor/modernizr-3.5.0.min.js"></script>

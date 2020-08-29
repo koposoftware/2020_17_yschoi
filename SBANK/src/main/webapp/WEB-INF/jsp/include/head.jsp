@@ -38,170 +38,9 @@
         <![endif]-->
 
     <!-- header-start -->
-<!--    <header>
-        <div class="header-area ">
-            <div class="header-top_area d-none d-lg-block">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-5 col-md-5 ">
-                            <div class="header_left">
-                                <p>Welcome to Conbusi consulting service</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-7 col-md-7">
-                            <div class="header_right d-flex">
-                                    <div class="short_contact_list">
-                                            <ul>
-                                                <li><a href="#"> <i class="fa fa-envelope"></i> info@docmed.com</a></li>
-                                                <li><a href="#"> <i class="fa fa-phone"></i> 1601-609 6780</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="social_media_links">
-                                            <a href="#">
-                                                <i class="fa fa-linkedin"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-google-plus"></i>
-                                            </a>
-                                        </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="sticky-header" class="main-header-area">
-                <div class="container">
-                    <div class="header_bottom_border">
-                        <div class="row align-items-center">
-                            <div class="col-xl-3 col-lg-2">
-                                <div class="logo">
-                                    <a href="index.html">
-                                        <img src="img/logo.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-7">
-                                <div class="main-menu  d-none d-lg-block">
-                                    <nav>
-                                        <ul id="navigation">
-                                            <li><a class="active" href="index.html">home</a></li>
-                                            <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                                <ul class="submenu">
-                                                        <li><a href="case_details.html">case details</a></li>
-                                                        <li><a href="about.html">about</a></li>
-                                                        <li><a href="elements.html">elements</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="services.html">Services</a></li>
-                                            <li><a href="study.html">Case study</a></li>
-                                            <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                                <ul class="submenu">
-                                                    <li><a href="blog.html">blog</a></li>
-                                                    <li><a href="single-blog.html">single-blog</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                                <div class="Appointment">
-                                    <div class="book_btn d-none d-lg-block">
-                                        <a  href="#">Get a Quote</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="mobile_menu d-block d-lg-none"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </header>
 
 
 
-    <div class="slider_area">
-        <div class="slider_active owl-carousel">
-            <div class="single_slider  d-flex align-items-center slider_bg_1 overlay2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text ">
-                                <h3>Big Opportunity <br>
-                                        for your Business</h3>
-                                <div class="video_service_btn">
-                                    <a href="#" class="boxed-btn3">Our Services</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single_slider  d-flex align-items-center slider_bg_2 overlay2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text ">
-                                <h3>Big Opportunity <br>
-                                        for your Business</h3>
-                                <div class="video_service_btn">
-                                    <a href="#" class="boxed-btn3">Our Services</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single_slider  d-flex align-items-center slider_bg_1 overlay2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text ">
-                                <h3>Big Opportunity <br>
-                                        for your Business</h3>
-                                <div class="video_service_btn">
-                                    <a href="#" class="boxed-btn3">Our Services</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single_slider  d-flex align-items-center slider_bg_2 overlay2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text ">
-                                <h3>Big Opportunity <br>
-                                        for your Business</h3>
-                                <div class="video_service_btn">
-                                    <a href="#" class="boxed-btn3">Our Services</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-    
-    
-    
-    
-    
-    
-    
-    
     
         <header>
         <div class="header-area ">
@@ -244,7 +83,7 @@
 						<div class="row align-items-center">
 							<div class="col-xl-3 col-lg-2">
 								<div class="logo">
-									<a href="index.html"> <img src="img/logo.png" alt="">
+									<a href="${pageContext.request.contextPath }/"> <img src="${pageContext.request.contextPath }/resources/img/logo.png" alt="">
 									</a>
 								</div>
 							</div>
@@ -252,21 +91,32 @@
 								<div class="main-menu  d-none d-lg-block">
 									<nav>
 										<ul id="navigation">
-											<li><a href="index.html">home</a></li>
-											<li><a class="active" href="#">pages <i
-													class="ti-angle-down"></i></a>
+											<li><a href="#">디자인참고<i class="ti-angle-down"></i></a>
+												<ul class="submenu">
+													<li><a href="${pageContext.request.contextPath }/case_details.html">case details</a></li>
+													<li><a href="${pageContext.request.contextPath }/about.html">about</a></li>
+													<li><a href="${pageContext.request.contextPath }/elements.html">elements</a></li>
+													<li><a href="${pageContext.request.contextPath }/services.html">Services</a></li>
+													<li><a href="${pageContext.request.contextPath }/study.html">Case study</a></li>
+													<li><a href="${pageContext.request.contextPath }/blog.html">blog</a></li>
+													<li><a href="${pageContext.request.contextPath }/single-blog.html">single-blog</a></li>
+													<li><a href="${pageContext.request.contextPath }/contact.html">Contact</a></li>
+												</ul>
+											</li>
+											<li><a href="#">bank<i class="ti-angle-down"></i></a>
+												<ul class="submenu">
+													<li><a href="${pageContext.request.contextPath }/account/myAccount">내 계좌 조회</a></li>
+													<li><a href="${pageContext.request.contextPath }/account/create">계좌개설</a></li>
+
+												</ul>
+											</li>
+											<li><a href="#">exchange<i class="ti-angle-down"></i></a>
 												<ul class="submenu">
 													<li><a href="case_details.html">case details</a></li>
-													<li><a href="about.html">about</a></li>
-													<li><a href="elements.html">elements</a></li>
-													<li><a href="services.html">Services</a></li>
-													<li><a href="study.html">Case study</a></li>
-													<li><a href="blog.html">blog</a></li>
-													<li><a href="single-blog.html">single-blog</a></li>
-													<li><a href="contact.html">Contact</a></li>
-												</ul></li>
+													
+												</ul>
+											</li>
 
-										<li><a href="${pageContext.request.contextPath }/account/myAccount">계좌조회</a></li>
 										</ul>
 									</nav>
 								</div>
@@ -289,3 +139,10 @@
         </div>
     </header> 
     <!-- header-end -->
+    <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
