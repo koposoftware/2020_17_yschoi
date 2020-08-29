@@ -56,21 +56,3 @@
 
 <%@ include file="/WEB-INF/jsp/include/foot.jsp"%>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<section>
-
-</section>

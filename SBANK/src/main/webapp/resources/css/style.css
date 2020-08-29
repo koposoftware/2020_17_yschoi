@@ -1121,11 +1121,12 @@ h3 {
   position: absolute;
   left: 0;
   top: 160%;
-  background: #fff;
+  background: #001D38; /* 끄앙찾음!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+  
   width: 200px;
   z-index: 2;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.02);
-  opacity: 0;
+  opacity: 0.5;
   visibility: hidden;
   text-align: left;
   -webkit-transition: 0.6s;
@@ -1148,7 +1149,7 @@ h3 {
   -o-transition: 0.3s;
   transition: 0.3s;
   display: block;
-  color: #000;
+  color: #fff;    /* 끄앙찾음 */
 }
 
 /* line 230, ../../Arafath/CL/CL October/216. Consulting/HTML/scss/_header.scss */
@@ -1158,7 +1159,8 @@ h3 {
 
 /* line 234, ../../Arafath/CL/CL October/216. Consulting/HTML/scss/_header.scss */
 .header-area .main-header-area .main-menu ul li .submenu li:hover a {
-  color: #000;
+  color: #76bdfe;   /* 끄앙찾음 */
+  font-weight: 900;
 }
 
 /* line 239, ../../Arafath/CL/CL October/216. Consulting/HTML/scss/_header.scss */

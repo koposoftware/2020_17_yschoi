@@ -108,13 +108,19 @@
 													<li><a href="${pageContext.request.contextPath }/account/myAccount2">테스트</a></li>
 													<li><a href="${pageContext.request.contextPath }/account/myAccount">내 계좌 조회</a></li>
 													<li><a href="${pageContext.request.contextPath }/account/create">계좌개설</a></li>
-
+													<li><a href="${pageContext.request.contextPath }/exchange/showAll">보유외화보기</a></li>
 												</ul>
 											</li>
 											<li><a href="#">exchange<i class="ti-angle-down"></i></a>
 												<ul class="submenu">
-													<li><a href="case_details.html">case details</a></li>
-													
+													<li><a href="${pageContext.request.contextPath }/rate/rateInfo">환율정보</a></li>
+													<li><a href="${pageContext.request.contextPath }/exchange/guide">환전가이드</a></li>
+													<div class="dropdown-divider"></div>
+													<li><a href="${pageContext.request.contextPath }/exchange/doExchange">환전하기</a></li>
+													<li><a href="${pageContext.request.contextPath }/exchange/reserveExchange">환전예약하기</a></li>
+													<li><a href="${pageContext.request.contextPath }/exchange/present">환전선물하기</a></li>
+													<div class="dropdown-divider"></div>
+													<li><a href="${pageContext.request.contextPath }/exchange/doExchangeWithOutJoin">비회원 환전하기</a></li>
 												</ul>
 											</li>
 
