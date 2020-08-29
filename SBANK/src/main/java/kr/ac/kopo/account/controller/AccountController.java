@@ -88,6 +88,28 @@ public class AccountController {
 	}
 	
 	
+	@GetMapping("/account/myAccount2")
+	public ModelAndView myAccount2(HttpSession session) {
+
+		MemberVO userVO = (MemberVO) session.getAttribute("loginVO");
+
+		String id = userVO.getId();
+
+		List<AccountVO> accountList = accountService.selectAccount(id);
+
+		ModelAndView mav = new ModelAndView("account/myAccount2");
+		mav.addObject("accountList", accountList);
+		
+//		for(AccountVO account : accountList) {
+//			System.out.println(account);
+//		}
+		
+		
+		return mav;
+
+	}
+	
+	
 	
 	@PostMapping("/account/accountTransfer")
 	public String accountTransfer(Model model, @RequestParam("account_num") String account_num) {

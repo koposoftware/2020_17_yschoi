@@ -105,6 +105,7 @@
 											</li>
 											<li><a href="#">bank<i class="ti-angle-down"></i></a>
 												<ul class="submenu">
+													<li><a href="${pageContext.request.contextPath }/account/myAccount2">테스트</a></li>
 													<li><a href="${pageContext.request.contextPath }/account/myAccount">내 계좌 조회</a></li>
 													<li><a href="${pageContext.request.contextPath }/account/create">계좌개설</a></li>
 

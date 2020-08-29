@@ -26,7 +26,7 @@
 		<div class="table-wrapper">
 									<form:form commandName="accountVO" method="post">
 				<!-- commandName과 관련이 있는 form이다. 명시해주자 -->
-				<table border="1" style="width: 80%">
+				<table border="1" style="width: 80%" class="table table-bordered">
 					<tr>
 						<th width="23%">아이디</th>
 						<td>
