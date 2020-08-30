@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -56,14 +57,27 @@ public class ExchangeController {
 	}
 
 	/**
-	 * 환전하기 보여주기
+	 * 환전하기폼 보여주기
 	 * 
 	 * @return
 	 */
 	@GetMapping("/exchange/doExchange")
-	public String doExchange() {
+	public String doExchangeForm() {
 		return "exchange/doExchange";
 	}	
+	
+	
+	@PostMapping("/exchange/doExchange")
+	public String doExchange(@RequestParam("commrateHidden") double commrateHidden, 
+			@RequestParam("exchangeChargeKRWHidden") double exchangeChargeKRWHidden ) {
+		
+		System.out.println("commrateHidden :"+commrateHidden);
+		System.out.println("exchangeChargeKRWHidden :"+exchangeChargeKRWHidden);
+		
+		
+		return "/";
+	}
+
 	
 	
 	

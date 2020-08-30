@@ -35,9 +35,11 @@ $(document).ready(function() {
     	  let commission = list.commission
     	  let commrate = ((rate-basicrate)*commission)+basicrate
     	  
-    	  $("#rate").text(list.cashbuyrate);
-    	  $("#commrate").text(commrate);
+    	  $("#rate").text((list.cashbuyrate).toFixed(2));
+    	  $("#commrate").text(commrate.toFixed(2));
     	  $("#commission").text(list.commission2);
+    	  
+    	  document.getElementById('rateHidden').value = list.commission2;
     	  
     	  rate="";
     	  basicrate="";
@@ -64,17 +66,20 @@ $(document).ready(function() {
 		var exchangeCharge = document.getElementById("exchangeCharge").value; //환전금액(외화)
 		var commrate = document.getElementById("commrate").innerHTML;  //우대적용환율
 		
-		alert(exchangeCharge)
-		alert(commrate)
+		//alert(exchangeCharge)
+		//alert(commrate)
 		
 		exchangeChargeKRW = exchangeCharge * commrate
+		exchangeChargeKRW=exchangeChargeKRW.toFixed(2)
 		
 		document.getElementById("exchangeChargeKRW").innerHTML=exchangeChargeKRW; //환전금액(원) 값 띄어주기
 		
-		vat commrate = document.getElementById("commrate").innerHTML;
+		var commrate = document.getElementById("commrate").innerHTML;
 		
 		document.getElementById('commrateHidden').value = commrate;
 		document.getElementById('exchangeChargeKRWHidden').value = exchangeChargeKRW; // hidden필드에 값 넣어주기
+		
+		
 		
 		exchangeChargeKRW="";
 		commrate="";
@@ -100,7 +105,7 @@ $(document).ready(function() {
 		</header>
 		
 		<div class="table-wrapper">
-			<form method="post" action="#">
+			<form method="post" action="${pageContext.request.contextPath }/exchange/doExchange">
 				<table border="1" class="table table-bordered">
 					<tr>
 						<th>통화종류</th>
@@ -121,14 +126,14 @@ $(document).ready(function() {
 						<th>현재 고시환율(원)</th>
 						<td>
 							<span id = "rate" name = "rate"></span>
-							<input type="hidden" value="">
+							<input type="hidden" id="rateHidden" name="rateHidden" value="" >
 						</td>
 					</tr>
 					<tr>
 						<th>우대 적용환율(원)</th>
 						<td>
 							<span id = "commrate" name = "commrate"></span>
-							<input type="hidden" id="commrateHidden" value="" />
+							<input type="hidden" id="commrateHidden" name="commrateHidden" value="" >
 						</td>
 					</tr>
 					<tr>
@@ -141,11 +146,11 @@ $(document).ready(function() {
 						<th>환전금액(원)</th>
 						<td>
 							<span id = "exchangeChargeKRW" name = "exchangeChargeKRW"></span>
-							<input type="hidden" id="exchangeChargeKRWHidden" value="" />
+							<input type="hidden" id="exchangeChargeKRWHidden" name="exchangeChargeKRWHidden" value="" />
 						</td>
 					</tr>
-					<button></button>
 				</table>
+					<button class="btn btn-outline-dark">환전하기</button>
 			</form>
 		</div>
 
