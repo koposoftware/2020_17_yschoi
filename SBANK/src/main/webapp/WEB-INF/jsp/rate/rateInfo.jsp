@@ -17,9 +17,9 @@
 		<div class="row">
 			<div class="col-xl-12">
 				<!-- <div class="section_title text-center mb-50"> -->
-				<div class="section_title mb-50">
-					<h3>환율 정보</h3>
-				</div>
+				<header class="section_title mb-50 major" >
+					<h3>환율정보</h3>
+				</header>
 			</div>
 		</div>
 	<!-- 	<div class="table-wrapper"> -->

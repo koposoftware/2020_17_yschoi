@@ -18,9 +18,9 @@
 		<div class="row">
 			<div class="col-xl-12">
 				<!-- <div class="section_title text-center mb-50"> -->
-				<div class="section_title mb-50">
+				<header class="section_title mb-50 major" >
 					<h3>계좌 개설</h3>
-				</div>
+				</header>
 			</div>
 		</div>
 		<div class="table-wrapper">

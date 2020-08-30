@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -7,7 +8,7 @@
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Consulting</title>
+<title>SBANK</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -41,49 +42,52 @@
 
 
 
-    
-        <header>
-        <div class="header-area ">
-            <div class="header-top_area d-none d-lg-block">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-5 col-md-5 ">
-                            <div class="header_left">
-                                <p>Welcome to Conbusi consulting service</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-7 col-md-7">
-                            <div class="header_right d-flex">
-                                    <div class="short_contact_list">
-                                            <ul>
-                                                <li><a href="#"> <i class="fa fa-envelope"></i> info@docmed.com</a></li>
-                                                <li><a href="#"> <i class="fa fa-phone"></i> 1601-609 6780</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="social_media_links">
-                                            <a href="#">
-                                                <i class="fa fa-linkedin"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-google-plus"></i>
-                                            </a>
-                                        </div>
-                            </div>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="sticky-header" class="main-header-area details_nav">
+	<header>
+		<div class="header-area ">
+			<div class="header-top_area d-none d-lg-block">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-5 col-md-5 ">
+							<div class="header_left">
+								<p>Welcome to SBANK</p>
+							</div>
+						</div>
+						<div class="col-xl-7 col-md-7">
+							<div class="header_right d-flex">
+								<div class="short_contact_list">
+									<ul>
+										<li><a href="#"> <i class="fa fa-envelope"></i>
+												cysun31@naver.com
+										</a></li>
+										<li><a href="#"> <i class="fa fa-phone"></i>
+												010-9438-5248
+										</a></li>
+									</ul>
+								</div>
+								<div class="social_media_links">
+									<a href="#"> <i class="fa fa-linkedin"></i>
+									</a> <a href="#"> <i class="fa fa-facebook"></i>
+									</a> <a href="#"> <i class="fa fa-google-plus"></i>
+									</a>
+
+								</div>
+								<br>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="sticky-header" class="main-header-area details_nav">
 				<div class="container">
 					<div class="header_bottom_border">
 						<div class="row align-items-center">
 							<div class="col-xl-3 col-lg-2">
 								<div class="logo">
-									<a href="${pageContext.request.contextPath }/"> <img src="${pageContext.request.contextPath }/resources/img/logo.png" alt="">
+									<a href="${pageContext.request.contextPath }/"> <img
+										src="${pageContext.request.contextPath }/resources/img/logo.png"
+										alt="">
 									</a>
 								</div>
 							</div>
@@ -93,47 +97,78 @@
 										<ul id="navigation">
 											<li><a href="#">디자인참고<i class="ti-angle-down"></i></a>
 												<ul class="submenu">
-													<li><a href="${pageContext.request.contextPath }/case_details.html">case details</a></li>
-													<li><a href="${pageContext.request.contextPath }/about.html">about</a></li>
-													<li><a href="${pageContext.request.contextPath }/elements.html">elements</a></li>
-													<li><a href="${pageContext.request.contextPath }/services.html">Services</a></li>
-													<li><a href="${pageContext.request.contextPath }/study.html">Case study</a></li>
-													<li><a href="${pageContext.request.contextPath }/blog.html">blog</a></li>
-													<li><a href="${pageContext.request.contextPath }/single-blog.html">single-blog</a></li>
-													<li><a href="${pageContext.request.contextPath }/contact.html">Contact</a></li>
-												</ul>
-											</li>
+													<li><a
+														href="${pageContext.request.contextPath }/case_details.html">case
+															details</a></li>
+													<li><a
+														href="${pageContext.request.contextPath }/about.html">about</a></li>
+													<li><a
+														href="${pageContext.request.contextPath }/elements.html">elements</a></li>
+													<li><a
+														href="${pageContext.request.contextPath }/services.html">Services</a></li>
+													<li><a
+														href="${pageContext.request.contextPath }/study.html">Case
+															study</a></li>
+													<li><a
+														href="${pageContext.request.contextPath }/blog.html">blog</a></li>
+													<li><a
+														href="${pageContext.request.contextPath }/single-blog.html">single-blog</a></li>
+													<li><a
+														href="${pageContext.request.contextPath }/contact.html">Contact</a></li>
+												</ul></li>
 											<li><a href="#">bank<i class="ti-angle-down"></i></a>
 												<ul class="submenu">
-													<li><a href="${pageContext.request.contextPath }/account/myAccount2">테스트</a></li>
-													<li><a href="${pageContext.request.contextPath }/account/myAccount">내 계좌 조회</a></li>
-													<li><a href="${pageContext.request.contextPath }/account/create">계좌개설</a></li>
-													<li><a href="${pageContext.request.contextPath }/exchange/showAll">보유외화보기</a></li>
-												</ul>
-											</li>
+													<li><a
+														href="${pageContext.request.contextPath }/account/myAccount">내
+															계좌 조회</a></li>
+													<li><a
+														href="${pageContext.request.contextPath }/account/create">계좌개설</a></li>
+													<li><a
+														href="${pageContext.request.contextPath }/exchange/showAll">보유외화보기</a></li>
+													<li><a
+														href="${pageContext.request.contextPath }/account/myAccount2">사이드바
+															테스트</a></li>
+												</ul></li>
 											<li><a href="#">exchange<i class="ti-angle-down"></i></a>
 												<ul class="submenu">
-													<li><a href="${pageContext.request.contextPath }/rate/rateInfo">환율정보</a></li>
-													<li><a href="${pageContext.request.contextPath }/exchange/guide">환전가이드</a></li>
+													<li><a
+														href="${pageContext.request.contextPath }/rate/rateInfo">환율정보</a></li>
+													<li><a
+														href="${pageContext.request.contextPath }/exchange/guide">환전가이드</a></li>
 													<div class="dropdown-divider"></div>
-													<li><a href="${pageContext.request.contextPath }/exchange/doExchange">환전하기</a></li>
-													<li><a href="${pageContext.request.contextPath }/exchange/reserveExchange">환전예약하기</a></li>
-													<li><a href="${pageContext.request.contextPath }/exchange/doRevExchange">재환전하기</a></li>
-													<li><a href="${pageContext.request.contextPath }/exchange/present">환전선물하기</a></li>
+													<li><a
+														href="${pageContext.request.contextPath }/exchange/doExchange">환전하기</a></li>
+													<li><a
+														href="${pageContext.request.contextPath }/exchange/reserveExchange">환전예약하기</a></li>
+													<li><a
+														href="${pageContext.request.contextPath }/exchange/doRevExchange">재환전하기</a></li>
+													<li><a
+														href="${pageContext.request.contextPath }/exchange/present">환전선물하기</a></li>
 													<div class="dropdown-divider"></div>
-													<li><a href="${pageContext.request.contextPath }/exchange/doExchangeWithOutJoin">비회원 환전하기</a></li>
-												</ul>
-											</li>
+													<li><a
+														href="${pageContext.request.contextPath }/exchange/doExchangeWithOutJoin">비회원
+															환전하기</a></li>
+												</ul></li>
 
 										</ul>
+
 									</nav>
 								</div>
 							</div>
 							<div class="col-xl-3 col-lg-3 d-none d-lg-block">
 								<div class="Appointment">
-									<div class="book_btn d-none d-lg-block">
-										<a href="#">Get a Quote</a>
-									</div>
+									<p align="right" class="head-login">
+										<c:choose>
+											<c:when test="${not empty loginVO  }">
+												[${loginVO.id}님 환영합니다!] &nbsp;&nbsp;&nbsp;
+												<a>로그아웃</a>
+											</c:when>
+											<c:otherwise>
+												<a>로그인</a>
+											</c:otherwise>
+										</c:choose>
+									</p>
+
 								</div>
 							</div>
 							<div class="col-12">
@@ -144,9 +179,9 @@
 
 				</div>
 			</div>
-        </div>
-    </header> 
-    <!-- header-end! -->
+		</div>
+	</header>
+	<!-- header-end! -->
     <br>
 <br>
 <br>
@@ -155,4 +190,4 @@
 <br>
 <br>
 <br>
-<br>
+<br><br><br><br>

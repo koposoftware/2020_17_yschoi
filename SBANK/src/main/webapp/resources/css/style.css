@@ -1124,7 +1124,7 @@ h3 {
   top: 160%;
   background: #001D38; /* 끄앙찾음!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
   
-  width: 200px;
+  width: 220px;
   z-index: 2;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.02);
   opacity: 0.5;
@@ -7330,10 +7330,19 @@ h6 {
 
 
 header.major > :last-child {
-  border-bottom: solid 3px #f56a6a;
+  border-bottom: solid 5px #f56a6a;
   display: inline-block;
   margin: 0 0 2em 0;
-  padding: 0 0.75em 0.5em 0; }
+  padding: 0 0.75em 0.5em 0; 
+}
+p.head-login {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 15px;
+  color: #fff;
+  margin-bottom: 13px;
+  font-family: "Poppins", sans-serif;
+}
 
 
 /*# sourceMappingURL=style.css.map */

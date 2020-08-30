@@ -1,10 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<div class="Information_area overlay">
+	<div class="container">
+		<div class="row justify-content-center align-items-center">
+			<div class="col-xl-8">
+				<div class="info_text text-center">
+					<h3>For Any Information Call Us</h3>
+					<p>Esteem spirit temper too say adieus who direct esteem.</p>
+					<a class="boxed-btn3" href="#">+10 673 763 6786</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 
-
-    <!-- footer start -->
+<!-- footer start -->
     <footer class="footer">
         <div class="footer_top">
             <div class="container">
