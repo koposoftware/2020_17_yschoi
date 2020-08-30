@@ -17,9 +17,9 @@
 		<div class="row">
 			<div class="col-xl-12">
 				<!-- <div class="section_title text-center mb-50"> -->
-				<div class="section_title mb-50">
+				<header class="section_title mb-50 major" >
 					<h3>내 계좌 조회</h3>
-				</div>
+				</header>
 			</div>
 		</div>
 		<div class="table-wrapper">

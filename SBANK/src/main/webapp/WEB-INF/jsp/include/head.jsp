@@ -118,6 +118,7 @@
 													<div class="dropdown-divider"></div>
 													<li><a href="${pageContext.request.contextPath }/exchange/doExchange">환전하기</a></li>
 													<li><a href="${pageContext.request.contextPath }/exchange/reserveExchange">환전예약하기</a></li>
+													<li><a href="${pageContext.request.contextPath }/exchange/doRevExchange">재환전하기</a></li>
 													<li><a href="${pageContext.request.contextPath }/exchange/present">환전선물하기</a></li>
 													<div class="dropdown-divider"></div>
 													<li><a href="${pageContext.request.contextPath }/exchange/doExchangeWithOutJoin">비회원 환전하기</a></li>
@@ -147,6 +148,8 @@
     </header> 
     <!-- header-end! -->
     <br>
+<br>
+<br>
 <br>
 <br>
 <br>
