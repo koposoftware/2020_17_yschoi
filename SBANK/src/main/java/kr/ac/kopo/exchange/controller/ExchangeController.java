@@ -87,6 +87,11 @@ public class ExchangeController {
 	}
 
 	
+	@GetMapping("/exchange/doReserve")
+	public String dodoReserveForm() {
+		return "exchange/doReserve";
+	}
+	
 	
 	
 
