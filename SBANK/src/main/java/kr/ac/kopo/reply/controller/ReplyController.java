@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import kr.ac.kopo.exchange.service.ExchangeService;
+import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.reply.service.ReplyService;
 import kr.ac.kopo.reply.vo.ReplyVO;
 
@@ -18,6 +20,9 @@ public class ReplyController {
 	
 	@Autowired
 	private ReplyService replyService;
+	
+	@Autowired
+	private ExchangeService exchangeService;
 
    @PostMapping("/reply")
    public void addReply(ReplyVO replyVO) {
@@ -56,6 +61,25 @@ public class ReplyController {
 		replyVO.setBoardNo(boardNo);
 		
 		replyService.removeReply(replyVO);
+	}
+   
+   
+   
+   
+   
+   /**
+	 * 환전하기에서 통화 선택하면 그에대한 환율정보들 조회하는 것
+	 * @param currency
+	 * @return
+	 */
+	@GetMapping("/exchange/getRateCommission/{currency}")
+	public CurrencyVO getRateCommission(@PathVariable("currency") String currency) {
+		System.out.println("ExchangeController - getRateCommission 진입");
+		System.out.println("선택한 통화: "+currency);
+		
+		CurrencyVO currencyVO = exchangeService.getRateCommission(currency);
+		System.out.println(currencyVO);
+		return currencyVO;
 	}
    
    

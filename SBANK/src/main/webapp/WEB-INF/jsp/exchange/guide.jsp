@@ -1,33 +1,30 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML>
-<!--
-  Editorial by HTML5 UP
-  html5up.net | @ajlkn
-  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-<head>
-<title>SBANK</title>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/${pageContext.request.contextPath }/resources/${pageContext.request.contextPath }/resources/css/main.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/${pageContext.request.contextPath }/resources/${pageContext.request.contextPath }/resources/css/rate-info-table.css" />
-</head>
-<body class="is-preload">
-		<!-- Wrapper -->
-		<div id="wrapper">
-				<!-- Main -->
-				<div id="main">
-						<div class="inner">
-								<!-- Header -->
-								<%@ include file="/WEB-INF/jsp/include/header.jsp"%>
-								<!-- 수정할부분시작 -->
-								<!-- Section -->
-								<section>
-										<header class="major">
-												<h2>환전 가이드</h2>
-										</header>
-										<h3>환전 수수료 우대율</h3>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+<%-- <jsp:include page="/head.jsp" />  --%>
+<%@ include file="/WEB-INF/jsp/include/head.jsp"%>
+
+
+
+
+
+
+<!-- 수정할부분 시작 -->
+<section>
+
+	<div class="container class="col-xl-12"">
+		<div class="row">
+			<div class="col-xl-12">
+				<!-- <div class="section_title text-center mb-50"> -->
+				<header class="section_title mb-50 major" >
+					<h3>계좌 개설</h3>
+				</header>
+			</div>
+		</div>
+		<div class="table-wrapper">
+		<h3>환전 수수료 우대율</h3>
 										<div class="table-wrapper">
 												<table>
 														<thead>
@@ -116,15 +113,59 @@
 														</tbody>
 												</table>
 										</div>
-								</section>
-								<!-- 수정할부분 끝 -->
-						</div>
-						<!-- end of class="inner" -->
-				</div>
-				<!-- end of id="main" -->
-				<!--  sidebar -->
-				<%@ include file="/WEB-INF/jsp/include/sidebar.jsp"%>
 		</div>
-		<!-- end of id="wrapper" -->
-</body>
-</html>
+
+	</div>
+
+</section><br><br><br><br><br>
+<!-- 수정할부분 끝 -->
+
+
+
+
+
+
+
+
+
+
+
+<script src="${ pageContext.request.contextPath }/resources/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/popper.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/isotope.pkgd.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/ajax-form.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/waypoints.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/jquery.counterup.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/imagesloaded.pkgd.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/scrollIt.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/jquery.scrollUp.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/wow.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/nice-select.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/jquery.slicknav.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/jquery.magnific-popup.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/plugins.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/gijgo.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/slick.min.js"></script>
+    <!--contact js-->
+    <script src="${ pageContext.request.contextPath }/resources/js/contact.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/jquery.ajaxchimp.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/jquery.form.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/jquery.validate.min.js"></script>
+    <script src="${ pageContext.request.contextPath }/resources/js/mail-script.js"></script>
+
+    <script src="${ pageContext.request.contextPath }/resources/js/main.js"></script>
+
+
+
+
+
+<%-- <%@ include file="/foot.jsp"%> --%>
+<%@ include file="/WEB-INF/jsp/include/foot.jsp"%>
+
+
+
+
+

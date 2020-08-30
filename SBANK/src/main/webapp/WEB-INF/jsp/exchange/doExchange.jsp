@@ -1,15 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<!DOCTYPE HTML>
-<!--
-  Editorial by HTML5 UP
-  html5up.net | @ajlkn
-  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-<head>
-<title>SBANK</title>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+
+
+<%@ include file="/WEB-INF/jsp/include/head.jsp"%>
+
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 /* function chageCurrencySelect(){
@@ -20,107 +17,147 @@
   alert(currencyCode)
  } */
  
- $(document).ready(function() {
-  $('#currency').change(function() {
-    let currency = $(this).val(); // 통화
-    alert(currency)
+$(document).ready(function() {
+	
+	
+  $('#currency').change(function() {   //통화를 선택하면에 대한 function 시작
+    let currency = $(this).val(); // 통화코드추출
+    //alert(currency)
     $.ajax({
-      url : '${ pageContext.request.contextPath }/exchange/getRateCommission',
-      type : 'post',
-      data : {
-        currency : currency
-      }, 
-      success : function() {
-        
-        getReplyList();
+      url : '${ pageContext.request.contextPath }/exchange/getRateCommission/'+currency,
+      type : 'get',
+      success : function(data) {
+    	  let list = JSON.parse(data);
+    	  console.log(list)
+    	  
+    	  let rate =list.cashbuyrate /* 현찰살때환율 */
+    	  let basicrate=list.basicrate /* 매매기준율 */
+    	  let commission = list.commission
+    	  let commrate = ((rate-basicrate)*commission)+basicrate
+    	  
+    	  $("#rate").text(list.cashbuyrate);
+    	  $("#commrate").text(commrate);
+    	  $("#commission").text(list.commission2);
+    	  
+    	  rate="";
+    	  basicrate="";
+    	  commission="";
+    	  commrate="";
       }, 
       error : function() {
         alert('실패')
       }, complete : function() {
-        document.rform.writer.value = '';
-        document.rform.content.value = '';
+           		/* 뭘해줘야할까 */
       }
     })
-  })
+  })   //통화를 선택하면에 대한 function 끝.
+  
+  
+  
+  
+  
 })
 
 
-
-
+	function keyevent() {
+		
+		var exchangeCharge = document.getElementById("exchangeCharge").value; //환전금액(외화)
+		var commrate = document.getElementById("commrate").innerHTML;  //우대적용환율
+		
+		alert(exchangeCharge)
+		alert(commrate)
+		
+		exchangeChargeKRW = exchangeCharge * commrate
+		
+		document.getElementById("exchangeChargeKRW").innerHTML=exchangeChargeKRW; //환전금액(원) 값 띄어주기
+		
+		vat commrate = document.getElementById("commrate").innerHTML;
+		
+		document.getElementById('commrateHidden').value = commrate;
+		document.getElementById('exchangeChargeKRWHidden').value = exchangeChargeKRW; // hidden필드에 값 넣어주기
+		
+		exchangeChargeKRW="";
+		commrate="";
+	  
+	}
 </script>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/${pageContext.request.contextPath }/resources/${pageContext.request.contextPath }/resources/css/main.css" />
-</head>
-<body class="is-preload">
-		<!-- Wrapper -->
-		<div id="wrapper">
-				<!-- Main -->
-				<div id="main">
-						<div class="inner">
-								<!-- Header -->
-								<%@ include file="/WEB-INF/jsp/include/header.jsp"%>
-								<!-- 수정할부분시작 -->
-								<!-- Section -->
-								<section>
-										<header class="major">
-												<h2>환전하기</h2>
-										</header>
 
-										
-										
-										
-										<form method="post" action="#">
-										<table>
-										  <tr>
-										    <th>통화종류</th>
-										      <td><select name="currency" id="currency" onchange="chageCurrencySelect()">
-																		<option value="" selected disabled>- Category -</option>
-																		<option value="USD" selected>미국달러(USD)</option>
-																		<option value="EUR">유럽유로(EUR)</option>
-																		<option value="JPY">일본엔(JPY)</option>
-																		<option value="GBP">영국파운드(GBP)</option>
-														</select>
-												</td>
-										  </tr>
-										  <tr>
-										    <th>환전금액(외화)</th>
-										    <td><input type="text" id="a" name="a" value="5,000"></td>
-										  </tr>
-										  <tr>
-										    <th>현재 고시환율(원)</th>
-										    <td>1,206.75</td>
-										  </tr>
-										  <tr>
-										    <th>우대 적용환율(원)</th>
-										    <td>1,192.22</td>
-										  </tr>
-										  <tr>
-										    <th>우대율(%)</th>
-										    <td>70%</td>
-										  </tr>
-										  <tr>
-										    <th>환전금액(원)</th>
-										    <td>5,961,100</td>
-										  </tr>
-										  <tfoot>
-										    <tr>
-										      <td colspan="2">gfgf</td>
-										    </tr>
-										  </tfoot>
-										</table>
-										</form>
-										
-										
-								</section>
-								<!-- 수정할부분 끝 -->
-						</div>
-						<!-- end of class="inner" -->
-				</div>
-				<!-- end of id="main" -->
-				<!--  sidebar -->
-				<%@ include file="/WEB-INF/jsp/include/sidebar.jsp"%>
+
+<!-- 수정할부분 시작 -->
+<section>
+
+	<div class="container class="col-xl-12"">
+		<div class="row">
+			<div class="col-xl-12">
+				<!-- <div class="section_title text-center mb-50"> -->
+				<header class="section_title mb-50 major">
+					<h3>환전하기</h3>
+				</header>
+			</div>
 		</div>
-		<!-- end of id="wrapper" -->
-</body>
-</html>
+		<header class="section_title mb-50 major">
+			<h5>환전신청내역</h5>		
+		</header>
+		
+		<div class="table-wrapper">
+			<form method="post" action="#">
+				<table border="1" class="table table-bordered">
+					<tr>
+						<th>통화종류</th>
+						<td><select name="currency" id="currency"
+							onchange="chageCurrencySelect()">
+								<option value="a" selected disabled  >- 통화를 선택하세요 -</option>
+								<option value="USD">미국달러(USD)</option>
+								<option value="EUR">유럽유로(EUR)</option>
+								<option value="JPY">일본엔(JPY)</option>
+								<option value="GBP">영국파운드(GBP)</option>
+						</select></td>
+					</tr>
+					<tr>
+						<th>환전금액(외화)</th>
+						<td><input type="text" id="exchangeCharge" name="exchangeCharge" onkeyup="keyevent(this);" /></td>
+					</tr>
+					<tr>
+						<th>현재 고시환율(원)</th>
+						<td>
+							<span id = "rate" name = "rate"></span>
+							<input type="hidden" value="">
+						</td>
+					</tr>
+					<tr>
+						<th>우대 적용환율(원)</th>
+						<td>
+							<span id = "commrate" name = "commrate"></span>
+							<input type="hidden" id="commrateHidden" value="" />
+						</td>
+					</tr>
+					<tr>
+						<th>우대율(%)</th>
+						<td>
+							<span id = "commission" name = "commission"></span>
+						</td>
+					</tr>
+					<tr>
+						<th>환전금액(원)</th>
+						<td>
+							<span id = "exchangeChargeKRW" name = "exchangeChargeKRW"></span>
+							<input type="hidden" id="exchangeChargeKRWHidden" value="" />
+						</td>
+					</tr>
+					<button></button>
+				</table>
+			</form>
+		</div>
+
+	</div>
+
+</section>
+<br><br><br><br><br>
+<!-- 수정할부분 끝 -->
+
+
+
+
+<%@ include file="/WEB-INF/jsp/include/foot.jsp"%>
+
+

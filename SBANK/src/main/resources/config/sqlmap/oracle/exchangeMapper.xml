@@ -5,10 +5,21 @@
 <mapper namespace="exchange.dao.ExchangeDAO">
 
 
-	
+	<!-- 모든 통화에대한 환율정보 조회 -->	
 	<select id="selectAll"  resultType="currencyVO"  >
-		select * from s_currencyrate
+		select currency,cashbuyrate,cashbuyspread,cashsellrate,
+			cashsellspread,remittance,receive,tcbuy,fcsell,basicrate,
+			conversion,usdrate,regdate,commission,commission2
+		from s_currencyrate
 	</select>
 	
+	
+	<!-- 통화 기준으로 환율정보 조회 -->
+	<select id="getRateCommission"  resultType="currencyVO" parameterType="string"  >
+		select currency,cashbuyrate,cashbuyspread,cashsellrate,
+			cashsellspread,remittance,receive,tcbuy,fcsell,basicrate,
+			conversion,usdrate,regdate,commission,commission2
+		from s_currencyrate where currency = #{currency}
+	</select>
 
 </mapper>

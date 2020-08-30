@@ -23,4 +23,30 @@ public class ExchangeDAOImpl implements ExchangeDAO {
 		return currencyList;
 	}
 	
+	
+	
+	/**
+	 * 환전하기에서 통화 선택하면 현재환율정보 띄어주는 부분 ajax
+	 * @param currency
+	 * @return
+	 */
+	@Override
+	public CurrencyVO getRateCommission(String currency) {
+		CurrencyVO currencyVO =
+				sqlSession.selectOne("exchange.dao.ExchangeDAO.getRateCommission", currency);
+		
+		return currencyVO;
+	}
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
 }
