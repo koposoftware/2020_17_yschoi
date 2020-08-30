@@ -34,7 +34,7 @@ $(document).ready(function() {
 					let str = '';
 					str +='<option value='+this.account_num+'>'+'[계좌번호 : '+this.account_num+', 잔액:'+this.balance+'원]</option>';
 
-					$('#account').append(str);
+					$('#account_num').append(str);
 				})
 	    	  
 	    	  /* let rate =list.cashbuyrate
@@ -64,7 +64,7 @@ $(document).ready(function() {
 	
 	
 	
-  $('#currency').change(function() {   //통화를 선택하면에 대한 function 시작
+  $('#currencycode').change(function() {   //통화를 선택하면에 대한 function 시작
     let currency = $(this).val(); // 통화코드추출
     //alert(currency)
     $.ajax({
@@ -107,7 +107,7 @@ $(document).ready(function() {
 
 	function keyevent() {
 		
-		var exchangeCharge = document.getElementById("exchangeCharge").value; //환전금액(외화)
+		var exchangeCharge = document.getElementById("exchangeprice").value; //환전금액(외화)
 		var commrate = document.getElementById("commrate").innerHTML;  //우대적용환율
 		
 		//alert(exchangeCharge)
@@ -120,8 +120,12 @@ $(document).ready(function() {
 		
 		var commrate = document.getElementById("commrate").innerHTML;
 		
-		document.getElementById('commrateHidden').value = commrate;
-		document.getElementById('exchangeChargeKRWHidden').value = exchangeChargeKRW; // hidden필드에 값 넣어주기
+		
+		/* alert(typeof(commrate));
+		alert(typeof(exchangeChargeKRW)); */
+		
+		document.getElementById('exchangerate').value = commrate; // hidden필드에 값 넣어주기
+		document.getElementById('exchangecharge').value = exchangeChargeKRW; // hidden필드에 값 넣어주기
 		
 		
 		
@@ -156,7 +160,7 @@ $(document).ready(function() {
 				<table border="1" class="table table-bordered">
 					<tr>
 						<th>통화종류</th>
-						<td><select name="currency" id="currency"
+						<td><select name="currencycode" id="currencycode"
 							onchange="chageCurrencySelect()">
 								<option value="a" selected disabled  >- 통화를 선택하세요 -</option>
 								<option value="USD">미국달러(USD)</option>
@@ -167,7 +171,7 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<th>환전금액(외화)</th>
-						<td><input type="text" id="exchangeCharge" name="exchangeCharge" onkeyup="keyevent(this);" /></td>
+						<td><input type="text" id="exchangeprice" name="exchangeprice" onkeyup="keyevent(this);" /></td>
 					</tr>
 					<tr>
 						<th>현재 고시환율(원)</th>
@@ -180,7 +184,7 @@ $(document).ready(function() {
 						<th>우대 적용환율(원)</th>
 						<td>
 							<span id = "commrate" name = "commrate"></span>
-							<input type="hidden" id="commrateHidden" name="commrateHidden" value="" >
+							<input type="hidden" id="exchangerate" name="exchangerate" value="" >
 						</td>
 					</tr>
 					<tr>
@@ -193,7 +197,7 @@ $(document).ready(function() {
 						<th>환전금액(원)</th>
 						<td>
 							<span id = "exchangeChargeKRW" name = "exchangeChargeKRW"></span>
-							<input type="hidden" id="exchangeChargeKRWHidden" name="exchangeChargeKRWHidden" value="" />
+							<input type="hidden" id="exchangecharge" name="exchangecharge" value="" />
 						</td>
 					</tr>
 				</table>
@@ -219,13 +223,13 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<th>외화수령일</th>
-						<td><input type="date" id="date" name="date" /></td>
+						<td><input type="date" id="exchange_date" name="exchange_date" /></td>
 					</tr>
 					<tr>
 						<th>수령지점</th>
 						<td>
-							<select name="currency" id="currency" onchange="chageCurrencySelect()">
-								<option value="a" selected disabled  >- 통화를 선택하세요 -</option>
+							<select name="exchange_place" id="exchange_place" >
+								<option value="a" selected disabled  >- 수령지점을 선택하세요 -</option>
 								<option value="인천국제공항">인천국제공항</option>
 								<option value="김포공항">김포공항</option>
 								<option value="김해공항">김해공항</option>
@@ -248,7 +252,7 @@ $(document).ready(function() {
 					<tr>
 						<th>출금계좌번호</th>
 						<td>
-							<select name="account" id="account" >
+							<select name="account_num" id="account_num" >
 								<option value="a" selected disabled  >- 출금 계좌를 선택하세요 -</option>
 							</select>
 						</td>
@@ -258,6 +262,7 @@ $(document).ready(function() {
 						<td><input type="password" id="password" name="password" /></td>
 					</tr>
 				</table>
+					<input type="hidden" id="" name="" value="${loginVO.id}" >
 					<button class="btn btn-outline-dark">환전하기</button>
 			</form>
 		</div>

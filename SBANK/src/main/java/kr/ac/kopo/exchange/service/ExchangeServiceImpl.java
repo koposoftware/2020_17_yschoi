@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kr.ac.kopo.exchange.dao.ExchangeDAO;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
+import kr.ac.kopo.exchange.vo.ExchangeVO;
 
 @Service
 public class ExchangeServiceImpl implements ExchangeService {
@@ -36,6 +37,20 @@ public class ExchangeServiceImpl implements ExchangeService {
 		
 		return currencyVO;
 	}
+
+	/**
+	 * 환전하기 기능
+	 */
+	@Override
+	public void doExchange(ExchangeVO exchangeVO) {
+		
+		exchangeDAO.doExchange(exchangeVO);
+		
+	}
+	
+	
+	
+	
 	
 	
 	

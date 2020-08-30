@@ -21,5 +21,13 @@
 			conversion,usdrate,regdate,commission,commission2
 		from s_currencyrate where currency = #{currency}
 	</select>
+	
+	
+	<!-- 환전하기 기능 -->
+	<insert id="doExchange" parameterType="exchangeVO">
+		insert into S_EXCHANGE(exchangeNo,id,currencycode,exchangeprice,exchangerate,exchangecharge,name,exchange_date,exchange_place,account_num)  
+		values(seq_S_EXCHANGE_no.nextval,#{id},#{currencycode},#{exchangeprice},#{exchangerate},#{exchangecharge},
+				#{name},#{exchange_date},#{exchange_place},#{account_num} )
+	</insert>
 
 </mapper>

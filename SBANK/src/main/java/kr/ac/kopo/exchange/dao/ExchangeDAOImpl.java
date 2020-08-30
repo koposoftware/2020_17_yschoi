@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.exchange.vo.CurrencyVO;
+import kr.ac.kopo.exchange.vo.ExchangeVO;
 
 @Repository
 public class ExchangeDAOImpl implements ExchangeDAO {
@@ -37,6 +38,18 @@ public class ExchangeDAOImpl implements ExchangeDAO {
 		
 		return currencyVO;
 	}
+
+
+	/**
+	 * 환전하기 기능
+	 */
+	@Override
+	public void doExchange(ExchangeVO exchangeVO) {
+		
+		sqlSession.insert("exchange.dao.ExchangeDAO.doExchange", exchangeVO);
+		
+	}
+	
 	
 	
 	

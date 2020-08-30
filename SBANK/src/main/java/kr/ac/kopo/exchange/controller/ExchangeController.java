@@ -18,6 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.ac.kopo.board.vo.BoardVO;
 import kr.ac.kopo.exchange.service.ExchangeService;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
+import kr.ac.kopo.exchange.vo.ExchangeVO;
+import kr.ac.kopo.member.vo.MemberVO;
 import kr.ac.kopo.reply.vo.ReplyVO;
 
 
@@ -68,14 +70,20 @@ public class ExchangeController {
 	
 	
 	@PostMapping("/exchange/doExchange")
-	public String doExchange(@RequestParam("commrateHidden") double commrateHidden, 
-			@RequestParam("exchangeChargeKRWHidden") double exchangeChargeKRWHidden ) {
+	public String doExchange(ExchangeVO exchangeVO, HttpSession session) {
 		
-		System.out.println("commrateHidden :"+commrateHidden);
-		System.out.println("exchangeChargeKRWHidden :"+exchangeChargeKRWHidden);
+		MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
+		String id = userVO.getId();
+		
+		exchangeVO.setId(id);
+		
+		//System.out.println("환전하기 컨트롤러");
+		//System.out.println(exchangeVO);
+		
+		exchangeService.doExchange(exchangeVO);
 		
 		
-		return "/";
+		return "exchange/guide";
 	}
 
 	

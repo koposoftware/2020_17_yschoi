@@ -1,4 +1,4 @@
-package kr.ac.kopo.account.vo;
+package kr.ac.kopo.exchange.vo;
 
 public class ExchangeVO {
 	
@@ -6,8 +6,8 @@ public class ExchangeVO {
 	private String id;
 	private String currencycode;
 	private int exchangeprice;
-	private int exchangerate;
-	private int exchangecharge; 
+	private String exchangerate;   //db에 넣을때 숫자로 변형
+	private String exchangecharge;  //db에 넣을때 숫자로 변형
 	private String name;
 	private String exchange_date;
 	private String exchange_place;
@@ -42,16 +42,16 @@ public class ExchangeVO {
 	public void setExchangeprice(int exchangeprice) {
 		this.exchangeprice = exchangeprice;
 	}
-	public int getExchangerate() {
+	public String getExchangerate() {
 		return exchangerate;
 	}
-	public void setExchangerate(int exchangerate) {
+	public void setExchangerate(String exchangerate) {
 		this.exchangerate = exchangerate;
 	}
-	public int getExchangecharge() {
+	public String getExchangecharge() {
 		return exchangecharge;
 	}
-	public void setExchangecharge(int exchangecharge) {
+	public void setExchangecharge(String exchangecharge) {
 		this.exchangecharge = exchangecharge;
 	}
 	public String getName() {
@@ -85,25 +85,28 @@ public class ExchangeVO {
 		this.reg_date = reg_date;
 	}
 	
-	public ExchangeVO( String id, String currencycode, int exchangeprice, int exchangerate,
-			int exchangecharge, String name, String exchange_date, String exchange_place, String account_num) {
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	public ExchangeVO() {
 		super();
-		
-		this.id = id;
-		this.currencycode = currencycode;
-		this.exchangeprice = exchangeprice;
-		this.exchangerate = exchangerate;
-		this.exchangecharge = exchangecharge;
-		this.name = name;
-		this.exchange_date = exchange_date;
-		this.exchange_place = exchange_place;
-		this.account_num = account_num;
-		
 	}
 	
 	
-	public ExchangeVO(int exchangeNo, String id, String currencycode, int exchangeprice, int exchangerate,
-			int exchangecharge, String name, String exchange_date, String exchange_place, String account_num,
+	
+	
+
+
+	public ExchangeVO(int exchangeNo, String id, String currencycode, int exchangeprice, String exchangerate,
+			String exchangecharge, String name, String exchange_date, String exchange_place, String account_num,
 			String reg_date) {
 		super();
 		this.exchangeNo = exchangeNo;
@@ -118,7 +121,6 @@ public class ExchangeVO {
 		this.account_num = account_num;
 		this.reg_date = reg_date;
 	}
-	
 	@Override
 	public String toString() {
 		return "ExchangeVO [exchangeNo=" + exchangeNo + ", id=" + id + ", currencycode=" + currencycode
