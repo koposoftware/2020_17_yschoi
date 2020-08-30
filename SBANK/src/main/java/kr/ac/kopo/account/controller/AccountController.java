@@ -69,7 +69,7 @@ public class AccountController {
 	@GetMapping("/account/myAccount")
 	public ModelAndView myAccount(HttpSession session) {
 
-		MemberVO userVO = (MemberVO) session.getAttribute("loginVO");
+		MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
 
 		String id = userVO.getId();
 

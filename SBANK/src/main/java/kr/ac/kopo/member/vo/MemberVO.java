@@ -4,6 +4,7 @@ public class MemberVO { // table A_MEMBER임
 	private String id;
 	private String password;
 	private String type;
+	private String name;
 	
 	public String getId() {
 		return id;
@@ -24,10 +25,22 @@ public class MemberVO { // table A_MEMBER임
 		this.type = type;
 	}
 	
+
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	@Override
 	public String toString() {
-		return "MemberVO [id=" + id + ", password=" + password + ", type=" + type + "]";
+		return "MemberVO [id=" + id + ", password=" + password + ", type=" + type + ", name=" + name + "]";
 	}
+	
+	
+	
+	
 	
 	
 	

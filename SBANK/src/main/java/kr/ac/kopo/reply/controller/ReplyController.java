@@ -2,6 +2,8 @@ package kr.ac.kopo.reply.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,8 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import kr.ac.kopo.account.service.AccountService;
+import kr.ac.kopo.account.vo.AccountVO;
 import kr.ac.kopo.exchange.service.ExchangeService;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
+import kr.ac.kopo.member.vo.MemberVO;
 import kr.ac.kopo.reply.service.ReplyService;
 import kr.ac.kopo.reply.vo.ReplyVO;
 
@@ -23,6 +28,10 @@ public class ReplyController {
 	
 	@Autowired
 	private ExchangeService exchangeService;
+	
+	@Autowired
+	private AccountService accountService;
+	
 
    @PostMapping("/reply")
    public void addReply(ReplyVO replyVO) {
@@ -82,7 +91,19 @@ public class ReplyController {
 		return currencyVO;
 	}
    
-   
+	/**
+	 * 로그인한 사람의 계좌 리스트 가져오기
+	 * @param session
+	 * @return
+	 */
+   @GetMapping("/exchange/getAccount_num")
+   public List<AccountVO> getAccount_num(HttpSession session) {
+	   MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
+	   String id = userVO.getId();
+	   List<AccountVO> accountList = accountService.selectAccount(id);
+	   
+	   return accountList;
+   }
    
    
    

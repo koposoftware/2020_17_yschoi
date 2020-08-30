@@ -28,6 +28,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		vo.setId("cysun31");
 		vo.setPassword("user");
 		vo.setType("U");
+		vo.setName("최윤선");
 		
 		session.setAttribute("loginVO", vo);
 		

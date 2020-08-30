@@ -20,6 +20,50 @@
 $(document).ready(function() {
 	
 	
+	$.ajax({
+	      url : '${ pageContext.request.contextPath }/exchange/getAccount_num',
+	      type : 'get',
+	      success : function(data) {
+	    	  let list = JSON.parse(data);
+	    	  console.log(list)
+	    	  
+	    	  
+	    	  $(list).each(function() {
+					
+					
+					let str = '';
+					str +='<option value='+this.account_num+'>'+'[계좌번호 : '+this.account_num+', 잔액:'+this.balance+'원]</option>';
+
+					$('#account').append(str);
+				})
+	    	  
+	    	  /* let rate =list.cashbuyrate
+	    	  let basicrate=list.basicrate 
+	    	  let commission = list.commission
+	    	  let commrate = ((rate-basicrate)*commission)+basicrate
+	    	  
+	    	  $("#rate").text((list.cashbuyrate).toFixed(2));
+	    	  $("#commrate").text(commrate.toFixed(2));
+	    	  $("#commission").text(list.commission2);
+	    	  
+	    	  document.getElementById('rateHidden').value = list.commission2;
+	    	  
+	    	  rate="";
+	    	  basicrate="";
+	    	  commission="";
+	    	  commrate=""; */
+	      }, 
+	      error : function() {
+	        alert('실패')
+	      }, complete : function() {
+	           		/* 뭘해줘야할까 */
+	      }
+	    })
+	
+	
+	
+	
+	
   $('#currency').change(function() {   //통화를 선택하면에 대한 function 시작
     let currency = $(this).val(); // 통화코드추출
     //alert(currency)
@@ -100,6 +144,9 @@ $(document).ready(function() {
 				</header>
 			</div>
 		</div>
+		
+		
+		
 		<header class="section_title mb-50 major">
 			<h5>환전신청내역</h5>		
 		</header>
@@ -150,9 +197,74 @@ $(document).ready(function() {
 						</td>
 					</tr>
 				</table>
+					
+			
+		</div>
+		
+		
+		
+		<br><br><br>
+		<header class="section_title mb-50 major">
+			<h5>외화수령정보</h5>		
+		</header>
+		
+		<div class="table-wrapper">
+			
+				<table border="1" class="table table-bordered">
+					<tr>
+						<th>수령인</th>
+						<td>${loginVO.name }
+							<input type="hidden" id="name" name="name" value="${loginVO.name }" />
+						</td>
+					</tr>
+					<tr>
+						<th>외화수령일</th>
+						<td><input type="date" id="date" name="date" /></td>
+					</tr>
+					<tr>
+						<th>수령지점</th>
+						<td>
+							<select name="currency" id="currency" onchange="chageCurrencySelect()">
+								<option value="a" selected disabled  >- 통화를 선택하세요 -</option>
+								<option value="인천국제공항">인천국제공항</option>
+								<option value="김포공항">김포공항</option>
+								<option value="김해공항">김해공항</option>
+
+							</select>
+						</td>
+					</tr>
+				</table>
+		</div>
+		
+		
+		<br><br><br>
+		<header class="section_title mb-50 major">
+			<h5>출금정보</h5>		
+		</header>
+		
+		<div class="table-wrapper">
+			
+				<table border="1" class="table table-bordered">
+					<tr>
+						<th>출금계좌번호</th>
+						<td>
+							<select name="account" id="account" >
+								<option value="a" selected disabled  >- 출금 계좌를 선택하세요 -</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th>계좌비밀번호</th>
+						<td><input type="password" id="password" name="password" /></td>
+					</tr>
+				</table>
 					<button class="btn btn-outline-dark">환전하기</button>
 			</form>
 		</div>
+		
+		
+		
+		
 
 	</div>
 
