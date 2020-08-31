@@ -105,33 +105,31 @@ $(document).ready(function() {
 })
 
 
+
 	function keyevent() {
-		
+
 		var exchangeCharge = document.getElementById("exchangeprice").value; //환전금액(외화)
-		var commrate = document.getElementById("commrate").innerHTML;  //우대적용환율
-		
+		var commrate = document.getElementById("commrate").innerHTML; //우대적용환율
+
 		//alert(exchangeCharge)
 		//alert(commrate)
-		
+
 		exchangeChargeKRW = exchangeCharge * commrate
-		exchangeChargeKRW=exchangeChargeKRW.toFixed(2)
-		
-		document.getElementById("exchangeChargeKRW").innerHTML=exchangeChargeKRW; //환전금액(원) 값 띄어주기
-		
+		exchangeChargeKRW = exchangeChargeKRW.toFixed(2)
+
+		document.getElementById("exchangeChargeKRW").innerHTML = exchangeChargeKRW; //환전금액(원) 값 띄어주기
+
 		var commrate = document.getElementById("commrate").innerHTML;
-		
-		
+
 		/* alert(typeof(commrate));
 		alert(typeof(exchangeChargeKRW)); */
-		
+
 		document.getElementById('exchangerate').value = commrate; // hidden필드에 값 넣어주기
 		document.getElementById('exchangecharge').value = exchangeChargeKRW; // hidden필드에 값 넣어주기
-		
-		
-		
-		exchangeChargeKRW="";
-		commrate="";
-	  
+
+		exchangeChargeKRW = "";
+		commrate = "";
+
 	}
 </script>
 
