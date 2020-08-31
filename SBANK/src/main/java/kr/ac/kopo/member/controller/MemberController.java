@@ -60,6 +60,29 @@ public class MemberController {
 	}
 	
 	
+	@GetMapping("/kakaologin/{kid}")
+  public String kakaologin(@RequestParam("kid") String kid, HttpSession session) {
+	  
+	  MemberVO loginVO = new MemberVO();
+	  
+	  loginVO.setId(kid);
+	  loginVO.setType("U");
+	  loginVO.setPassword(kid);
+	  
+	  System.out.println("kid in controller "+kid);
+
+    /* MemberVO loginVO = memberService.login(processVO); */
+
+    
+    session.setAttribute("loginVO", loginVO);
+
+
+    
+
+    return "redirect:/";
+  }
+	
+	
 	
 	@RequestMapping("/logout")
 	public String logout(SessionStatus status) { // 세션의 상태 확인 세션에 등록된 객체가 있는지?

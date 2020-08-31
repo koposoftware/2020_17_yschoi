@@ -161,10 +161,14 @@
 										<c:choose>
 											<c:when test="${not empty loginVO  }">
 												[${loginVO.id}님 환영합니다!] &nbsp;&nbsp;&nbsp;
-												<a>로그아웃</a>
+												<a href="${pageContext.request.contextPath }/logout">
+												  <img src="${pageContext.request.contextPath }/resources/img/logout.png">
+												</a>
 											</c:when>
 											<c:otherwise>
-												<a>로그인</a>
+												<a href="${pageContext.request.contextPath }/login">
+												  <img src="${pageContext.request.contextPath }/resources/img/login.png">
+												</a>
 											</c:otherwise>
 										</c:choose>
 									</p>
