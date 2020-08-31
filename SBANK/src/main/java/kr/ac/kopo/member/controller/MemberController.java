@@ -67,7 +67,7 @@ public class MemberController {
 	  MemberVO loginVO = new MemberVO();
 	  
 	  loginVO.setId(kid);
-	  loginVO.setType("U");
+	  loginVO.setType("K");
 	  loginVO.setPassword(kid);
 	  
 	  System.out.println("kid in controller "+kid);
@@ -83,12 +83,7 @@ public class MemberController {
     return "redirect:/";
   }
 	
-	@GetMapping("/kakao")
-  public String kakao() {
 
-
-    return "member/kakao";
-  }
 	
 	
 	
