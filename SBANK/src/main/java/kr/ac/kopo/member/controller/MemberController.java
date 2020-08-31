@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -61,7 +62,7 @@ public class MemberController {
 	
 	
 	@GetMapping("/kakaologin/{kid}")
-  public String kakaologin(@RequestParam("kid") String kid, HttpSession session) {
+  public String kakaologin(@PathVariable("kid") String kid, HttpSession session) {
 	  
 	  MemberVO loginVO = new MemberVO();
 	  
@@ -80,6 +81,13 @@ public class MemberController {
     
 
     return "redirect:/";
+  }
+	
+	@GetMapping("/kakao")
+  public String kakao() {
+
+
+    return "member/kakao";
   }
 	
 	

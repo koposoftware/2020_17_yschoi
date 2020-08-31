@@ -6,39 +6,38 @@
 <title>Insert title here</title>
 <script type = "text/javascript" src = "https://developers.kakao.com/sdk/js/kakao.min.js" >  </script>
 <script type = "text/javascript">
-    document.addEventListener("DOMContentLoaded", function () {
-    // @details 카카오톡 Developer API 사이트에서 발급받은 JavaScript Key
-    Kakao.init("2feb1780fc7fae4541a6d09f54380744");
-    // @breif 카카오 로그인 버튼을 생성합니다.
-    Kakao.Auth.createLoginButton({
-        container: "#kakao-login-btn",
-        success: function (authObj) {
-            // console.log( authObj );
-            Kakao.API.request({
-                url: "/v2/user/me",
-                success: function (res) {
-                    // console.log( res );
-                    // @breif 아이디
-                    //document.getElementById("kakaoIdentity").innerHTML = res.id;
+document.addEventListener("DOMContentLoaded", function () {
+  // @details 카카오톡 Developer API 사이트에서 발급받은 JavaScript Key
+  Kakao.init("2feb1780fc7fae4541a6d09f54380744");
+  // @breif 카카오 로그인 버튼을 생성합니다.
+  Kakao.Auth.createLoginButton({
+      container: "#kakao-login-btn",
+      success: function (authObj) {
+          // console.log( authObj );
+          Kakao.API.request({
+              url: "/v2/user/me",
+              success: function (res) {
+                  // console.log( res );
+                  // @breif 아이디
+                  //document.getElementById("kakaoIdentity").innerHTML = res.id;
 
-                    // @breif 닉네임
-                    //document.getElementById("kakaoNickName").innerHTML = res.properties.nickname;
-                    var url = '/SBANK/kakaologin/';
-                    //alert(res.properties.nickname);
-                    url += res.properties.nickname;
-                    alert(url)
-                  location.href = url;
-                },
-                fail: function (error) {
-                    alert(JSON
-                        .stringify(error));
-                }
-            });
-        },
-        fail: function (error) {
-            alert(JSON.stringify(error));
-        }
-    });
+                  // @breif 닉네임
+                  //document.getElementById("kakaoNickName").innerHTML = res.properties.nickname;
+                  var url = '${pageContext.request.contextPath }/kakaologin/';
+                  //alert(res.properties.nickname);
+                  url += res.properties.nickname;
+                location.href = url;
+              },
+              fail: function (error) {
+                  alert(JSON
+                      .stringify(error));
+              }
+          });
+      },
+      fail: function (error) {
+          alert(JSON.stringify(error));
+      }
+  });
 });
 
   function checkForm() {

@@ -100,6 +100,8 @@
 			<mvc:exclude-mapping path="/logout" />
 			<mvc:exclude-mapping path="/board" />
 			<mvc:exclude-mapping path="/resources/**" /> 
+			<mvc:exclude-mapping path="/kakao" />
+			<mvc:exclude-mapping path="/kakaologin/**" />
 			<ref bean="LoginInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors> 
