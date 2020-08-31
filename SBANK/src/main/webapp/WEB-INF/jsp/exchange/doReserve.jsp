@@ -58,6 +58,8 @@
         let str = ori + rate
         document.getElementById('rateHidden').value += str;
         document.getElementById('rateHidden').value += str;
+        document.getElementById('basicrate').value += basicrate;
+        document.getElementById('commission').value += commission;
         /* $("#commrate").text(commrate.toFixed(2)); */
         $("#commission2").text(commission2);
         $("#rate").text((list.cashbuyrate).toFixed(2));
@@ -88,20 +90,32 @@
     function keyevent() {
 
     var exchangeCharge = document.getElementById("exchangeprice").value; //환전금액(외화)
-    var commrate = document.getElementById("commrate").innerHTML; //우대적용환율
+    var reserverate = document.getElementById("reserverate").value; //목표환율
+    var basicrate = document.getElementById("basicrate").value; //매매기준율
+    var comm = document.getElementById("commission").value; //수수료1
 
-    alert(exchangeCharge)
-    alert(commrate)
+/*     alert(exchangeCharge)
+    alert(reserverate)
+    alert(comm)
+    alert(basicrate) */
+    
+    if(exchangeCharge=='' || reserverate==''){
+      return false
+    }
+    //alert('after return')
+    
+    let commrate = ((rate-basicrate)*comm)+basicrate
+    
+    
 
     exchangeChargeKRW = exchangeCharge * commrate
     exchangeChargeKRW = exchangeChargeKRW.toFixed(2)
 
     document.getElementById("exchangeChargeKRW").innerHTML = exchangeChargeKRW; //환전금액(원) 값 띄어주기
+    
+    
 
-    var commrate = document.getElementById("commrate").innerHTML;
 
-    /* alert(typeof(commrate));
-    alert(typeof(exchangeChargeKRW)); */
 
     document.getElementById('exchangerate').value = commrate; // hidden필드에 값 넣어주기
     document.getElementById('exchangecharge').value = exchangeChargeKRW; // hidden필드에 값 넣어주기
@@ -153,7 +167,13 @@
 						<form action="">
 								<table border="1">
 										<tr>
-												<td colspan="3">환전을 원하는 통화를 선택 및 금액을 입력하세요<br> 오늘의 현찰살때가격 : <span id="rate" name="rate"></span><input type="hidden" id="rateHidden" name="rateHidden" value=""></td>
+												<td colspan="3">
+												    환전을 원하는 통화를 선택 및 금액을 입력하세요<br> 
+												    오늘의 현찰살때가격 : <span id="rate" name="rate"></span>
+												    <input type="hidden" id="rateHidden" name="rateHidden" value="">
+												    <input type="hidden" id="basicrate" name="basicrate" value="">
+												    
+												</td>
 												<td rowspan="4">그래프으</td>
 										</tr>
 										<tr>
@@ -165,17 +185,18 @@
 																<option value="GBP">영국파운드(GBP)</option>
 												</select></td>
 												<td colspan="2">
-												  <input type="text" id="exchangeprice" name="exchangeprice" onkeyup="keyevent(this);" placeholder ="환전 원하는 금액을 입력하세요">
+												  <input type="text" id="exchangeprice" name="exchangeprice" onkeyup="keyevent(this);" placeholder ="환전 원하는 금액을 입력하세요" >
 												</td>
 										</tr>
 										<tr>
 										  <td colspan="3">
-										        목표환율 : <input type="text" id="" name="" onkeyup="keyevent(this);" >
+										        목표환율 : <input type="text" id="reserverate" name="reserverate" onkeyup="keyevent(this);" placeholder ="목표환율을 입력하세요" >
 										  </td>
 										</tr>
 										<tr>
 												<td>
 												    우대율 : <span id="commission2" name="commission2"></span>
+												    <input type="hidden" id="commission" name="commission" value="">
 												</td>
 												<td colspan="2">
 												    우대환율 : 
@@ -186,7 +207,7 @@
 								</table>
 								<br>
 								<br>
-								<table>
+								<table border="1">
 										<tr>
 												<td>
 												    결제금액(원)<br> 
