@@ -48,15 +48,19 @@
 
         let rate = list.cashbuyrate; 
         let commission2 = list.commission2;
+        let basicrate=list.basicrate
+        let commission = list.commission
+        let commrate = ((rate-basicrate)*commission)+basicrate
 
 
-        $("#rate").text((list.cashbuyrate).toFixed(2));
-        $("#commission2").text(commission2);
 
         let ori = '현찰 살때 가격';
         let str = ori + rate
         document.getElementById('rateHidden').value += str;
         document.getElementById('rateHidden').value += str;
+        /* $("#commrate").text(commrate.toFixed(2)); */
+        $("#commission2").text(commission2);
+        $("#rate").text((list.cashbuyrate).toFixed(2));
 
         rate = "";
 
@@ -86,8 +90,8 @@
     var exchangeCharge = document.getElementById("exchangeprice").value; //환전금액(외화)
     var commrate = document.getElementById("commrate").innerHTML; //우대적용환율
 
-    //alert(exchangeCharge)
-    //alert(commrate)
+    alert(exchangeCharge)
+    alert(commrate)
 
     exchangeChargeKRW = exchangeCharge * commrate
     exchangeChargeKRW = exchangeChargeKRW.toFixed(2)
@@ -148,37 +152,50 @@
 			<!-- highcharts 해보기 -->
 						<form action="">
 								<table border="1">
-<!-- 								    <tr>
-								      <td colspan="2">
-								        <span>현찰 사실 때</span><br>
-								        <span id = "rate" name = "rate"></span>
-                        <input type="hidden" id="rateHidden" name="rateHidden" value="" >
-								      </td>
-								    </tr> -->
-								    <tr>
-								      <td colspan="3">환전을 원하는 통화를 선택 및 금액을 입력하세요<br>
-								                  현찰살때가격 :  <span id = "rate" name = "rate"></span><input type="hidden" id="rateHidden" name="rateHidden" value="" ></td>
-								      <td rowspan="3">그래프으</td>
-								    </tr>
 										<tr>
-												<td>
-												  <select name="currencycode" id="currencycode">
+												<td colspan="3">환전을 원하는 통화를 선택 및 금액을 입력하세요<br> 오늘의 현찰살때가격 : <span id="rate" name="rate"></span><input type="hidden" id="rateHidden" name="rateHidden" value=""></td>
+												<td rowspan="4">그래프으</td>
+										</tr>
+										<tr>
+												<td><select name="currencycode" id="currencycode">
 																<option value="a" selected disabled>- 통화를 선택하세요 -</option>
 																<option value="USD">미국달러(USD)</option>
 																<option value="EUR">유럽유로(EUR)</option>
 																<option value="JPY">일본엔(JPY)</option>
 																<option value="GBP">영국파운드(GBP)</option>
-												  </select>
+												</select></td>
+												<td colspan="2">
+												  <input type="text" id="exchangeprice" name="exchangeprice" onkeyup="keyevent(this);" placeholder ="환전 원하는 금액을 입력하세요">
 												</td>
-												<td>
-												  <input type="text" id="" name="" onkeyup="keyevent(this);">
-												  
-												</td>
-												<td><button>계산하기</button></td>
-												
 										</tr>
 										<tr>
-										  <td colspan="3">우대율 : <span id = "commission2" name = "commission2"></span></td>
+										  <td colspan="3">
+										        목표환율 : <input type="text" id="" name="" onkeyup="keyevent(this);" >
+										  </td>
+										</tr>
+										<tr>
+												<td>
+												    우대율 : <span id="commission2" name="commission2"></span>
+												</td>
+												<td colspan="2">
+												    우대환율 : 
+                          <span id = "commrate" name = "commrate"></span>
+                           <input type="hidden" id="exchangerate" name="exchangerate" value="" >
+												</td>
+										</tr>
+								</table>
+								<br>
+								<br>
+								<table>
+										<tr>
+												<td>
+												    결제금액(원)<br> 
+												  <span id="exchangeChargeKRW" name="exchangeChargeKRW"></span> 
+												  <input type="hidden" id="exchangecharge" name="exchangecharge" value="" />
+												</td>
+												<td>
+												    적용 우대환율
+												</td>
 										</tr>
 								</table>
 						</form>
