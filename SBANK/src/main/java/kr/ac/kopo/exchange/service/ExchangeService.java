@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
+import kr.ac.kopo.exchange.vo.ReserveVO;
 
 
 public interface ExchangeService {
@@ -27,4 +28,14 @@ public interface ExchangeService {
 	 * @param exchangeVO
 	 */
 	public void doExchange(ExchangeVO exchangeVO);
+	
+	
+	/**
+	 * 환전 예약하기
+	 * @param reserveVO
+	 */
+	public void doReserve(ReserveVO reserveVO);
+	
+	
+	
 }

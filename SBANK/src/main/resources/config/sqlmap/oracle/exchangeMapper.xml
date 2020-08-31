@@ -29,5 +29,15 @@
 		values(seq_S_EXCHANGE_no.nextval,#{id},#{currencycode},#{exchangeprice},#{exchangerate},#{exchangecharge},
 				#{name},#{exchange_date},#{exchange_place},#{account_num} )
 	</insert>
-
+  
+  <!-- 환전예약하기 기능 -->
+  <insert id="doReserve" parameterType="reserveVO">
+    insert into S_RESERVATION(reserveno,id,account_num,currencycode,exchangeprice,exchangerate,exchangecharge,max_date) 
+      values(seq_S_RESERVATION_no.nextval,#{id},#{account_num},#{currencycode},#{exchangeprice},#{exchangerate},#{exchangecharge},#{max_date} )
+  </insert>
+  <insert id="doReserve2" parameterType="reserveVO">
+    insert into S_RESERVATION(reserveno,id,account_num,currencycode,exchangeprice,exchangerate,exchangecharge) 
+      values(seq_S_RESERVATION_no.nextval,#{id},#{account_num},#{currencycode},#{exchangeprice},#{exchangerate},#{exchangecharge})
+  </insert>
+  
 </mapper>

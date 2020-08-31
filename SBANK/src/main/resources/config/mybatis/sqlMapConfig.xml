@@ -8,8 +8,9 @@
 		<typeAlias type="kr.ac.kopo.board.vo.BoardVO" alias="boardVO"/>
 		<typeAlias type="kr.ac.kopo.member.vo.MemberVO" alias="memberVO"/>
 		<typeAlias type="kr.ac.kopo.reply.vo.ReplyVO" alias="replyVO"/>
-		<typeAlias type="kr.ac.kopo.exchange.vo.CurrencyVO" alias="currencyVO"/>
 		<typeAlias type="kr.ac.kopo.account.vo.AccountVO" alias="accountVO"/>
+		<typeAlias type="kr.ac.kopo.exchange.vo.CurrencyVO" alias="currencyVO"/>
 		<typeAlias type="kr.ac.kopo.exchange.vo.ExchangeVO" alias="exchangeVO"/>
+		<typeAlias type="kr.ac.kopo.exchange.vo.ReserveVO" alias="reserveVO"/>
 	</typeAliases>
 </configuration>

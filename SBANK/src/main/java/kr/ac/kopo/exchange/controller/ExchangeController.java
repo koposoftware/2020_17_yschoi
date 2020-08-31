@@ -19,6 +19,7 @@ import kr.ac.kopo.board.vo.BoardVO;
 import kr.ac.kopo.exchange.service.ExchangeService;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
+import kr.ac.kopo.exchange.vo.ReserveVO;
 import kr.ac.kopo.member.vo.MemberVO;
 import kr.ac.kopo.reply.vo.ReplyVO;
 
@@ -86,12 +87,32 @@ public class ExchangeController {
 		return "exchange/guide";
 	}
 
-	
+	/**
+	 * 환전예약하기 폼 보여주기
+	 * @return
+	 */
 	@GetMapping("/exchange/doReserve")
-	public String dodoReserveForm() {
+	public String doReserveForm() {
 		return "exchange/doReserve";
 	}
 	
+	
+	/**
+	 * 환전예약하기 기능
+	 */
+	@PostMapping("/exchange/doReserve")
+	public void doReserve(ReserveVO reserveVO, HttpSession session, @RequestParam("password") String password) {
+	  MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
+    String id = userVO.getId();
+    
+    reserveVO.setId(id);
+    
+    System.out.println("password : "+password);
+	  System.out.println(reserveVO);
+	  
+	  exchangeService.doReserve(reserveVO);
+	  
+	}
 	
 	
 

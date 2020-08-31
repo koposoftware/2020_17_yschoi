@@ -89,36 +89,55 @@
   
     function keyevent() {
 
-    var exchangeCharge = document.getElementById("exchangeprice").value; //환전금액(외화)
-    var reserverate = document.getElementById("reserverate").value; //목표환율
-    var basicrate = document.getElementById("basicrate").value; //매매기준율
-    var comm = document.getElementById("commission").value; //수수료1
+    let exchangeCharge = document.getElementById("exchangeprice").value; //환전금액(외화)
+    let reserverate = document.getElementById("reserverate").value; //목표환율
+    let basicrate = document.getElementById("basicrate").value; //매매기준율
+    let comm = document.getElementById("commission").value; //수수료1
+    
+/*     console.log(typeof exchangeCharge)
+    console.log(typeof reserverate)
+    console.log(typeof basicrate)
+    console.log(typeof comm) */
 
 /*     alert(exchangeCharge)
     alert(reserverate)
-    alert(comm)
-    alert(basicrate) */
+    alert(basicrate) 
+    alert(comm) */
     
     if(exchangeCharge=='' || reserverate==''){
       return false
     }
     //alert('after return')
     
-    let commrate = ((rate-basicrate)*comm)+basicrate
+    let re1 = (reserverate-basicrate).toFixed(2)
+
+    
+    let re2 = (re1 * comm).toFixed(2)
+    re2 = 1 * re2
+    basicrate = 1 * basicrate
+
+    
+    let re3 = (re2 + basicrate).toFixed(2) // re3 = 우대환율
+    
+    
+
+    
+
     
     
 
     exchangeChargeKRW = exchangeCharge * commrate
     exchangeChargeKRW = exchangeChargeKRW.toFixed(2)
 
-    document.getElementById("exchangeChargeKRW").innerHTML = exchangeChargeKRW; //환전금액(원) 값 띄어주기
+    document.getElementById("exchangeChargeKRW").innerHTML = ((re3*exchangeCharge).toFixed(2)); //환전금액(원) 값 띄어주기
+    document.getElementById("commrate").innerHTML = re3; //우대환율(원) 값 띄어주기
     
     
 
 
 
-    document.getElementById('exchangerate').value = commrate; // hidden필드에 값 넣어주기
-    document.getElementById('exchangecharge').value = exchangeChargeKRW; // hidden필드에 값 넣어주기
+    document.getElementById('exchangecharge').value = ((re3*exchangeCharge).toFixed(2)); // hidden필드에 값 넣어주기 환전금액(원)
+    document.getElementById('exchangerate').value = re3; // hidden필드에 값 넣어주기 우대환율(원)
 
     exchangeChargeKRW = "";
     commrate = "";
@@ -164,7 +183,7 @@
 		<div class="table-wrapper">
 		  
 			<!-- highcharts 해보기 -->
-						<form action="">
+						<form method="post" action="${pageContext.request.contextPath }/exchange/doReserve">
 								<table border="1">
 										<tr>
 												<td colspan="3">
@@ -194,14 +213,9 @@
 										  </td>
 										</tr>
 										<tr>
-												<td>
+												<td colspan="2">
 												    우대율 : <span id="commission2" name="commission2"></span>
 												    <input type="hidden" id="commission" name="commission" value="">
-												</td>
-												<td colspan="2">
-												    우대환율 : 
-                          <span id = "commrate" name = "commrate"></span>
-                           <input type="hidden" id="exchangerate" name="exchangerate" value="" >
 												</td>
 										</tr>
 								</table>
@@ -210,15 +224,37 @@
 								<table border="1">
 										<tr>
 												<td>
-												    결제금액(원)<br> 
+												    결제금액(원) : 
 												  <span id="exchangeChargeKRW" name="exchangeChargeKRW"></span> 
 												  <input type="hidden" id="exchangecharge" name="exchangecharge" value="" />
 												</td>
 												<td>
-												    적용 우대환율
+												    적용 우대환율:
+                          <span id = "commrate" name = "commrate"></span>
+                           <input type="hidden" id="exchangerate" name="exchangerate" value="" >
 												</td>
 										</tr>
+										<tr>
+										  <td>마지막 환전일</td>
+										  <td>
+										    <input type="date" id="max_date" name="max_date" /><br>
+										          값을 비워주시면 자동적으로 1년이 설정됩니다.
+										  </td>
+										</tr>
+										<tr>
+            <th>출금계좌번호</th>
+            <td>
+              <select name="account_num" id="account_num" >
+                <option value="a" selected disabled  >- 출금 계좌를 선택하세요 -</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th>계좌비밀번호</th>
+            <td><input type="password" id="password" name="password" /></td>
+          </tr>
 								</table>
+										<button class="btn btn-outline-dark">목표 환전 예약하기</button>
 						</form>
 				</div>
 

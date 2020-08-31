@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
+import kr.ac.kopo.exchange.vo.ReserveVO;
 
 @Repository
 public class ExchangeDAOImpl implements ExchangeDAO {
@@ -49,6 +50,21 @@ public class ExchangeDAOImpl implements ExchangeDAO {
 		sqlSession.insert("exchange.dao.ExchangeDAO.doExchange", exchangeVO);
 		
 	}
+
+
+	/**
+	 * 환전예약하기
+	 */
+  @Override
+  public void doReserve(ReserveVO reserveVO) {
+    // TODO Auto-generated method stub
+    if (reserveVO.getMax_date().length() < 3) {
+      sqlSession.insert("exchange.dao.ExchangeDAO.doReserve2", reserveVO);
+    } else {
+      sqlSession.insert("exchange.dao.ExchangeDAO.doReserve", reserveVO);
+    }
+  }
+	
 	
 	
 	

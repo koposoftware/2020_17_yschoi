@@ -4,6 +4,7 @@ import java.util.List;
 
 import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
+import kr.ac.kopo.exchange.vo.ReserveVO;
 
 public interface ExchangeDAO {
 	
@@ -27,6 +28,14 @@ public interface ExchangeDAO {
 	 * @param exchangeVO
 	 */
 	public void doExchange(ExchangeVO exchangeVO);
+	
+	
+	/**
+	 * 환전예약하기
+	 * @param reserveVO
+	 */
+	public void doReserve(ReserveVO reserveVO);
+	
 	
 
 }
