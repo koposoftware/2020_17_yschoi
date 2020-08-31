@@ -69,7 +69,12 @@ public class ExchangeController {
 		return "exchange/doExchange";
 	}	
 	
-	
+	/**
+	 * 환전하기
+	 * @param exchangeVO
+	 * @param session
+	 * @return
+	 */
 	@PostMapping("/exchange/doExchange")
 	public String doExchange(ExchangeVO exchangeVO, HttpSession session) {
 		
@@ -114,6 +119,31 @@ public class ExchangeController {
 	  
 	}
 	
+	
+	/**
+	 * 비회원환전하기 홈페이지 띄어주기
+	 * @return
+	 */
+	@GetMapping("/exchange/doExchangeKakao")
+	public String doExchangeKakaoForm() {
+    return "exchange/doExchangeKakao";
+  } 
+	
+	/**
+	 * 비회원환전하기 폼 입력창 -> 카카오페이.jsp로 보내는 로직
+	 * @param exchangeVO
+	 * @return
+	 */
+	@PostMapping("/exchange/doExchangeKakao")
+	public ModelAndView doExchangeKakao(ExchangeVO exchangeVO) {
+	  
+	  System.out.println(exchangeVO);
+	  
+	  ModelAndView mav = new ModelAndView("exchange/kakaoPay");
+	  mav.addObject("charge", exchangeVO.getExchangecharge());
+	  
+    return mav;
+  } 
 	
 
 }

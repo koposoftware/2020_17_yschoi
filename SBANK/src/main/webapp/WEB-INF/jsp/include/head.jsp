@@ -146,7 +146,7 @@
 														href="${pageContext.request.contextPath }/exchange/present">환전선물하기</a></li>
 													<div class="dropdown-divider"></div>
 													<li><a
-														href="${pageContext.request.contextPath }/exchange/doExchangeWithOutJoin">비회원
+														href="${pageContext.request.contextPath }/exchange/doExchangeKakao">비회원
 															환전하기</a></li>
 												</ul></li>
 
