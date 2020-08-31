@@ -26,7 +26,7 @@
     <script>
     $(function(){
         var IMP = window.IMP; // 생략가능
-        IMP.init('iamport'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+        IMP.init('imp44552637'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
         var msg;
         //alert('아이디')
         
@@ -43,7 +43,8 @@
             pay_method : 'card',
             merchant_uid : '${uidd}',
             name : 'SBANK 환전',
-            amount : ${exchangecharge},
+            /* amount : ${exchangecharge}, */
+            amount : 100,
             buyer_email : '${exchange_date}',
             buyer_name : '${name}',
             buyer_tel : '010-9438-5248',
