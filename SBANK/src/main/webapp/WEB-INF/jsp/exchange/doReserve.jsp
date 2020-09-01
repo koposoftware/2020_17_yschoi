@@ -18,7 +18,7 @@
       $(list).each(function() {
 
         let str = '';
-        str += '<option value='+this.account_num+'>' + '[계좌번호 : ' + this.account_num + ', 잔액:' + this.balance + '원]</option>';
+        str  +='<option class="acc" name="acc" value='+this.account_num+' id='+this.balance+'>'+'[계좌번호 : '+this.account_num+', 잔액:'+this.balance+'원]</option>';
 
         $('#account_num').append(str);
       })
@@ -81,48 +81,32 @@
     
     
     ////
-     $(document).on('click', '#subm', function() {
+
+  $(document).on('click', '#subm', function() {
       //alert('!')
       //let bal = $(this).attr('id');
       //console.log(bal);
-      
+
       let realid = $("#account_num option:selected").attr('id'); // 선택한 계좌의 잔액임
       realid = 1 * realid
-      console.log(typeof(realid));
+      console.log(typeof (realid));
       console.log(realid);
-      
+
       var chargeKRW = $('#exchangecharge').val(); //환전시 필요한 잔액
       chargeKRW = 1 * chargeKRW
-      console.log(typeof(chargeKRW));
+      console.log(typeof (chargeKRW));
       console.log(chargeKRW);
-      
-      if(realid>=chargeKRW){
+
+      if (realid >= chargeKRW) {
         console.log('good')
-      }else{
+      } else {
         console.log('bad')
         alert('선택하신 계좌의 잔액을 확인해주세요. 잔액이 부족합니다.')
         return false;
-        
-      }});
 
-      
-    
-    
-    
-    
-    
-    
-    
+      }
+    });
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
   })
   
   
@@ -131,67 +115,50 @@
   
   
   
-  
-    function keyevent() {
+
+  function keyevent() {
 
     let exchangeCharge = document.getElementById("exchangeprice").value; //환전금액(외화)
     let reserverate = document.getElementById("reserverate").value; //목표환율
     let basicrate = document.getElementById("basicrate").value; //매매기준율
     let comm = document.getElementById("commission").value; //수수료1
-    
-/*     console.log(typeof exchangeCharge)
-    console.log(typeof reserverate)
-    console.log(typeof basicrate)
-    console.log(typeof comm) */
 
-/*     alert(exchangeCharge)
-    alert(reserverate)
-    alert(basicrate) 
-    alert(comm) */
-    
-    if(exchangeCharge=='' || reserverate==''){
+    /*     console.log(typeof exchangeCharge)
+     console.log(typeof reserverate)
+     console.log(typeof basicrate)
+     console.log(typeof comm) */
+
+    /*     alert(exchangeCharge)
+     alert(reserverate)
+     alert(basicrate) 
+     alert(comm) */
+
+    if (exchangeCharge == '' || reserverate == '') {
       return false
     }
     //alert('after return')
-    
-    let re1 = (reserverate-basicrate).toFixed(2)
 
-    
+    let re1 = (reserverate - basicrate).toFixed(2)
+
     let re2 = (re1 * comm).toFixed(2)
     re2 = 1 * re2
     basicrate = 1 * basicrate
 
-    
     let re3 = (re2 + basicrate).toFixed(2) // re3 = 우대환율
-    
-    
-
-    
-
-    
-    
 
     exchangeChargeKRW = exchangeCharge * commrate
     exchangeChargeKRW = exchangeChargeKRW.toFixed(2)
 
-    document.getElementById("exchangeChargeKRW").innerHTML = ((re3*exchangeCharge).toFixed(2)); //환전금액(원) 값 띄어주기
+    document.getElementById("exchangeChargeKRW").innerHTML = ((re3 * exchangeCharge).toFixed(2)); //환전금액(원) 값 띄어주기
     document.getElementById("commrate").innerHTML = re3; //우대환율(원) 값 띄어주기
-    
-    
 
-
-
-    document.getElementById('exchangecharge').value = ((re3*exchangeCharge).toFixed(2)); // hidden필드에 값 넣어주기 환전금액(원)
+    document.getElementById('exchangecharge').value = ((re3 * exchangeCharge).toFixed(2)); // hidden필드에 값 넣어주기 환전금액(원)
     document.getElementById('exchangerate').value = re3; // hidden필드에 값 넣어주기 우대환율(원)
 
     exchangeChargeKRW = "";
     commrate = "";
 
   }
-  
-  
-  
-  
 </script>
 <style>
 #chart {

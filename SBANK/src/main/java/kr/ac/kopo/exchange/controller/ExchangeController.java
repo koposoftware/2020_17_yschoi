@@ -108,13 +108,13 @@ public class ExchangeController {
 	 * 환전예약하기 기능
 	 */
 	@PostMapping("/exchange/doReserve")
-	public void doReserve(ReserveVO reserveVO, HttpSession session, @RequestParam("password") String password) {
+	public void doReserve(ReserveVO reserveVO, HttpSession session) {
 	  MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
     String id = userVO.getId();
     
     reserveVO.setId(id);
     
-    System.out.println("password : "+password);
+    
 	  System.out.println(reserveVO);
 	  
 	  exchangeService.doReserve(reserveVO);
