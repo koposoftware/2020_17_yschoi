@@ -27,31 +27,19 @@ $(document).ready(function() {
 	    	  let list = JSON.parse(data);
 	    	  console.log(list)
 	    	  
-	    	  
+
 	    	  $(list).each(function() {
 					
 					
 					let str = '';
-					str +='<option value='+this.account_num+'>'+'[계좌번호 : '+this.account_num+', 잔액:'+this.balance+'원]</option>';
+
+					str  +='<option class="acc" name="acc" value='+this.account_num+' id='+this.balance+'>'+'[계좌번호 : '+this.account_num+', 잔액:'+this.balance+'원]</option>';
 
 					$('#account_num').append(str);
+
 				})
-	    	  
-	    	  /* let rate =list.cashbuyrate
-	    	  let basicrate=list.basicrate 
-	    	  let commission = list.commission
-	    	  let commrate = ((rate-basicrate)*commission)+basicrate
-	    	  
-	    	  $("#rate").text((list.cashbuyrate).toFixed(2));
-	    	  $("#commrate").text(commrate.toFixed(2));
-	    	  $("#commission").text(list.commission2);
-	    	  
-	    	  document.getElementById('rateHidden').value = list.commission2;
-	    	  
-	    	  rate="";
-	    	  basicrate="";
-	    	  commission="";
-	    	  commrate=""; */
+
+
 	      }, 
 	      error : function() {
 	        alert('실패')
@@ -97,6 +85,55 @@ $(document).ready(function() {
       }
     })
   })   //통화를 선택하면에 대한 function 끝.
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /////////////여기여기//////////////
+/*   $(document).on('change', '#account_num', function() { */
+  $(document).on('click', '#subm', function() {
+      //alert('!')
+      //let bal = $(this).attr('id');
+      //console.log(bal);
+      
+      let realid = $("#account_num option:selected").attr('id'); // 선택한 계좌의 잔액임
+      realid = 1 * realid
+      console.log(typeof(realid));
+      console.log(realid);
+      
+      var chargeKRW = $('#exchangecharge').val(); //환전시 필요한 잔액
+      chargeKRW = 1 * chargeKRW
+      console.log(typeof(chargeKRW));
+      console.log(chargeKRW);
+      
+      if(realid>=chargeKRW){
+        console.log('good')
+      }else{
+        console.log('bad')
+        alert('선택하신 계좌의 잔액을 확인해주세요. 잔액이 부족합니다.')
+        return false;
+        
+      }
+      
+
+
+      
+      
+    }); 
+  
+
+  
+  
+  
+  
   
   
   
@@ -226,7 +263,7 @@ $(document).ready(function() {
 					<tr>
 						<th>수령지점</th>
 						<td>
-							<select name="exchange_place" id="exchange_place" >
+							<select name="exchange_place" id="exchange_place" class="accountnum" >
 								<option value="a" selected disabled  >- 수령지점을 선택하세요 -</option>
 								<option value="인천국제공항">인천국제공항</option>
 								<option value="김포공항">김포공항</option>
@@ -250,6 +287,9 @@ $(document).ready(function() {
 					<tr>
 						<th>출금계좌번호</th>
 						<td>
+						
+						<div id="make" name="make" class="name"></div>
+						
 							<select name="account_num" id="account_num" >
 								<option value="a" selected disabled  >- 출금 계좌를 선택하세요 -</option>
 							</select>
@@ -257,11 +297,11 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<th>계좌비밀번호</th>
-						<td><input type="password" id="password" name="password" /></td>
+						<td><input type="password" id="bank_name" name="bank_name" /></td>
 					</tr>
 				</table>
 					<input type="hidden" id="" name="" value="${loginVO.id}" >
-					<button class="btn btn-outline-dark">환전하기</button>
+					<button class="btn btn-outline-dark" id="subm" name="subm" >환전하기</button>
 			</form>
 		</div>
 		

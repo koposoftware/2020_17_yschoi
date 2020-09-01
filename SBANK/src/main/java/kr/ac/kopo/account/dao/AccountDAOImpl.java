@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.account.vo.AccountVO;
 import kr.ac.kopo.board.vo.BoardVO;
+import kr.ac.kopo.exchange.vo.ExchangeVO;
 
 @Repository
 public class AccountDAOImpl implements AccountDAO {
@@ -57,6 +58,17 @@ public class AccountDAOImpl implements AccountDAO {
 		// TODO Auto-generated method stub
 		sqlSession.update("account.dao.AccountDAO.transfer2", account);
 	}
+
+	/**
+	 * 환전하기 기능. 원화계좌에서 환전시 필요한만큼의 돈 빼기!
+	 */
+  @Override
+  public void doExchange(ExchangeVO exchangeVO) {
+    // TODO Auto-generated method stub
+    sqlSession.update("account.dao.AccountDAO.doExchange", exchangeVO);
+    
+  }
+	
 	
 	
 	

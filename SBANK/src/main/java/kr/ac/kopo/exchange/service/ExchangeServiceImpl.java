@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.ac.kopo.account.dao.AccountDAO;
 import kr.ac.kopo.exchange.dao.ExchangeDAO;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
@@ -15,6 +16,10 @@ public class ExchangeServiceImpl implements ExchangeService {
 	
 	@Autowired
 	private ExchangeDAO exchangeDAO;
+	
+	@Autowired
+	private AccountDAO accountDAO;
+	
 
 	@Override
 	public List<CurrencyVO> selectAllCurrency() {
@@ -45,7 +50,8 @@ public class ExchangeServiceImpl implements ExchangeService {
 	@Override
 	public void doExchange(ExchangeVO exchangeVO) {
 		
-		exchangeDAO.doExchange(exchangeVO);
+	  accountDAO.doExchange(exchangeVO);  // 원화계좌에서 돈 출금
+		exchangeDAO.doExchange(exchangeVO); // exchange 테이블에 record insert
 		
 	}
 

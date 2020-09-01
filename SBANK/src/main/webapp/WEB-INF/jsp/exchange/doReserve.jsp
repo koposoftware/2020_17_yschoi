@@ -77,6 +77,51 @@
     }) //통화를 선택하면에 대한 function 끝.
 
     
+ 
+    
+    
+    ////
+     $(document).on('click', '#subm', function() {
+      //alert('!')
+      //let bal = $(this).attr('id');
+      //console.log(bal);
+      
+      let realid = $("#account_num option:selected").attr('id'); // 선택한 계좌의 잔액임
+      realid = 1 * realid
+      console.log(typeof(realid));
+      console.log(realid);
+      
+      var chargeKRW = $('#exchangecharge').val(); //환전시 필요한 잔액
+      chargeKRW = 1 * chargeKRW
+      console.log(typeof(chargeKRW));
+      console.log(chargeKRW);
+      
+      if(realid>=chargeKRW){
+        console.log('good')
+      }else{
+        console.log('bad')
+        alert('선택하신 계좌의 잔액을 확인해주세요. 잔액이 부족합니다.')
+        return false;
+        
+      }});
+
+      
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
     
   })
   
@@ -184,7 +229,7 @@
 		  
 			<!-- highcharts 해보기 -->
 						<form method="post" action="${pageContext.request.contextPath }/exchange/doReserve">
-								<table border="1">
+								<table border="1" class="table table-bordered">
 										<tr>
 												<td colspan="3">
 												    환전을 원하는 통화를 선택 및 금액을 입력하세요<br> 
@@ -221,7 +266,7 @@
 								</table>
 								<br>
 								<br>
-								<table border="1">
+								<table border="1" class="table table-bordered">
 										<tr>
 												<td>
 												    결제금액(원) : 
@@ -244,17 +289,17 @@
 										<tr>
             <th>출금계좌번호</th>
             <td>
-              <select name="account_num" id="account_num" >
+              <select name="account_num" id="account_num" class="account_num" >
                 <option value="a" selected disabled  >- 출금 계좌를 선택하세요 -</option>
               </select>
             </td>
           </tr>
           <tr>
             <th>계좌비밀번호</th>
-            <td><input type="password" id="password" name="password" /></td>
+            <td><input type="password" id="bank_name" name="bank_name" /></td>
           </tr>
 								</table>
-										<button class="btn btn-outline-dark">목표 환전 예약하기</button>
+										<button class="btn btn-outline-dark" id="subm" name="subm" >환전하기</button>
 						</form>
 				</div>
 

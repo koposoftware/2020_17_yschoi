@@ -123,8 +123,10 @@
 															계좌 조회</a></li>
 													<li><a
 														href="${pageContext.request.contextPath }/account/create">계좌개설</a></li>
+														<div class="dropdown-divider"></div>
 													<li><a
 														href="${pageContext.request.contextPath }/exchange/showAll">보유외화보기</a></li>
+														<div class="dropdown-divider"></div>
 													<li><a
 														href="${pageContext.request.contextPath }/account/myAccount2">사이드바
 															테스트</a></li>

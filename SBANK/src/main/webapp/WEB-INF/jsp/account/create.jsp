@@ -35,8 +35,8 @@
 						</td>
 					</tr>
 					<tr>
-						<th width="23%">개설은행</th>
-						<td><form:input path="bank_name" /> <form:errors
+						<th width="23%">비밀번호</th>
+						<td><form:input type="password" path="bank_name" /> <form:errors
 								path="bank_name" cssStyle="color :red;" /></td>
 					</tr>
 					<tr>

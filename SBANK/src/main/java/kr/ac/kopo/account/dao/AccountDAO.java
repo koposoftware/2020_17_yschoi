@@ -4,6 +4,7 @@ import java.util.List;
 
 import kr.ac.kopo.account.vo.AccountVO;
 import kr.ac.kopo.board.vo.BoardVO;
+import kr.ac.kopo.exchange.vo.ExchangeVO;
 
 public interface AccountDAO {
 	/**
@@ -31,5 +32,12 @@ public interface AccountDAO {
 	 * @param account
 	 */
 	public void transfer2(AccountVO account);
+	
+	/**
+	 * 환전하기 기능. 원화계좌에서 환전시 필요한만큼의 돈 빼기!
+	 * @param exchangeVO
+	 */
+	public void doExchange(ExchangeVO exchangeVO);
+	
 	
 }
