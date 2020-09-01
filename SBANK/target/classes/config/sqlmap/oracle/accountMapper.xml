@@ -29,4 +29,10 @@
       update S_ACCOUNT set balance = balance - #{exchangecharge} where account_num=#{account_num}
     </update>
     
+    
+    <!-- 계좌비밀번호 확인. 리턴값 잔액 -->
+    <select id="chkPassword" parameterType="accountVO" resultType="int">
+      select count(*) from S_ACCOUNT where account_num = #{account_num} and bank_name =#{bank_name}
+    </select>
+    
 </mapper>

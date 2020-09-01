@@ -50,6 +50,24 @@ public class AccountServiceImpl implements AccountService {
 		accountdao.transfer2(account); //입금
 		
 	}
+
+
+	/**
+	 * 계좌 비밀번호 확인
+	 */
+  @Override
+  public int chkPassword(AccountVO account) {
+    // TODO Auto-generated method stub
+    int result = accountdao.chkPassword(account);
+    return result;
+  }
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

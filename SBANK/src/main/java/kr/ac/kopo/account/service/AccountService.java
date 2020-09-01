@@ -28,5 +28,13 @@ public interface AccountService {
 	public void transfer(AccountVO account);
 	
 	
+	/**
+	 * 계좌 비밀번호 확인
+	 * @param account
+	 * @return
+	 */
+	public int chkPassword(AccountVO account);
+	
+	
 
 }

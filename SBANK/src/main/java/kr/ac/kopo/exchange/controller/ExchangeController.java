@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.ac.kopo.account.service.AccountService;
+import kr.ac.kopo.account.vo.AccountVO;
 import kr.ac.kopo.board.vo.BoardVO;
 import kr.ac.kopo.exchange.service.ExchangeService;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
@@ -33,6 +35,9 @@ public class ExchangeController {
 	
 	@Autowired
 	private ExchangeService exchangeService;
+	
+	@Autowired
+	private AccountService accountService;
 	
 	
 	/**
@@ -78,20 +83,38 @@ public class ExchangeController {
 	 * @return
 	 */
 	@PostMapping("/exchange/doExchange")
-	public String doExchange(ExchangeVO exchangeVO, HttpSession session) {
-		
+	public String doExchange(ExchangeVO exchangeVO, HttpSession session,@RequestParam("bank_name") String bank_name) {
+	  
+	  System.out.println("비밀번호 : "+bank_name);
+	  AccountVO chkVO = new AccountVO();
+	  chkVO.setAccount_num(exchangeVO.getAccount_num());
+	  chkVO.setBank_name(bank_name);
+	  System.out.println(chkVO);
+	  int result = accountService.chkPassword(chkVO);
+	  System.out.println("비번 확인 후 record 수 : " + result);
+	  
+	  if(result == 0 ) {
+	    System.out.println("비밀번호를 확인하세요.");
+	    return "exchange/guide";
+	  }
+	  else {
+	  
+	  
 		MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
 		String id = userVO.getId();
-		
 		exchangeVO.setId(id);
+		
+		
+
 		
 		//System.out.println("환전하기 컨트롤러");
 		//System.out.println(exchangeVO);
 		
-		exchangeService.doExchange(exchangeVO);
+		exchangeService.doExchange(exchangeVO); // 환전하기
 		
-		
+	  }
 		return "exchange/guide";
+	  
 	}
 
 	/**
@@ -108,17 +131,31 @@ public class ExchangeController {
 	 * 환전예약하기 기능
 	 */
 	@PostMapping("/exchange/doReserve")
-	public void doReserve(ReserveVO reserveVO, HttpSession session) {
+	public String doReserve(ReserveVO reserveVO, HttpSession session,@RequestParam("bank_name") String bank_name) {
+	  
+	  System.out.println("비밀번호 : "+bank_name);
+    AccountVO chkVO = new AccountVO();
+    chkVO.setAccount_num(reserveVO.getAccount_num());
+    chkVO.setBank_name(bank_name);
+    System.out.println(chkVO);
+    int result = accountService.chkPassword(chkVO);
+    System.out.println("비번 확인 후 record 수 : " + result);
+    
+    
+    if(result == 0 ) {
+      System.out.println("비밀번호를 확인하세요.");
+      return "exchange/guide";
+    }else {
+	  
+	  
 	  MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
     String id = userVO.getId();
-    
     reserveVO.setId(id);
     
-    
 	  System.out.println(reserveVO);
-	  
 	  exchangeService.doReserve(reserveVO);
-	  
+    }
+	  return "exchange/guide";
 	}
 	
 	

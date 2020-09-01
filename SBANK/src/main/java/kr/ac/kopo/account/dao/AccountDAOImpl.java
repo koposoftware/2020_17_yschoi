@@ -68,6 +68,16 @@ public class AccountDAOImpl implements AccountDAO {
     sqlSession.update("account.dao.AccountDAO.doExchange", exchangeVO);
     
   }
+
+  /**
+   * 계좌 비밀번호 확인
+   * return : 계좌의 잔액
+   */
+  @Override
+  public int chkPassword(AccountVO account) {
+    int result = sqlSession.selectOne("account.dao.AccountDAO.chkPassword", account);
+    return result;
+  }
 	
 	
 	

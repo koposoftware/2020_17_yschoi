@@ -40,4 +40,14 @@ public interface AccountDAO {
 	public void doExchange(ExchangeVO exchangeVO);
 	
 	
+	/**
+	 * 계좌 비밀번호 확인
+	 * @param account
+	 * @return 계좌의 잔액
+	 */
+	public int chkPassword(AccountVO account);
+	
+	
+	
+	
 }
