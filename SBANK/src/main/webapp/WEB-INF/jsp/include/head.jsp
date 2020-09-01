@@ -138,6 +138,13 @@
 													<li><a
 														href="${pageContext.request.contextPath }/exchange/guide">환전가이드</a></li>
 													<div class="dropdown-divider"></div>
+													<c:choose>
+													<c:when test="${loginVO.type == 'K'  }">
+													<li><a
+														href="${pageContext.request.contextPath }/exchange/doExchangeKakao">비회원
+															환전하기</a></li>
+                          </c:when>
+                          <c:otherwise>
 													<li><a
 														href="${pageContext.request.contextPath }/exchange/doExchange">환전하기</a></li>
 													<li><a
@@ -146,10 +153,8 @@
 														href="${pageContext.request.contextPath }/exchange/doRevExchange">재환전하기</a></li>
 													<li><a
 														href="${pageContext.request.contextPath }/exchange/present">환전선물하기</a></li>
-													<div class="dropdown-divider"></div>
-													<li><a
-														href="${pageContext.request.contextPath }/exchange/doExchangeKakao">비회원
-															환전하기</a></li>
+                          </c:otherwise>
+                          </c:choose>
 												</ul></li>
 
 										</ul>
