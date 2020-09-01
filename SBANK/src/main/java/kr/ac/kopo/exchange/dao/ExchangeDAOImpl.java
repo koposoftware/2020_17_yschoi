@@ -64,6 +64,16 @@ public class ExchangeDAOImpl implements ExchangeDAO {
       sqlSession.insert("exchange.dao.ExchangeDAO.doReserve", reserveVO);
     }
   }
+
+
+  /**
+   * 비회원 환전하기
+   */
+  @Override
+  public void doKakaoExchange(ExchangeVO exchangeVO) {
+    // TODO Auto-generated method stub
+    sqlSession.insert("exchange.dao.ExchangeDAO.doKakaoExchange",exchangeVO);
+  }
 	
 	
 	

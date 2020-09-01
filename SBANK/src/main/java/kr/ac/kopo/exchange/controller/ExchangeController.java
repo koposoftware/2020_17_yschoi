@@ -1,6 +1,8 @@
 package kr.ac.kopo.exchange.controller;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 
@@ -137,10 +139,33 @@ public class ExchangeController {
 	@PostMapping("/exchange/doExchangeKakao")
 	public ModelAndView doExchangeKakao(ExchangeVO exchangeVO) {
 	  
-	  System.out.println(exchangeVO);
+	  Random r = new Random();
 	  
+	  String uid ="";
+	  
+	  for(int i=0; i<4 ; i++) {
+	    uid += Integer.toString(r.nextInt(10));
+	  }
+	  
+	  uid += "_";
+	  
+	  uid += new Date().getTime();
+	  
+	  String charge_str = exchangeVO.getExchangecharge();
+	  
+	  double charge = Math.round(Double.parseDouble(charge_str));
+	  
+	  String final_charge = Double.toString(charge);
+	  
+	  exchangeVO.setExchangecharge(final_charge); // 카카오페이는 소숫점 이하에 대한 값 에러띄움
+
+	  
+	  exchangeVO.setAccount_num(uid); //계좌번호에 결제 시 필요한 uid값 담아서 보내기
+	  
+	  System.out.println(exchangeVO);
+
 	  ModelAndView mav = new ModelAndView("exchange/kakaoPay");
-	  mav.addObject("charge", exchangeVO.getExchangecharge());
+	  mav.addObject("exchangeVO", exchangeVO);
 	  
     return mav;
   } 

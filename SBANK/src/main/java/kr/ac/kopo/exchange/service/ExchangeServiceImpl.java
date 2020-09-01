@@ -58,6 +58,15 @@ public class ExchangeServiceImpl implements ExchangeService {
     exchangeDAO.doReserve(reserveVO);
     
   }
+
+  /**
+   * 비회원 환전하기
+   */
+  @Override
+  public void doKakaoExchange(ExchangeVO exchangeVO) {
+    // TODO Auto-generated method stub
+    exchangeDAO.doKakaoExchange(exchangeVO);
+  }
 	
 	
 	

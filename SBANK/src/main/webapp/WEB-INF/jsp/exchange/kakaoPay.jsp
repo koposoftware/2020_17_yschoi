@@ -10,7 +10,7 @@
 <c:set var="name" value="${exchangeVO.name}" />
 <c:set var="exchange_date" value="${exchangeVO.exchange_date}" />
 <c:set var="exchange_place" value="${exchangeVO.exchange_place}" />
-<c:set var="uidd" value="merchant_1598885443639" />
+<c:set var="account_num" value="${exchangeVO.account_num}" />
 
 
 
@@ -31,25 +31,19 @@
         //alert('아이디')
         
         let amountprice  = ${exchangecharge};
+
         //alert(typeof(amountprice))
-        let datee = (new Date().getTime())
-        let uidd='merchant_' + datee
-        alert(uidd)
 
         
 
         IMP.request_pay({
             pg : 'kakaopay',
             pay_method : 'card',
-            merchant_uid : '${uidd}',
+            merchant_uid : '${account_num}',
             name : 'SBANK 환전',
-            /* amount : ${exchangecharge}, */
-            amount : 100,
-            buyer_email : '${exchange_date}',
+            amount : 1*${exchangecharge},
             buyer_name : '${name}',
-            buyer_tel : '010-9438-5248',
-            buyer_addr : '${exchange_place}',
-            buyer_postcode : '${exchangeprice}',
+            buyer_tel : '010-9438-5248'
             //m_redirect_url : 'http://www.naver.com'
         }, function(rsp) {
             if ( rsp.success ) {
@@ -78,13 +72,49 @@
                     }
                 });
                 //성공시 이동할 페이지
-                alert('성공')
-                location.href='<%=request.getContextPath()%>/order/paySuccess?msg='+msg;
+                
+                //alert('ajax 하즈아~')
+                
+                
+                
+                $.ajax({
+                  url : '${ pageContext.request.contextPath }/exchange/kakaoPayInsert',
+                  type : 'post',
+                  data : {
+                    id : '${id}',
+                    currencycode : '${currencycode}',
+                    exchangeprice : '${exchangeprice}',
+                    exchangerate : '${exchangerate}',
+                    exchangecharge : '${exchangecharge}',
+                    name : '${name}',
+                    exchange_date : '${exchange_date}',
+                    exchange_place : '${exchange_place}',
+                    account_num : '${account_num}'
+                  }, 
+                  success : function() {
+                    
+                    //alert('성공 ajax - after insert ')
+                  }, 
+                  error : function() {
+                    alert(' ajax실패 - not insert')
+                  }, complete : function() {
+                    //여기서 뭘할까아
+                  }
+                })
+                
+                
+                
+                
+                
+                
+                //성공시 이동할 페이지
+                <%-- location.href='<%=request.getContextPath()%>/order/paySuccess?msg='+msg; --%>
+                location.href='<%=request.getContextPath()%>/';
             } else {
                 msg = '결제에 실패하였습니다.';
                 msg += '에러내용 : ' + rsp.error_msg;
                 //실패시 이동할 페이지
-                location.href="<%=request.getContextPath()%>/order/payFail";
+                location.href="<%=request.getContextPath()%>/";
                 alert(msg);
             }
         });

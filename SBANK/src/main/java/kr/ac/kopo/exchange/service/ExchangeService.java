@@ -37,5 +37,18 @@ public interface ExchangeService {
 	public void doReserve(ReserveVO reserveVO);
 	
 	
+	/**
+	 * 비회원 환전하기
+	 * @param exchangeVO
+	 */
+	public void doKakaoExchange(ExchangeVO exchangeVO);
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

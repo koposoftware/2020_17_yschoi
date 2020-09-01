@@ -120,11 +120,7 @@
 	<tx:annotation-driven transaction-manager="transactionManager"/>	
 	
 	
-	
-	
-	<!-- junit 관련해서 혜원님 공유! -->
-	<bean class="org.springframework.mock.web.MockServletContext"/>
-	
+
 	
 	
 

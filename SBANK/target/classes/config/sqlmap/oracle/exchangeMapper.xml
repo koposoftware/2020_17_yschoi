@@ -40,4 +40,11 @@
       values(seq_S_RESERVATION_no.nextval,#{id},#{account_num},#{currencycode},#{exchangeprice},#{exchangerate},#{exchangecharge})
   </insert>
   
+  <!-- 비회원 환전하기 기능 -->
+  <insert id="doKakaoExchange" parameterType="exchangeVO">
+    insert into S_EXCHANGE(exchangeNo,id,currencycode,exchangeprice,exchangerate,exchangecharge,name,exchange_date,exchange_place,account_num)  
+    values(seq_S_EXCHANGE_no.nextval,#{id},#{currencycode},#{exchangeprice},#{exchangerate},#{exchangecharge},
+        #{name},#{exchange_date},#{exchange_place},#{account_num} )
+  </insert>
+  
 </mapper>

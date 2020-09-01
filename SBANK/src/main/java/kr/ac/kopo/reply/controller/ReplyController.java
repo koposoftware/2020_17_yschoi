@@ -15,6 +15,7 @@ import kr.ac.kopo.account.service.AccountService;
 import kr.ac.kopo.account.vo.AccountVO;
 import kr.ac.kopo.exchange.service.ExchangeService;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
+import kr.ac.kopo.exchange.vo.ExchangeVO;
 import kr.ac.kopo.member.vo.MemberVO;
 import kr.ac.kopo.reply.service.ReplyService;
 import kr.ac.kopo.reply.vo.ReplyVO;
@@ -104,6 +105,20 @@ public class ReplyController {
 	   
 	   return accountList;
    }
+   
+   
+   @PostMapping("/exchange/kakaoPayInsert")
+   public void kakaoPayInsert(ExchangeVO exchangeVO) {
+     System.out.println("===============kakaoPayInsert=================");
+     System.out.println(exchangeVO);
+     
+     exchangeService.doKakaoExchange(exchangeVO);
+     
+   }
+   
+   
+   
+   
    
    
    
