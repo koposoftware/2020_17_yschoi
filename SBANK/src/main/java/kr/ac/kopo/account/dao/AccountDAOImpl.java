@@ -84,8 +84,8 @@ public class AccountDAOImpl implements AccountDAO {
    * 외화계좌 번호 가져오기
    */
   @Override
-  public String chkCurAccount_num(ExchangeVO account) {
-    String result = sqlSession.selectOne("account.dao.AccountDAO.chkCurAccount_num", account);
+  public String chkCurAccount_num(String id) {
+    String result = sqlSession.selectOne("account.dao.AccountDAO.chkCurAccount_num", id);
     return result;
   }
   
@@ -136,6 +136,7 @@ public class AccountDAOImpl implements AccountDAO {
 	
 	
 	
+  
 	
 	
 	

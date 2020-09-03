@@ -33,25 +33,20 @@
 					action="${pageContext.request.contextPath }/account/accountTransfer"
 					method="post" id="formm">
 					<table border="1" class="table table-bordered">
-						<tr>
-							<th width="25%">보유은행</th>
-							<td width="25%">${account.bank_name}</td>
-							<th width="25%">개설일자</th>
-							<td width="25%">${account.reg_date}</td>
-						</tr>
+					<input type="hidden" id="account_num" name="account_num" value="${account.account_num}">
 						<tr>
 							<th>계좌번호</th>
-							<td>${account.account_num}</td>
-							<th>별칭</th>
-							<td>${account.nick_name}</td>
+              <td>${account.account_num}</td>
+							<th width="25%">개설일자</th>
+							<td width="25%">${account.reg_date}</td>
+							<td><button class="btn btn-outline-dark">계좌이체하기</button></td>
 						</tr>
 						<tr>
 							<th>잔액</th>
-							<td>${account.balance}</td>
-							<td colspan="2">
-								<button class="btn btn-outline-dark">계좌이체하기</button> 
-								<input type="hidden" id="account_num" name="account_num" value="${account.account_num}">
-							</td>
+              <td>${account.balance}</td>
+							<th>별칭</th>
+							<td>${account.nick_name}</td>
+							<td><button class="btn btn-outline-dark">계좌별칭수정</button></td>
 						</tr>
 					</table>
 				</form>
@@ -74,16 +69,12 @@
             <thead>
             <tr>
               <th>계좌번호</th>
-              <th>통화</th>
-              <th>잔액</th>
               <th>별명</th>
               <th>개설일자</th>
             </tr>
             </thead>
             <tbody>
               <td>${account.account_num}</td>
-              <td>${account.currencycode}</td>
-              <td>${account.balance}</td>
               <td>${account.nick_name}</td>
               <td>${account.reg_date}</td>
             </tbody>

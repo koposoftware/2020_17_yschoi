@@ -21,6 +21,7 @@ import kr.ac.kopo.account.service.AccountService;
 import kr.ac.kopo.account.vo.AccountVO;
 import kr.ac.kopo.board.vo.BoardVO;
 import kr.ac.kopo.exchange.service.ExchangeService;
+import kr.ac.kopo.exchange.vo.CurlistVO;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
 import kr.ac.kopo.exchange.vo.ReserveVO;
@@ -138,10 +139,10 @@ public class ExchangeController {
     System.out.println("비번 확인 후 record 수 : " + result);
     
     
-    if(result == 0 ) {
-      System.out.println("비밀번호를 확인하세요.");
-      return "exchange/guide";
-    }else {
+//    if(result == 0 ) {
+//      System.out.println("비밀번호를 확인하세요.");
+//      return "exchange/guide";
+//    }else {
 	  
 	  
 	  MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
@@ -150,7 +151,7 @@ public class ExchangeController {
     
 	  System.out.println(reserveVO);
 	  exchangeService.doReserve(reserveVO);
-    }
+//    }
 	  return "exchange/guide";
 	}
 	
@@ -228,10 +229,32 @@ public class ExchangeController {
 //  }
     
 
-    
     return mav;
   }
   
+  
+  /**
+   * 보유외화 보기
+   * @param session
+   * @return
+   */
+  @GetMapping("/account/myCurrency")
+  public ModelAndView myCurrency(HttpSession session) {
+    
+    MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
+    String id = userVO.getId();
+    
+    List<CurlistVO> curlist =  exchangeService.selectCurrency(id);
+    
+    ModelAndView mav = new ModelAndView("account/myCurrency");
+    mav.addObject("curlist", curlist);
+    
+    /*
+     * for(CurlistVO account : curlist) { System.out.println(account); }
+     */
+    
+    return mav;
+  }
   
   
 	

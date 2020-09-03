@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.ac.kopo.exchange.vo.CurlistVO;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
 import kr.ac.kopo.exchange.vo.ReserveVO;
@@ -96,6 +97,16 @@ public class ExchangeDAOImpl implements ExchangeDAO {
     List<ReserveVO> reserveList = sqlSession.selectList("exchange.dao.ExchangeDAO.selectReserve", id);
     
     return reserveList;
+  }
+
+
+  /**
+   * 보유외화 조회
+   */
+  @Override
+  public List<CurlistVO> selectCurrency(String accounnt_num) {
+    List<CurlistVO> curlist = sqlSession.selectList("exchange.dao.ExchangeDAO.selectCurrency", accounnt_num);
+    return curlist;
   }
 	
 	

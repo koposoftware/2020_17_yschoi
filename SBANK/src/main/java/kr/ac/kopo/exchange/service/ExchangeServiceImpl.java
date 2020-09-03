@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import kr.ac.kopo.account.dao.AccountDAO;
 import kr.ac.kopo.account.vo.AccountVO;
 import kr.ac.kopo.exchange.dao.ExchangeDAO;
+import kr.ac.kopo.exchange.vo.CurlistVO;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
 import kr.ac.kopo.exchange.vo.ReserveVO;
@@ -56,7 +57,7 @@ public class ExchangeServiceImpl implements ExchangeService {
 
 	  accountDAO.doExchangeKrw(exchangeVO);  // 원화계좌에서 돈 출금
 	  
-	  String CurAccount_num = accountDAO.chkCurAccount_num(exchangeVO);    //외화계좌 번호 가져오기
+	  String CurAccount_num = accountDAO.chkCurAccount_num(exchangeVO.getId());    //외화계좌 번호 가져오기
 	  System.out.println("외화 계좌의 번호 : "+CurAccount_num);
 	  exchangeVO.setReg_date(CurAccount_num);
 	  //System.out.println("값확인하자"+exchangeVO);
@@ -123,6 +124,18 @@ public class ExchangeServiceImpl implements ExchangeService {
    List<ReserveVO> reserveList = exchangeDAO.selectReserve(id);
     
     return reserveList;
+  }
+
+  
+  /**
+   * 외화 보유 내역
+   */
+  @Override
+  public List<CurlistVO> selectCurrency(String id) {
+    String CurAccount_num = accountDAO.chkCurAccount_num(id);    //외화계좌 번호 가져오기
+    List<CurlistVO> curlist  = exchangeDAO.selectCurrency(CurAccount_num);
+    
+    return curlist;
   }
 	
 	

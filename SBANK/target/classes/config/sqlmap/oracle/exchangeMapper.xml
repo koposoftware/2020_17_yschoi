@@ -47,15 +47,19 @@
         #{name},#{exchange_date},#{exchange_place},#{account_num} )
   </insert>
   
-  
+  <!-- 환전내역조회 -->
   <select id="selectExchange" parameterType="string" resultType="exchangeVO">
     select * from S_EXCHANGE where id = #{id}
   </select>
   
+  <!-- 환전예약내역조회 -->
   <select id="selectReserve" parameterType="string" resultType="reserveVO">
     select * from S_RESERVATION where id = #{id}
   </select>
   
+  <select id="selectCurrency" parameterType="string" resultType="curlistVO" >
+    select * from S_CURLIST where account_num = #{account_num}
+  </select>
   
   
 </mapper>

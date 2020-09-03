@@ -37,7 +37,7 @@
     </update>
     
     <!-- 외화계좌 번호 가져오기 -->
-    <select id="chkCurAccount_num" parameterType="exchangeVO" resultType="string">
+    <select id="chkCurAccount_num" parameterType="string" resultType="string">
       select ACCOUNT_NUM from s_account where id =#{id} and type='C'
     </select>
     

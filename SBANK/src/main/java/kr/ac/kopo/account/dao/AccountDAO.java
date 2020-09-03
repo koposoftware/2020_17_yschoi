@@ -50,7 +50,7 @@ public interface AccountDAO {
 	 * @param account
 	 * @return
 	 */
-	public String chkCurAccount_num (ExchangeVO account);
+	public String chkCurAccount_num (String id);
 	
 	
 	/**

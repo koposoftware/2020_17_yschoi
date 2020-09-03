@@ -2,6 +2,7 @@ package kr.ac.kopo.exchange.dao;
 
 import java.util.List;
 
+import kr.ac.kopo.exchange.vo.CurlistVO;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
 import kr.ac.kopo.exchange.vo.ReserveVO;
@@ -63,8 +64,12 @@ public interface ExchangeDAO {
 	public List<ReserveVO> selectReserve(String id);
 	
 	
-	
-	
+	/**
+	 * 보유외화 조회
+	 * @param accounnt_num
+	 * @return
+	 */
+	public List<CurlistVO> selectCurrency(String accounnt_num);
 	
 	
 	
