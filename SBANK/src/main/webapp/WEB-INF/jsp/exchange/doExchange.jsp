@@ -168,6 +168,28 @@ $(document).ready(function() {
 		commrate = "";
 
 	}
+	
+	
+	
+	
+	
+	
+
+	
+	
+	$(document).ready(function(){
+	  $("#exchange_place").change(function(){
+
+	      if($("#exchange_place option:selected").val() == "own"){
+	        $('input[type="date"]').attr("disabled",true);// 비활성화
+	        
+	      }else{
+	        $("input:date[name=exchange_date]").attr("disabled",flase);
+	      }
+	  });
+	});
+	
+	
 </script>
 
 
@@ -257,20 +279,21 @@ $(document).ready(function() {
 						</td>
 					</tr>
 					<tr>
-						<th>외화수령일</th>
-						<td><input type="date" id="exchange_date" name="exchange_date" /></td>
-					</tr>
-					<tr>
-						<th>수령지점</th>
+						<th>수령지점 / 소유여부</th>
 						<td>
-							<select name="exchange_place" id="exchange_place" class="accountnum" >
-								<option value="a" selected disabled  >- 수령지점을 선택하세요 -</option>
+							<select name="exchange_place" id="exchange_place" class="accountnum" onchange="categoryChange(this)" >
+								<option value="a" selected disabled  >- 수령지점 / 개인 소유 여부를 선택하세요 -</option>
+								<option value="own">개인소유</option>
 								<option value="인천국제공항">인천국제공항</option>
 								<option value="김포공항">김포공항</option>
 								<option value="김해공항">김해공항</option>
-
 							</select>
+							개인 소유를 선택하신다면, 외화수령일은 입력하지 않으셔도 됩니다.
 						</td>
+					</tr>
+					<tr>
+						<th>외화수령일</th>
+						<td><input type="date" id="exchange_date" name="exchange_date"  /></td>
 					</tr>
 				</table>
 		</div>

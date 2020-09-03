@@ -5,8 +5,8 @@
   "Http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="account.dao.AccountDAO">
 	  <insert id="insert" parameterType="accountVO">
-      	insert into S_ACCOUNT(accountNo,ID, BANK_NAME, ACCOUNT_NUM, BALANCE,NICK_NAME,type)
-      	values( seq_S_ACCOUNT_no.nextval ,#{id}, #{bank_name}, #{account_num}, #{balance},#{nick_name},#{type})
+      	insert into S_ACCOUNT(ID, BANK_NAME, ACCOUNT_NUM, BALANCE,NICK_NAME,type,currencycode)
+      	values( #{id}, ( select STANDARD_HASH ( #{bank_name}, 'SHA256') from dual  ), #{account_num}, #{balance},#{nick_name},#{type},'-')
     </insert> 
     
     <!--  원화계좌 모두 조회 -->
@@ -16,7 +16,7 @@
     
     <!--  외화계좌 모두 조회 -->
     <select id="selectCurAll" resultType="accountVO" parameterType="string" >
-      select * from S_ACCOUNT where id = #{id} and type='C'
+      select * from S_ACCOUNT where id = #{id} and type='C' and currencycode='-'
     </select>
     
     <!-- 계좌이체 출금 -->
@@ -36,21 +36,28 @@
       update S_ACCOUNT set balance = balance - #{exchangecharge} where account_num=#{account_num}
     </update>
     
-    <!-- 환전하기에서 외화계좌에 환전하려는 통화와 관련된 record있는지 확인 -->
-    <select id="chkCur" parameterType="exchangeVO" resultType="string">
+    <!-- 외화계좌 번호 가져오기 -->
+    <select id="chkCurAccount_num" parameterType="exchangeVO" resultType="string">
       select ACCOUNT_NUM from s_account where id =#{id} and type='C'
+    </select>
+    
+    <select id="chkRecordCurrencyCode" parameterType="exchangeVO" resultType="int">
+      select count(*) from S_CURLIST 
+        where account_num = #{reg_date} and currencycode=#{currencycode}
     </select>
     
     
     <!-- 환전하기 기능에서 외화계좌에 돈 insert -->
-<!--     <insert id="doExchangeCurInsert" parameterType="exchangeVO">
-      
-    </insert> -->
+    <insert id="doExchangeCurInsert" parameterType="exchangeVO">
+      insert into S_CURLIST(no, account_num,balance,currencycode) values 
+        (seq_S_CURLIST_no.nextval , #{reg_date}, #{exchangeprice} , #{currencycode}  )
+    </insert>
     
     <!-- 환전하기 기능에서 외화계좌에 돈 update -->
-<!--     <update id="">
-      
-    </update> -->
+    <update id="doExchangeCurUpdate" parameterType="exchangeVO" >
+      update S_CURLIST set BALANCE = BALANCE + #{exchangeprice}
+        where ACCOUNT_NUM = #{reg_date} and CURRENCYCODE  = #{currencycode}
+    </update>
     
     
     <!-- 계좌비밀번호 확인. 리턴값 잔액 -->

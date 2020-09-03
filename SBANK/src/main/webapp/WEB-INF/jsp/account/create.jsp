@@ -5,6 +5,30 @@
 
 <%-- <jsp:include page="/head.jsp" />  --%>
 <%@ include file="/WEB-INF/jsp/include/head.jsp"%>
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+$(document).ready(function(){
+  
+  // 라디오버튼 클릭시 이벤트 발생
+  $("input:radio[name=type]").click(function(){
+
+      if($("input[name=type]:checked").val() == "K"){
+          $("input:text[name=balance]").attr("disabled",false);
+          // radio 버튼의 value 값이 1이라면 활성화
+
+      }else if($("input[name=type]:checked").val() == "C"){
+            $("input:text[name=balance]").attr("disabled",true);
+          // radio 버튼의 value 값이 0이라면 비활성화
+      }
+  });
+});
+
+
+
+
+
+
+</script>
 
 
 
@@ -37,8 +61,8 @@
 					<tr>
 					 <th>계좌 구분</th>
 					 <td>
-					   <INPUT TYPE=RADIO NAME=type id="type" VALUE='K'  CHECKED> 원화계좌
-             <INPUT TYPE=RADIO NAME=type id="type" VALUE='C'> 외화계좌
+					   <INPUT TYPE=RADIO name="type" id="type" VALUE='K'  CHECKED> 원화계좌
+             <INPUT TYPE=RADIO name="type" id="type" VALUE='C'> 외화계좌
 					 </td>
 					</tr>
 					<tr>
@@ -49,7 +73,7 @@
 					<tr>
 						<th width="23%">첫입금액</th>
 						<td><form:input path="balance" /> <form:errors
-								path="balance" cssStyle="color :red;" /></td>
+								path="balance" cssStyle="color :red;" /> 외화계좌 개설 시 첫입금액은 필요하지 않습니다.</td>
 					</tr>
 					<tr>
 						<th width="23%">계좌별칭</th>

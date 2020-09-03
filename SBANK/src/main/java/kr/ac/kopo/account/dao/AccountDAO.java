@@ -46,11 +46,20 @@ public interface AccountDAO {
 	
 	
 	/**
-	 * 환전 시 외화에 돈 insert할때 환전하려는 통화와 관련된 record있는지 확인하기
+	 * 외화계좌 번호 가져오기
 	 * @param account
 	 * @return
 	 */
-	public String chkCur (ExchangeVO account);
+	public String chkCurAccount_num (ExchangeVO account);
+	
+	
+	/**
+	 * 외화계좌에 해당 통화와 관련된 record 수 구하기
+	 * @param CurAccount_num
+	 * @param currencyCode
+	 * @return
+	 */
+	public int chkRecordCurrencyCode(ExchangeVO exchangeVO);
 	
 	
 	/**

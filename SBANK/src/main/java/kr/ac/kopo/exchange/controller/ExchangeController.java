@@ -92,13 +92,13 @@ public class ExchangeController {
 	  System.out.println(chkVO);
 	  
 	  int result = accountService.chkPassword(chkVO);
-	  System.out.println("비번 확인 후 record 수 : " + result);
+	  //System.out.println("비번 확인 후 record 수 : " + result);
 	  
-	  if(result == 0 ) { //비밀번호가 틀리면
+/*	  if(result == 0 ) { //비밀번호가 틀리면
 	    System.out.println("비밀번호를 확인하세요.");
 	    return "exchange/guide";
-	  }
-	  else {  // 비밀번호가 맞으면
+	  }*/
+	  //else {  // 비밀번호가 맞으면
 	  
 	  
 		MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
@@ -108,7 +108,7 @@ public class ExchangeController {
 		
 		exchangeService.doExchange(exchangeVO); // 환전하기
 		
-	  }
+	  //}
 		return "exchange/guide";
 	  
 	}

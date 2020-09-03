@@ -1,7 +1,6 @@
 package kr.ac.kopo.account.vo;
 
 public class AccountVO {
-  private int accountNo;
 	private String id;
 	private String bank_name;
 	private String account_num;
@@ -62,9 +61,9 @@ public class AccountVO {
 	
 
 
-  public AccountVO(int accountNo, String id, String bank_name, String account_num, int balance, String nick_name, String type, String currencycode, String reg_date) {
+  public AccountVO(String id, String bank_name, String account_num, int balance, String nick_name, String type, String currencycode, String reg_date) {
     super();
-    this.accountNo = accountNo;
+
     this.id = id;
     this.bank_name = bank_name;
     this.account_num = account_num;
@@ -76,14 +75,7 @@ public class AccountVO {
   }
 
 
-  public int getAccountNo() {
-    return accountNo;
-  }
 
-
-  public void setAccountNo(int accountNo) {
-    this.accountNo = accountNo;
-  }
 
 
   public String getId() {
@@ -173,7 +165,7 @@ public class AccountVO {
 
   @Override
   public String toString() {
-    return "AccountVO [accountNo=" + accountNo + ", id=" + id + ", bank_name=" + bank_name + ", account_num=" + account_num + ", balance=" + balance + ", nick_name=" + nick_name + ", type=" + type + ", currencycode=" + currencycode + ", reg_date=" + reg_date + "]";
+    return "AccountVO [id=" + id + ", bank_name=" + bank_name + ", account_num=" + account_num + ", balance=" + balance + ", nick_name=" + nick_name + ", type=" + type + ", currencycode=" + currencycode + ", reg_date=" + reg_date + "]";
   }
 
 

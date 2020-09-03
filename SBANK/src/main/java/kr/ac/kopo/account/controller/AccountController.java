@@ -37,8 +37,6 @@ public class AccountController {
 	@GetMapping("/account/create")
 	public String writeForm(Model model, HttpSession session) {
 		
-		
-		
 		model.addAttribute("accountVO", new AccountVO()); // REQUEST영역에 boardVO이름으로 올린다.
 
 		return "account/create";
@@ -58,8 +56,8 @@ public class AccountController {
 			account_num += Integer.toString(r.nextInt(10));
 		}
 		account.setAccount_num(account_num);
-		System.out.println("accountVO" + account);
 		System.out.println("controller진입");
+		System.out.println("accountVO" + account);
 		
 		accountService.insert(account);
 		return "redirect:/account/myAccount";

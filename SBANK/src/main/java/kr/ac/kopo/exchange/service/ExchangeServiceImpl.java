@@ -56,11 +56,21 @@ public class ExchangeServiceImpl implements ExchangeService {
 
 	  accountDAO.doExchangeKrw(exchangeVO);  // 원화계좌에서 돈 출금
 	  
-	  String result = accountDAO.chkCur(exchangeVO);    //외화계좌에 환전하려는 통화와 관련된 record있는지 확인
+	  String CurAccount_num = accountDAO.chkCurAccount_num(exchangeVO);    //외화계좌 번호 가져오기
+	  System.out.println("외화 계좌의 번호 : "+CurAccount_num);
+	  exchangeVO.setReg_date(CurAccount_num);
+	  //System.out.println("값확인하자"+exchangeVO);
 	  
-	  if (result.length() > 1 ) {
+	  int result = accountDAO.chkRecordCurrencyCode(exchangeVO); // 외화 계좌에 해당 통화 관련 record 있는지 확인.
+	  System.out.println("result : "+result);
+	  
+	  if (result > 0 ) {
+	    System.out.println("check if it is enter - Update");
+	    System.out.println(exchangeVO);
 	    accountDAO.doExchangeCurUpdate(exchangeVO);//record있으니 외화계좌에 해당 record에 balance 더하기
 	  } else {
+	    System.out.println("check if it is enter - Insert");
+	    System.out.println(exchangeVO);
 	    accountDAO.doExchangeCurInsert(exchangeVO);  // 외화계좌에 돈 insert
 	  }
 	  

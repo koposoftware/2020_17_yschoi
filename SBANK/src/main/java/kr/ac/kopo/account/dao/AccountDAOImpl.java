@@ -81,13 +81,26 @@ public class AccountDAOImpl implements AccountDAO {
   
   
   /**
-   * 환전하기에서 외화계좌에 환전하려는 통화와 관련된 record있는지 확인
+   * 외화계좌 번호 가져오기
    */
   @Override
-  public String chkCur(ExchangeVO account) {
-    String result = sqlSession.selectOne("account.dao.AccountDAO.chkCur", account);
+  public String chkCurAccount_num(ExchangeVO account) {
+    String result = sqlSession.selectOne("account.dao.AccountDAO.chkCurAccount_num", account);
     return result;
   }
+  
+  
+  
+  
+  /**
+   * 외화계좌에 해당 통화와 관련된 record 수 구하기
+   */
+  @Override
+  public int chkRecordCurrencyCode(ExchangeVO exchangeVO) {
+    int result = sqlSession.selectOne("account.dao.AccountDAO.chkRecordCurrencyCode", exchangeVO);
+    return result;
+  }
+
 
   /**
    * 환전하기 기능에서 외화계좌에 돈 insert
