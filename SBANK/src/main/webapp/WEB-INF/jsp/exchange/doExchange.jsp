@@ -179,12 +179,15 @@ $(document).ready(function() {
 	
 	$(document).ready(function(){
 	  $("#exchange_place").change(function(){
+	     let nowtime = new Date();
+	  
 
 	      if($("#exchange_place option:selected").val() == "own"){
 	        $('input[type="date"]').attr("disabled",true);// 비활성화
 	        
 	      }else{
 	        $("input:date[name=exchange_date]").attr("disabled",flase);
+	        $("input:date[name=exchange_date]").attr("value",'2020/01/01');
 	      }
 	  });
 	});
@@ -293,7 +296,7 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<th>외화수령일</th>
-						<td><input type="date" id="exchange_date" name="exchange_date"  /></td>
+						<td><input type="date" id="exchange_date" name="exchange_date" value=""  /></td>
 					</tr>
 				</table>
 		</div>
