@@ -74,9 +74,35 @@ public class ExchangeDAOImpl implements ExchangeDAO {
     // TODO Auto-generated method stub
     sqlSession.insert("exchange.dao.ExchangeDAO.doKakaoExchange",exchangeVO);
   }
+
+
+  /**
+   * 환전내역 아이디 기준 조회
+   */
+  @Override
+  public List<ExchangeVO> selectExchange(String id) {
+    List<ExchangeVO> exchangeList  = sqlSession.selectList("exchange.dao.ExchangeDAO.selectExchange", id);
+        
+    return exchangeList;
+  }
+
+
+  /**
+   * 환전 예약 내역 아이디 기준으로 조회
+   */
+  @Override
+  public List<ReserveVO> selectReserve(String id) {
+    
+    List<ReserveVO> reserveList = sqlSession.selectList("exchange.dao.ExchangeDAO.selectReserve", id);
+    
+    return reserveList;
+  }
 	
 	
 	
+  
+  
+  
 	
 	
 

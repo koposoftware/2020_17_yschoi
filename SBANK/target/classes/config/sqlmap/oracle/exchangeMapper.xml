@@ -47,4 +47,15 @@
         #{name},#{exchange_date},#{exchange_place},#{account_num} )
   </insert>
   
+  
+  <select id="selectExchange" parameterType="string" resultType="exchangeVO">
+    select * from S_EXCHANGE where id = #{id}
+  </select>
+  
+  <select id="selectReserve" parameterType="string" resultType="reserveVO">
+    select * from S_RESERVATION where id = #{id}
+  </select>
+  
+  
+  
 </mapper>

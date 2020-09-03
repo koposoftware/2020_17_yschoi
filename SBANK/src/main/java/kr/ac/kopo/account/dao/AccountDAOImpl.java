@@ -32,15 +32,24 @@ public class AccountDAOImpl implements AccountDAO {
 	 */
 	@Override
 	public List<AccountVO> selectAccount(String id) {
-		List<AccountVO> accountList = sqlSession.selectList("account.dao.AccountDAO.selectAll",id);
+		List<AccountVO> accountList = sqlSession.selectList("account.dao.AccountDAO.selectKrwAll",id);
 		
 		return accountList;
 	}
-
 	
 	
 	
 	/**
+	 * 회화 계좌 조회
+	 */
+	@Override
+  public List<AccountVO> selectCurAccount(String id) {
+	  List<AccountVO> accountCurList = sqlSession.selectList("account.dao.AccountDAO.selectCurAll",id);
+    return accountCurList;
+  }
+
+
+  /**
 	 * 계좌이체 출금
 	 */
 	@Override

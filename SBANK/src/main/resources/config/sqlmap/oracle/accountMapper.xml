@@ -4,12 +4,19 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "Http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="account.dao.AccountDAO">
-	<insert id="insert" parameterType="accountVO">
-      	insert into S_ACCOUNT(ID, BANK_NAME, ACCOUNT_NUM, BALANCE,NICK_NAME)
-      	values(#{id}, #{bank_name}, #{account_num}, #{balance},#{nick_name})
+	  <insert id="insert" parameterType="accountVO">
+      	insert into S_ACCOUNT(accountNo,ID, BANK_NAME, ACCOUNT_NUM, BALANCE,NICK_NAME,type)
+      	values( seq_S_ACCOUNT_no.nextval ,#{id}, #{bank_name}, #{account_num}, #{balance},#{nick_name},#{type})
     </insert> 
-    <select id="selectAll" resultType="accountVO" parameterType="string" >
-    	select * from S_ACCOUNT where id = #{id}
+    
+    <!--  원화계좌 모두 조회 -->
+    <select id="selectKrwAll" resultType="accountVO" parameterType="string" >
+    	select * from S_ACCOUNT where id = #{id} and type='K'
+    </select>
+    
+    <!--  외화계좌 모두 조회 -->
+    <select id="selectCurAll" resultType="accountVO" parameterType="string" >
+      select * from S_ACCOUNT where id = #{id} and type='C'
     </select>
     
     <!-- 계좌이체 출금 -->

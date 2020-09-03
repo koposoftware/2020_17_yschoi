@@ -79,6 +79,30 @@ public class ExchangeServiceImpl implements ExchangeService {
     // TODO Auto-generated method stub
     exchangeDAO.doKakaoExchange(exchangeVO);
   }
+
+  
+  /**
+   * 환전 내역 아이디 기준으로 조회
+   */
+  @Override
+  public List<ExchangeVO> selectExchange(String id) {
+    // TODO Auto-generated method stub
+    
+    List<ExchangeVO> exchangeList = exchangeDAO.selectExchange(id);
+    
+    return exchangeList;
+  }
+
+  /**
+   * 환전 예약 내역 아이디 기준 조회
+   */
+  @Override
+  public List<ReserveVO> selectReserve(String id) {
+    
+   List<ReserveVO> reserveList = exchangeDAO.selectReserve(id);
+    
+    return reserveList;
+  }
 	
 	
 	

@@ -31,16 +31,30 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public List<AccountVO> selectAccount(String id) {
 		
-		
 		List<AccountVO> accountList = accountdao.selectAccount(id);
-		
-
 		return accountList;
 	}
-
+	
+	
+	
+	
+	
+	
+	
 
 
 	/**
+	 * 외화 계좌 조회
+	 */
+	@Override
+  public List<AccountVO> selectCurAccount(String id) {
+	  List<AccountVO> accountCurList = accountdao.selectCurAccount(id);
+    return accountCurList;
+  }
+
+
+
+  /**
 	 * 계좌 이체
 	 */
 	@Override

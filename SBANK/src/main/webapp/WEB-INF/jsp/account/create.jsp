@@ -35,6 +35,13 @@
 						</td>
 					</tr>
 					<tr>
+					 <th>계좌 구분</th>
+					 <td>
+					   <INPUT TYPE=RADIO NAME=type id="type" VALUE='K'  CHECKED> 원화계좌
+             <INPUT TYPE=RADIO NAME=type id="type" VALUE='C'> 외화계좌
+					 </td>
+					</tr>
+					<tr>
 						<th width="23%">비밀번호</th>
 						<td><form:input type="password" path="bank_name" /> <form:errors
 								path="bank_name" cssStyle="color :red;" /></td>

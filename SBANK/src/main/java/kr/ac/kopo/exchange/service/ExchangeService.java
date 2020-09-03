@@ -44,10 +44,20 @@ public interface ExchangeService {
 	public void doKakaoExchange(ExchangeVO exchangeVO);
 	
 	
+	/**
+	 * 환전내역 아이디 기준으로 조회
+	 * @param exchangeVO
+	 * @return
+	 */
+	public List<ExchangeVO> selectExchange(String id);
 	
 	
-	
-	
+	/**
+	 * 환전 예약 내역 아아디 기준 조회
+	 * @param id
+	 * @return
+	 */
+	public List<ReserveVO> selectReserve(String id);
 	
 	
 	

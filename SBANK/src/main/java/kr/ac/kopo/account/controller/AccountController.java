@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.ac.kopo.account.service.AccountService;
 import kr.ac.kopo.account.vo.AccountVO;
+import kr.ac.kopo.exchange.service.ExchangeService;
 import kr.ac.kopo.member.vo.MemberVO;
 
 @Controller
@@ -23,6 +24,9 @@ public class AccountController {
 
 	@Autowired
 	private AccountService accountService;
+	
+
+	
 	
 	/**
 	 * 계좌 생성 폼 띄어주기
@@ -62,7 +66,7 @@ public class AccountController {
 	}
 	
 	/**
-	 * 나의 전체  계좌 조회
+	 * 나의 전체 계좌 조회 => 원화 + 외화
 	 * @param session
 	 * @return
 	 */
@@ -70,15 +74,16 @@ public class AccountController {
 	public ModelAndView myAccount(HttpSession session) {
 
 		MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
-
 		String id = userVO.getId();
-
-		List<AccountVO> accountList = accountService.selectAccount(id);
+		
+		List<AccountVO> accountList = accountService.selectAccount(id); //원화계좌 조회
+		List<AccountVO> accountCurList = accountService.selectCurAccount(id);
 
 		ModelAndView mav = new ModelAndView("account/myAccount");
 		mav.addObject("accountList", accountList);
+		mav.addObject("accountCurList", accountCurList);
 		
-//		for(AccountVO account : accountList) {
+//		for(AccountVO account : accountCurList) {
 //			System.out.println(account);
 //		}
 		
@@ -138,6 +143,14 @@ public class AccountController {
 	
 		return "redirect:/account/myAccount";
 	}
+	
+	
+
+	
+	
+	
+	
+	
 	
 
 }

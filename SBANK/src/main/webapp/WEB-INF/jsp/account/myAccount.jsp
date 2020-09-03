@@ -22,6 +22,11 @@
 				</header>
 			</div>
 		</div>
+		
+		<header class="section_title mb-50 major">
+      <h5>원화 계좌 내역 조회</h5>   
+    </header>
+		
 		<div class="table-wrapper">
 			<c:forEach items="${accountList}" var="account" varStatus="loop">
 				<form
@@ -53,6 +58,43 @@
 				<br>
 			</c:forEach>
 		</div>
+		
+		
+		
+		
+		<br><br><br>
+		<header class="section_title mb-50 major">
+      <h5>외화 계좌 내역 조회</h5>   
+    </header>
+    
+    <div class="table-wrapper">
+      <c:forEach items="${accountCurList}" var="account" varStatus="loop">
+        <form action="${pageContext.request.contextPath }/" method="post" id="formm">
+          <table border="1" class="table table-bordered">
+            <thead>
+            <tr>
+              <th>계좌번호</th>
+              <th>통화</th>
+              <th>잔액</th>
+              <th>별명</th>
+              <th>개설일자</th>
+            </tr>
+            </thead>
+            <tbody>
+              <td>${account.account_num}</td>
+              <td>${account.currencycode}</td>
+              <td>${account.balance}</td>
+              <td>${account.nick_name}</td>
+              <td>${account.reg_date}</td>
+            </tbody>
+
+          </table>
+        </form>
+        <br>
+      </c:forEach>
+    </div>
+		
+		
 
 	</div>
 

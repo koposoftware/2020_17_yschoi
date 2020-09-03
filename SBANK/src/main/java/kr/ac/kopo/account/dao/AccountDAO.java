@@ -19,6 +19,11 @@ public interface AccountDAO {
 	 */
 	public List<AccountVO> selectAccount(String id);
 	
+	/**
+	 * 외화계좌조회
+	 */
+	public List<AccountVO>  selectCurAccount(String id);
+	
 	
 	/**
 	 * 계좌이체 출금

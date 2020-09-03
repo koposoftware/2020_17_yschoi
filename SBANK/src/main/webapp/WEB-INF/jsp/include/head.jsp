@@ -119,17 +119,16 @@
 											<li><a href="#">bank<i class="ti-angle-down"></i></a>
 												<ul class="submenu">
 													<li><a
-														href="${pageContext.request.contextPath }/account/myAccount">내
-															계좌 조회</a></li>
+														href="${pageContext.request.contextPath }/account/myAccount">내 모든 계좌 조회</a></li>
 													<li><a
-														href="${pageContext.request.contextPath }/account/create">계좌개설</a></li>
-														<div class="dropdown-divider"></div>
+														href="${pageContext.request.contextPath }/account/create">계좌 개설</a></li>
+													<%--	<div class="dropdown-divider"></div>
 													<li><a
-														href="${pageContext.request.contextPath }/exchange/showAll">보유외화보기</a></li>
+                            href="${pageContext.request.contextPath }/account/myExchange">외화 계좌 개설</a></li>
 														<div class="dropdown-divider"></div>
 													<li><a
 														href="${pageContext.request.contextPath }/account/myAccount2">사이드바
-															테스트</a></li>
+															테스트</a></li> --%>
 												</ul></li>
 											<li><a href="#">exchange<i class="ti-angle-down"></i></a>
 												<ul class="submenu">
@@ -155,6 +154,11 @@
 														href="${pageContext.request.contextPath }/exchange/present">환전선물하기</a></li>
                           </c:otherwise>
                           </c:choose>
+                          <div class="dropdown-divider"></div>
+                          <li><a
+                            href="${pageContext.request.contextPath }/exchange/myExchange">환전 & 예약 내역 보기</a></li>
+                          <li><a
+                            href="${pageContext.request.contextPath }/account/myExchange">보유 외화 보기</a></li>
 												</ul></li>
 
 										</ul>

@@ -20,6 +20,14 @@ public interface AccountService {
 	List<AccountVO> selectAccount(String id);
 	
 	
+	/**
+	 * 외화 계좌 조회
+	 * @param id
+	 * @return
+	 */
+	List<AccountVO> selectCurAccount(String id);
+	
+	
 	
 	
 	/**

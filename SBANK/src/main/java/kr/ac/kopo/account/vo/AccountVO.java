@@ -1,11 +1,14 @@
 package kr.ac.kopo.account.vo;
 
 public class AccountVO {
+  private int accountNo;
 	private String id;
 	private String bank_name;
 	private String account_num;
 	private int balance;
 	private String nick_name;
+	private String type;
+	private String currencycode;
 	private String reg_date;
 	
 	
@@ -34,9 +37,56 @@ public class AccountVO {
 		this.balance = balance;
 		this.nick_name = nick_name;
 	}
+	
+	
+	
+	
+	
 
 
-	public String getId() {
+	public AccountVO(String id, String bank_name, String account_num, int balance, String nick_name, String type, String reg_date) {
+    super();
+    this.id = id;
+    this.bank_name = bank_name;
+    this.account_num = account_num;
+    this.balance = balance;
+    this.nick_name = nick_name;
+    this.type = type;
+    this.reg_date = reg_date;
+  }
+	
+	
+	
+	
+	
+	
+
+
+  public AccountVO(int accountNo, String id, String bank_name, String account_num, int balance, String nick_name, String type, String currencycode, String reg_date) {
+    super();
+    this.accountNo = accountNo;
+    this.id = id;
+    this.bank_name = bank_name;
+    this.account_num = account_num;
+    this.balance = balance;
+    this.nick_name = nick_name;
+    this.type = type;
+    this.currencycode = currencycode;
+    this.reg_date = reg_date;
+  }
+
+
+  public int getAccountNo() {
+    return accountNo;
+  }
+
+
+  public void setAccountNo(int accountNo) {
+    this.accountNo = accountNo;
+  }
+
+
+  public String getId() {
 		return id;
 	}
 
@@ -84,9 +134,34 @@ public class AccountVO {
 	public void setNick_name(String nick_name) {
 		this.nick_name = nick_name;
 	}
+	
+	
+	
 
 
-	public String getReg_date() {
+	public String getType() {
+    return type;
+  }
+
+
+  public void setType(String type) {
+    this.type = type;
+  }
+  
+  
+
+
+  public String getCurrencycode() {
+    return currencycode;
+  }
+
+
+  public void setCurrencycode(String currencycode) {
+    this.currencycode = currencycode;
+  }
+
+
+  public String getReg_date() {
 		return reg_date;
 	}
 
@@ -96,11 +171,15 @@ public class AccountVO {
 	}
 
 
-	@Override
-	public String toString() {
-		return "AccountVO [id=" + id + ", bank_name=" + bank_name + ", account_num=" + account_num + ", balance="
-				+ balance + ", nick_name=" + nick_name + ", reg_date=" + reg_date + "]";
-	}
+  @Override
+  public String toString() {
+    return "AccountVO [accountNo=" + accountNo + ", id=" + id + ", bank_name=" + bank_name + ", account_num=" + account_num + ", balance=" + balance + ", nick_name=" + nick_name + ", type=" + type + ", currencycode=" + currencycode + ", reg_date=" + reg_date + "]";
+  }
+
+
+  
+
+	
 	
 	
 	

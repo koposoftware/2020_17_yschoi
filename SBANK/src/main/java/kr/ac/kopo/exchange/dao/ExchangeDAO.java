@@ -45,6 +45,25 @@ public interface ExchangeDAO {
 	public void doKakaoExchange(ExchangeVO exchangeVO);
 	
 	
+	/**
+	 * 환전내역 id 기준으로 조회
+	 * @param id
+	 * @return
+	 */
+	public List<ExchangeVO> selectExchange(String id);
+	
+	
+	
+	
+	/**
+	 * 환전 예약 내역 id기준으로 조회
+	 * @param id
+	 * @return
+	 */
+	public List<ReserveVO> selectReserve(String id);
+	
+	
+	
 	
 	
 	

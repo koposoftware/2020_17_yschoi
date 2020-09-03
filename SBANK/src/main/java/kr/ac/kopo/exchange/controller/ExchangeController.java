@@ -207,5 +207,40 @@ public class ExchangeController {
     return mav;
   } 
 	
+	
+	
+	 /**
+   * 환전 & 환전 내역 보기
+   * @param session
+   * @return
+   */
+  @GetMapping("/exchange/myExchange")
+  public ModelAndView myExchange(HttpSession session) {
+
+    MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
+    String id = userVO.getId();
+
+    List<ExchangeVO> exchangeList = exchangeService.selectExchange(id); // 환전내역 가져오기
+    List<ReserveVO> reserveList = exchangeService.selectReserve(id); //환전 예약 내역 가져오기
+
+    ModelAndView mav = new ModelAndView("account/myExchange");
+    mav.addObject("exchangeList", exchangeList);
+    mav.addObject("reserveList", reserveList);
+    
+//  for(ReserveVO account : reserveList) {
+//    System.out.println(account);
+//  }
+    
+
+    
+    return mav;
+  }
+  
+  
+  
+	
+	
+	
+	
 
 }
