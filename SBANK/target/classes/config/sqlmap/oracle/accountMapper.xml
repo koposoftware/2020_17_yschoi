@@ -36,6 +36,22 @@
       update S_ACCOUNT set balance = balance - #{exchangecharge} where account_num=#{account_num}
     </update>
     
+    <!-- 환전하기에서 외화계좌에 환전하려는 통화와 관련된 record있는지 확인 -->
+    <select id="chkCur" parameterType="exchangeVO" resultType="string">
+      select ACCOUNT_NUM from s_account where id =#{id} and type='C'
+    </select>
+    
+    
+    <!-- 환전하기 기능에서 외화계좌에 돈 insert -->
+<!--     <insert id="doExchangeCurInsert" parameterType="exchangeVO">
+      
+    </insert> -->
+    
+    <!-- 환전하기 기능에서 외화계좌에 돈 update -->
+<!--     <update id="">
+      
+    </update> -->
+    
     
     <!-- 계좌비밀번호 확인. 리턴값 잔액 -->
     <select id="chkPassword" parameterType="accountVO" resultType="int">

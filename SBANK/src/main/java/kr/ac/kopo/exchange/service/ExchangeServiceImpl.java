@@ -54,11 +54,17 @@ public class ExchangeServiceImpl implements ExchangeService {
 	  AccountVO chkVO = new AccountVO();
 	  chkVO.setAccount_num(exchangeVO.getAccount_num());
 
+	  accountDAO.doExchangeKrw(exchangeVO);  // 원화계좌에서 돈 출금
 	  
-		
-	  accountDAO.doExchange(exchangeVO);  // 원화계좌에서 돈 출금
+	  String result = accountDAO.chkCur(exchangeVO);    //외화계좌에 환전하려는 통화와 관련된 record있는지 확인
+	  
+	  if (result.length() > 1 ) {
+	    accountDAO.doExchangeCurUpdate(exchangeVO);//record있으니 외화계좌에 해당 record에 balance 더하기
+	  } else {
+	    accountDAO.doExchangeCurInsert(exchangeVO);  // 외화계좌에 돈 insert
+	  }
+	  
 		exchangeDAO.doExchange(exchangeVO); // exchange 테이블에 record insert
-		
 	}
 
 	/**

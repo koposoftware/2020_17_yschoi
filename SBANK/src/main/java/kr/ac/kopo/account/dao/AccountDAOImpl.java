@@ -72,11 +72,44 @@ public class AccountDAOImpl implements AccountDAO {
 	 * 환전하기 기능. 원화계좌에서 환전시 필요한만큼의 돈 빼기!
 	 */
   @Override
-  public void doExchange(ExchangeVO exchangeVO) {
+  public void doExchangeKrw(ExchangeVO exchangeVO) {
     // TODO Auto-generated method stub
     sqlSession.update("account.dao.AccountDAO.doExchange", exchangeVO);
     
   }
+  
+  
+  
+  /**
+   * 환전하기에서 외화계좌에 환전하려는 통화와 관련된 record있는지 확인
+   */
+  @Override
+  public String chkCur(ExchangeVO account) {
+    String result = sqlSession.selectOne("account.dao.AccountDAO.chkCur", account);
+    return result;
+  }
+
+  /**
+   * 환전하기 기능에서 외화계좌에 돈 insert
+   */
+  @Override
+  public void doExchangeCurInsert(ExchangeVO exchangeVO) {
+    // TODO Auto-generated method stub
+    sqlSession.insert("account.dao.AccountDAO.doExchangeCurInsert", exchangeVO);
+  }
+  
+  
+
+  /**
+   * 환전하기 기능에서 외화계좌에 돈 update
+   */
+  @Override
+  public void doExchangeCurUpdate(ExchangeVO exchangeVO) {
+    // TODO Auto-generated method stub
+    sqlSession.update("account.dao.AccountDAO.doExchangeCurUpdate", exchangeVO);
+    
+  }
+
 
   /**
    * 계좌 비밀번호 확인

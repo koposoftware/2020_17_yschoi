@@ -42,7 +42,29 @@ public interface AccountDAO {
 	 * 환전하기 기능. 원화계좌에서 환전시 필요한만큼의 돈 빼기!
 	 * @param exchangeVO
 	 */
-	public void doExchange(ExchangeVO exchangeVO);
+	public void doExchangeKrw(ExchangeVO exchangeVO);
+	
+	
+	/**
+	 * 환전 시 외화에 돈 insert할때 환전하려는 통화와 관련된 record있는지 확인하기
+	 * @param account
+	 * @return
+	 */
+	public String chkCur (ExchangeVO account);
+	
+	
+	/**
+	 * 환전하기 기능. 외화계좌에 돈 insert
+	 * @param exchangeVO
+	 */
+	public void doExchangeCurInsert(ExchangeVO exchangeVO);
+	
+	
+	/**
+	 * 환전하기 기능. 외화계좌에 돈 update
+	 * @param exchangeVO
+	 */
+	public void doExchangeCurUpdate(ExchangeVO exchangeVO);
 	
 	
 	/**

@@ -90,25 +90,21 @@ public class ExchangeController {
 	  chkVO.setAccount_num(exchangeVO.getAccount_num());
 	  chkVO.setBank_name(bank_name);
 	  System.out.println(chkVO);
+	  
 	  int result = accountService.chkPassword(chkVO);
 	  System.out.println("비번 확인 후 record 수 : " + result);
 	  
-	  if(result == 0 ) {
+	  if(result == 0 ) { //비밀번호가 틀리면
 	    System.out.println("비밀번호를 확인하세요.");
 	    return "exchange/guide";
 	  }
-	  else {
+	  else {  // 비밀번호가 맞으면
 	  
 	  
 		MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
 		String id = userVO.getId();
 		exchangeVO.setId(id);
 		
-		
-
-		
-		//System.out.println("환전하기 컨트롤러");
-		//System.out.println(exchangeVO);
 		
 		exchangeService.doExchange(exchangeVO); // 환전하기
 		
