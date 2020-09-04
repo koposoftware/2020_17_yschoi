@@ -253,7 +253,7 @@ $(document).ready(function() {
 					<tr>
 						<th>통화종류</th>
 						<td><select name="currencycode" id="currencycode"
-							onchange="chageCurrencySelect()">
+							onchange="chageCurrencySelect()" class="form-control" aria-describedby="inputGroupSuccess1Status">
 								<option value="a" selected disabled  >- 통화를 선택하세요 -</option>
 								<option value="USD">미국달러(USD)</option>
 								<option value="EUR">유럽유로(EUR)</option>
@@ -263,12 +263,12 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<th>환전금액(외화)</th>
-						<td><input type="text" id="exchangeprice" name="exchangeprice" onkeyup="keyevent(this);" /></td>
+						<td><input type="text" id="exchangeprice" name="exchangeprice" onkeyup="keyevent(this);" class="form-control" aria-describedby="inputGroupSuccess1Status" /></td>
 					</tr>
 					<tr>
 						<th>현재 고시환율(원)</th>
 						<td>
-							<span id = "rate" name = "rate"></span>
+							<span id = "rate" name = "rate" ></span>
 							<input type="hidden" id="rateHidden" name="rateHidden" value="" >
 						</td>
 					</tr>
@@ -316,7 +316,7 @@ $(document).ready(function() {
 					<tr>
 						<th>수령지점 / 소유여부</th>
 						<td>
-							<select name="exchange_place" id="exchange_place" class="accountnum" onchange="categoryChange(this)" >
+							<select name="exchange_place" id="exchange_place" class="accountnum" onchange="categoryChange(this)" class="form-control" aria-describedby="inputGroupSuccess1Status" >
 								<option value="a" selected disabled  >- 수령지점 / 개인 소유 여부를 선택하세요 -</option>
 								<option value="own">개인소유</option>
 								<option value="인천국제공항">인천국제공항</option>
@@ -328,7 +328,7 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<th>외화수령일</th>
-						<td><input type="date" id="exchange_date" name="exchange_date" value=""  /></td>
+						<td><input type="date" id="exchange_date" name="exchange_date" value="" class="form-control" aria-describedby="inputGroupSuccess1Status"  /></td>
 					</tr>
 				</table>
 		</div>
@@ -348,14 +348,14 @@ $(document).ready(function() {
 						
 						<div id="make" name="make" class="name"></div>
 						
-							<select name="account_num" id="account_num" >
+							<select name="account_num" id="account_num" class="form-control" aria-describedby="inputGroupSuccess1Status" >
 								<option value="a" selected disabled  >- 출금 계좌를 선택하세요 -</option>
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<th>계좌비밀번호</th>
-						<td><input type="password" id="bank_name" name="bank_name" /></td>
+						<td><input type="password" id="bank_name" name="bank_name" class="form-control" aria-describedby="inputGroupSuccess1Status" /></td>
 					</tr>
 				</table>
 					<input type="hidden" id="" name="" value="${loginVO.id}" >

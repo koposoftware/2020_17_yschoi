@@ -125,7 +125,7 @@ $(document).ready(function() {
           <tr>
             <th>통화종류</th>
             <td><select name="currencycode" id="currencycode"
-              onchange="chageCurrencySelect()">
+              onchange="chageCurrencySelect()" class="form-control" aria-describedby="inputGroupSuccess1Status">
                 <option value="a" selected disabled  >- 통화를 선택하세요 -</option>
                 <option value="USD">미국달러(USD)</option>
                 <option value="EUR">유럽유로(EUR)</option>
@@ -135,7 +135,7 @@ $(document).ready(function() {
           </tr>
           <tr>
             <th>환전금액(외화)</th>
-            <td><input type="text" id="exchangeprice" name="exchangeprice" onkeyup="keyevent(this);" /></td>
+            <td><input type="text" id="exchangeprice" name="exchangeprice" onkeyup="keyevent(this);" class="form-control" aria-describedby="inputGroupSuccess1Status" /></td>
           </tr>
           <tr>
             <th>현재 고시환율(원)</th>
@@ -182,17 +182,17 @@ $(document).ready(function() {
           <tr>
             <th>수령인</th>
             <td>
-              <input type="text" id="name" name="name" />
+              <input type="text" id="name" name="name" class="form-control" aria-describedby="inputGroupSuccess1Status" />
             </td>
           </tr>
           <tr>
             <th>외화수령일</th>
-            <td><input type="date" id="exchange_date" name="exchange_date" /></td>
+            <td><input type="date" id="exchange_date" name="exchange_date" class="form-control" aria-describedby="inputGroupSuccess1Status" /></td>
           </tr>
           <tr>
             <th>수령지점</th>
             <td>
-              <select name="exchange_place" id="exchange_place" >
+              <select name="exchange_place" id="exchange_place" class="form-control" aria-describedby="inputGroupSuccess1Status" >
                 <option value="a" selected disabled  >- 수령지점을 선택하세요 -</option>
                 <option value="인천국제공항">인천국제공항</option>
                 <option value="김포공항">김포공항</option>
@@ -218,7 +218,7 @@ $(document).ready(function() {
             <td>
                                      비회원고객은 카카오페이로만 결제가 가능합니다.
                 <input type="hidden" id="id" name="id" value="${loginVO.id}" >
-                <button class="btn btn-outline-dark"><img src="${pageContext.request.contextPath }/resources/img/pay.png" /></button>
+                <button class="btn"><img src="${pageContext.request.contextPath }/resources/img/pay.png" /></button>
             </td>
           </tr>
         </table>

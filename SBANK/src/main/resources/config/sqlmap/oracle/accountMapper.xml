@@ -41,9 +41,14 @@
       select ACCOUNT_NUM from s_account where id =#{id} and type='C'
     </select>
     
+    <!-- S_CURLIST에 해당 통화와 관련된 record있는지 확인 -->
     <select id="chkRecordCurrencyCode" parameterType="exchangeVO" resultType="int">
       select count(*) from S_CURLIST 
         where account_num = #{reg_date} and currencycode=#{currencycode}
+    </select>
+    <select id="chkRecordS_CURLIST" parameterType="curlistVO" resultType="int">
+      select count(*) from S_CURLIST 
+        where account_num = #{account_num_to} and currencycode=#{currencycode}
     </select>
     
     

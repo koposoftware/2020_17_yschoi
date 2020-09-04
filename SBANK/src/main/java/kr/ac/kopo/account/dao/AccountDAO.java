@@ -5,6 +5,7 @@ import java.util.List;
 import kr.ac.kopo.account.vo.AccountVO;
 import kr.ac.kopo.board.vo.BoardVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
+import kr.ac.kopo.exchange.vo.PresentVO;
 
 public interface AccountDAO {
 	/**
@@ -60,6 +61,7 @@ public interface AccountDAO {
 	 * @return
 	 */
 	public int chkRecordCurrencyCode(ExchangeVO exchangeVO);
+	public int chkRecordS_CURLIST(PresentVO presentVO);
 	
 	
 	/**

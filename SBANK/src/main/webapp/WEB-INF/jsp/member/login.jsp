@@ -83,18 +83,18 @@ document.addEventListener("DOMContentLoaded", function () {
         <div align="center">
             <!-- form은 이름으로 접근하기 위해서 js에서 name 속성 넣음 -->
             <form action="${pageContext.request.contextPath }/login" method="post" name="lform" onsubmit="return checkForm()">
-                <table style="width: 40%">
+                <table style="width: 50%" class="">
                     <tr>
                         <th>ID</th>
-                        <td><input type="text" name="id"></td>
+                        <td><input type="text" name="id" class="form-control" aria-describedby="inputGroupSuccess1Status"></td>
                     </tr>
                     <tr>
-                        <th>PASSWORD</th>
-                        <td><input type="password" name="password"></td>
+                        <th><br>PASSWORD</th>
+                        <td><br><input type="password" name="password" class="form-control" aria-describedby="inputGroupSuccess1Status"></td>
                     </tr>
                 </table>
                 <br>
-                <button type="submit">로그인</button>
+                <button type="submit" class="btn btn-outline-dark">로그인</button>
             </form>
             <br><br>
             <a id="kakao-login-btn"></a><br>

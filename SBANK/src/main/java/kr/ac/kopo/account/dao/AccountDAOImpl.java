@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import kr.ac.kopo.account.vo.AccountVO;
 import kr.ac.kopo.board.vo.BoardVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
+import kr.ac.kopo.exchange.vo.PresentVO;
 
 @Repository
 public class AccountDAOImpl implements AccountDAO {
@@ -98,6 +99,11 @@ public class AccountDAOImpl implements AccountDAO {
   @Override
   public int chkRecordCurrencyCode(ExchangeVO exchangeVO) {
     int result = sqlSession.selectOne("account.dao.AccountDAO.chkRecordCurrencyCode", exchangeVO);
+    return result;
+  }
+  @Override
+  public int chkRecordS_CURLIST(PresentVO presentVO) {
+    int result = sqlSession.selectOne("account.dao.AccountDAO.chkRecordS_CURLIST", presentVO);
     return result;
   }
 

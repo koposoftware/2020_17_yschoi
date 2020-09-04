@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import kr.ac.kopo.exchange.vo.CurlistVO;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
+import kr.ac.kopo.exchange.vo.PresentVO;
 import kr.ac.kopo.exchange.vo.ReserveVO;
 
 
@@ -68,6 +69,18 @@ public interface ExchangeService {
 	 * @return
 	 */
 	public List<CurlistVO> selectCurrency(String id);
+	
+	
+	
+	
+	/**
+	 * 외화선물하기
+	 * @param presentVO
+	 */
+	public void exchangeTransfer(PresentVO presentVO);
+	
+	
+	
 	
 	
 	

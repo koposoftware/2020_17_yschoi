@@ -8,9 +8,8 @@
 
   $(document).ready(function() {
 
-    // 외화보유내역 리스트 가져오기
-
-    $.ajax({
+  // 외화보유내역 리스트 가져오기
+  $.ajax({
     url : '${ pageContext.request.contextPath }/account/returnmyCurrency/${loginVO.id}',
     type : 'get',
     success : function(data) {
@@ -22,9 +21,9 @@
 
         let str = '';
 
-        str += '<option class="acc" name="acc" value='+this.currencycode+' id='+this.balance+'>' + '[ 통화명 : ' + this.currencycode + ', 잔액:' + this.balance + '원]</option>';
+        str += '<option value='+this.currencycode+' id='+this.currencycode+'>' + '[ 통화명 : ' + this.currencycode + ', 잔액:' + this.balance + '원]</option>';
 
-        $('#CURRENCYCODE').append(str);
+        $('#currencycode').append(str);
 
       })
 
@@ -36,6 +35,11 @@
       /* 뭘해줘야할까 */
     }
     })
+    
+    
+    
+    
+    
 
   })
 </script>
@@ -56,25 +60,36 @@
     
     <div class="table-wrapper">
       
-        <form
-          action="${pageContext.request.contextPath }/account/accountTransfer"
-          method="post" id="formm">
+        <form action="${pageContext.request.contextPath }/exchange/exchangeTransfer" method="post" >
           <table border="1" class="table table-bordered">
-          <input type="hidden" id="account_num" name="account_num" value="abv">
             <tr>
               <th>통화 선택</th>
               <td>
-                <select name="CURRENCYCODE" id="CURRENCYCODE" >
+                <select name="currencycode" id="currencycode" class="form-control"  >
                   <option value="a" selected disabled  >- 선물할 통화를 선택하세요 -</option>
                 </select>
               </td>
             </tr>
             <tr>
-              <th>잔액</th>
-              <td>${account.balance}</td>
+              <th>선물할 금액</th>
+              <td>
+                <input type="number" class="form-control" aria-describedby="inputGroupSuccess1Status" id="balance" name="balance" >
+              </td>
+            </tr>
+            <tr>
+              <th>선물받을 분 계좌</th>
+              <td>
+                <input type="text" class="form-control" aria-describedby="inputGroupSuccess1Status" id="account_num_to" name="account_num_to">
+              </td>
+            </tr>
+            <tr>
+              <th>선물받을 분 이름</th>
+              <td>
+                <input type="text" id="name" name="name" class="form-control" aria-describedby="inputGroupSuccess1Status" >
+              </td>
             </tr>
           </table>
-          <button>선물하기</button>
+          <button class="btn btn-outline-dark">선물하기</button>
         </form>
         <br>
       

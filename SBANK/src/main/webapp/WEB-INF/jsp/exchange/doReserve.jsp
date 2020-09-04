@@ -208,7 +208,7 @@
 												<td rowspan="4">그래프으</td>
 										</tr>
 										<tr>
-												<td><select name="currencycode" id="currencycode">
+												<td><select name="currencycode" id="currencycode" class="form-control" aria-describedby="inputGroupSuccess1Status">
 																<option value="a" selected disabled>- 통화를 선택하세요 -</option>
 																<option value="USD">미국달러(USD)</option>
 																<option value="EUR">유럽유로(EUR)</option>
@@ -216,12 +216,12 @@
 																<option value="GBP">영국파운드(GBP)</option>
 												</select></td>
 												<td colspan="2">
-												  <input type="text" id="exchangeprice" name="exchangeprice" onkeyup="keyevent(this);" placeholder ="환전 원하는 금액을 입력하세요" >
+												  <input type="text" id="exchangeprice" name="exchangeprice" onkeyup="keyevent(this);" placeholder ="환전 원하는 금액을 입력하세요" class="form-control" aria-describedby="inputGroupSuccess1Status" >
 												</td>
 										</tr>
 										<tr>
 										  <td colspan="3">
-										        목표환율 : <input type="text" id="reserverate" name="reserverate" onkeyup="keyevent(this);" placeholder ="목표환율을 입력하세요" >
+										        목표환율 : <input type="text" id="reserverate" name="reserverate" onkeyup="keyevent(this);" placeholder ="목표환율을 입력하세요" class="form-control" aria-describedby="inputGroupSuccess1Status" >
 										  </td>
 										</tr>
 										<tr>
@@ -249,21 +249,21 @@
 										<tr>
 										  <td>마지막 환전일</td>
 										  <td>
-										    <input type="date" id="max_date" name="max_date" /><br>
+										    <input type="date" id="max_date" name="max_date" class="form-control" aria-describedby="inputGroupSuccess1Status" /><br>
 										          값을 비워주시면 자동적으로 1년이 설정됩니다.
 										  </td>
 										</tr>
 										<tr>
             <th>출금계좌번호</th>
             <td>
-              <select name="account_num" id="account_num" class="account_num" >
+              <select name="account_num" id="account_num" class="account_num" class="form-control" aria-describedby="inputGroupSuccess1Status" >
                 <option value="a" selected disabled  >- 출금 계좌를 선택하세요 -</option>
               </select>
             </td>
           </tr>
           <tr>
             <th>계좌비밀번호</th>
-            <td><input type="password" id="bank_name" name="bank_name" /></td>
+            <td><input type="password" id="bank_name" name="bank_name" class="form-control" aria-describedby="inputGroupSuccess1Status" /></td>
           </tr>
 								</table>
 										<button class="btn btn-outline-dark" id="subm" name="subm" >환전하기</button>

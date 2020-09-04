@@ -25,6 +25,7 @@ import kr.ac.kopo.exchange.service.ExchangeService;
 import kr.ac.kopo.exchange.vo.CurlistVO;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
+import kr.ac.kopo.exchange.vo.PresentVO;
 import kr.ac.kopo.exchange.vo.ReserveVO;
 import kr.ac.kopo.member.vo.MemberVO;
 import kr.ac.kopo.reply.vo.ReplyVO;
@@ -273,6 +274,32 @@ public class ExchangeController {
     System.out.println("id::: "+id);
     List<CurlistVO> myCurrency = exchangeService.selectCurrency(id);
     return myCurrency;
+  }
+  
+  
+  /**
+   * 외화선물하기
+   * @param presentVO
+   * @param session
+   */
+  @PostMapping("/exchange/exchangeTransfer")
+  public ModelAndView exchangeTransfer(PresentVO presentVO,HttpSession session) {
+//    exchangeService.exchangeTransfer(presentVO);
+    
+    MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
+    String id = userVO.getId();
+    List<AccountVO> accountCurList = accountService.selectCurAccount(id);
+    String account_num ="";
+    for(AccountVO account : accountCurList) {
+      account_num = account.getAccount_num();  // 외화계좌 번호
+    }
+    presentVO.setAccount_num(account_num);
+    
+    exchangeService.exchangeTransfer(presentVO);
+    
+    System.out.println(presentVO);
+    ModelAndView mav = new ModelAndView("account/myCurrency");
+    return mav;
   }
   
   

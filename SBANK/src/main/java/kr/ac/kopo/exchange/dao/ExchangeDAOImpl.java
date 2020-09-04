@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import kr.ac.kopo.exchange.vo.CurlistVO;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
+import kr.ac.kopo.exchange.vo.PresentVO;
 import kr.ac.kopo.exchange.vo.ReserveVO;
 
 @Repository
@@ -107,6 +108,37 @@ public class ExchangeDAOImpl implements ExchangeDAO {
   public List<CurlistVO> selectCurrency(String accounnt_num) {
     List<CurlistVO> curlist = sqlSession.selectList("exchange.dao.ExchangeDAO.selectCurrency", accounnt_num);
     return curlist;
+  }
+
+
+  /**
+   * 외화선물하기 - 출금
+   */
+  @Override
+  public void transfer1(PresentVO presentVO) {
+    // TODO Auto-generated method stub
+    sqlSession.update("exchange.dao.ExchangeDAO.transfer1", presentVO);
+  }
+
+
+  /**
+   * 외화선물하기 - 입금 - update
+   */
+  @Override
+  public void transfer2(PresentVO presentVO) {
+    // TODO Auto-generated method stub
+    sqlSession.update("exchange.dao.ExchangeDAO.transfer2", presentVO);
+    
+  }
+
+
+  /**
+   * 외화선물하기 - 입금 - insert
+   */
+  @Override
+  public void transfer2_2(PresentVO presentVO) {
+    // TODO Auto-generated method stub
+    sqlSession.update("exchange.dao.ExchangeDAO.transfer2_2", presentVO);
   }
 	
 	

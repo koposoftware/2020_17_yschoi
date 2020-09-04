@@ -13,5 +13,6 @@
 		<typeAlias type="kr.ac.kopo.exchange.vo.ExchangeVO" alias="exchangeVO"/>
 		<typeAlias type="kr.ac.kopo.exchange.vo.ReserveVO" alias="reserveVO"/>
 		<typeAlias type="kr.ac.kopo.exchange.vo.CurlistVO" alias="curlistVO"/>
+		<typeAlias type="kr.ac.kopo.exchange.vo.PresentVO" alias="presentVO"/>
 	</typeAliases>
 </configuration>

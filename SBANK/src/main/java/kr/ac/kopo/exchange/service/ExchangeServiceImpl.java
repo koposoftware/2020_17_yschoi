@@ -11,6 +11,7 @@ import kr.ac.kopo.exchange.dao.ExchangeDAO;
 import kr.ac.kopo.exchange.vo.CurlistVO;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
+import kr.ac.kopo.exchange.vo.PresentVO;
 import kr.ac.kopo.exchange.vo.ReserveVO;
 
 @Service
@@ -143,6 +144,22 @@ public class ExchangeServiceImpl implements ExchangeService {
     List<CurlistVO> curlist  = exchangeDAO.selectCurrency(CurAccount_num);
     
     return curlist;
+  }
+
+  /**
+   * 외화 선물하기
+   */
+  @Override
+  public void exchangeTransfer(PresentVO presentVO) {
+    
+    exchangeDAO.transfer1(presentVO); //출금
+    int record = accountDAO.chkRecordS_CURLIST(presentVO);
+    System.out.println("record : : "+record);
+    if( record == 1 ) {
+      exchangeDAO.transfer2(presentVO); //입금 - update
+    }else {
+      exchangeDAO.transfer2_2(presentVO); //입금 - insert
+    }
   }
 	
 	

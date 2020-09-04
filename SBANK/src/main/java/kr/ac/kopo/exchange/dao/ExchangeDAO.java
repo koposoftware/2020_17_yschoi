@@ -5,6 +5,7 @@ import java.util.List;
 import kr.ac.kopo.exchange.vo.CurlistVO;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
+import kr.ac.kopo.exchange.vo.PresentVO;
 import kr.ac.kopo.exchange.vo.ReserveVO;
 
 public interface ExchangeDAO {
@@ -70,6 +71,30 @@ public interface ExchangeDAO {
 	 * @return
 	 */
 	public List<CurlistVO> selectCurrency(String accounnt_num);
+	
+	
+	/**
+	 * 외화 선물하기 - 출금로직
+	 */
+	public void transfer1(PresentVO presentVO);
+	
+	
+	
+	/**
+	 * 외화선물하기 - 입금로직 - update
+	 * @param presentVO
+	 */
+	public void transfer2(PresentVO presentVO);
+	
+	
+	/**
+   * 외화선물하기 - 입금로직 - insert
+   * @param presentVO
+   */
+	public void transfer2_2(PresentVO presentVO);
+	
+	
+	
 	
 	
 	

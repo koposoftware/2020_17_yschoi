@@ -61,5 +61,20 @@
     select * from S_CURLIST where account_num = #{account_num}
   </select>
   
+  <!-- 외화선물하기 출금 -->
+  <update id="transfer1" parameterType="presentVO">
+    update S_CURLIST set balance = balance - #{balance} where account_num = #{account_num}
+  </update>
+  
+  <!-- 외화선물하기 입금 - update -->
+  <update id="transfer2" parameterType="presentVO">
+    update S_CURLIST set balance = balance + #{balance} where account_num = #{account_num_to}
+  </update>
+  
+  <insert id="transfer2_2" parameterType="presentVO">
+    insert into S_CURLIST 
+      values(seq_S_CURLIST_no.nextval, #{account_num_to}, #{currencycode}, #{balance})
+  </insert>
+  
   
 </mapper>
