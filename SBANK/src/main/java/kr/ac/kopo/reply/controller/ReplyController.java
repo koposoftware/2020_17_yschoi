@@ -118,8 +118,24 @@ public class ReplyController {
    
    
    
-   
-   
+   @GetMapping("/exchange/getCurAccount_num")
+   public String getCurAccount_num(HttpSession session) {
+     MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
+     String id = userVO.getId();
+     List<AccountVO> curAccount = accountService.selectCurAccount(id);
+     
+     String CurAccount_num = "";
+     
+     for(AccountVO account  : curAccount) {
+       if (account.getAccount_num() != null) {
+         CurAccount_num=account.getAccount_num();
+       } else {
+         CurAccount_num="a";
+       }
+     }
+     
+     return CurAccount_num;
+   }
    
    
 }

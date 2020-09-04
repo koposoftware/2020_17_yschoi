@@ -38,7 +38,7 @@
                         <td><form:textarea path="content" rows="4" cols="100" /> <form:errors path="content" cssStyle="color :red;" /></td>
                     </tr>
                 </table>
-                <button>등록</button>
+                <button class="btn btn-outline-dark">등록</button>
             </form:form>
     </div>
 

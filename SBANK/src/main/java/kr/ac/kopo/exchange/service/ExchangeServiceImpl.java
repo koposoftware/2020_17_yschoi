@@ -50,38 +50,45 @@ public class ExchangeServiceImpl implements ExchangeService {
 	 * 환전하기 기능
 	 */
 	@Override
-	public void doExchange(ExchangeVO exchangeVO) {
-	  
-	  AccountVO chkVO = new AccountVO();
-	  chkVO.setAccount_num(exchangeVO.getAccount_num());
-
-	  accountDAO.doExchangeKrw(exchangeVO);  // 원화계좌에서 돈 출금
-	  
-	  String CurAccount_num = accountDAO.chkCurAccount_num(exchangeVO.getId());    //외화계좌 번호 가져오기
-	  System.out.println("외화 계좌의 번호 : "+CurAccount_num);
-	  exchangeVO.setReg_date(CurAccount_num);
-	  //System.out.println("값확인하자"+exchangeVO);
-	  
-	  int result = accountDAO.chkRecordCurrencyCode(exchangeVO); // 외화 계좌에 해당 통화 관련 record 있는지 확인.
-	  System.out.println("result : "+result);
-	  System.out.println(exchangeVO.getExchange_place());
-	  if (exchangeVO.getExchange_place().equals("own")) {
-	    System.out.println("own");
-	    exchangeVO.setExchange_date("");
-	  }
-	  
-	  if (result > 0 ) {
-	    //System.out.println("check if it is enter - Update");
-	    System.out.println(exchangeVO);
-	    accountDAO.doExchangeCurUpdate(exchangeVO);//record있으니 외화계좌에 해당 record에 balance 더하기
-	  } else {
-	    //System.out.println("check if it is enter - Insert");
-	    System.out.println(exchangeVO);
-	    accountDAO.doExchangeCurInsert(exchangeVO);  // 외화계좌에 돈 insert
-	  }
-	  
-		exchangeDAO.doExchange(exchangeVO); // exchange 테이블에 record insert
-	}
+  public void doExchange(ExchangeVO exchangeVO) {
+    
+    AccountVO chkVO = new AccountVO();
+    chkVO.setAccount_num(exchangeVO.getAccount_num());
+    
+    accountDAO.doExchangeKrw(exchangeVO); // 원화계좌에서 돈 출금
+    
+    String CurAccount_num = accountDAO.chkCurAccount_num(exchangeVO.getId()); // 외화계좌 번호 가져오기
+    System.out.println("외화 계좌의 번호 : " + CurAccount_num);
+    
+    // 여기에 로직 넣기
+    
+    if (CurAccount_num != null) { // 외화계좌 있을때
+      exchangeVO.setReg_date(CurAccount_num);
+      // System.out.println("값확인하자"+exchangeVO);
+      
+      
+      int result = accountDAO.chkRecordCurrencyCode(exchangeVO); // 외화 계좌에 해당 통화 관련 record 있는지 확인.
+      System.out.println("result : " + result);
+      System.out.println(exchangeVO.getExchange_place());
+      
+      if (exchangeVO.getExchange_place().equals("own")) {
+        System.out.println("own");
+        exchangeVO.setExchange_date("");
+        
+        if (result > 0) {
+          // System.out.println("check if it is enter - Update");
+          System.out.println(exchangeVO);
+          accountDAO.doExchangeCurUpdate(exchangeVO);// record있으니 외화계좌에 해당 record에 balance 더하기
+        } else {
+          // System.out.println("check if it is enter - Insert");
+          System.out.println(exchangeVO);
+          accountDAO.doExchangeCurInsert(exchangeVO); // 외화계좌에 돈 insert
+        }
+      }
+    }
+    System.out.println("exchange테이블에 insert하자");
+    exchangeDAO.doExchange(exchangeVO); // exchange 테이블에 record insert
+  }
 
 	/**
 	 * 환전예약하기

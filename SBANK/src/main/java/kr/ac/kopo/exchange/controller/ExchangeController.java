@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -207,7 +208,7 @@ public class ExchangeController {
 	
 	
 	 /**
-   * 환전 & 환전 내역 보기
+   * 환전 & 환전 예약 내역 보기
    * @param session
    * @return
    */
@@ -254,6 +255,24 @@ public class ExchangeController {
      */
     
     return mav;
+  }
+  
+  /**
+   * 환전선물하기 폼 보여주기
+   * @return
+   */
+  @GetMapping("/exchange/present")
+  public String presentForm() {
+    return "exchange/present";
+  }
+  
+  
+  @ResponseBody
+  @GetMapping("/account/returnmyCurrency/{id}")
+  public List<CurlistVO> returnmyCurrency(@PathVariable("id") String id){
+    System.out.println("id::: "+id);
+    List<CurlistVO> myCurrency = exchangeService.selectCurrency(id);
+    return myCurrency;
   }
   
   

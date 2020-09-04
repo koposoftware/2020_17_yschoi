@@ -157,10 +157,12 @@
                           <div class="dropdown-divider"></div>
                           <li><a
                             href="${pageContext.request.contextPath }/exchange/myExchange">환전 & 예약 내역 보기</a></li>
+                          <c:if test="${loginVO.type != 'K'  }">
                           <li><a
                             href="${pageContext.request.contextPath }/account/myCurrency">보유 외화 보기</a></li>
+                          </c:if>
 												</ul>
-												 <li><a href="${pageContext.request.contextPath }/board">Q & A<i class="ti-angle-down"></i></a>
+												 <li><a href="${pageContext.request.contextPath }/board">Q & A</a>
 												</li>
 
 										</ul>

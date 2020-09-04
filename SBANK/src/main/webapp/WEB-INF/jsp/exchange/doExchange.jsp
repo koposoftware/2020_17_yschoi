@@ -47,6 +47,38 @@ $(document).ready(function() {
 	           		/* 뭘해줘야할까 */
 	      }
 	    })
+	    
+	    
+
+	    
+	    
+	    
+	    
+	    
+	 $.ajax({
+        url : '${ pageContext.request.contextPath }/exchange/getCurAccount_num',
+        type : 'get',
+        success : function(data) {
+          let list = JSON.parse(data);
+          console.log(data)
+          
+          if (data.length >3) {
+            console.log(data)
+          } else{
+            $("select option[value*='own']").prop('disabled',true);
+          }
+          
+
+
+        }, 
+        error : function() {
+          alert('실패')
+        }, complete : function() {
+                /* 뭘해줘야할까 */
+        }
+      })    
+	    
+	    
 	
 	
 	

@@ -67,7 +67,7 @@
             </table>
             <br>
             <c:if test="${ not empty loginVO }">
-                <button onclick="goWriteForm()">새글등록</button>
+                <button class="btn btn-outline-dark" onclick="goWriteForm()">새글등록</button>
                 <!--인라인 방식의 이벤트 처리-->
                 <!--  button 등으로 이벤트 넣으려면 js나 jquery 필요!! -->
             </c:if>
