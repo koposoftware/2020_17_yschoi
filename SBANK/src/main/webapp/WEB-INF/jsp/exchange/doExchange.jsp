@@ -189,12 +189,14 @@ $(document).ready(function() {
 
       
       if(afterHashIpt == realpwd){
-        
-        alert('same');
         $(".modal-title").append("환전하기");
         $(".modal-body").append('환전을 진행하시겠습니까?');
-        $("#exampleModal").modal("show");
-        return true;
+        $("input[type=submit]").prop('disabled',false);
+        let aa =$("#exampleModal").modal("show");
+        return false;
+        if(aa){
+          return true;
+        }
       } else{
         $(".modal-title").append("환전하기");
         $(".modal-body").append('선택하신 계좌의 비밀번호를 확인해주세요.');
@@ -289,7 +291,12 @@ $(document).ready(function() {
       $("#exampleModal").modal("show");
     });
 
-    $("#close_modal").click(function() {
+    $("#close_submit").click(function() {
+      $("#exampleModal").modal("hide");
+      $(".modal-title").empty();
+      $(".modal-body").empty();
+    });
+    $("#close_cancel").click(function() {
       $("#exampleModal").modal("hide");
       $(".modal-title").empty();
       $(".modal-body").empty();
@@ -435,7 +442,23 @@ $(document).ready(function() {
 				</table>
 					<input type="hidden" id="" name="" value="${loginVO.id}" >
 					<button class="btn btn-outline-dark" id="subm" name="subm" data-toggle="modal" data-target="#myModal" >환전하기</button>
-					<button type="button" class="btn btn-primary" id="modal_show">JQUERY를 이용한 모달 열기</button>
+					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>  <!-- 여기에 제목넣기 -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body"></div> <!-- 여기에 내용 넣기 -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close_cancel" onclick="return false" >취소</button>
+                    <input type="submit"  class="btn btn-success btn-md"  value="확인" disabled="disabled"  >
+              </div>
+            </div>
+          </div>
+    </div>
 			</form>
 		</div>
 		
@@ -465,24 +488,7 @@ $(document).ready(function() {
     
  
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"></h5>  <!-- 여기에 제목넣기 -->
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body"></div> <!-- 여기에 내용 넣기 -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                    <button type="button" class="btn btn-primary" id="close_modal">다른 방식으로 모달 닫기</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
 
 
