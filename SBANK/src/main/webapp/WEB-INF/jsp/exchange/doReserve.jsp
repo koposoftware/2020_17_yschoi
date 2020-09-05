@@ -3,8 +3,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
+	<%@ include file="/WEB-INF/jsp/include/head.jsp"%>
+	
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script type="text/javascript">
 
   $(document).ready(function() {
 
@@ -18,7 +24,8 @@
       $(list).each(function() {
 
         let str = '';
-        str  +='<option class="acc" name="acc" value='+this.account_num+' id='+this.balance+'>'+'[계좌번호 : '+this.account_num+', 잔액:'+this.balance+'원]</option>';
+
+        str  +='<option class="acc" name='+this.bank_name+' value='+this.account_num+' id='+this.balance+'>'+'[계좌번호 : '+this.account_num+', 잔액:'+this.balance+'원]</option>';
 
         $('#account_num').append(str);
       })
@@ -97,16 +104,85 @@
       console.log(typeof (chargeKRW));
       console.log(chargeKRW);
 
-      if (realid >= chargeKRW) {
-        console.log('good')
-      } else {
-        console.log('bad')
-        alert('선택하신 계좌의 잔액을 확인해주세요. 잔액이 부족합니다.')
+      if(!(realid>=chargeKRW)){
+        $(".modal-title").append("환전예약하기");
+        $(".modal-body").append('선택하신 계좌의 잔액을 확인해주세요. 잔액이 부족합니다.');
+        $("#exampleModal").modal("show");
         return false;
 
       }
+      
+      
+      var bank_name = $('#bank_name').val(); // 사용자가 써준 해싱전의 pwd
+      /* alert(bank_name); */
+      var realpwd =$("input[type=hidden][name=pwd]").val() // db에 저장되어있는 해싱후의 진짜 pwd
+      
+      
+      var afterHashIpt='';
+      
+      
+      $.ajax({
+        url : '${ pageContext.request.contextPath }/exchange/returnHash/'+bank_name,
+        type : 'get',
+        async:false,
+        success : function(data) {
+          var list = JSON.parse(data);
+          afterHashIpt=list;
+          afterHashIpt2=data;
+          /* alert(typeof(list)) */
+        }, 
+        error : function() {
+          alert('실패')
+        
+          return false;
+        }, complete : function() {
+        }
+      });
+      
+      alert('afterHashIpt : '+afterHashIpt);
+      alert('realpwd : '+realpwd);
+      
+      
+      if(afterHashIpt == realpwd){
+        $(".modal-title").append("환전예약하기");
+        $(".modal-body").append('환전예약을 진행하시겠습니까?');
+        $("input[type=submit]").prop('disabled',false);
+        let aa =$("#exampleModal").modal("show");
+        return false;
+        if(aa){
+          return true;
+        }
+      } else{
+        $(".modal-title").append("환전예약하기");
+        $(".modal-body").append('선택하신 계좌의 비밀번호를 확인해주세요.');
+        $("#exampleModal").modal("show");
+        return false;
+      }
+      
+      
+      
+      
+      
+      
+      
     });
 
+    
+    
+    
+    
+    $('#account_num').change(function() {
+      /* alert($("#account_num > option:selected").attr('name'));  */
+      let realpwd = $("#account_num > option:selected").attr('name'); // 선택된 옵션의 name의 값을 가져오기
+      $("input[type=hidden][name=pwd]").val(realpwd); // hidden에 방금 선택한 계좌의 비밀번호 값 저장
+      /* alert($("input[type=hidden][name=pwd]").val()); //hidden에 있는 값 확인하기 */
+
+
+    });
+    
+    
+    
+    
   })
   
   
@@ -159,6 +235,37 @@
     commrate = "";
 
   }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  $(document).ready(function() {
+    $("#modal_show").click(function() {
+      $("#exampleModal").modal("show");
+    });
+
+    $("#close_submit").click(function() {
+      $("#exampleModal").modal("hide");
+      $(".modal-title").empty();
+      $(".modal-body").empty();
+    });
+    $("#close_cancel").click(function() {
+      $("#exampleModal").modal("hide");
+      $(".modal-title").empty();
+      $(".modal-body").empty();
+    });
+  });
+  
+  
+  
+  
+  
 </script>
 <style>
 #chart {
@@ -168,7 +275,7 @@
 </style>
 
 
-<%@ include file="/WEB-INF/jsp/include/head.jsp"%>
+
 
 
 
@@ -263,10 +370,30 @@
           </tr>
           <tr>
             <th>계좌비밀번호</th>
-            <td><input type="password" id="bank_name" name="bank_name" class="form-control" aria-describedby="inputGroupSuccess1Status" /></td>
+            <td>
+              <input type="password" id="bank_name" name="bank_name" class="form-control" aria-describedby="inputGroupSuccess1Status" />
+              <input type="hidden" id="pwd" name="pwd" >
+             </td>
           </tr>
 								</table>
 										<button class="btn btn-outline-dark" id="subm" name="subm" >환전하기</button>
+				 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>  <!-- 여기에 제목넣기 -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body"></div> <!-- 여기에 내용 넣기 -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close_cancel" onclick="return false" >취소</button>
+                    <input type="submit"  class="btn btn-success btn-md"  value="확인" disabled="disabled"  >
+              </div>
+            </div>
+          </div>
+    </div>
 						</form>
 				</div>
 
