@@ -86,7 +86,7 @@
 							<div class="col-xl-3 col-lg-2">
 								<div class="logo">
 									<a href="${pageContext.request.contextPath }/"> <img
-										src="${pageContext.request.contextPath }/resources/img/logo.png"
+										src="${pageContext.request.contextPath }/resources/img/SBANK-3.png"
 										alt="">
 									</a>
 								</div>
@@ -95,7 +95,7 @@
 								<div class="main-menu  d-none d-lg-block">
 									<nav>
 										<ul id="navigation">
-											<li><a href="#">디자인참고<i class="ti-angle-down"></i></a>
+											<%-- <li><a href="#">디자인참고<i class="ti-angle-down"></i></a>
 												<ul class="submenu">
 													<li><a
 														href="${pageContext.request.contextPath }/case_details.html">case
@@ -115,7 +115,7 @@
 														href="${pageContext.request.contextPath }/single-blog.html">single-blog</a></li>
 													<li><a
 														href="${pageContext.request.contextPath }/contact.html">Contact</a></li>
-												</ul></li>
+												</ul></li> --%>
 											<li><a href="#">bank<i class="ti-angle-down"></i></a>
 												<ul class="submenu">
 													<li><a

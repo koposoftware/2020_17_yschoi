@@ -17,6 +17,19 @@ public class MemberServiceImpl implements MemberService {
 		
 		return memberDAO.login(member);
 	}
+	
+	/**
+	 * id로 이름 조회
+	 */
+  @Override
+  public String chkAccountOwnName(String id) {
+    String name = memberDAO.chkAccountOwnName(id);
+    return name;
+  }
+	
+	
+	
+	
 
 }
 

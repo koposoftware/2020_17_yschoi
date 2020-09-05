@@ -8,4 +8,12 @@
 		  from T_MEMBER
 		 where ID = #{id} and PASSWORD = #{password}
 	</select>
+	
+	
+	<select id="chkAccountOwnName" parameterType="string" resultType="string">
+	 select name from T_MEMBER where id=#{id}
+	</select>
+	
+	
+	
 </mapper>

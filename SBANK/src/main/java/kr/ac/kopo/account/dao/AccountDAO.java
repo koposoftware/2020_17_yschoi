@@ -86,6 +86,14 @@ public interface AccountDAO {
 	public int chkPassword(AccountVO account);
 	
 	
+	/**
+	 * 계좌의 소유 id확인
+	 * @param account_num
+	 * @return
+	 */
+	public String chkIfAccountExist(String account_num);
+	
+	
 	
 	
 }

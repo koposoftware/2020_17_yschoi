@@ -70,4 +70,12 @@
       select count(*) from S_ACCOUNT where account_num = #{account_num} and bank_name =#{bank_name}
     </select>
     
+    <!-- 외화계좌의 소유 id 리턴 -->
+    <select id="chkIfAccountExist" parameterType="string" resultType="string">
+      select id from s_Account where ACCOUNT_NUM = #{account_num} and TYPE='C'
+    </select>
+    
+    
+    
+    
 </mapper>

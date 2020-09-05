@@ -10,13 +10,16 @@ import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.ac.kopo.account.service.AccountService;
 import kr.ac.kopo.account.vo.AccountVO;
 import kr.ac.kopo.exchange.service.ExchangeService;
+import kr.ac.kopo.member.service.MemberService;
 import kr.ac.kopo.member.vo.MemberVO;
 
 @Controller
@@ -24,6 +27,9 @@ public class AccountController {
 
 	@Autowired
 	private AccountService accountService;
+	
+	@Autowired
+	private MemberService memberService;
 	
 
 	
@@ -143,8 +149,30 @@ public class AccountController {
 	}
 	
 	
+	@ResponseBody
+	@GetMapping("account/chkIfAccountAndNameExist/{account_num_to}/{name}")
+	public int chkIfAccountAndNameExist(@PathVariable("account_num_to") String account_num_to, @PathVariable("name") String name) {
+	  System.out.println(account_num_to); // 선물받는 사람의 계좌번호
+	  System.out.println(name); // 선물받는 사람의 이름
 
-	
+	  
+	  String id = accountService.chkIfAccountExist(account_num_to);
+	  System.out.println("계좌소유 id " + id);
+	  
+	  if (id == null) {
+	    return 0; // 사용자가 작성한 계좌가 없음 ;ㅁ;
+	  }
+	  else {
+	    String ownname = memberService.chkAccountOwnName(id); //id의 name 조회
+	    System.out.println("ownname : "+ownname);
+	    if(ownname.equals(name)) {
+	      return 1;  // 선물받는 사람의 이름과 소유주 이름 같으면 1
+	    }
+	    else {
+	      return 0; // 선물받는 사람의 이름과 소유주 이름 다르면 0
+	    }
+	  }
+	}
 	
 	
 	

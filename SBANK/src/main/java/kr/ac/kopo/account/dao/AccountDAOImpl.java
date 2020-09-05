@@ -139,6 +139,15 @@ public class AccountDAOImpl implements AccountDAO {
     int result = sqlSession.selectOne("account.dao.AccountDAO.chkPassword", account);
     return result;
   }
+
+  /**
+   * 계좌의 소유 id 검사
+   */
+  @Override
+  public String chkIfAccountExist(String account_num) {
+    String id = sqlSession.selectOne("account.dao.AccountDAO.chkIfAccountExist", account_num);
+    return id;
+  }
 	
 	
 	

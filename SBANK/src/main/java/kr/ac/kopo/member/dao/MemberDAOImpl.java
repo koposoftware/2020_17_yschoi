@@ -21,6 +21,19 @@ public class MemberDAOImpl implements MemberDAO {
 		return loginVO;
 	}
 
+  @Override
+  public String chkAccountOwnName(String id) { 
+    String name = sqlSession.selectOne("member.dao.MemberDAO.chkAccountOwnName", id);
+    return name;
+  }
+	
+	
+	
+	
+	
+	
+	
+
 	
 }
 

@@ -2,14 +2,24 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
+  
 <%@ include file="/WEB-INF/jsp/include/head.jsp"%>
-<script>
+
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+
+
 
 
   $(document).ready(function() {
 
-  // 외화보유내역 리스트 가져오기
-  $.ajax({
+    // 외화보유내역 리스트 가져오기
+    $.ajax({
     url : '${ pageContext.request.contextPath }/account/returnmyCurrency/${loginVO.id}',
     type : 'get',
     success : function(data) {
@@ -21,7 +31,7 @@
 
         let str = '';
 
-        str += '<option value='+this.currencycode+' id='+this.currencycode+'>' + '[ 통화명 : ' + this.currencycode + ', 잔액:' + this.balance + '원]</option>';
+        str += '<option value='+this.currencycode+' id='+this.currencycode+' name='+this.balance + '>[ 통화명 : ' + this.currencycode + ', 잔액:' + this.balance + '원]</option>';
 
         $('#currencycode').append(str);
 
@@ -35,13 +45,106 @@
       /* 뭘해줘야할까 */
     }
     })
-    
-    
-    
-    
-    
 
   })
+
+  
+  
+  $(document).ready(function() {
+    $("#modal_show").click(function() {
+      $("#exampleModal").modal("show");
+    });
+
+    $("#close_submit").click(function() {
+      $("#exampleModal").modal("hide");
+      $(".modal-title").empty();
+      $(".modal-body").empty();
+    });
+    $("#close_cancel").click(function() {
+      $("#exampleModal").modal("hide");
+      $(".modal-title").empty();
+      $(".modal-body").empty();
+    });
+  });
+  
+  
+  
+  
+  
+  
+  
+
+  $(document).ready(function() {
+    $(document).on('click', '#subm', function() {
+      //alert('!')
+      //let bal = $(this).attr('id');
+      //console.log(bal);
+
+      let balance = $("#currencycode option:selected").attr('name'); // 선택한 계좌의 잔액임
+      balance = 1 * balance  // balance는 DB에 있는 지금 내가 보유하고 있는 외화. 선택한 외화에 대한 잔액임
+/*       alert(typeof (balance));
+      alert(balance); */
+      
+      
+      let iptnum = $("#balance").val(); // 선물하려는 금액
+      
+      
+      if(iptnum>balance){
+        $(".modal-title").append("외화 선물하기");
+        $(".modal-body").append('선물하려는 금액이 보유 금액보다 큽니다. 확인해주세요.');
+        $("input[type=submit]").prop('disabled', true);
+        $("#exampleModal").modal("show");
+        return false;
+      }
+      
+      let account_num_to = $("#account_num_to").val();
+      let name =  $("#name").val();
+      
+
+      
+      $.ajax({
+      url : '${ pageContext.request.contextPath }/account/chkIfAccountAndNameExist/' + account_num_to+'/'+name,
+      type : 'get',
+      async : false,
+      success : function(data) { // 1이면 선물 0이면 앙댐
+       
+        var list = JSON.parse(data);
+        /* alert(list); */
+        afterHashIpt = list;
+
+      },
+      error : function() {
+        return false;
+        alert('실패')
+
+        
+      },
+      complete : function() {
+      }
+      });
+      
+      
+      /* alert(afterHashIpt) */
+
+      if (afterHashIpt == 1) {
+        $(".modal-title").append("외화 선물하기");
+        $(".modal-body").append('환전을 진행하시겠습니까?');
+        $("input[type=submit]").prop('disabled', false);
+        let aa = $("#exampleModal").modal("show");
+        return false;
+        if (aa) {
+          return true;
+        }
+      } else {
+        $(".modal-title").append("외화 선물하기");
+        $(".modal-body").append('선물 받으시는 분의 계좌번호와 이름을 다시 확인해주세요');
+        $("input[type=submit]").prop('disabled', true);
+        $("#exampleModal").modal("show");
+        return false;
+      } 
+
+    });
+  });
 </script>
 <!-- 수정할부분 시작 -->
 <section>
@@ -89,8 +192,27 @@
               </td>
             </tr>
           </table>
-          <button class="btn btn-outline-dark">선물하기</button>
-        </form>
+          <button class="btn btn-outline-dark" id="subm" name="subm" data-toggle="modal" data-target="#myModal">선물하기</button>
+								<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal-dialog" role="document">
+												<div class="modal-content">
+														<div class="modal-header">
+																<h5 class="modal-title" id="exampleModalLabel"></h5>
+																<!-- 여기에 제목넣기 -->
+																<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																		<span aria-hidden="true">&times;</span>
+																</button>
+														</div>
+														<div class="modal-body"></div>
+														<!-- 여기에 내용 넣기 -->
+														<div class="modal-footer">
+																<button type="button" class="btn btn-secondary" data-dismiss="modal" id="close_cancel" onclick="return false">취소</button>
+																<input type="submit" class="btn btn-success btn-md" value="확인" disabled="disabled">
+														</div>
+												</div>
+										</div>
+								</div>
+						</form>
         <br>
       
     </div>

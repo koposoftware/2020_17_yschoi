@@ -75,9 +75,21 @@ public class AccountServiceImpl implements AccountService {
     int result = accountdao.chkPassword(account);
     return result;
   }
+
+
+  /**
+   * 계좌를 소유하고 있는 id 확인
+   */
+  @Override
+  public String chkIfAccountExist(String account_num) {
+    String id = accountdao.chkIfAccountExist(account_num);
+    return id;
+  }
 	
 	
 	
+  
+  
 	
 	
 	

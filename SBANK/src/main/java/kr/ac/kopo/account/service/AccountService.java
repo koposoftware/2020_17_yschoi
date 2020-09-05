@@ -44,5 +44,13 @@ public interface AccountService {
 	public int chkPassword(AccountVO account);
 	
 	
+	/**
+	 * 계좌를 소유하고 있는 id 확인
+	 * @param account_num
+	 * @return id
+	 */
+	public String chkIfAccountExist(String account_num);
+	
+	
 
 }
