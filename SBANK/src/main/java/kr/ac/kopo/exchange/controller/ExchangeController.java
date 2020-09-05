@@ -303,7 +303,11 @@ public class ExchangeController {
   }
   
   
-  
+  /**
+   * 해쉬값 반환
+   * @param pwd
+   * @return
+   */
   @ResponseBody
   @GetMapping("/exchange/returnHash/{bank_name}")
   public String returnHashPwd(@PathVariable("bank_name") String pwd) {
@@ -311,7 +315,14 @@ public class ExchangeController {
     return hashpwd;
   }
 	
-	
+	/**
+	 * 재환전하기 폼 보여주기
+	 * @return
+	 */
+  @GetMapping("/exchange/doRevExchange")
+  public String doRevExchangeForm() {
+    return "exchange/doRevExchange";
+  }
 	
 	
 
