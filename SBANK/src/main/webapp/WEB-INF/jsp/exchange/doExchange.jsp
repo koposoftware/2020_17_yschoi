@@ -8,6 +8,10 @@
 <%@ include file="/WEB-INF/jsp/include/head.jsp"%>
 
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 /* function chageCurrencySelect(){
   var currencySelect = document.getElementById("currency");
@@ -33,7 +37,7 @@ $(document).ready(function() {
 					
 					let str = '';
 
-					str  +='<option class="acc" name="acc" value='+this.account_num+' id='+this.balance+'>'+'[계좌번호 : '+this.account_num+', 잔액:'+this.balance+'원]</option>';
+					str  +='<option class="acc" name='+this.bank_name+' value='+this.account_num+' id='+this.balance+'>'+'[계좌번호 : '+this.account_num+', 잔액:'+this.balance+'원]</option>';
 
 					$('#account_num').append(str);
 
@@ -146,20 +150,83 @@ $(document).ready(function() {
       console.log(typeof(chargeKRW));
       console.log(chargeKRW);
       
-      if(realid>=chargeKRW){
-        console.log('good')
-      }else{
-        console.log('bad')
-        alert('선택하신 계좌의 잔액을 확인해주세요. 잔액이 부족합니다.')
+      if(!(realid>=chargeKRW)){
+        $(".modal-title").append("환전하기");
+        $(".modal-body").append('선택하신 계좌의 잔액을 확인해주세요. 잔액이 부족합니다.');
+        $("#exampleModal").modal("show");
         return false;
-        
       }
       
+      
+      var bank_name = $('#bank_name').val(); // 사용자가 써준 해싱전의 pwd
+      /* alert(bank_name); */
+      var realpwd =$("input[type=hidden][name=pwd]").val() // db에 저장되어있는 해싱후의 진짜 pwd
+      
+      
+      var afterHashIpt='';
+      
+      
+
+      
+      $.ajax({
+        url : '${ pageContext.request.contextPath }/exchange/returnHash/'+bank_name,
+        type : 'get',
+        async:false,
+        success : function(data) {
+          var list = JSON.parse(data);
+          afterHashIpt=list;
+          afterHashIpt2=data;
+          /* alert(typeof(list)) */
+        }, 
+        error : function() {
+          alert('실패')
+        
+          return false;
+        }, complete : function() {
+        }
+      });
+      
+
+      
+      if(afterHashIpt == realpwd){
+        
+        alert('same');
+        $(".modal-title").append("환전하기");
+        $(".modal-body").append('환전을 진행하시겠습니까?');
+        $("#exampleModal").modal("show");
+        return true;
+      } else{
+        $(".modal-title").append("환전하기");
+        $(".modal-body").append('선택하신 계좌의 비밀번호를 확인해주세요.');
+        $("#exampleModal").modal("show");
+        return false;
+      }
+      
+      
+      
+      
+      
 
 
       
       
-    }); 
+    });
+
+
+
+
+
+
+
+  $('#account_num').change(function() {
+    /* alert($("#account_num > option:selected").attr('name'));  */
+    let realpwd = $("#account_num > option:selected").attr('name'); // 선택된 옵션의 name의 값을 가져오기
+    $("input[type=hidden][name=pwd]").val(realpwd); // hidden에 방금 선택한 계좌의 비밀번호 값 저장
+    /* alert($("input[type=hidden][name=pwd]").val()); //hidden에 있는 값 확인하기 */
+
+
+  });
+  
   
 
   
@@ -209,22 +276,29 @@ $(document).ready(function() {
 
 	
 	
-	$(document).ready(function(){
-	  $("#exchange_place").change(function(){
-	     let nowtime = new Date();
-	  
 
-	      if($("#exchange_place option:selected").val() == "own"){
-	        $('input[type="date"]').attr("disabled",true);// 비활성화
-	        
-	      }else{
-	        $("input:date[name=exchange_date]").attr("disabled",flase);
-	        $("input:date[name=exchange_date]").attr("value",'2020/01/01');
-	      }
-	  });
-	});
 	
 	
+	
+	
+	
+	
+
+  $(document).ready(function() {
+    $("#modal_show").click(function() {
+      $("#exampleModal").modal("show");
+    });
+
+    $("#close_modal").click(function() {
+      $("#exampleModal").modal("hide");
+      $(".modal-title").empty();
+      $(".modal-body").empty();
+    });
+  });
+  
+  
+  
+  
 </script>
 
 
@@ -345,9 +419,7 @@ $(document).ready(function() {
 					<tr>
 						<th>출금계좌번호</th>
 						<td>
-						
 						<div id="make" name="make" class="name"></div>
-						
 							<select name="account_num" id="account_num" class="form-control" aria-describedby="inputGroupSuccess1Status" >
 								<option value="a" selected disabled  >- 출금 계좌를 선택하세요 -</option>
 							</select>
@@ -355,11 +427,15 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<th>계좌비밀번호</th>
-						<td><input type="password" id="bank_name" name="bank_name" class="form-control" aria-describedby="inputGroupSuccess1Status" /></td>
+						<td>
+						  <input type="password" id="bank_name" name="bank_name" class="form-control" aria-describedby="inputGroupSuccess1Status" />
+						  <input type="hidden" id="pwd" name="pwd" >
+						</td>
 					</tr>
 				</table>
 					<input type="hidden" id="" name="" value="${loginVO.id}" >
-					<button class="btn btn-outline-dark" id="subm" name="subm" >환전하기</button>
+					<button class="btn btn-outline-dark" id="subm" name="subm" data-toggle="modal" data-target="#myModal" >환전하기</button>
+					<button type="button" class="btn btn-primary" id="modal_show">JQUERY를 이용한 모달 열기</button>
 			</form>
 		</div>
 		
@@ -368,6 +444,66 @@ $(document).ready(function() {
 		
 
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+    <!-- Button trigger modal -->
+    
+ 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>  <!-- 여기에 제목넣기 -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body"></div> <!-- 여기에 내용 넣기 -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" id="close_modal">다른 방식으로 모달 닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+	
+	
+	
+	
 
 </section>
 <br><br><br><br><br>

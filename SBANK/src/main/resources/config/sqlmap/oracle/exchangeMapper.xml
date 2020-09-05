@@ -77,4 +77,9 @@
   </insert>
   
   
+  <select id="returnHash" parameterType="string" resultType="string">
+    select STANDARD_HASH ( #{pwd}, 'SHA256') from dual
+  </select>
+  
+  
 </mapper>

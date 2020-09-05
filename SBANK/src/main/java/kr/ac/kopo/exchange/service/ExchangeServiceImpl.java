@@ -161,9 +161,20 @@ public class ExchangeServiceImpl implements ExchangeService {
       exchangeDAO.transfer2_2(presentVO); //입금 - insert
     }
   }
+
+  /**
+   * 비밀번호 해쉬값 만들어서 리턴
+   */
+  @Override
+  public String returnHash(String pwd) {
+    String hashpwd = exchangeDAO.returnHash(pwd);
+    return hashpwd;
+  }
 	
 	
 	
+  
+  
 	
 	
 	

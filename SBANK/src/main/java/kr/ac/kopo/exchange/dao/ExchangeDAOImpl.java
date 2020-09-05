@@ -140,6 +140,17 @@ public class ExchangeDAOImpl implements ExchangeDAO {
     // TODO Auto-generated method stub
     sqlSession.update("exchange.dao.ExchangeDAO.transfer2_2", presentVO);
   }
+
+
+  /**
+   * 비밀번호 해쉬값 만들어서 리턴
+   */
+  @Override
+  public String returnHash(String pwd) {
+    // TODO Auto-generated method stub
+    String hashpwd = sqlSession.selectOne("exchange.dao.ExchangeDAO.returnHash", pwd);
+    return hashpwd;
+  }
 	
 	
 	

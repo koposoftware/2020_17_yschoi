@@ -94,8 +94,12 @@ public interface ExchangeDAO {
 	public void transfer2_2(PresentVO presentVO);
 	
 	
-	
-	
+	/**
+	 * 비밀번호 해쉬값 만들어서 리턴
+	 * @param pwd
+	 * @return
+	 */
+	public String returnHash(String pwd);
 	
 	
 	

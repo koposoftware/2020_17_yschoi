@@ -303,6 +303,13 @@ public class ExchangeController {
   }
   
   
+  
+  @ResponseBody
+  @GetMapping("/exchange/returnHash/{bank_name}")
+  public String returnHashPwd(@PathVariable("bank_name") String pwd) {
+    String hashpwd=exchangeService.returnHash(pwd);
+    return hashpwd;
+  }
 	
 	
 	
