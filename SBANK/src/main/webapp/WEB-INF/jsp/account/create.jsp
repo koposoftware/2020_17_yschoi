@@ -26,8 +26,45 @@ $(document).ready(function(){
 
 
 
+  $(document).ready(function(){
+    $.ajax({
+    url : '${ pageContext.request.contextPath }/exchange/getCurAccount_num',
+    type : 'get',
+    success : function(data) {
+      let list = JSON.parse(data);
+      console.log(data)
 
+      if (data.length > 3) {
+        console.log(data)
+        $("input[value='C']").attr('disabled', "true");
+        $("#alarm").html(" &nbsp;&nbsp;&nbsp;(외화 계좌는 1개만 생성이 가능합니다.)");
+      }
 
+    },
+    error : function() {
+      alert('실패')
+    },
+    complete : function() {
+      /* 뭘해줘야할까 */
+    }
+    })
+  });
+  
+  
+  
+  
+  $(document).ready(function(){
+    $("input[value='C']").click(function(){
+      $("#alarm2").html(" &nbsp;&nbsp;&nbsp;(외화계좌 개설 시 첫입금액은 필요하지 않습니다.)");
+    })
+    $("input[value='K']").click(function(){
+      $("#alarm2").html("");
+    })
+  })
+  
+  
+  
+  
 </script>
 
 
@@ -63,6 +100,7 @@ $(document).ready(function(){
 					 <td>
 					   <INPUT TYPE=RADIO name="type" id="type" VALUE='K'  CHECKED> 원화계좌
              <INPUT TYPE=RADIO name="type" id="type" VALUE='C'> 외화계좌
+             <span id="alarm" name="alarm" ></span>
 					 </td>
 					</tr>
 					<tr>
@@ -72,8 +110,10 @@ $(document).ready(function(){
 					</tr>
 					<tr>
 						<th width="23%">첫입금액</th>
-						<td><form:input path="balance" /> <form:errors
-								path="balance" cssStyle="color :red;" /> 외화계좌 개설 시 첫입금액은 필요하지 않습니다.</td>
+						<td>
+              <form:input path="balance" /> <form:errors path="balance" cssStyle="color :red;" /> 
+              <span id="alarm2" name="alarm2" ></span>
+            </td>
 					</tr>
 					<tr>
 						<th width="23%">계좌별칭</th>

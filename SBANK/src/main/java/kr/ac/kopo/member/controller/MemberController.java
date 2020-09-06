@@ -56,6 +56,7 @@ public class MemberController {
 			mav.addObject("loginVO", loginVO);
 
 		}
+		System.out.println(loginVO);
 
 		return mav;
 	}

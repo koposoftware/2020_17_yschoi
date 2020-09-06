@@ -20,6 +20,27 @@
   var currencyCode = currencySelect.options[currencySelect.selectedIndex].value; 
   alert(currencyCode)
  } */
+
+ 
+ 
+ $(document).ready(function(){
+   
+   // 소유하기 클릭하면
+  $("#exchange_place").click(function(){
+    var state = jQuery('#exchange_place option:selected').val();
+    //alert(state)
+    if (state == "own"){
+      $( "#exchange_date" ).prop( "disabled", true );
+      $("#alarm").html(" &nbsp;&nbsp;&nbsp;(외화 개인 소유 시 외화수령일은 입력하지 않으셔도 됩니다.)");
+    } else{
+      $( "#exchange_date" ).prop( "disabled", false );
+      $("#alarm").html("");
+    }
+   });
+ });
+ 
+ 
+ 
  
 $(document).ready(function() {
 	
@@ -70,6 +91,7 @@ $(document).ready(function() {
             console.log(data)
           } else{
             $("select option[value*='own']").prop('disabled',true);
+            $("#alarm").html("&nbsp;&nbsp;&nbsp;(외화계좌 미보유자는 개인소유가 불가능합니다.)");
           }
           
 
@@ -321,14 +343,27 @@ $(document).ready(function() {
 				</header>
 			</div>
 		</div>
-		
-		
-		
-		<header class="section_title mb-50 major">
+    
+    <div class="box box-primary">
+      <div class="box-header with-border">
+        <h3 class="box-title">Quick Example 테스트중!!</h3>
+      </div>
+      <div class="box-body">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label> <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+        </div>
+      </div>
+    </div>
+    
+    
+    <br><br><br>
+    
+    <header class="section_title mb-50 major">
 			<h5>환전신청내역</h5>		
 		</header>
 		
 		<div class="table-wrapper">
+		
 			<form method="post" action="${pageContext.request.contextPath }/exchange/doExchange">
 				<table border="1" class="table table-bordered">
 					<tr>
@@ -404,7 +439,7 @@ $(document).ready(function() {
 								<option value="김포공항">김포공항</option>
 								<option value="김해공항">김해공항</option>
 							</select>
-							개인 소유를 선택하신다면, 외화수령일은 입력하지 않으셔도 됩니다.
+							<span id="alarm" name="alarm" ></span>
 						</td>
 					</tr>
 					<tr>

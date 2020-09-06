@@ -12,6 +12,54 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
+
+
+  function getTimeStamp() {
+
+    var d = new Date();
+    var s = leadingZeros(d.getFullYear(), 4) + leadingZeros(d.getMonth() + 1, 2) + leadingZeros(d.getDate(), 2);
+
+    return s;
+  }
+
+  function leadingZeros(n, digits) {
+
+    var zero = '';
+    n = n.toString();
+
+    if (n.length < digits) {
+      for (i = 0; i < digits - n.length; i++)
+        zero += '0';
+    }
+    return zero + n;
+  }
+
+  $(document).ready(function() {
+    //통화 코드 바꿀때마다 그래프 보여주기!
+    
+    var today = getTimeStamp();
+    //alert(today);
+    
+    var firstsrc ='https://ssl.pstatic.net/imgfinance/chart/marketindex/area/month3/FX_USDKRW.png?sidcode=';
+    firstsrc += today;
+    $("#style-img").attr("src", firstsrc);
+
+    $("#currencycode").change(function() {
+      var cur_value = $('option:selected', this).text();
+      cur_value = cur_value.slice(-4, -1);
+      console.log(cur_value);
+
+      var src = 'https://ssl.pstatic.net/imgfinance/chart/marketindex/area/month3/FX_'
+      src += cur_value;
+      src += 'KRW.png?sidcode=';
+      src +=today;
+
+      //console.log(image_src);
+      $("#style-img").attr("src", src);
+    });
+
+  });
+
   $(document).ready(function() {
 
     $.ajax({ //페이지 로드 시 로그인한 사람의 계좌 확인하기
@@ -25,11 +73,10 @@
 
         let str = '';
 
-        str  +='<option class="acc" name='+this.bank_name+' value='+this.account_num+' id='+this.balance+'>'+'[계좌번호 : '+this.account_num+', 잔액:'+this.balance+'원]</option>';
+        str += '<option class="acc" name='+this.bank_name+' value='+this.account_num+' id='+this.balance+'>' + '[계좌번호 : ' + this.account_num + ', 잔액:' + this.balance + '원]</option>';
 
         $('#account_num').append(str);
       })
-
 
     },
     error : function() {
@@ -40,9 +87,6 @@
     }
     })
 
-    
-    
-    
     $('#currencycode').change(function() { //통화를 선택하면에 대한 function 시작
       let currency = $(this).val(); // 통화코드추출
       //alert(currency)
@@ -53,13 +97,11 @@
         let list = JSON.parse(data);
         console.log(list)
 
-        let rate = list.cashbuyrate; 
+        let rate = list.cashbuyrate;
         let commission2 = list.commission2;
-        let basicrate=list.basicrate
+        let basicrate = list.basicrate
         let commission = list.commission
-        let commrate = ((rate-basicrate)*commission)+basicrate
-
-
+        let commrate = ((rate - basicrate) * commission) + basicrate
 
         let ori = '현찰 살때 가격';
         let str = ori + rate
@@ -83,13 +125,9 @@
       })
     }) //통화를 선택하면에 대한 function 끝.
 
-    
- 
-    
-    
     ////
 
-  $(document).on('click', '#subm', function() {
+    $(document).on('click', '#subm', function() {
       //alert('!')
       //let bal = $(this).attr('id');
       //console.log(bal);
@@ -104,93 +142,69 @@
       console.log(typeof (chargeKRW));
       console.log(chargeKRW);
 
-      if(!(realid>=chargeKRW)){
+      if (!(realid >= chargeKRW)) {
         $(".modal-title").append("환전예약하기");
         $(".modal-body").append('선택하신 계좌의 잔액을 확인해주세요. 잔액이 부족합니다.');
         $("#exampleModal").modal("show");
         return false;
 
       }
-      
-      
+
       var bank_name = $('#bank_name').val(); // 사용자가 써준 해싱전의 pwd
       /* alert(bank_name); */
-      var realpwd =$("input[type=hidden][name=pwd]").val() // db에 저장되어있는 해싱후의 진짜 pwd
-      
-      
-      var afterHashIpt='';
-      
-      
+      var realpwd = $("input[type=hidden][name=pwd]").val() // db에 저장되어있는 해싱후의 진짜 pwd
+
+      var afterHashIpt = '';
+
       $.ajax({
-        url : '${ pageContext.request.contextPath }/exchange/returnHash/'+bank_name,
-        type : 'get',
-        async:false,
-        success : function(data) {
-          var list = JSON.parse(data);
-          afterHashIpt=list;
-          afterHashIpt2=data;
-          /* alert(typeof(list)) */
-        }, 
-        error : function() {
-          alert('실패')
-        
-          return false;
-        }, complete : function() {
-        }
+      url : '${ pageContext.request.contextPath }/exchange/returnHash/' + bank_name,
+      type : 'get',
+      async : false,
+      success : function(data) {
+        var list = JSON.parse(data);
+        afterHashIpt = list;
+        afterHashIpt2 = data;
+        /* alert(typeof(list)) */
+      },
+      error : function() {
+        alert('실패')
+
+        return false;
+      },
+      complete : function() {
+      }
       });
-      
-      alert('afterHashIpt : '+afterHashIpt);
-      alert('realpwd : '+realpwd);
-      
-      
-      if(afterHashIpt == realpwd){
+
+      alert('afterHashIpt : ' + afterHashIpt);
+      alert('realpwd : ' + realpwd);
+
+      if (afterHashIpt == realpwd) {
         $(".modal-title").append("환전예약하기");
         $(".modal-body").append('환전예약을 진행하시겠습니까?');
-        $("input[type=submit]").prop('disabled',false);
-        let aa =$("#exampleModal").modal("show");
+        $("input[type=submit]").prop('disabled', false);
+        let aa = $("#exampleModal").modal("show");
         return false;
-        if(aa){
+        if (aa) {
           return true;
         }
-      } else{
+      } else {
         $(".modal-title").append("환전예약하기");
         $(".modal-body").append('선택하신 계좌의 비밀번호를 확인해주세요.');
         $("#exampleModal").modal("show");
         return false;
       }
-      
-      
-      
-      
-      
-      
-      
+
     });
 
-    
-    
-    
-    
     $('#account_num').change(function() {
       /* alert($("#account_num > option:selected").attr('name'));  */
       let realpwd = $("#account_num > option:selected").attr('name'); // 선택된 옵션의 name의 값을 가져오기
       $("input[type=hidden][name=pwd]").val(realpwd); // hidden에 방금 선택한 계좌의 비밀번호 값 저장
       /* alert($("input[type=hidden][name=pwd]").val()); //hidden에 있는 값 확인하기 */
 
-
     });
-    
-    
-    
-    
+
   })
-  
-  
-  
-  
-  
-  
-  
 
   function keyevent() {
 
@@ -235,16 +249,7 @@
     commrate = "";
 
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
   $(document).ready(function() {
     $("#modal_show").click(function() {
       $("#exampleModal").modal("show");
@@ -261,11 +266,6 @@
       $(".modal-body").empty();
     });
   });
-  
-  
-  
-  
-  
 </script>
 <style>
 #chart {
@@ -304,6 +304,11 @@
 			<!-- highcharts 해보기 -->
 						<form method="post" action="${pageContext.request.contextPath }/exchange/doReserve">
 								<table border="1" class="table table-bordered">
+                    <tr>
+                      <td colspan="3">
+                        <img id="style-img" class="centered " crossorigin="anonymous" src="" height=256></img>
+                      </td>
+                    </tr>
 										<tr>
 												<td colspan="3">
 												    환전을 원하는 통화를 선택 및 금액을 입력하세요<br> 
@@ -312,12 +317,12 @@
 												    <input type="hidden" id="basicrate" name="basicrate" value="">
 												    
 												</td>
-												<td rowspan="4">그래프으</td>
+												<!-- <td rowspan="4">그래프으</td> -->
 										</tr>
 										<tr>
 												<td><select name="currencycode" id="currencycode" class="form-control" aria-describedby="inputGroupSuccess1Status">
 																<option value="a" selected disabled>- 통화를 선택하세요 -</option>
-																<option value="USD">미국달러(USD)</option>
+																<option value="USD" selected="selected">미국달러(USD)</option>
 																<option value="EUR">유럽유로(EUR)</option>
 																<option value="JPY">일본엔(JPY)</option>
 																<option value="GBP">영국파운드(GBP)</option>
@@ -338,7 +343,11 @@
 												</td>
 										</tr>
 								</table>
-								<br>
+                
+        <header class="section_title mb-50 major">
+          <h5>환전신청내역</h5>
+        </header>
+        <br>
 								<br>
 								<table border="1" class="table table-bordered">
 										<tr>

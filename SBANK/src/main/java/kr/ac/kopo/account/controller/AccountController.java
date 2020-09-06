@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.ac.kopo.account.service.AccountService;
 import kr.ac.kopo.account.vo.AccountVO;
 import kr.ac.kopo.exchange.service.ExchangeService;
+import kr.ac.kopo.exchange.vo.CurlistVO;
 import kr.ac.kopo.member.service.MemberService;
 import kr.ac.kopo.member.vo.MemberVO;
 
@@ -30,6 +31,11 @@ public class AccountController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private ExchangeService exchangeService;
+	
+
 	
 
 	
@@ -70,7 +76,7 @@ public class AccountController {
 	}
 	
 	/**
-	 * 나의 전체 계좌 조회 => 원화 + 외화
+	 * 나의 전체 계좌 조회 => 원화 + 외화 & 보유외화
 	 * @param session
 	 * @return
 	 */
@@ -82,10 +88,12 @@ public class AccountController {
 		
 		List<AccountVO> accountList = accountService.selectAccount(id); //원화계좌 조회
 		List<AccountVO> accountCurList = accountService.selectCurAccount(id); // 나의 외화 계좌
+		List<CurlistVO> curlist =  exchangeService.selectCurrency(id);
 
 		ModelAndView mav = new ModelAndView("account/myAccount");
 		mav.addObject("accountList", accountList);
 		mav.addObject("accountCurList", accountCurList);
+		mav.addObject("curlist", curlist);
 		
 //		for(AccountVO account : accountCurList) {
 //			System.out.println(account);

@@ -30,6 +30,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slick.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/AdminLTE.min.css">
 <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 
@@ -95,7 +96,7 @@
 								<div class="main-menu  d-none d-lg-block">
 									<nav>
 										<ul id="navigation">
-											<%-- <li><a href="#">디자인참고<i class="ti-angle-down"></i></a>
+											<li><a href="#">디자인참고<i class="ti-angle-down"></i></a>
 												<ul class="submenu">
 													<li><a
 														href="${pageContext.request.contextPath }/case_details.html">case
@@ -115,7 +116,11 @@
 														href="${pageContext.request.contextPath }/single-blog.html">single-blog</a></li>
 													<li><a
 														href="${pageContext.request.contextPath }/contact.html">Contact</a></li>
-												</ul></li> --%>
+												</ul></li> 
+                        
+                        
+                        
+                        
 											<li><a href="#">bank<i class="ti-angle-down"></i></a>
 												<ul class="submenu">
 													<li><a
