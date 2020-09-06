@@ -27,6 +27,7 @@ import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
 import kr.ac.kopo.exchange.vo.PresentVO;
 import kr.ac.kopo.exchange.vo.ReserveVO;
+import kr.ac.kopo.exchange.vo.RevExchangeVO;
 import kr.ac.kopo.member.vo.MemberVO;
 import kr.ac.kopo.reply.vo.ReplyVO;
 
@@ -320,8 +321,38 @@ public class ExchangeController {
 	 * @return
 	 */
   @GetMapping("/exchange/doRevExchange")
-  public String doRevExchangeForm() {
-    return "exchange/doRevExchange";
+  public ModelAndView doRevExchangeForm(HttpSession session) {
+    MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
+    String id = userVO.getId();
+    
+    List<CurlistVO> curlist =  exchangeService.selectCurrency(id);
+    List<AccountVO> accountList = accountService.selectAccount(id); //원화계좌 조회
+    List<AccountVO> accountCurList = accountService.selectCurAccount(id); // 나의 외화 계좌
+    
+    ModelAndView mav = new ModelAndView("exchange/doRevExchange");
+    mav.addObject("curlist", curlist);
+    mav.addObject("accountList", accountList);
+    mav.addObject("accountCurList", accountCurList); // 외화계좌 조회
+    
+    /*
+     * for(CurlistVO account : curlist) { System.out.println(account); }
+     */
+    
+    return mav;
+  }
+  
+  
+  
+  @PostMapping("/exchange/doRevExchange")
+  public void doRevExchange(HttpSession session, RevExchangeVO revExchangeVO) {
+    MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
+    String id = userVO.getId();
+    revExchangeVO.setId(id);
+    
+    System.out.println(revExchangeVO);
+    
+    exchangeService.doRevExchange(revExchangeVO);
+    
   }
 	
 	

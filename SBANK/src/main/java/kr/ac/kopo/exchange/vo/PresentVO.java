@@ -3,7 +3,7 @@ package kr.ac.kopo.exchange.vo;
 public class PresentVO {
   private String account_num;
   private String currencycode;
-  private int balance;
+  private double balance;
   private String account_num_to;
   private String name;
   
@@ -20,11 +20,18 @@ public class PresentVO {
   public void setCurrencycode(String currencycode) {
     this.currencycode = currencycode;
   }
-  public int getBalance() {
+  
+  public double getBalance() {
     return balance;
   }
-  public void setBalance(int balance) {
+  public void setBalance(double balance) {
     this.balance = balance;
+  }
+  public String getName() {
+    return name;
+  }
+  public void setName(String name) {
+    this.name = name;
   }
   public String getAccount_num_to() {
     return account_num_to;
@@ -35,32 +42,35 @@ public class PresentVO {
   
   
   
+
+  
   
   
   public PresentVO() {
     super();
   }
   
-  public PresentVO(String account_num, String currencycode, int balance, String account_num_to) {
+  
+  
+  public PresentVO(String account_num, String currencycode, double balance, String account_num_to, String name) {
     super();
     this.account_num = account_num;
     this.currencycode = currencycode;
     this.balance = balance;
     this.account_num_to = account_num_to;
+    this.name = name;
   }
+  
   
   @Override
   public String toString() {
-    return "PresentVO [account_num=" + account_num + ", currencycode=" + currencycode + ", balance=" + balance + ", account_num_to=" + account_num_to + "]";
+    return "PresentVO [account_num=" + account_num + ", currencycode=" + currencycode + ", balance=" + balance + ", account_num_to=" + account_num_to + ", name=" + name + "]";
   }
   
   
   
   
-  
-  
-  
-  
+
   
   
   

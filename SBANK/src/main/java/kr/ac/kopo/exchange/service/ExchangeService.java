@@ -9,6 +9,7 @@ import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
 import kr.ac.kopo.exchange.vo.PresentVO;
 import kr.ac.kopo.exchange.vo.ReserveVO;
+import kr.ac.kopo.exchange.vo.RevExchangeVO;
 
 
 public interface ExchangeService {
@@ -87,6 +88,14 @@ public interface ExchangeService {
 	 * @return
 	 */
 	public String returnHash(String pwd);
+	
+	
+	/**
+	 * 원화로 재환전하기
+	 * @param revExchangeVO
+	 * @return
+	 */
+	public void doRevExchange(RevExchangeVO revExchangeVO);
 	
 	
 	

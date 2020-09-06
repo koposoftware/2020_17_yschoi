@@ -11,6 +11,7 @@ import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
 import kr.ac.kopo.exchange.vo.PresentVO;
 import kr.ac.kopo.exchange.vo.ReserveVO;
+import kr.ac.kopo.exchange.vo.RevExchangeVO;
 
 @Repository
 public class ExchangeDAOImpl implements ExchangeDAO {
@@ -151,9 +152,19 @@ public class ExchangeDAOImpl implements ExchangeDAO {
     String hashpwd = sqlSession.selectOne("exchange.dao.ExchangeDAO.returnHash", pwd);
     return hashpwd;
   }
+
+
+  /**
+   * 원화로 재환전하기
+   */
+  @Override
+  public void doRevExchange(RevExchangeVO revExchangeVO) {
+    sqlSession.insert("exchange.dao.ExchangeDAO.doRevExchange", revExchangeVO);
+  }
 	
 	
 	
+  
   
   
   

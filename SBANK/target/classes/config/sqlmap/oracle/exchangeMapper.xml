@@ -76,10 +76,16 @@
       values(seq_S_CURLIST_no.nextval, #{account_num_to}, #{currencycode}, #{balance})
   </insert>
   
-  
+  <!-- string 인풋에 대해 해쉬값 리턴 -->
   <select id="returnHash" parameterType="string" resultType="string">
     select STANDARD_HASH ( #{pwd}, 'SHA256') from dual
   </select>
+  
+  
+  <insert id="doRevExchange" parameterType="revExchangeVO" >
+    insert into S_REVEXCHANGE(exchangeNo,id,currencycode,exchangeprice,exchangerate,exchangecharge,account_num_from,account_num_to) values
+      (seq_S_REVEXCHANGE_no.nextval , #{id}, #{currencycode}, #{exchangeprice}, #{exchangerate}, #{exchangecharge},#{account_num_from},#{account_num_to})
+  </insert>
   
   
 </mapper>

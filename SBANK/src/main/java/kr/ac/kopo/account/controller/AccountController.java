@@ -81,7 +81,7 @@ public class AccountController {
 		String id = userVO.getId();
 		
 		List<AccountVO> accountList = accountService.selectAccount(id); //원화계좌 조회
-		List<AccountVO> accountCurList = accountService.selectCurAccount(id);
+		List<AccountVO> accountCurList = accountService.selectCurAccount(id); // 나의 외화 계좌
 
 		ModelAndView mav = new ModelAndView("account/myAccount");
 		mav.addObject("accountList", accountList);

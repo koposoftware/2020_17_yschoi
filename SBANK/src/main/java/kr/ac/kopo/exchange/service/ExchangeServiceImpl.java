@@ -13,6 +13,7 @@ import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
 import kr.ac.kopo.exchange.vo.PresentVO;
 import kr.ac.kopo.exchange.vo.ReserveVO;
+import kr.ac.kopo.exchange.vo.RevExchangeVO;
 
 @Service
 public class ExchangeServiceImpl implements ExchangeService {
@@ -22,6 +23,8 @@ public class ExchangeServiceImpl implements ExchangeService {
 	
 	@Autowired
 	private AccountDAO accountDAO;
+	
+
 	
 
 	@Override
@@ -170,7 +173,30 @@ public class ExchangeServiceImpl implements ExchangeService {
     String hashpwd = exchangeDAO.returnHash(pwd);
     return hashpwd;
   }
+
+  /**
+   * 원화를 재환전하기
+   */
+  @Override
+  public void doRevExchange(RevExchangeVO revExchangeVO) {
+    PresentVO presentVO = new PresentVO();
+    presentVO.setBalance(revExchangeVO.getExchangeprice());
+    presentVO.setAccount_num(revExchangeVO.getAccount_num_from());
+    exchangeDAO.transfer1(presentVO);  //외화출금
+    
+    AccountVO account = new AccountVO();
+    
+    account.setBalance((int)Math.round(revExchangeVO.getExchangecharge()));
+    account.setAccount_num(revExchangeVO.getAccount_num_to());
+    account.setBank_name(revExchangeVO.getAccount_num_to());
+    accountDAO.transfer2(account); //원화입금
+    
+    exchangeDAO.doRevExchange(revExchangeVO); //재환전 내역에 insert
+  }
 	
+  
+  
+  
 	
 	
   
