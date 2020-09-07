@@ -9,6 +9,49 @@
 
 
 
+<script>
+
+$(document).ready(function(){
+  $.ajax({
+  url : '${ pageContext.request.contextPath }/rate/rateInfodummy',
+  type : 'get',
+  success : function(data) {
+    let list = JSON.parse(data);
+    /* console.log(data) */
+    $("#alarm1").html(list[0]);
+    $("#alarm2").html(list[1]);
+    $("#alarm3").html(list[2]);
+    $("#alarm4").html(list[3]);
+
+  },
+  error : function() {
+    alert('실패')
+  },
+  complete : function() {
+    /* 뭘해줘야할까 */
+  }
+  })
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
 
 <!-- 수정할부분 시작 -->
 <section>
@@ -23,7 +66,17 @@
 			</div>
 		</div>
 	<!-- 	<div class="table-wrapper"> -->
-			<table class="table table-bordered">
+    <p class="txtRateBox">
+      <span class="fl"> 
+        <em>기준일</em> : <strong><span id="alarm1"></span></strong> 
+        <em>고시회차</em> : <strong><span id="alarm2"></span></strong> 
+        <em>고시시간</em> : <strong><span id="alarm3"></span></strong>
+      </span> 
+      <span class="fr"> 
+        <em>조회시각</em> : <strong><span id="alarm4"></span></strong>
+      </span>
+    </p>
+    <table class="table table-bordered table-striped table-condensed">
 				<thead>
 					<tr>
 						<th class="leftNone" scope="col" rowspan="3">통화</th>

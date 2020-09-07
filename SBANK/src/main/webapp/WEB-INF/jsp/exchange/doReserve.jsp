@@ -272,6 +272,16 @@
 	width: 300px;
 	height: 500px;
 }
+
+/*     div.left {
+        width: 20%;
+        float: left;
+    }
+    div.right {
+        width: 80%;
+        float: right;
+    } */
+
 </style>
 
 
@@ -304,9 +314,34 @@
 			<!-- highcharts 해보기 -->
 						<form method="post" action="${pageContext.request.contextPath }/exchange/doReserve">
 								<table border="1" class="table table-bordered">
+                    <!-- <tr>
+                      <td colspan="3">
+                        <div class="chart_control_area">
+                          <dl class="line">
+                            <dd>
+                              <ul>
+                                <li class="month"><a href="#" onclick="showChart('month');">1개월</a></li>
+                                <li class="month3"><a href="#" class="on" onclick="showChart('month3');">3개월</a></li>
+                                <li class="year"><a href="#" onclick="showChart('year');">1년</a></li>
+                                <li class="year3"><a href="#" onclick="showChart('year3');">3년</a></li>
+                                <li class="year5"><a href="#" onclick="showChart('year5');">5년</a></li>
+                                <li class="year10"><a href="#" onclick="showChart('year10');">10년</a></li>
+                              </ul>
+                            </dd>
+                          </dl>
+                        </div>
+                      </td>
+                    </tr> -->
                     <tr>
                       <td colspan="3">
-                        <img id="style-img" class="centered " crossorigin="anonymous" src="" height=256></img>
+                        <!-- <div>
+                          <div class="left">
+                              
+                          </div>
+                          <div class="right"><img id="style-img" class="centered " crossorigin="anonymous" src="" ></img></div>
+                        </div> -->
+                                                      최근 3개월 동안의 지표
+                        <img id="style-img" class="centered " crossorigin="anonymous" src="" width="90%" align="center" ></img>
                       </td>
                     </tr>
 										<tr>

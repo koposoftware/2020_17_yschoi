@@ -13,6 +13,20 @@
 		from s_currencyrate
 	</select>
 	
+	<!-- 여기서부터 4개는 환율정보  고시회차 관련 -->
+	<select id="exchange.dao.ExchangeDAO.selectDummyOne" resultType="string">
+	 select one from dummy
+	</select>
+	<select id="exchange.dao.ExchangeDAO.selectDummyTwo" resultType="string">
+	 select two from dummy
+	</select>
+	<select id="exchange.dao.ExchangeDAO.selectDummyThr" resultType="string">
+	 select thr from dummy
+	</select>
+	<select id="exchange.dao.ExchangeDAO.selectDummyFou" resultType="string">
+	 select fou from dummy
+	</select>
+	
 	
 	<!-- 통화 기준으로 환율정보 조회 -->
 	<select id="getRateCommission"  resultType="currencyVO" parameterType="string"  >
@@ -49,14 +63,20 @@
   
   <!-- 환전내역조회 -->
   <select id="selectExchange" parameterType="string" resultType="exchangeVO">
-    select * from S_EXCHANGE where id = #{id}
+    select * from S_EXCHANGE where id = #{id} order by exchangeno desc
   </select>
   
   <!-- 환전예약내역조회 -->
   <select id="selectReserve" parameterType="string" resultType="reserveVO">
-    select * from S_RESERVATION where id = #{id}
+    select * from S_RESERVATION where id = #{id}  order by reserveno desc
   </select>
   
+  <!-- 재환전내역 조회 -->
+  <select id="selectRevExchange" parameterType="string" resultType="revExchangeVO">
+    select * from S_REVEXCHANGE where id = #{id} order by EXCHANGENO desc
+  </select>
+  
+  <!-- 보유외화조회가아닐까 생각합니닷 -->
   <select id="selectCurrency" parameterType="string" resultType="curlistVO" >
     select * from S_CURLIST where account_num = #{account_num}
   </select>

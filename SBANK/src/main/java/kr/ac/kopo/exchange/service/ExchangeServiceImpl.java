@@ -26,7 +26,9 @@ public class ExchangeServiceImpl implements ExchangeService {
 	
 
 	
-
+	/**
+	 * 환율정보폼 띄어주기
+	 */
 	@Override
 	public List<CurrencyVO> selectAllCurrency() {
 		
@@ -36,7 +38,28 @@ public class ExchangeServiceImpl implements ExchangeService {
 	}
 	
 	
+	
+	
 	/**
+	 * 환율정보에서 고치회차등을 표시하기
+	 */
+	@Override
+  public List<String> selectdummy() {
+	  List<String> dummy = exchangeDAO.selectdummy();
+    return dummy;
+  }
+
+
+
+
+
+
+
+
+
+
+
+  /**
 	 * 환전하기에서 통화 선택하면 현재환율정보 띄어주는 부분 ajax
 	 * @param currency
 	 * @return CurrencyVO
@@ -136,8 +159,23 @@ public class ExchangeServiceImpl implements ExchangeService {
     
     return reserveList;
   }
-
   
+  
+  
+  
+
+  /**
+   * 재환전내역 id 기준으로 조회
+   */
+  @Override
+  public List<RevExchangeVO> selectRevExchange(String id) {
+    List<RevExchangeVO> revExchangeList = exchangeDAO.selectRevExchange(id);
+    return revExchangeList;
+  }
+
+
+
+
   /**
    * 외화 보유 내역
    */

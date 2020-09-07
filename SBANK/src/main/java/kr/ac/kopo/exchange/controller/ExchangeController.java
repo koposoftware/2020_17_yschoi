@@ -59,6 +59,19 @@ public class ExchangeController {
 
 		return mav;
 	}
+	
+	@ResponseBody
+	@GetMapping("/rate/rateInfodummy")
+  public List<String> selectdummy() {
+    System.out.println("ExchangeController - rateInfodummy 진입");
+
+    List<String> dummy =exchangeService.selectdummy();
+
+
+    return dummy;
+  }
+	
+	
 
 	/**
 	 * 환전가이드 보여주기
@@ -89,6 +102,8 @@ public class ExchangeController {
 	@PostMapping("/exchange/doExchange")
 	public String doExchange(ExchangeVO exchangeVO, HttpSession session,@RequestParam("bank_name") String bank_name) {
 	  
+	  System.out.println(exchangeVO);
+	  
 	  System.out.println("비밀번호 : "+bank_name);
 	  AccountVO chkVO = new AccountVO();
 	  chkVO.setAccount_num(exchangeVO.getAccount_num());
@@ -96,13 +111,7 @@ public class ExchangeController {
 	  System.out.println(chkVO);
 	  
 	  int result = accountService.chkPassword(chkVO);
-	  //System.out.println("비번 확인 후 record 수 : " + result);
 	  
-/*	  if(result == 0 ) { //비밀번호가 틀리면
-	    System.out.println("비밀번호를 확인하세요.");
-	    return "exchange/guide";
-	  }*/
-	  //else {  // 비밀번호가 맞으면
 	  
 	  
 		MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
@@ -112,8 +121,58 @@ public class ExchangeController {
 		
 		exchangeService.doExchange(exchangeVO); // 환전하기
 		
-	  //}
-		return "exchange/guide";
+		if (exchangeVO.getExchange_place().equals("own")) {
+		  return "redirect:/account/myAccount"; // 개인소유인 경우 보유외화 봐야함
+		} else {
+		  return "redirect:/exchange/myExchange"; // 수령인경우 환전내역 봐야함
+		}
+		
+	 
+	}
+	/**
+	 * 환전하기폼 보여주기
+	 * 
+	 * @return
+	 */
+	@GetMapping("/exchange/doExchange2")
+	public String doExchangeForm2() {
+	  return "exchange/doExchange2";
+	}	
+	
+	/**
+	 * 환전하기
+	 * @param exchangeVO
+	 * @param session
+	 * @return
+	 */
+	@PostMapping("/exchange/doExchange2")
+	public String doExchange2(ExchangeVO exchangeVO, HttpSession session,@RequestParam("bank_name") String bank_name) {
+	  
+	  System.out.println(exchangeVO);
+	  
+	  System.out.println("비밀번호 : "+bank_name);
+	  AccountVO chkVO = new AccountVO();
+	  chkVO.setAccount_num(exchangeVO.getAccount_num());
+	  chkVO.setBank_name(bank_name);
+	  System.out.println(chkVO);
+	  
+	  int result = accountService.chkPassword(chkVO);
+	  
+	  
+	  
+	  MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
+	  String id = userVO.getId();
+	  exchangeVO.setId(id);
+	  
+	  
+	  exchangeService.doExchange(exchangeVO); // 환전하기
+	  
+	  if (exchangeVO.getExchange_place().equals("own")) {
+	    return "redirect:/account/myAccount"; // 개인소유인 경우 보유외화 봐야함
+	  } else {
+	    return "redirect:/exchange/myExchange"; // 수령인경우 환전내역 봐야함
+	  }
+	  
 	  
 	}
 
@@ -222,10 +281,12 @@ public class ExchangeController {
 
     List<ExchangeVO> exchangeList = exchangeService.selectExchange(id); // 환전내역 가져오기
     List<ReserveVO> reserveList = exchangeService.selectReserve(id); //환전 예약 내역 가져오기
+    List<RevExchangeVO> revExchangeList = exchangeService.selectRevExchange(id); // 재환전내역
 
     ModelAndView mav = new ModelAndView("account/myExchange");
     mav.addObject("exchangeList", exchangeList);
     mav.addObject("reserveList", reserveList);
+    mav.addObject("revExchangeList", revExchangeList);
     
 //  for(ReserveVO account : reserveList) {
 //    System.out.println(account);

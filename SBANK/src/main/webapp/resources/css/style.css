@@ -7355,5 +7355,34 @@ p.head-login {
 		width: 58.72 !important;  
 		height: 38.05" !important;
 }
+.txtRateBox {
+  overflow:hidden;
+  padding:15px 0 10px;
+}
+.txtRateBox span strong {
+  color:#004584;
+  font-weight: 700;
+}
+.txtRateBox span em {
+  margin-left:20px;
+  font-style : normal !important;
+  font-weight: 600 !important;
+}
+.txtRateBox>span em:first-child {
+  margin-left:0;
+}
+
+.fl {
+  float:left !important;
+}
+.flLeft,.fl_left {
+  float:left;
+}
+.flRight,.fl_right {
+  float:right;
+}
+.fr {
+  float: right !important;
+}
 
 /*# sourceMappingURL=style.css.map */

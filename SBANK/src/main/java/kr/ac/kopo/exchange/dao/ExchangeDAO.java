@@ -18,6 +18,14 @@ public interface ExchangeDAO {
 	public List<CurrencyVO> selectAll();
 	
 	
+	
+	/**
+	 * 환율정보에서 고치회차등을 표시하기
+	 * @return
+	 */
+	public List<String> selectdummy();
+	
+	
 	/**
 	 * 환전하기에서 통화 선택하면 현재환율정보 띄어주는 부분 ajax
 	 * @param currency
@@ -64,6 +72,14 @@ public interface ExchangeDAO {
 	 * @return
 	 */
 	public List<ReserveVO> selectReserve(String id);
+	
+	
+	/**
+   * 재환전내역 id 기준으로 조회
+   * @param id
+   * @return
+   */
+	public List<RevExchangeVO> selectRevExchange(String id);
 	
 	
 	/**

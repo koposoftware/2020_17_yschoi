@@ -18,6 +18,12 @@ public interface ExchangeService {
 	 */
 	List<CurrencyVO> selectAllCurrency();
 	
+	/**
+   * 환율리스트에서 고시회차등을 가져옴
+   * @return
+   */
+  public List<String> selectdummy();
+	
 	
 	/**
 	 * 환전하기에서 통화 누르면 현재 환율정보 알려주는 것
@@ -63,6 +69,14 @@ public interface ExchangeService {
 	public List<ReserveVO> selectReserve(String id);
 	
 	
+	/**
+	 * 재환전내역 id 기준으로 조회
+	 * @param id
+	 * @return
+	 */
+	public List<RevExchangeVO> selectRevExchange(String id);
+	
+	
 	
 	/**
 	 * 외화 보유 내역
@@ -96,6 +110,8 @@ public interface ExchangeService {
 	 * @return
 	 */
 	public void doRevExchange(RevExchangeVO revExchangeVO);
+	
+	
 	
 	
 	

@@ -1,5 +1,6 @@
 package kr.ac.kopo.exchange.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -18,7 +19,10 @@ public class ExchangeDAOImpl implements ExchangeDAO {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
-
+	
+	/**
+	 * 모든 통화의 환율정보 폼에 띄어줄 내용 
+	 */
 	@Override
 	public List<CurrencyVO> selectAll() {
 		
@@ -30,7 +34,40 @@ public class ExchangeDAOImpl implements ExchangeDAO {
 	
 	
 	
+	
+	
+	
+	
+	
 	/**
+	 * 환율정보에서 고시회차등을 가져옴
+	 */
+	@Override
+  public List<String> selectdummy() {
+	  List<String> dummy = new ArrayList<>();
+	  
+	  String one = sqlSession.selectOne("exchange.dao.ExchangeDAO.selectDummyOne");
+	  String two = sqlSession.selectOne("exchange.dao.ExchangeDAO.selectDummyTwo");
+	  String thr = sqlSession.selectOne("exchange.dao.ExchangeDAO.selectDummyThr");
+	  String fou = sqlSession.selectOne("exchange.dao.ExchangeDAO.selectDummyFou");
+	  
+	  dummy.add(one);
+	  dummy.add(two);
+	  dummy.add(thr);
+	  dummy.add(fou);
+	  
+    return dummy;
+  }
+
+
+
+
+
+
+
+
+
+  /**
 	 * 환전하기에서 통화 선택하면 현재환율정보 띄어주는 부분 ajax
 	 * @param currency
 	 * @return
@@ -100,6 +137,28 @@ public class ExchangeDAOImpl implements ExchangeDAO {
     
     return reserveList;
   }
+  
+  
+  
+  
+  
+
+  /**
+   * 재환전내역 id 기준으로 조회
+   * @param id
+   * @return
+   */
+  @Override
+  public List<RevExchangeVO> selectRevExchange(String id) {
+    List<RevExchangeVO> revExchangeList = sqlSession.selectList("exchange.dao.ExchangeDAO.selectRevExchange", id);
+    return revExchangeList;
+  }
+
+
+
+
+
+
 
 
   /**

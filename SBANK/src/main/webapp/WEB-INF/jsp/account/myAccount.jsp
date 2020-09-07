@@ -25,7 +25,7 @@
   color: #eee;
 }
 .project-tab #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-  color: #0062cc;
+  color: #004584;
   background-color: transparent;
   border-color: transparent transparent #f3f3f3;
   border-bottom: 3px solid !important;
@@ -33,12 +33,12 @@
   font-weight: bold;
 }
 .project-tab .nav-link {
-  border: 1px solid transparent;
-  border-top-left-radius: .25rem;
-  border-top-right-radius: .25rem;
-  color: #0062cc;
-  font-size: 16px;
-  font-weight: 600;
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: #0062cc;
+    font-size: 16px;
+    font-weight: 600;
 }
 .project-tab .nav-link:hover {
   border: none;
@@ -52,6 +52,7 @@
   color: #333;
   font-weight: 600;
 }
+
 
 </style>
 
