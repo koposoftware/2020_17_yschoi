@@ -40,10 +40,10 @@ public class MemberController {
 
 		ModelAndView mav = new ModelAndView();
 
-		if (loginVO == null) {
+		if (loginVO == null) {  //로그인 실패
 			mav.setViewName("redirect:/login");
 
-		} else {
+		} else { //로그인 성공 시
 
 			String dest = (String) session.getAttribute("dest");
 

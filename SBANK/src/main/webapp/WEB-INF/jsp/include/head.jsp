@@ -135,6 +135,8 @@
 														href="${pageContext.request.contextPath }/account/myAccount2">사이드바
 															테스트</a></li> --%>
 												</ul></li>
+                        
+                        
 											<li><a href="#">exchange<i class="ti-angle-down"></i></a>
 												<ul class="submenu">
 													<li><a
@@ -168,9 +170,16 @@
                           <li><a
                             href="${pageContext.request.contextPath }/account/myCurrency">보유 외화 보기</a></li>
                           </c:if>
-												</ul>
+												</ul></li>
+                        
+                        
 												 <li><a href="${pageContext.request.contextPath }/board">Q & A</a>
 												</li>
+                        
+                        
+                        <c:if test="${loginVO.type == 'M'  }">
+                        <li><a href="#">관리자<i class="ti-angle-down"></i></a></li>
+                        </c:if>
 
 										</ul>
 

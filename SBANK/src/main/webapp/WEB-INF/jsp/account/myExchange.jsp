@@ -87,7 +87,7 @@
                   <thead>
                     <tr>
                       <th>통화명</th>
-                      <th>보유금액(외화 기준)</th>
+                      <th>보유금액(외화)</th>
                       <th>우대적용 환율</th>
                       <th>환전금액(원)</th>
                       <th>수령인</th>
@@ -155,7 +155,6 @@
             
             
             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-              <c:forEach items="${revExchangeList}" var="account" varStatus="loop">
               <br>
                 <form action="${pageContext.request.contextPath }/" method="post" id="formm">
                   <table border="1" class="table table-bordered">
@@ -168,6 +167,7 @@
                         <th>환전일</th>
                       </tr>
                     </thead>
+              <c:forEach items="${revExchangeList}" var="account" varStatus="loop">
                     <tbody>
                       <td>${account.currencycode}</td>
                       <td>${account.exchangeprice}</td>
@@ -175,10 +175,10 @@
                       <td>${account.exchangecharge}</td>
                       <td>${account.reg_date}</td>
                     </tbody>
+              </c:forEach>
                   </table>
                 </form>
                 <br>
-              </c:forEach>
             </div>
           </div>
         </div>
