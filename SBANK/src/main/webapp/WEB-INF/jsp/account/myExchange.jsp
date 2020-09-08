@@ -13,7 +13,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- 여기아래는 툴팁관련 -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <script>
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+}) // 툴팁관련!
+
+
 $(document).ready(function() {
   
   var CurAccount_num ='';
@@ -103,6 +114,8 @@ $(document).ready(function() {
   
   
 });
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
 </script>
 <style>
@@ -250,6 +263,8 @@ $(document).ready(function() {
             
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
             <br>
+              <span data-toggle="tooltip" align="right" data-placement="bottom" title="Y: 환전완료, N:환전미완료, E: 잔액부족으로 환전 실패"><strong>환전여부 확인하기</strong></span>
+              <br>
               <table border="1" class="table table-bordered">
                   <thead>
                     <tr>

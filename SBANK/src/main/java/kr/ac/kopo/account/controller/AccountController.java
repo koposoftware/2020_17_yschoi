@@ -64,14 +64,21 @@ public class AccountController {
 		
 		String account_num="";
 		Random r = new Random();
-		for(int i=0; i<6 ; i++) {  /////여기여기여기 수정!
-			account_num += Integer.toString(r.nextInt(10));
-		}
-		account.setAccount_num(account_num);
-		System.out.println("controller진입");
-		System.out.println("accountVO" + account);
+		int cnt = 1;
 		
-		accountService.insert(account);
+		while (true) {
+  		for(int i=0; i<12 ; i++) {  /////여기여기여기 수정!
+  			account_num += Integer.toString(r.nextInt(10));
+  		}
+  		cnt=accountService.chkAccountNumIsExistAlready(account_num);
+  		if(cnt == 0) {
+    		account.setAccount_num(account_num);
+    		System.out.println("controller진입");
+    		System.out.println("accountVO" + account);
+    		accountService.insert(account);
+    		break;
+  		}
+		}
 		return "redirect:/account/myAccount";
 	}
 	

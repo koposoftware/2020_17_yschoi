@@ -25,7 +25,25 @@ public class AccountServiceImpl implements AccountService {
 	
 	
 	
+	
+	
 	/**
+   * 계좌 개설시 계좌번호 중복 방지 차 있는 번호인지 확인함.
+   * @param account_num
+   * @return
+   */
+	@Override
+  public int chkAccountNumIsExistAlready(String account_num) {
+    int cnt = accountdao.chkAccountNumIsExistAlready(account_num);
+    return cnt;
+  }
+
+
+
+
+
+
+  /**
 	 * 원화계좌조회
 	 */
 	@Override

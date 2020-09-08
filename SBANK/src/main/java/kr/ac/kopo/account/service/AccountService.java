@@ -13,6 +13,13 @@ public interface AccountService {
 	 */
 	public void insert(AccountVO account);
 	
+	/**
+	 * 계좌 개설시 계좌번호 중복 방지 차 있는 번호인지 확인함.
+	 * @param account_num
+	 * @return
+	 */
+	public int chkAccountNumIsExistAlready(String account_num);
+	
 	
 	/**
 	 * 원화계좌조회
