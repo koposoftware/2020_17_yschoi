@@ -246,7 +246,7 @@ public class ExchangeServiceImpl implements ExchangeService {
       int result = accountDAO.chkRecordCurrencyCode(exchangeVO); // 외화 계좌에 해당 통화 관련 record 있는지 확인.
       System.out.println("result : "+result);
       System.out.println("own");
-      exchangeVO.setExchange_date("");
+      exchangeVO.setExchange_date(""); // 여기에 account_num이 없어서 에러나는듯!!!!!!!!!!!!!!!중요쓰,~~~~~~~~~
       
       if (result > 0) {
         // System.out.println("check if it is enter - Update");

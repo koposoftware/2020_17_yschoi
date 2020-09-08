@@ -98,6 +98,7 @@ public class AccountDAOImpl implements AccountDAO {
    */
   @Override
   public int chkRecordCurrencyCode(ExchangeVO exchangeVO) {
+    /* where account_num = #{reg_date} and currencycode=#{currencycode} */
     int result = sqlSession.selectOne("account.dao.AccountDAO.chkRecordCurrencyCode", exchangeVO);
     return result;
   }

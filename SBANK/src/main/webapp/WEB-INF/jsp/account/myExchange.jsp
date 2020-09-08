@@ -15,13 +15,49 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
-  /* $(".modal_show").click(function() { */
+  
+  var CurAccount_num ='';
+  $.ajax({
+    url : '${ pageContext.request.contextPath }/exchange/getCurAccount_num',
+    type : 'get',
+    success : function(data) {
+      let list = JSON.parse(data);
+      console.log(data)
+      
+      
+      CurAccount_num=list;
+      
+/*       if (CurAccount_num.length >3) {
+        console.log(data)
+        CurAccount_num=data;
+      } else{
+        $("select option[value*='own']").prop('disabled',true);
+        $("#alarm").html("&nbsp;&nbsp;&nbsp;(외화계좌 미보유자는 개인소유가 불가능합니다.)");
+      } */
+      
+
+
+    }, 
+    error : function() {
+      alert('실패')
+    }, complete : function() {
+            /* 뭘해줘야할까 */
+    }
+  })
+  
+
+  
   $(document).on("click",".modal_show",function(){
 
     var no =$(this).val();
-    /* alert(no); */
+    var currency = $(this).attr('name');
+    var exchangeprice = $(this).attr('id');
+    /* alert(currency); */
     $(".modal-title").append("수령정보 수정하기");
-    var str = '<input type="hidden" id="exchangeNo" name="exchangeNo" value="'+no+'" ><br>';
+    var str = '<input type="hidden" id="exchangeNo" name="exchangeNo" value="'+no+'" >';
+    str += '<input type="hidden" id="currencycode" name="currencycode" value="'+currency+'" >';
+    str += '<input type="hidden" id="reg_date" name="reg_date" value="'+CurAccount_num+'" >';
+    str += '<input type="hidden" id="exchangeprice" name="exchangeprice" value="'+exchangeprice+'" >';
     str += '수령인<br>';
     str += '<input type="text" id="name" name="name" class="form-control" aria-describedby="inputGroupSuccess1Status" ><br><br>' ;
     str += '수령일<br>'
@@ -29,13 +65,16 @@ $(document).ready(function() {
     str += '수령지점<br>'
     str += '<select name="exchange_place" id="exchange_place"  onchange="categoryChange(this)" class="form-control" aria-describedby="inputGroupSuccess1Status" >';
     str += '  <option value="a" selected disabled  >- 수령지점 / 개인 소유 여부를 선택하세요 -</option> ';
-    str += '  <option value="own">개인소유</option>';
+    str += '  <option value="own" disabled>개인소유</option>';
     str += '  <option value="인천국제공항">인천국제공항</option>';
     str += '  <option value="김포공항">김포공항</option>';
     str += '  <option value="김해공항">김해공항</option>';
     str += '</select>';
     $(".modal-body").append(str);
     $("#exampleModal").modal("show");
+    if (CurAccount_num.length >3){
+      $("select option[value*='own']").prop('disabled',false);
+    }
   });
 
   $("#close_submit").click(function() {
@@ -43,12 +82,28 @@ $(document).ready(function() {
     $(".modal-title").empty();
     $(".modal-body").empty();
   });
+  
+  
   $("#close_cancel").click(function() {
     $("#exampleModal").modal("hide");
     $(".modal-title").empty();
     $(".modal-body").empty();
   });
+  
+  
+  
 });
+  
+  
+$(document).ready(function() {
+  
+  
+  
+  
+  
+  
+});
+
 </script>
 <style>
 .project-tab {
@@ -152,7 +207,8 @@ $(document).ready(function() {
                       <td>
                       <c:choose>
                         <c:when test="${exchange.exchange_place != 'own'  }">
-                          <button id="${exchange.exchangeNo}" value="${exchange.exchangeNo}" class="modal_show btn btn-outline-dark">수령정보 수정</button>
+                          <button id="${exchange.exchangeprice}" value="${exchange.exchangeNo}" name="${exchange.currencycode}" 
+                                class="modal_show btn btn-outline-dark">수령정보 수정</button>
                          </c:when>
                          <c:otherwise>
                                                             수정불가

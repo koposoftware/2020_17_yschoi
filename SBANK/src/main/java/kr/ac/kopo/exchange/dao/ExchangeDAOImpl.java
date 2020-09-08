@@ -166,7 +166,10 @@ public class ExchangeDAOImpl implements ExchangeDAO {
    */
   @Override
   public List<CurlistVO> selectCurrency(String accounnt_num) {
-    List<CurlistVO> curlist = sqlSession.selectList("exchange.dao.ExchangeDAO.selectCurrency", accounnt_num);
+    List<CurlistVO> curlist = new ArrayList<CurlistVO>();
+    if (accounnt_num != null) {
+      curlist = sqlSession.selectList("exchange.dao.ExchangeDAO.selectCurrency", accounnt_num);
+    }
     return curlist;
   }
 
