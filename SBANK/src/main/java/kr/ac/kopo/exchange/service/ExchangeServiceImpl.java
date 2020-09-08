@@ -231,7 +231,41 @@ public class ExchangeServiceImpl implements ExchangeService {
     
     exchangeDAO.doRevExchange(revExchangeVO); //재환전 내역에 insert
   }
+
+
+
+  /**
+   * 수령인 수령일 수령지점 수정하기
+   */
+  @Override
+  public void changeInfo(ExchangeVO exchangeVO) {
+    // TODO Auto-generated method stub
+    
+    if (exchangeVO.getExchange_place().equals("own")) { // 개인소유하면 curlist테이블에 넣어야해서
+      
+      int result = accountDAO.chkRecordCurrencyCode(exchangeVO); // 외화 계좌에 해당 통화 관련 record 있는지 확인.
+      System.out.println("result : "+result);
+      System.out.println("own");
+      exchangeVO.setExchange_date("");
+      
+      if (result > 0) {
+        // System.out.println("check if it is enter - Update");
+        System.out.println(exchangeVO);
+        accountDAO.doExchangeCurUpdate(exchangeVO);// record있으니 외화계좌에 해당 record에 balance 더하기
+      } else {
+        // System.out.println("check if it is enter - Insert");
+        System.out.println(exchangeVO);
+        accountDAO.doExchangeCurInsert(exchangeVO); // 외화계좌에 돈 insert
+      }
+      
+    }
+    
+    
+    
+    exchangeDAO.changeInfo(exchangeVO); // 개인소유던 수령이던 UPDATE는 해야함~
+  }
 	
+  
   
   
   

@@ -128,6 +128,14 @@ public interface ExchangeDAO {
 	public void doRevExchange(RevExchangeVO revExchangeVO);
 	
 	
+	/**
+	 * 수령인 수령일 수령지점 수정
+	 * @param exchangeVO
+	 */
+	public void changeInfo(ExchangeVO exchangeVO);
+	
+	
+	
 	
 	
 

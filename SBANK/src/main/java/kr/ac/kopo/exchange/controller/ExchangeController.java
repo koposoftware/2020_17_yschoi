@@ -415,7 +415,46 @@ public class ExchangeController {
     exchangeService.doRevExchange(revExchangeVO);
     
   }
-	
+  
+  /**
+   * 수령지점 수령일 수령인 등 수정하는 폼! 선물하기 아니고 본인꺼 수정하는거임
+   * @param session
+   * @param exchangeVO
+   */
+  @PostMapping("/exchange/changeInfo")
+  public String changeInfo(HttpSession session, ExchangeVO exchangeVO) {
+    MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
+    String id = userVO.getId();
+    exchangeVO.setId(id);
+    
+    System.out.println("수정정보"); 
+    System.out.println(exchangeVO);
+     
+    exchangeService.changeInfo(exchangeVO);
+    
+    if (exchangeVO.getExchange_place().equals("own")) { 
+      return "redirect:/account/myAccount"; // 개인소유인 경우 보유외화 봐야함
+    } else {
+      return "redirect:/exchange/myExchange"; // 수령인경우 환전내역 봐야함
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 	
 
 }

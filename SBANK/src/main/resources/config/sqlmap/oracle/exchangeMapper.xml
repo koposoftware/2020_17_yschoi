@@ -107,11 +107,17 @@
     select STANDARD_HASH ( #{pwd}, 'SHA256') from dual
   </select>
   
-  
+  <!-- 재환전하기 기능 -->
   <insert id="doRevExchange" parameterType="revExchangeVO" >
     insert into S_REVEXCHANGE(exchangeNo,id,currencycode,exchangeprice,exchangerate,exchangecharge,account_num_from,account_num_to) values
       (seq_S_REVEXCHANGE_no.nextval , #{id}, #{currencycode}, #{exchangeprice}, #{exchangerate}, #{exchangecharge},#{account_num_from},#{account_num_to})
   </insert>
+  
+  <!-- 환전내역에서 수령일 수령일 수령지점 수정하기 -->
+  <update id="changeInfo" parameterType="exchangeVO">
+    update s_exchange set name=#{name}, exchange_date=#{exchange_date}, exchange_place=#{exchange_place} 
+    where exchangeNo=#{exchangeNo} 
+  </update>
   
   
 </mapper>

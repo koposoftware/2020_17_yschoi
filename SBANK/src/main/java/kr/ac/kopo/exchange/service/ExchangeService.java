@@ -112,7 +112,11 @@ public interface ExchangeService {
 	public void doRevExchange(RevExchangeVO revExchangeVO);
 	
 	
-	
+	/**
+	 * 수령인 수령일 수령지점 수정하기
+	 * @param exchangeVO
+	 */
+	public void changeInfo(ExchangeVO exchangeVO);
 	
 	
 	

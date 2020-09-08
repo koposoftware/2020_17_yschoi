@@ -220,6 +220,21 @@ public class ExchangeDAOImpl implements ExchangeDAO {
   public void doRevExchange(RevExchangeVO revExchangeVO) {
     sqlSession.insert("exchange.dao.ExchangeDAO.doRevExchange", revExchangeVO);
   }
+
+
+
+
+
+
+
+  /**
+   * 수령인 수령일 수령지점 수정하기
+   */
+  @Override
+  public void changeInfo(ExchangeVO exchangeVO) {
+    // TODO Auto-generated method stub
+    sqlSession.update("exchange.dao.ExchangeDAO.changeInfo", exchangeVO);
+  }
 	
 	
 	

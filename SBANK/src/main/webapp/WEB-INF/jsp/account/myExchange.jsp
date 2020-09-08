@@ -21,12 +21,19 @@ $(document).ready(function() {
     var no =$(this).val();
     /* alert(no); */
     $(".modal-title").append("수령정보 수정하기");
-    var str = '<input type="hidden" id="exchangeNo" value="$(this).val()" ><br>';
+    var str = '<input type="hidden" id="exchangeNo" name="exchangeNo" value="'+no+'" ><br>';
     str += '수령인<br>';
-    str += '<input type="text" id="name" ><br><br>' ;
+    str += '<input type="text" id="name" name="name" class="form-control" aria-describedby="inputGroupSuccess1Status" ><br><br>' ;
     str += '수령일<br>'
-    str += '<input type="date" id="exchange_date" ><br><br>' ;
+    str += '<input type="date" id="exchange_date" name="exchange_date" class="form-control" aria-describedby="inputGroupSuccess1Status" ><br><br>' ;
     str += '수령지점<br>'
+    str += '<select name="exchange_place" id="exchange_place"  onchange="categoryChange(this)" class="form-control" aria-describedby="inputGroupSuccess1Status" >';
+    str += '  <option value="a" selected disabled  >- 수령지점 / 개인 소유 여부를 선택하세요 -</option> ';
+    str += '  <option value="own">개인소유</option>';
+    str += '  <option value="인천국제공항">인천국제공항</option>';
+    str += '  <option value="김포공항">김포공항</option>';
+    str += '  <option value="김해공항">김해공항</option>';
+    str += '</select>';
     $(".modal-body").append(str);
     $("#exampleModal").modal("show");
   });
@@ -120,6 +127,7 @@ $(document).ready(function() {
                   <table border="1" class="table table-bordered">
                   <thead>
                     <tr>
+                      <th>환전일</th>
                       <th>통화명</th>
                       <th>외화금액</th>
                       <!-- <th>우대적용 환율</th>
@@ -127,13 +135,13 @@ $(document).ready(function() {
                       <th>수령인</th>
                       <th>수령일</th>
                       <th>수령점</th>
-                      <th>환전일</th>
                       <th>수령정보 수정</th>
                     </tr>
                   </thead>
                 <c:forEach items="${exchangeList}" var="exchange" varStatus="loop">
                   <tbody>
                     <tr>
+                      <td>${exchange.reg_date}</td>
                       <td>${exchange.currencycode}</td>
                       <td>${exchange.exchangeprice}</td>
                       <%-- <td>${exchange.exchangerate}</td>
@@ -141,11 +149,10 @@ $(document).ready(function() {
                       <td>${exchange.name}</td>
                       <td>${exchange.exchange_date}</td>
                       <td>${exchange.exchange_place}</td>
-                      <td>${exchange.reg_date}</td>
                       <td>
                       <c:choose>
                         <c:when test="${exchange.exchange_place != 'own'  }">
-                          <button id="${exchange.exchangeNo}" value="${exchange.exchangeNo}" class="modal_show">수령정보 수정</button>
+                          <button id="${exchange.exchangeNo}" value="${exchange.exchangeNo}" class="modal_show btn btn-outline-dark">수령정보 수정</button>
                          </c:when>
                          <c:otherwise>
                                                             수정불가
@@ -160,6 +167,7 @@ $(document).ready(function() {
             
             
             <!-- 모달창 시작 -->
+            <form action="${pageContext.request.contextPath }/exchange/changeInfo" method="post" id="formmm">
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -179,6 +187,7 @@ $(document).ready(function() {
                 </div>
               </div>
             </div>
+            </form>
             <!-- 모달창 끝 --> 
             
             
@@ -223,7 +232,7 @@ $(document).ready(function() {
             
             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
               <br>
-                <form action="${pageContext.request.contextPath }/" method="post" id="formm">
+                
                   <table border="1" class="table table-bordered">
                     <thead>
                       <tr>
@@ -236,15 +245,17 @@ $(document).ready(function() {
                     </thead>
               <c:forEach items="${revExchangeList}" var="account" varStatus="loop">
                     <tbody>
+                    <tr>
                       <td>${account.currencycode}</td>
                       <td>${account.exchangeprice}</td>
                       <td>${account.exchangerate}</td>
                       <td>${account.exchangecharge}</td>
                       <td>${account.reg_date}</td>
+                    </tr>
                     </tbody>
               </c:forEach>
                   </table>
-                </form>
+
                 <br>
             </div>
           </div>
