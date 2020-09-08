@@ -7,8 +7,42 @@
 
 <%@ include file="/WEB-INF/jsp/include/head.jsp"%>
 
-
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  /* $(".modal_show").click(function() { */
+  $(document).on("click",".modal_show",function(){
+
+    var no =$(this).val();
+    /* alert(no); */
+    $(".modal-title").append("수령정보 수정하기");
+    var str = '<input type="hidden" id="exchangeNo" value="$(this).val()" ><br>';
+    str += '수령인<br>';
+    str += '<input type="text" id="name" ><br><br>' ;
+    str += '수령일<br>'
+    str += '<input type="date" id="exchange_date" ><br><br>' ;
+    str += '수령지점<br>'
+    $(".modal-body").append(str);
+    $("#exampleModal").modal("show");
+  });
+
+  $("#close_submit").click(function() {
+    $("#exampleModal").modal("hide");
+    $(".modal-title").empty();
+    $(".modal-body").empty();
+  });
+  $("#close_cancel").click(function() {
+    $("#exampleModal").modal("hide");
+    $(".modal-title").empty();
+    $(".modal-body").empty();
+  });
+});
+</script>
 <style>
 .project-tab {
   padding: 10%;
@@ -87,13 +121,14 @@
                   <thead>
                     <tr>
                       <th>통화명</th>
-                      <th>보유금액(외화)</th>
-                      <th>우대적용 환율</th>
-                      <th>환전금액(원)</th>
+                      <th>외화금액</th>
+                      <!-- <th>우대적용 환율</th>
+                      <th>환전금액(원)</th> -->
                       <th>수령인</th>
                       <th>수령일</th>
-                      <th>수령지점</th>
+                      <th>수령점</th>
                       <th>환전일</th>
+                      <th>수령정보 수정</th>
                     </tr>
                   </thead>
                 <c:forEach items="${exchangeList}" var="exchange" varStatus="loop">
@@ -101,18 +136,50 @@
                     <tr>
                       <td>${exchange.currencycode}</td>
                       <td>${exchange.exchangeprice}</td>
-                      <td>${exchange.exchangerate}</td>
-                      <td>${exchange.exchangecharge}</td>
+                      <%-- <td>${exchange.exchangerate}</td>
+                      <td>${exchange.exchangecharge}</td> --%>
                       <td>${exchange.name}</td>
                       <td>${exchange.exchange_date}</td>
                       <td>${exchange.exchange_place}</td>
                       <td>${exchange.reg_date}</td>
+                      <td>
+                      <c:choose>
+                        <c:when test="${exchange.exchange_place != 'own'  }">
+                          <button id="${exchange.exchangeNo}" value="${exchange.exchangeNo}" class="modal_show">수령정보 수정</button>
+                         </c:when>
+                         <c:otherwise>
+                                                            수정불가
+                         </c:otherwise>
+                      </c:choose>
+                      </td>
                     </tr>
                   </tbody>
                 </c:forEach>
               </table>
             </div>
             
+            
+            <!-- 모달창 시작 -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <!-- 여기에 제목넣기 -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body"></div>
+                  <!-- 여기에 내용 넣기 -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close_cancel" onclick="return false">취소</button>
+                    <input type="submit" class="btn btn-success btn-md" value="확인" >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 모달창 끝 --> 
             
             
             

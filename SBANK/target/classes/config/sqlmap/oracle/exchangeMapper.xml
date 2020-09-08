@@ -63,17 +63,23 @@
   
   <!-- 환전내역조회 -->
   <select id="selectExchange" parameterType="string" resultType="exchangeVO">
-    select * from S_EXCHANGE where id = #{id} order by exchangeno desc
+    select exchangeNo,id,currencycode,exchangeprice,exchangerate,exchangecharge,name, to_char(exchange_date, 'yyyy-mm-dd') as exchange_date, exchange_place, 
+        case when  to_char(reg_date,'YYYYMMDD')=TO_CHAR(SYSDATE, 'YYYYMMDD') then to_char(reg_date,'hh24-mi-ss') else to_char(reg_date,'yyyy-mm-dd') end as reg_date
+    from s_exchange where id = #{id} order by exchangeno desc
   </select>
   
   <!-- 환전예약내역조회 -->
   <select id="selectReserve" parameterType="string" resultType="reserveVO">
-    select * from S_RESERVATION where id = #{id}  order by reserveno desc
+    select reserveno, id, account_num, currencycode,exchangeprice,exchangerate,exchangecharge,isalarm,isexchange,iscancle, to_char(max_date, 'yyyy-mm-dd') as max_date,
+    case when  to_char(reg_date,'YYYYMMDD')=TO_CHAR(SYSDATE, 'YYYYMMDD') then to_char(reg_date,'hh24-mi-ss') else to_char(reg_date,'yyyy-mm-dd') end as reg_date 
+    from S_RESERVATION where id = #{id}  order by reserveno desc
   </select>
   
   <!-- 재환전내역 조회 -->
   <select id="selectRevExchange" parameterType="string" resultType="revExchangeVO">
-    select * from S_REVEXCHANGE where id = #{id} order by EXCHANGENO desc
+    select exchangeNo, id, currencycode,exchangeprice,exchangecharge,exchangerate,account_num_from,account_num_from,
+    case when  to_char(reg_date,'YYYYMMDD')=TO_CHAR(SYSDATE, 'YYYYMMDD') then to_char(reg_date,'hh24-mi-ss') else to_char(reg_date,'yyyy-mm-dd') end as reg_date 
+    from S_REVEXCHANGE where id = #{id} order by EXCHANGENO desc
   </select>
   
   <!-- 보유외화조회가아닐까 생각합니닷 -->
