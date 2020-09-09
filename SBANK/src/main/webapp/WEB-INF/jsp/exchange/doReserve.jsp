@@ -175,8 +175,8 @@
       }
       });
 
-      alert('afterHashIpt : ' + afterHashIpt);
-      alert('realpwd : ' + realpwd);
+      /* alert('afterHashIpt : ' + afterHashIpt);
+      alert('realpwd : ' + realpwd); */
 
       if (afterHashIpt == realpwd) {
         $(".modal-title").append("환전예약하기");
@@ -340,7 +340,7 @@
                           </div>
                           <div class="right"><img id="style-img" class="centered " crossorigin="anonymous" src="" ></img></div>
                         </div> -->
-                                                      최근 3개월 동안의 지표
+                        <strong>최근 3개월 동안의 지표</strong>
                         <img id="style-img" class="centered " crossorigin="anonymous" src="" width="90%" align="center" ></img>
                       </td>
                     </tr>
@@ -356,11 +356,25 @@
 										</tr>
 										<tr>
 												<td><select name="currencycode" id="currencycode" class="form-control" aria-describedby="inputGroupSuccess1Status">
-																<option value="a" selected disabled>- 통화를 선택하세요 -</option>
-																<option value="USD" selected="selected">미국달러(USD)</option>
-																<option value="EUR">유럽유로(EUR)</option>
-																<option value="JPY">일본엔(JPY)</option>
-																<option value="GBP">영국파운드(GBP)</option>
+																<option value="a" selected="selected"  disabled>- 통화를 선택하세요 -</option>
+                                <option value="USD">미국달러(USD)</option>
+                                <option value="EUR">유럽유로(EUR)</option>
+                                <option value="JPY">일본엔(JPY)</option>
+                                <option value="GBP">영국파운드(GBP)</option>
+                                <option value="CAD">캐나다달러(CAD)</option>
+                                <option value="CHF">스위스프랑(CHF)</option>
+                                <option value="HKD">홍콩달러(HKD)</option>
+                                <option value="AUD">호주달러(AUD)</option>
+                                <option value="SGD">싱가폴달러(SGD)</option>
+                                <option value="NZD">뉴질랜드달러(NZD)</option>
+                                <option value="CNY">중국위안(CNY)</option>
+                                <option value="THB">태국바트(THB)</option>
+                                <option value="MYR">말레이지아링기트(MYR)</option>
+                                <option value="TWD">대만달러(TWD)</option>
+                                <option value="PHP">필리핀페소(PHP)</option>
+                                <option value="IDR">인도네시아루피아(IDR)</option>
+                                <option value="AED">U.A.D디히람(AED)</option>
+                                <option value="VND">베트남동(VND)</option>
 												</select></td>
 												<td colspan="2">
 												  <input type="text" id="exchangeprice" name="exchangeprice" onkeyup="keyevent(this);" placeholder ="환전 원하는 금액을 입력하세요" class="form-control" aria-describedby="inputGroupSuccess1Status" >

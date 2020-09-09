@@ -67,7 +67,7 @@ $(document).ready(function(){
   
 </script>
 
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
 
 
@@ -105,19 +105,19 @@ $(document).ready(function(){
 					</tr>
 					<tr>
 						<th width="23%">비밀번호</th>
-						<td><form:input type="password" path="bank_name" /> <form:errors
+						<td><form:input type="password" path="bank_name" class="form-control" aria-describedby="inputGroupSuccess1Status" /> <form:errors
 								path="bank_name" cssStyle="color :red;" /></td>
 					</tr>
 					<tr>
 						<th width="23%">첫입금액</th>
 						<td>
-              <form:input path="balance" /> <form:errors path="balance" cssStyle="color :red;" /> 
+              <form:input path="balance" class="form-control" aria-describedby="inputGroupSuccess1Status" /> <form:errors path="balance" cssStyle="color :red;" /> 
               <span id="alarm2" name="alarm2" ></span>
             </td>
 					</tr>
 					<tr>
 						<th width="23%">계좌별칭</th>
-						<td><form:input path="nick_name" /> <form:errors
+						<td><form:input path="nick_name" class="form-control" aria-describedby="inputGroupSuccess1Status" /> <form:errors
 								path="nick_name" cssStyle="color :red;" /></td>
 					</tr>
 				</table>

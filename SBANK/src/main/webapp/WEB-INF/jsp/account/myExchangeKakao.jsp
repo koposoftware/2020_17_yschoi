@@ -116,7 +116,9 @@ $(document).ready(function() {
 });
 
 
+
 </script>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <style>
 .project-tab {
@@ -171,7 +173,7 @@ $(document).ready(function() {
       <div class="col-xl-12">
         <!-- <div class="section_title text-center mb-50"> -->
         <header class="section_title mb-50 major" >
-          <h3>환전 & 예약 내역 보기</h3>
+          <h3>환전 내역 보기</h3>
         </header>
       </div>
     </div>
@@ -185,8 +187,6 @@ $(document).ready(function() {
           <nav>
             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
               <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">환전내역</a> 
-              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">환전예약내역</a> 
-              <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">재환전내역</a>
             </div>
           </nav>
           <div class="tab-content" id="nav-tabContent">
@@ -262,74 +262,14 @@ $(document).ready(function() {
             
             
             
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-            <br>
-              <span data-toggle="tooltip" align="right" data-placement="bottom" title="Y: 환전완료, N:환전미완료, E: 잔액부족으로 환전 실패"><strong>환전여부 확인하기</strong></span>
-              <br>
-              <table border="1" class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>통화명</th>
-                      <th>환전예정금액(외화 기준)</th>
-                      <th>우대적용 환율</th>
-                      <th>환전금액(원)</th>
-                      <th>환전여부</th>
-                      <th>최대환전일</th>
-                      <th>예약일</th>
-                      <th>출금예정계좌번호</th>
-                    </tr>
-                  </thead>
-                <c:forEach items="${reserveList}" var="reserve" varStatus="loop">
-                  <tbody>
-                    <tr>
-                      <td>${reserve.currencycode}</td>
-                      <td>${reserve.exchangeprice}</td>
-                      <td>${reserve.exchangerate}</td>
-                      <td>${reserve.exchangecharge}</td>
-                      <td>${reserve.isexchange}</td>
-                      <td>${reserve.max_date}</td>
-                      <td>${reserve.reg_date}</td>
-                      <td>${reserve.account_num}</td>
-          
-                    </tr>
-                  </tbody>
-                  </c:forEach>
-              </table>
-            </div>
-            
-            
-            
-            
-            
-            
-            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-              <br>
-                
-                  <table border="1" class="table table-bordered">
-                    <thead>
-                      <tr>
-                        <th>통화명</th>
-                        <th>환전금액(외화)</th>
-                        <th>우대적용 환율</th>
-                        <th>환전된금액(원화)</th>
-                        <th>환전일</th>
-                      </tr>
-                    </thead>
-              <c:forEach items="${revExchangeList}" var="account" varStatus="loop">
-                    <tbody>
-                    <tr>
-                      <td>${account.currencycode}</td>
-                      <td>${account.exchangeprice}</td>
-                      <td>${account.exchangerate}</td>
-                      <td>${account.exchangecharge}</td>
-                      <td>${account.reg_date}</td>
-                    </tr>
-                    </tbody>
-              </c:forEach>
-                  </table>
 
-                <br>
-            </div>
+            
+            
+            
+            
+            
+            
+
           </div>
         </div>
       </div>
@@ -354,83 +294,7 @@ $(document).ready(function() {
     
     
     
-    
-    
-<%--     
-    <header class="section_title mb-50 major">
-      <h5>환전내역</h5>   
-    </header>
-    
-    <div class="table-wrapper">
-    <table border="1" class="table table-bordered">
-        <thead>
-          <tr>
-            <th>통화명</th>
-            <th>보유금액(외화 기준)</th>
-            <th>우대적용 환율</th>
-            <th>환전금액(원)</th>
-            <th>수령인</th>
-            <th>수령일</th>
-            <th>수령지점</th>
-            <th>환전일</th>
-          </tr>
-        </thead>
-      <c:forEach items="${exchangeList}" var="exchange" varStatus="loop">
-        <tbody>
-          <tr>
-            <td>${exchange.currencycode}</td>
-            <td>${exchange.exchangeprice}</td>
-            <td>${exchange.exchangerate}</td>
-            <td>${exchange.exchangecharge}</td>
-            <td>${exchange.name}</td>
-            <td>${exchange.exchange_date}</td>
-            <td>${exchange.exchange_place}</td>
-            <td>${exchange.reg_date}</td>
-          </tr>
-        </tbody>
-      </c:forEach>
-    </table>
-    </div>
-    
-    
-    
-    
-    <br><br><br>
-    <header class="section_title mb-50 major">
-      <h5>환전예약내역</h5>   
-    </header>
-    
-    <div class="table-wrapper">
-    <table border="1" class="table table-bordered">
-        <thead>
-          <tr>
-            <th>통화명</th>
-            <th>환전예정금액(외화 기준)</th>
-            <th>우대적용 환율</th>
-            <th>환전금액(원)</th>
-            <th>환전여부</th>
-            <th>최대환전일</th>
-            <th>예약일</th>
-            <th>출금예정계좌번호</th>
-          </tr>
-        </thead>
-      <c:forEach items="${reserveList}" var="reserve" varStatus="loop">
-        <tbody>
-          <tr>
-            <td>${reserve.currencycode}</td>
-            <td>${reserve.exchangeprice}</td>
-            <td>${reserve.exchangerate}</td>
-            <td>${reserve.exchangecharge}</td>
-            <td>${reserve.isexchange}</td>
-            <td>${reserve.max_date}</td>
-            <td>${reserve.reg_date}</td>
-            <td>${reserve.account_num}</td>
 
-          </tr>
-        </tbody>
-        </c:forEach>
-    </table>
-    </div> --%>
     
     
     

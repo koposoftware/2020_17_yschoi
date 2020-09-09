@@ -16,6 +16,7 @@
     location.href = "${ pageContext.request.contextPath }/board/" + boardNo; //REST방식
   }
 </script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
 
 

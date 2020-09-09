@@ -6,6 +6,7 @@
 <%-- <jsp:include page="/head.jsp" />  --%>
 <%@ include file="/WEB-INF/jsp/include/head.jsp"%>
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
 
 
@@ -27,15 +28,15 @@
                 <table border="1" class="table table-bordered">
                     <tr>
                         <th width="23%">제목</th>
-                        <td><form:input path="title" /> <form:errors path="title" cssStyle="color :red;" /></td>
+                        <td><form:input path="title" class="form-control" aria-describedby="inputGroupSuccess1Status" /> <form:errors path="title" cssStyle="color :red;" /></td>
                     </tr>
                     <tr>
                         <th width="23%">글쓴이</th>
-                        <td><form:input path="writer" /> <form:errors path="writer" cssStyle="color :red;" /></td>
+                        <td><form:input path="writer" class="form-control" aria-describedby="inputGroupSuccess1Status" /> <form:errors path="writer" cssStyle="color :red;" /></td>
                     </tr>
                     <tr>
                         <th width="23%">내용</th>
-                        <td><form:textarea path="content" rows="4" cols="100" /> <form:errors path="content" cssStyle="color :red;" /></td>
+                        <td><form:textarea path="content" rows="4" cols="100" class="form-control" aria-describedby="inputGroupSuccess1Status" /> <form:errors path="content" cssStyle="color :red;" /></td>
                     </tr>
                 </table>
                 <button class="btn btn-outline-dark">등록</button>

@@ -110,6 +110,9 @@
    }
    })
  })
+ 
+ 
+ 
 $(document).ready(function() {
    $('#currencycode').change(function() { //통화를 선택하면에 대한 function 시작
      let currency = $(this).val(); // 통화코드추출
@@ -682,8 +685,6 @@ $(document).ready(function() {
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <style>
-
-
 .stepwizard-step p {
     margin-top: 5px;
 }

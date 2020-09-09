@@ -375,6 +375,20 @@ $(document).ready(function() {
                 <option value="EUR">유럽유로(EUR)</option>
                 <option value="JPY">일본엔(JPY)</option>
                 <option value="GBP">영국파운드(GBP)</option>
+                <option value="CAD">캐나다달러(CAD)</option>
+                <option value="CHF">스위스프랑(CHF)</option>
+                <option value="HKD">홍콩달러(HKD)</option>
+                <option value="AUD">호주달러(AUD)</option>
+                <option value="SGD">싱가폴달러(SGD)</option>
+                <option value="NZD">뉴질랜드달러(NZD)</option>
+                <option value="CNY">중국위안(CNY)</option>
+                <option value="THB">태국바트(THB)</option>
+                <option value="MYR">말레이지아링기트(MYR)</option>
+                <option value="TWD">대만달러(TWD)</option>
+                <option value="PHP">필리핀페소(PHP)</option>
+                <option value="IDR">인도네시아루피아(IDR)</option>
+                <option value="AED">U.A.D디히람(AED)</option>
+                <option value="VND">베트남동(VND)</option>
             </select></td>
           </tr>
           <tr>
@@ -438,6 +452,13 @@ $(document).ready(function() {
                 <option value="인천국제공항">인천국제공항</option>
                 <option value="김포공항">김포공항</option>
                 <option value="김해공항">김해공항</option>
+                <option value="제주공항">제주공항</option>
+                <option value="강남지점">강남지점</option>
+                <option value="분당서현지점">분당서현지점</option>
+                <option value="부천부평지점">부천부평지점</option>
+                <option value="부산역지점">부산역지점</option>
+                <option value="강릉점">강릉점</option>
+                <option value="철산점">철산점</option>
               </select>
               <span id="alarm" name="alarm" ></span>
             </td>

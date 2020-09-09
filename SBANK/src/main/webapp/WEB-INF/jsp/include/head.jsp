@@ -96,7 +96,7 @@
 								<div class="main-menu  d-none d-lg-block">
 									<nav>
 										<ul id="navigation">
-											<li><a href="#">디자인참고<i class="ti-angle-down"></i></a>
+											<%-- <li><a href="#">디자인참고<i class="ti-angle-down"></i></a>
 												<ul class="submenu">
 													<li><a
 														href="${pageContext.request.contextPath }/case_details.html">case
@@ -116,69 +116,66 @@
 														href="${pageContext.request.contextPath }/single-blog.html">single-blog</a></li>
 													<li><a
 														href="${pageContext.request.contextPath }/contact.html">Contact</a></li>
-												</ul></li> 
+												</ul></li>  --%>
                         
                         
-                        
-                        
-											<li><a href="#">bank<i class="ti-angle-down"></i></a>
-												<ul class="submenu">
-													<li><a
-														href="${pageContext.request.contextPath }/account/myAccount">내 모든 계좌 조회</a></li>
-													<li><a
-														href="${pageContext.request.contextPath }/account/create">계좌 개설</a></li>
-													<%--	<div class="dropdown-divider"></div>
+                      <c:if test="${loginVO.type == 'U'  }">
+                        <li><a href="#">개인<i class="ti-angle-down"></i></a>
+                          <ul class="submenu">
+                            <li><a href="${pageContext.request.contextPath }/account/myAccount">모든 계좌 조회</a></li>
+                            <li><a href="${pageContext.request.contextPath }/account/create">계좌 개설</a></li>
+                            <%--	<div class="dropdown-divider"></div>
 													<li><a
                             href="${pageContext.request.contextPath }/account/myExchange">외화 계좌 개설</a></li>
 														<div class="dropdown-divider"></div>
 													<li><a
 														href="${pageContext.request.contextPath }/account/myAccount2">사이드바
 															테스트</a></li> --%>
-												</ul></li>
-                        
-                        
-											<li><a href="#">exchange<i class="ti-angle-down"></i></a>
-												<ul class="submenu">
-													<li><a
-														href="${pageContext.request.contextPath }/rate/rateInfo">환율정보</a></li>
-													<li><a
-														href="${pageContext.request.contextPath }/exchange/guide">환전가이드</a></li>
-													<div class="dropdown-divider"></div>
-													<c:choose>
-													<c:when test="${loginVO.type == 'K'  }">
-													<li><a
-														href="${pageContext.request.contextPath }/exchange/doExchangeKakao">비회원
-															환전하기</a></li>
-                          </c:when>
-                          <c:otherwise>
-													<li><a
-														href="${pageContext.request.contextPath }/exchange/doExchange">환전하기</a></li>
-													<li><a
-														href="${pageContext.request.contextPath }/exchange/doExchange2">환전하기222</a></li>
-													<li><a
-														href="${pageContext.request.contextPath }/exchange/doReserve">목표 환전 예약하기</a></li>
-													<li><a
-														href="${pageContext.request.contextPath }/exchange/doRevExchange">재환전하기</a></li>
-													<li><a
-														href="${pageContext.request.contextPath }/exchange/present">환전선물하기</a></li>
-                          </c:otherwise>
-                          </c:choose>
+                          </ul></li>
+                      </c:if>
+                      
+                      
+                      <li><a href="#">환전<i class="ti-angle-down"></i></a>
+                        <ul class="submenu">
+                          <li><a href="${pageContext.request.contextPath }/rate/rateInfo">환율정보</a></li>
+                          <li><a href="${pageContext.request.contextPath }/exchange/guide">환전가이드</a></li>
                           <div class="dropdown-divider"></div>
-                          <li><a
-                            href="${pageContext.request.contextPath }/exchange/myExchange">환전 & 예약 내역 보기</a></li>
-                          <c:if test="${loginVO.type != 'K'  }">
-                          <li><a
-                            href="${pageContext.request.contextPath }/account/myCurrency">보유 외화 보기</a></li>
-                          </c:if>
-												</ul></li>
+                          <c:choose>
+                            <c:when test="${loginVO.type == 'K'  }">
+                              <li><a href="${pageContext.request.contextPath }/exchange/doExchangeKakao">비회원 환전하기</a></li>
+                              <div class="dropdown-divider"></div>
+                              <li><a href="${pageContext.request.contextPath }/exchange/myExchangeKakao">비회원 환전 내역 보기</a></li>
+                            </c:when>
+                            <c:otherwise>
+                              <li><a href="${pageContext.request.contextPath }/exchange/doExchange">환전하기</a></li>
+                              <li><a href="${pageContext.request.contextPath }/exchange/doExchange2">환전하기222</a></li>
+                              <li><a href="${pageContext.request.contextPath }/exchange/doReserve">목표 환전 예약하기</a></li>
+                              <li><a href="${pageContext.request.contextPath }/exchange/doRevExchange">재환전하기</a></li>
+                              <div class="dropdown-divider"></div>
+                              <li><a href="${pageContext.request.contextPath }/exchange/myExchange">환전 & 예약 내역 보기</a></li>
+                            </c:otherwise>
+                          </c:choose>
+                          <%-- <li><a
+                            href="${pageContext.request.contextPath }/account/myCurrency">보유 외화 보기</a></li> --%>
+                        </ul>
+                      </li>
                         
                         
-												 <li><a href="${pageContext.request.contextPath }/board">Q & A</a>
-												</li>
-                        
+                      <c:if test="${loginVO.type == 'U'  }">
+                        <li><a href="#">송금<i class="ti-angle-down"></i></a>
+                        <ul class="submenu">
+                        <li><a
+                            href="${pageContext.request.contextPath }/exchange/remittance">외화 당행 송금</a></li>
+                        <li><a
+                            href="${pageContext.request.contextPath }/exchange/present">환전선물하기</a></li>
+                         </ul></li>
+                         </c:if>
+                         
+                         
+												 <li><a href="${pageContext.request.contextPath }/board">Q & A</a></li>
                         
                         <c:if test="${loginVO.type == 'M'  }">
-                        <li><a href="#">관리자<i class="ti-angle-down"></i></a></li>
+                        <li><a href="#"><i class="ti-angle-down">관리자</i></a></li>
                         </c:if>
 
 										</ul>
