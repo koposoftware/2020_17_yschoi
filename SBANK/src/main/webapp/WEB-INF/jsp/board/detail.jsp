@@ -30,7 +30,7 @@
           str += '<strong>' + this.content + '</strong>';
           str += '(' + this.writer + ')'
           str += '&nbsp;&nbsp;&nbsp;' + this.regDate + '&nbsp;&nbsp;&nbsp;'
-          str += '<button class="delBtn" id=' + this.no + '>삭제</button>'
+          str += '<button class="btn btn-outline-dark" id=' + this.no + '>삭제</button>'
           str += '</div>'
           
           $('#replyList').append(str);
@@ -104,7 +104,7 @@
     })
   })
 </script>
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
 
 <!-- 수정할부분 시작 -->
@@ -115,7 +115,7 @@
       <div class="col-xl-12">
         <!-- <div class="section_title text-center mb-50"> -->
         <header class="section_title mb-50 major" >
-          <h3>글 조회</h3>
+          <h3>공지 내용 조회</h3>
         </header>
       </div>
     </div>
@@ -156,10 +156,17 @@
                         </c:forEach></td>
                 </tr>
             </table>
-            <br> <input type="button" value="수정" onclick="doAction('U')">&nbsp;&nbsp; <input type="button" value="삭제" onclick="doAction('D')">&nbsp;&nbsp; <input type="button" value="목록" onclick="doAction('L')">&nbsp;&nbsp; <br>
+            <br> <input type="button" value="수정" onclick="doAction('U')" class="btn btn-outline-dark">&nbsp;&nbsp; 
+                  <input type="button" value="삭제" onclick="doAction('D')" class="btn btn-outline-dark">&nbsp;&nbsp; 
+                  <input type="button" value="목록" onclick="doAction('L')" class="btn btn-outline-dark">&nbsp;&nbsp; 
+            <br><br>
             <hr>
+            <br><br>
             <form name="rform">
-                댓글 : <input type="text" name="content" size="50"> 이름 : <input type="text" name="writer" size="10"> <input type="button" value="댓글추가" id="replyAddBtn">
+                               이름 : <input type="text" name="writer" size="10" class="btn btn-outline-dark">
+                              댓글 : <input type="text" name="content" size="50" class="btn btn-outline-dark"> 
+                       &nbsp;&nbsp;&nbsp; 
+              <input type="button" value="댓글추가" id="replyAddBtn" class="btn btn-outline-dark">
             </form>
             <div id="replyList"></div>
     </div>

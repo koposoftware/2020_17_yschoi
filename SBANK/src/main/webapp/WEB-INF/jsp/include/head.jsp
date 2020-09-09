@@ -159,26 +159,26 @@
                             href="${pageContext.request.contextPath }/account/myCurrency">보유 외화 보기</a></li> --%>
                         </ul>
                       </li>
-                        
-                        
+                      
+                      
                       <c:if test="${loginVO.type == 'U'  }">
                         <li><a href="#">송금<i class="ti-angle-down"></i></a>
+                          <ul class="submenu">
+                            <li><a href="${pageContext.request.contextPath }/exchange/remittance">외화 당행 송금</a></li>
+                            <li><a href="${pageContext.request.contextPath }/exchange/present">환전선물하기</a></li>
+                          </ul></li>
+                      </c:if>
+                      
+                      <c:if test="${loginVO.type == 'M'  }">
+                        <li><a href="#">관리자<i class="ti-angle-down"></i></a>
                         <ul class="submenu">
-                        <li><a
-                            href="${pageContext.request.contextPath }/exchange/remittance">외화 당행 송금</a></li>
-                        <li><a
-                            href="${pageContext.request.contextPath }/exchange/present">환전선물하기</a></li>
-                         </ul></li>
-                         </c:if>
-                         
-                         
-												 <li><a href="${pageContext.request.contextPath }/board">Q & A</a></li>
-                        
-                        <c:if test="${loginVO.type == 'M'  }">
-                        <li><a href="#"><i class="ti-angle-down">관리자</i></a></li>
-                        </c:if>
-
-										</ul>
+                          <li><a href="${pageContext.request.contextPath }/board">공지 업로드</a></li>
+                          <li><a href="${pageContext.request.contextPath }/board/changeCommission">수수료 조정</a></li>
+                          <li><a href="${pageContext.request.contextPath }/board/changeCommission">통계</a></li>
+                        </ul></li>
+                      </c:if>
+                      
+                    </ul>
 
 									</nav>
 								</div>
