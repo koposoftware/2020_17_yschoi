@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.ac.kopo.board.vo.BoardFileVO;
 import kr.ac.kopo.board.vo.BoardVO;
 
 
@@ -47,5 +48,33 @@ public class BoardDAOImpl implements BoardDAO {
 		sqlSession.update("board.dao.BoardDAO.reduceReplyCnt", no);
 		
 	}
+	
+  /**
+   * board insert시 시퀀스 가져오기
+   */
+  @Override
+  public int selectBoardSeq() {
+    int seq = sqlSession.selectOne("board.dao.BoardDAO.selectBoardSeq");
+    return seq;
+  }
+  
+  
+  /**
+   * 첨부파일 insert
+   * @param fileVO
+   */
+  @Override
+  public void insertFile(BoardFileVO fileVO) {
+    sqlSession.insert("board.dao.BoardDAO.insertFile", fileVO);
+  }
+  
+  
+	
+
+
+	
+	
+	
+	
 	
 }

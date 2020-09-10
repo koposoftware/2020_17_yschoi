@@ -141,8 +141,12 @@
                     <td>${ board.content }</td>
                 </tr>
                 <tr>
-                    <th width="25%">조회수</th>
-                    <td>${ board.viewCnt }</td>
+                    <th width="25%">공지 시작일</th>
+                    <td>${ board.start_date }</td>
+                </tr>
+                <tr>
+                    <th width="25%">공지 마감일</th>
+                    <td>${ board.end_date }</td>
                 </tr>
                 <tr>
                     <th width="25%">등록일</th>

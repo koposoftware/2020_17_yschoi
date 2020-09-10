@@ -73,6 +73,9 @@
 	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
 		<property name="maxUploadSize" value="10485760"/>
 	</bean>
+	<bean id="uploadPath" class="java.lang.String">
+	   <constructor-arg value="C:\Users\cysun31\git\2020_17_yschoi\SBANK\src\main\webapp\resources\upload"  />
+	</bean>
 	
     <!-- 
   	  어떤 요청(uri)이 들어왔을 때, 컨트롤러를 거치지 말고, 그냥 어디로 포워드시켜줘!

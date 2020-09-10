@@ -10,34 +10,46 @@
 	</resultMap>
 	
 	<select id="selectByNo" resultMap="boardMap" parameterType="int">
-		select no, title, writer, content, view_cnt
-			 , to_char(reg_date, 'yyyy-mm-dd') as reg_date
-		  from t_board
+		select no, title, writer, content, view_cnt,  
+		  to_char(reg_date, 'yyyy-mm-dd') as reg_date, to_char(start_date, 'yyyy-mm-dd') as start_date, to_char(end_date, 'yyyy-mm-dd') as end_date
+		  from s_board 
 		 where no = #{no}
 	</select>
 
 	<select id="selectAll" resultType="boardVO">
-		select no, title, writer, to_char(reg_date, 'yyyy-mm-dd') as regDate
-		  from t_board
+		select no, title, writer, to_char(reg_date, 'yyyy-mm-dd') as regDate,  
+		  to_char(start_date, 'yyyy-mm-dd') as start_date, to_char(end_date, 'yyyy-mm-dd') as end_date
+		  from s_board 
 		 order by no desc
 	</select>
 	<insert id="insert" parameterType="boardVO">
-      	insert into t_board(no, title, writer, content)
-      	values(seq_t_board_no.nextval, #{title}, #{writer}, #{content})
+      	insert into s_board(no, title, writer, content,start_date,end_date) 
+      	values(#{no}, #{title}, #{writer}, #{content}, #{start_date}  ,#{end_date})
     </insert>
     
     
 	<!-- 댓글카운트 증가 -->
 	<update id="incrementReplyCnt" parameterType="int">
-		update t_board
-		   set reply_cnt = reply_cnt + 1
+		update s_board 
+		   set reply_cnt = reply_cnt + 1 
 		 where no = #{no}
 	</update>
 	
 	<!-- 댓글카운트 감소 -->
 	<update id="reduceReplyCnt" parameterType="int">
-		update t_board
-		   set reply_cnt = reply_cnt - 1
+		update s_board 
+		   set reply_cnt = reply_cnt - 1 
 		 where no = #{no}
 	</update>
+	
+	<!-- board seq 가져오기 -->
+	<select id="selectBoardSeq" resultType="int">
+	   select seq_s_board_no.nextval from dual
+	</select>
+	
+	<insert id="insertFile">
+	  insert into s_board_file(no,board_no,file_ori_name,file_save_name,file_size) values
+	     (seq_s_board_file_no.nextval, #{boardNo}, #{fileOriName}, #{fileSaveName}, #{fileSize}   )
+	</insert>
+	
 </mapper>

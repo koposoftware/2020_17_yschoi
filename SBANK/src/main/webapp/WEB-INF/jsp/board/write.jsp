@@ -82,6 +82,7 @@
     </div>
     
     <div class="table-wrapper">
+    
       <form method="post" action="${ pageContext.request.contextPath }/board/writeIncludeFile" onsubmit="return doWrite()" 
         enctype="multipart/form-data" name="wForm">
         <!-- commandName과 관련이 있는 form이다. 명시해주자 -->
@@ -94,16 +95,23 @@
           </tr>
           <tr>
             <th width="23%">글쓴이</th>
-            <td>
-              <input type="text" id="writer" name="writer" class="form-control" aria-describedby="inputGroupSuccess1Status" /> 
-
+            <td>${ loginVO.id }
+              <input type="hidden" id="writer" name="writer" value="${ loginVO.id }"  /> 
             </td>
           </tr>
           <tr>
             <th width="23%">내용</th>
             <td>
-              <textarea id="content" name="content" rows="4" cols="100" class="form-control" aria-describedby="inputGroupSuccess1Status" ></textarea> 
+              <textarea id="content" name="content" rows="4" cols="100" required="required" class="form-control" aria-describedby="inputGroupSuccess1Status" ></textarea> 
             </td>
+          </tr>
+          <tr>
+            <th>공지 시작일</th>
+            <td><input type="date" id="start_date" name="start_date"  required="required" class="form-control" aria-describedby="inputGroupSuccess1Status"  ></td>
+          </tr>
+          <tr>
+            <th>공지 마감일</th>
+            <td><input type="date" id="end_date" name="end_date"  required="required" class="form-control" aria-describedby="inputGroupSuccess1Status" ></td>
           </tr>
           <tr>
             <th>포스터 첨부</th>

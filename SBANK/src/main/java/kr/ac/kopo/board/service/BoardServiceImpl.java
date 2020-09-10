@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.ac.kopo.board.dao.BoardDAO;
+import kr.ac.kopo.board.vo.BoardFileVO;
 import kr.ac.kopo.board.vo.BoardVO;
 
 
@@ -34,6 +35,27 @@ public class BoardServiceImpl implements  BoardService {
 	public void insertPost(BoardVO board) {
 		boardDAO.insert(board);
 	}
+	
+	/**
+	 * board insert시 시퀀스 가져오기
+	 */
+  @Override
+  public int selectBoardSeq() {
+    int seq = boardDAO.selectBoardSeq();
+    return seq;
+  }
+  
+  /**
+   * 첨부파일 record insert
+   */
+  @Override
+  public void insertFile(BoardFileVO fileVO) {
+    boardDAO.insertFile(fileVO);
+  }
+  
+  
+	
+	
 	
 	
 

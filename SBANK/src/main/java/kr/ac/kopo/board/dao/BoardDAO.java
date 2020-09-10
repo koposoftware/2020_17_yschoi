@@ -2,6 +2,7 @@ package kr.ac.kopo.board.dao;
 
 import java.util.List;
 
+import kr.ac.kopo.board.vo.BoardFileVO;
 import kr.ac.kopo.board.vo.BoardVO;
 
 public interface BoardDAO {
@@ -45,5 +46,19 @@ public interface BoardDAO {
 	 * @param no 감소시킬 게시물 번호
 	 */
 	public void reduceReplyCnt(int no);
+	
+	
+	/**
+   * 게시글 insert시 시퀀스 가져오기
+   * @return
+   */
+  public int selectBoardSeq();
+  
+  /**
+   * 첨부파일 insert
+   * @param fileVO
+   */
+  public void insertFile(BoardFileVO fileVO);
+	
 	
 }

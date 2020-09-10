@@ -37,6 +37,15 @@
 
     
     <div class="table-wrapper">
+      <c:if test="${ not empty loginVO }">
+                <button class="btn btn-outline-dark" onclick="goWriteForm()">공지 등록</button><br>
+                <!--인라인 방식의 이벤트 처리-->
+                <!--  button 등으로 이벤트 넣으려면 js나 jquery 필요!! -->
+            </c:if>
+    
+    
+    
+    
             <table border="1" class="table table-bordered">
                 <tr>
                     <th width="6%">번호</th>

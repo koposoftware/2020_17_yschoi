@@ -1,10 +1,15 @@
 package kr.ac.kopo.board.controller;
 
-import java.util.List;
-
-import javax.servlet.http.HttpSession;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
 import java.util.UUID;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +30,10 @@ public class BoardController {
 
 	@Autowired
 	private BoardService boardService;
+	
+	@Resource(name = "uploadPath")
+	String uploadPath;
+	
 	
 	@RequestMapping("/board")
 	public ModelAndView list() {
@@ -89,15 +98,19 @@ public class BoardController {
 
 	  BoardFileVO fileVO = new BoardFileVO();
 	  
+	  int seq =boardService.selectBoardSeq();//board시퀀스 가져오기 
+	  boardVO.setNo(seq); //boardVO에 위에서 가져온 시퀀스 set
+	  boardService.insertPost(boardVO);
+	  
+	  
 	  
 	  //파일이름 수정하기
   	if (bfile.getSize() > 0 ) {
-  	  String name = bfile.getOriginalFilename();
-//  	  System.out.println("name"+name);
+  	  String name = bfile.getOriginalFilename(); // 파일 원래이름
   	  
   	  fileVO.setFileOriName(name); // 파일 원래이름 set
   	  fileVO.setFileSize(bfile.getSize()); // 파일크기 set
-  	  
+  	  fileVO.setBoardNo(seq); //fileVO에 boardNo변수에도 set
   	  
   	  System.out.println("파일saveName 구하기 시작");
   	  String ext = "";
@@ -108,21 +121,25 @@ public class BoardController {
         ext = "";
       }
   	  String str = "SBANK-" + UUID.randomUUID();
-  	  fileVO.setFileSaveName(str);
+  	  fileVO.setFileSaveName(str);  // 저장될 파일 이름
+  	  File targetFile = new File(uploadPath,str);
+  	  
+  	  try {
+        InputStream fileStream = bfile.getInputStream();
+        FileUtils.copyInputStreamToFile(fileStream, targetFile);
+        boardService.insertFile(fileVO);
+        
+      } catch (IOException e) {
+        FileUtils.deleteQuietly(targetFile);
+        e.printStackTrace();
+      }
 	  }
 	  
-	  System.out.println(fileVO);
-	  System.out.println(boardVO);
-
-	  
-
-	  
-	  //board시퀀스 가져오기 
-	  //boardVO에 위에서 가져온 시퀀스 set
-	  //fileVO에 boardNo변수에도 set
-	  boardService.insertPost(boardVO);
 	  return "redirect:/board";
 	}
+	
+	
+	
 	
 	
 	@GetMapping("/board/changeCommission")
