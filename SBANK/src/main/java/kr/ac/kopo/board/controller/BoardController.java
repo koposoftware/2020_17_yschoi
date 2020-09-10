@@ -24,12 +24,18 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.ac.kopo.board.service.BoardService;
 import kr.ac.kopo.board.vo.BoardFileVO;
 import kr.ac.kopo.board.vo.BoardVO;
+import kr.ac.kopo.exchange.service.ExchangeService;
+import kr.ac.kopo.exchange.vo.CurrencyVO;
 
 @Controller
 public class BoardController {
 
 	@Autowired
 	private BoardService boardService;
+	
+	@Autowired
+	private ExchangeService exchangeService;
+	
 	
 	@Resource(name = "uploadPath")
 	String uploadPath;
@@ -145,14 +151,17 @@ public class BoardController {
 	  return "redirect:/board";
 	}
 	
-	
+
 	
 	
 	
 	@GetMapping("/board/changeCommission")
-	public String changeCommissionForm(Model model, HttpSession session) {
-
-    return "board/changeCommission";
+	public ModelAndView changeCommissionForm(Model model, HttpSession session) {
+	  
+	  List<CurrencyVO> currencyList = exchangeService.selectAllCurrency();
+	  ModelAndView mav = new ModelAndView("board/changeCommission");
+	  mav.addObject("currencyList", currencyList);
+    return mav;
   }
 	
 

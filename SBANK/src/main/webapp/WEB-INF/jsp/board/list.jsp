@@ -46,7 +46,7 @@
     
     
     
-            <table border="1" class="table table-bordered">
+            <table border="1" class="table table-bordered ">
                 <tr>
                     <th width="6%">번호</th>
                     <th>제목</th>

@@ -84,7 +84,7 @@
     <div class="table-wrapper">
     
       <form method="post" action="${ pageContext.request.contextPath }/board/writeIncludeFile" onsubmit="return doWrite()" 
-        enctype="multipart/form-data" name="wForm">
+        enctype="multipart/form-data"  name="wForm">
         <!-- commandName과 관련이 있는 form이다. 명시해주자 -->
         <table border="1" class="table table-bordered">
           <tr>
