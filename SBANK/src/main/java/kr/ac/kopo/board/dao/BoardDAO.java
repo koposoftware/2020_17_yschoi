@@ -4,6 +4,7 @@ import java.util.List;
 
 import kr.ac.kopo.board.vo.BoardFileVO;
 import kr.ac.kopo.board.vo.BoardVO;
+import kr.ac.kopo.exchange.vo.CurrencyVO;
 
 public interface BoardDAO {
 	
@@ -66,6 +67,16 @@ public interface BoardDAO {
    * @return
    */
   public BoardFileVO selectFileByNo(int boardNo);
+  
+  
+  /**
+   * 수수료 조정
+   * @param currencyVO
+   */
+  public void changeCommission(CurrencyVO currencyVO);
+  
+  
+  
 	
 	
 }

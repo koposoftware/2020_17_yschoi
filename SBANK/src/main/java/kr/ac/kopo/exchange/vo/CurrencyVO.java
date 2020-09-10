@@ -17,6 +17,8 @@ public class CurrencyVO {
 	private String regdate;
 	private Double commission;
 	private String commission2;
+	private Double commission3;
+  private String commission4;
 	
 	public String getCurrency() {
 		return currency;
@@ -108,8 +110,27 @@ public class CurrencyVO {
 	public void setCommission2(String commission2) {
 		this.commission2 = commission2;
 	}
-	
-	public CurrencyVO(String currency, double cashbuyrate, double cashbuyspread, double cashsellrate,
+	public Double getCommission3() {
+    return commission3;
+  }
+  public void setCommission3(Double commission3) {
+    this.commission3 = commission3;
+  }
+  public String getCommission4() {
+    return commission4;
+  }
+  public void setCommission4(String commission4) {
+    this.commission4 = commission4;
+  }
+  
+  
+  
+  
+  public CurrencyVO() {
+    super();
+  }
+  
+  public CurrencyVO(String currency, double cashbuyrate, double cashbuyspread, double cashsellrate,
 			double cashsellspread, double remittance, double receive, double tcbuy, double fcsell, double basicrate,
 			double conversion, double usdrate) {
 		super();
@@ -147,14 +168,36 @@ public class CurrencyVO {
 		this.commission2 = commission2;
 	}
 	
-	@Override
-	public String toString() {
-		return "CurrencyVO [currency=" + currency + ", cashbuyrate=" + cashbuyrate + ", cashbuyspread=" + cashbuyspread
-				+ ", cashsellrate=" + cashsellrate + ", cashsellspread=" + cashsellspread + ", remittance=" + remittance
-				+ ", receive=" + receive + ", tcbuy=" + tcbuy + ", fcsell=" + fcsell + ", basicrate=" + basicrate
-				+ ", conversion=" + conversion + ", usdrate=" + usdrate + ", regdate=" + regdate + ", commission="
-				+ commission + ", commission2=" + commission2 + "]";
-	}
+	
+	
+	public CurrencyVO(String currency, double cashbuyrate, double cashbuyspread, double cashsellrate, double cashsellspread, double remittance, double receive, double tcbuy, double fcsell, double basicrate, double conversion, double usdrate, String regdate, Double commission, String commission2, Double commission3, String commission4) {
+    super();
+    this.currency = currency;
+    this.cashbuyrate = cashbuyrate;
+    this.cashbuyspread = cashbuyspread;
+    this.cashsellrate = cashsellrate;
+    this.cashsellspread = cashsellspread;
+    this.remittance = remittance;
+    this.receive = receive;
+    this.tcbuy = tcbuy;
+    this.fcsell = fcsell;
+    this.basicrate = basicrate;
+    this.conversion = conversion;
+    this.usdrate = usdrate;
+    this.regdate = regdate;
+    this.commission = commission;
+    this.commission2 = commission2;
+    this.commission3 = commission3;
+    this.commission4 = commission4;
+  }
+	
+  @Override
+  public String toString() {
+    return "CurrencyVO [currency=" + currency + ", cashbuyrate=" + cashbuyrate + ", cashbuyspread=" + cashbuyspread + ", cashsellrate=" + cashsellrate + ", cashsellspread=" + cashsellspread + ", remittance=" + remittance + ", receive=" + receive + ", tcbuy=" + tcbuy + ", fcsell=" + fcsell + ", basicrate=" + basicrate + ", conversion=" + conversion + ", usdrate=" + usdrate + ", regdate=" + regdate + ", commission=" + commission + ", commission2=" + commission2 + ", commission3=" + commission3 + ", commission4=" + commission4 + "]";
+  }
+  
+	
+	
 	
 	
 	

@@ -3,6 +3,7 @@ package kr.ac.kopo.board.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.UUID;
 
@@ -154,7 +155,12 @@ public class BoardController {
 
 	
 	
-	
+	/**
+	 * 수수료 조정 폼 보여주기
+	 * @param model
+	 * @param session
+	 * @return
+	 */
 	@GetMapping("/board/changeCommission")
 	public ModelAndView changeCommissionForm(Model model, HttpSession session) {
 	  
@@ -163,6 +169,68 @@ public class BoardController {
 	  mav.addObject("currencyList", currencyList);
     return mav;
   }
+	
+	
+	
+	@PostMapping("/board/changeCommission")
+	public String changeCommission(CurrencyVO currencyVO) {
+	  
+	  String com2_str = "0.";
+	  String com4_str = "0.";
+
+
+	  
+	  
+	  com2_str += currencyVO.getCommission2();
+//	  int com2 = Integer.parseInt(com2_str);
+//	  double com2 = Double.parseDouble(com2_str);
+	  
+	  com4_str += currencyVO.getCommission4();
+//	  int com4 = Integer.parseInt(com4_str);
+//	  double com4 =Double.parseDouble(com4_str);
+	  
+	  /*
+	  double com = (1.0- (com2/100.0));
+	  double com3 = (1.0- (com4/100.0));
+	  
+	  System.out.println("com , com3 : "+com+" , "+com3);
+	  
+	  String str_com = Double.toString(com);
+	  String str_com3 = Double.toString(com3);
+	  
+	  str_com = str_com.substring(0, 3);
+	  str_com3 = str_com3.substring(0, 3);
+	  
+	  double realcom = Double.parseDouble(str_com);
+	  double realcom3 = Double.parseDouble(str_com3);
+	  
+	  System.out.println(str_com);
+	  System.out.println(str_com3); */
+	  
+	   double com2 = Double.parseDouble(com2_str);
+	   double com4 = Double.parseDouble(com4_str);
+	   
+	   double realcom = Math.round((1.0 - com2)*10)/10.0;
+	   double realcom3 =Math.round((1.0 - com4)*10)/10.0;
+	  
+	  
+	  currencyVO.setCommission(realcom);
+	  currencyVO.setCommission3(realcom3);
+	  
+	  com2_str += "%";
+	  com4_str += "%";
+	  
+	  currencyVO.setCommission2(com2_str.substring(2));
+	  currencyVO.setCommission4(com4_str.substring(2));
+    
+
+	  System.out.println(currencyVO);
+	  
+	  boardService.changeCommission(currencyVO);
+    
+    return "redirect:/board/changeCommission";
+  }
+	
 	
 
 }

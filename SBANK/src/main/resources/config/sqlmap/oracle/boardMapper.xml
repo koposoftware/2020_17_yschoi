@@ -57,4 +57,11 @@
 	   from s_board_file where board_no = #{boardNo}
 	</select>
 	
+	<!-- 수수료 조정 -->
+	<update id="changeCommission" parameterType="currencyVO">
+	   update S_CURRENCYRATE set COMMISSION = #{commission}, COMMISSION2=#{commission2} ,COMMISSION3 =#{commission3} ,COMMISSION4 =#{commission4} 
+	   where CURRENCY = #{currency}
+	</update>
+	
+	
 </mapper>

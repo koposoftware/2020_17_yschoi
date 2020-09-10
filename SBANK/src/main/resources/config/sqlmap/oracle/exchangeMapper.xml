@@ -9,7 +9,7 @@
 	<select id="selectAll"  resultType="currencyVO"  >
 		select currency,cashbuyrate,cashbuyspread,cashsellrate,
 			cashsellspread,remittance,receive,tcbuy,fcsell,basicrate,
-			conversion,usdrate,regdate,commission,commission2
+			conversion,usdrate,regdate,commission,commission2,commission3,commission4
 		from s_currencyrate
 	</select>
 	
@@ -32,7 +32,7 @@
 	<select id="getRateCommission"  resultType="currencyVO" parameterType="string"  >
 		select currency,cashbuyrate,cashbuyspread,cashsellrate,
 			cashsellspread,remittance,receive,tcbuy,fcsell,basicrate,
-			conversion,usdrate,regdate,commission,commission2
+			conversion,usdrate,regdate,commission,commission2,commission3,commission4
 		from s_currencyrate where currency = #{currency}
 	</select>
 	

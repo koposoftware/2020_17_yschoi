@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.board.vo.BoardFileVO;
 import kr.ac.kopo.board.vo.BoardVO;
+import kr.ac.kopo.exchange.vo.CurrencyVO;
 
 
 @Repository
@@ -79,8 +80,20 @@ public class BoardDAOImpl implements BoardDAO {
     BoardFileVO file = sqlSession.selectOne("board.dao.BoardDAO.selectFileByNo", boardNo);
     return file;
   }
+  
+  /**
+   * 수수료 조정
+   * @param currencyVO
+   */
+  @Override
+  public void changeCommission(CurrencyVO currencyVO) {
+    sqlSession.update("board.dao.BoardDAO.changeCommission", currencyVO);
+    
+  }
 
-
+  
+  
+  
 	
 	
 	

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import kr.ac.kopo.board.dao.BoardDAO;
 import kr.ac.kopo.board.vo.BoardFileVO;
 import kr.ac.kopo.board.vo.BoardVO;
+import kr.ac.kopo.exchange.vo.CurrencyVO;
 
 
 @Service
@@ -62,6 +63,16 @@ public class BoardServiceImpl implements  BoardService {
   public BoardFileVO selectFileByNo(int boardNo) {
     BoardFileVO file = boardDAO.selectFileByNo(boardNo);
     return file;
+  }
+  
+  /**
+   * 수수료 조정
+   */
+  @Override
+  public void changeCommission(CurrencyVO currencyVO) {
+    // TODO Auto-generated method stub
+    boardDAO.changeCommission(currencyVO);
+    
   }
   
   
