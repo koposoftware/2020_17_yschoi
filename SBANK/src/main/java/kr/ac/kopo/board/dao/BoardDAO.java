@@ -59,6 +59,13 @@ public interface BoardDAO {
    * @param fileVO
    */
   public void insertFile(BoardFileVO fileVO);
+  
+  /**
+   * 해당하는 첨부파일 select하기
+   * @param boardNo
+   * @return
+   */
+  public BoardFileVO selectFileByNo(int boardNo);
 	
 	
 }

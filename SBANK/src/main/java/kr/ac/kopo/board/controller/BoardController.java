@@ -55,9 +55,11 @@ public class BoardController {
 		System.out.println("boardno : "+boardNo);
 		
 		BoardVO board = boardService.selectBoardByNo(boardNo);
+		BoardFileVO file = boardService.selectFileByNo(boardNo);
 		
 		ModelAndView mav = new ModelAndView("board/detail");
 		mav.addObject("board",board);
+		mav.addObject("file",file);
 		
 		return mav;
 	}
@@ -91,7 +93,12 @@ public class BoardController {
 		return "redirect:/board";
 	}
 	
-	
+	/**
+	 * 글작성 - 첨부파일 포함
+	 * @param boardVO
+	 * @param bfile
+	 * @return
+	 */
 	@PostMapping("/board/writeIncludeFile")
 	public String writeIncludeFile(BoardVO boardVO, @RequestParam("attachfile1") MultipartFile bfile) { //validation check의 결과 = result가 가지고있음
 	  

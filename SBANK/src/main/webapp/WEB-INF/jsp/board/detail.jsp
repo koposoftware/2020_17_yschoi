@@ -154,15 +154,15 @@
                 </tr>
                 <tr>
                     <th>첨부파일</th>
-                    <td><c:forEach items="${ fileList }" var="file">
-                            <a href="/Mission-WEB/upload/${ file.fileSaveName }"> ${ file.fileOriName } </a>
-              (${ file.fileSize } bytes)<br>
-                        </c:forEach></td>
+                    <td><c:if test="${ not empty file }" >
+                            <a href="/SBANK/resources/upload/${ file.fileSaveName }"> ${ file.fileOriName } </a>
+                              (${ file.fileSize } bytes)<br>
+                        </c:if></td>
                 </tr>
             </table>
             <br> <input type="button" value="수정" onclick="doAction('U')" class="btn btn-outline-dark">&nbsp;&nbsp; 
-                  <input type="button" value="삭제" onclick="doAction('D')" class="btn btn-outline-dark">&nbsp;&nbsp; 
-                  <input type="button" value="목록" onclick="doAction('L')" class="btn btn-outline-dark">&nbsp;&nbsp; 
+                 <input type="button" value="삭제" onclick="doAction('D')" class="btn btn-outline-dark">&nbsp;&nbsp; 
+                 <input type="button" value="목록" onclick="doAction('L')" class="btn btn-outline-dark">&nbsp;&nbsp; 
             <br><br>
             <hr>
             <br><br>

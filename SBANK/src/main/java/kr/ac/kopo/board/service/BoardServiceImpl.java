@@ -53,6 +53,17 @@ public class BoardServiceImpl implements  BoardService {
     boardDAO.insertFile(fileVO);
   }
   
+  /**
+   * 해당하는 첨부파일 select하기
+   * @param boardNo
+   * @return
+   */
+  @Override
+  public BoardFileVO selectFileByNo(int boardNo) {
+    BoardFileVO file = boardDAO.selectFileByNo(boardNo);
+    return file;
+  }
+  
   
 	
 	

@@ -69,7 +69,16 @@ public class BoardDAOImpl implements BoardDAO {
   }
   
   
-	
+  /**
+   * 해당하는 첨부파일 select하기
+   * @param boardNo
+   * @return
+   */
+  @Override
+  public BoardFileVO selectFileByNo(int boardNo) {
+    BoardFileVO file = sqlSession.selectOne("board.dao.BoardDAO.selectFileByNo", boardNo);
+    return file;
+  }
 
 
 	

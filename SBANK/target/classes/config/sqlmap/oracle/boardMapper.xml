@@ -47,9 +47,14 @@
 	   select seq_s_board_no.nextval from dual
 	</select>
 	
-	<insert id="insertFile">
+	<insert id="insertFile" parameterType="boardFileVO">
 	  insert into s_board_file(no,board_no,file_ori_name,file_save_name,file_size) values
 	     (seq_s_board_file_no.nextval, #{boardNo}, #{fileOriName}, #{fileSaveName}, #{fileSize}   )
 	</insert>
+	
+	<select id="selectFileByNo" parameterType="int" resultType="boardFileVO">
+	   select no, board_no as boardNo, file_ori_name as fileOriName, file_save_name as fileSaveName, file_size as fileSize 
+	   from s_board_file where board_no = #{boardNo}
+	</select>
 	
 </mapper>
