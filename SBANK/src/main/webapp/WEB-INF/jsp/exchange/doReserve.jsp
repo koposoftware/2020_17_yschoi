@@ -90,6 +90,10 @@
     $('#currencycode').change(function() { //통화를 선택하면에 대한 function 시작
       let currency = $(this).val(); // 통화코드추출
       //alert(currency)
+      $('#commission').val('');
+      $('#basicrate').val('');
+
+      
       $.ajax({
       url : '${ pageContext.request.contextPath }/exchange/getRateCommission/' + currency,
       type : 'get',
@@ -114,13 +118,28 @@
         $("#rate").text((list.cashbuyrate).toFixed(2));
 
         rate = "";
+        //여기부터어추가아아아
+        commission2 = "";
+        basicrate="";
+        commission="";
+        commrate="";
+        ori="";
+        str="";
+        
+        
 
       },
       error : function() {
         alert('실패')
       },
       complete : function() {
-        /* 뭘해줘야할까 */
+        $('#exchangeprice').val(''); //input type text
+        $('#reserverate').val(''); //input type text
+        $('#exchangeChargeKRW').text('') //span
+        $('#commrate').text('') //span
+        $('#exchangecharge').val(''); //input type hidden
+        $('#exchangerate').val(''); //input type hidden
+         //input type hidden
       }
       })
     }) //통화를 선택하면에 대한 function 끝.
@@ -213,10 +232,6 @@
     let basicrate = document.getElementById("basicrate").value; //매매기준율
     let comm = document.getElementById("commission").value; //수수료1
 
-    /*     console.log(typeof exchangeCharge)
-     console.log(typeof reserverate)
-     console.log(typeof basicrate)
-     console.log(typeof comm) */
 
     /*     alert(exchangeCharge)
      alert(reserverate)
@@ -226,6 +241,11 @@
     if (exchangeCharge == '' || reserverate == '') {
       return false
     }
+     console.log('----------------------')
+     console.log(exchangeCharge)
+     console.log(reserverate)
+     console.log(basicrate)
+     console.log(comm) 
     //alert('after return')
 
     let re1 = (reserverate - basicrate).toFixed(2)
@@ -247,6 +267,10 @@
 
     exchangeChargeKRW = "";
     commrate = "";
+    re1="";
+    re2="";
+    basicrate="";
+    re3="";
 
   }
 

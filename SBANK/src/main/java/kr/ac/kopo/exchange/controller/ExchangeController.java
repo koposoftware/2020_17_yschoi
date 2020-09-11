@@ -214,7 +214,7 @@ public class ExchangeController {
 	  System.out.println(reserveVO);
 	  exchangeService.doReserve(reserveVO);
 //    }
-	  return "exchange/guide";
+	  return "redirect:/exchange/myExchange";
 	}
 	
 	
