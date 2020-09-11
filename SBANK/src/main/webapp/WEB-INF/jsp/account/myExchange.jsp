@@ -80,6 +80,13 @@ $(document).ready(function() {
     str += '  <option value="인천국제공항">인천국제공항</option>';
     str += '  <option value="김포공항">김포공항</option>';
     str += '  <option value="김해공항">김해공항</option>';
+    str += '  <option value="제주공항">제주공항</option>';
+    str += '  <option value="강남지점">강남지점</option>';
+    str += '  <option value="분당서현지점">분당서현지점</option>';
+    str += '  <option value="부천부평지점">부천부평지점</option>';
+    str += '  <option value="부산역지점">부산역지점</option>';
+    str += '  <option value="강릉점">강릉점</option>';
+    str += '  <option value="철산점">철산점</option>';
     str += '</select>';
     $(".modal-body").append(str);
     $("#exampleModal").modal("show");

@@ -16,12 +16,22 @@
 		 where no = #{no}
 	</select>
 
-	<select id="selectAll" resultType="boardVO">
+	<!-- <select id="selectAll1" resultType="boardVO">
 		select no, title, writer, to_char(reg_date, 'yyyy-mm-dd') as regDate,  
 		  to_char(start_date, 'yyyy-mm-dd') as start_date, to_char(end_date, 'yyyy-mm-dd') as end_date
 		  from s_board 
 		 order by no desc
+	</select>  -->
+	
+	<select id="selectAll" resultType="boardVO">
+		select no,title,writer,content,reply_cnt,start_date,end_date,reg_date,  
+    case 
+    <![CDATA[when TO_CHAR(start_date,'YYYYMMDD') <= TO_CHAR(SYSDATE, 'YYYYMMDD') and TO_CHAR(end_date,'YYYYMMDD') >= TO_CHAR(SYSDATE, 'YYYYMMDD')  then 1]]>
+        else 0 
+    end as view_cnt 
+    from s_board order by no desc 
 	</select>
+	
 	<insert id="insert" parameterType="boardVO">
       	insert into s_board(no, title, writer, content,start_date,end_date) 
       	values(#{no}, #{title}, #{writer}, #{content}, #{start_date}  ,#{end_date})
