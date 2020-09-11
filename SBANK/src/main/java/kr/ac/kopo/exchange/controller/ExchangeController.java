@@ -393,7 +393,8 @@ public class ExchangeController {
     exchangeService.exchangeTransfer(presentVO);
     
     System.out.println(presentVO);
-    ModelAndView mav = new ModelAndView("account/myCurrency");
+    ModelAndView mav = new ModelAndView("redirect:/account/myAccount");
+
     return mav;
   }
   
@@ -436,9 +437,14 @@ public class ExchangeController {
   }
   
   
-  
+  /**
+   * 재환전이 아닐까..
+   * @param session
+   * @param revExchangeVO
+   * @return
+   */
   @PostMapping("/exchange/doRevExchange")
-  public void doRevExchange(HttpSession session, RevExchangeVO revExchangeVO) {
+  public String doRevExchange(HttpSession session, RevExchangeVO revExchangeVO) {
     MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
     String id = userVO.getId();
     revExchangeVO.setId(id);
@@ -446,7 +452,7 @@ public class ExchangeController {
     System.out.println(revExchangeVO);
     
     exchangeService.doRevExchange(revExchangeVO);
-    
+    return "redirect:/exchange/myExchange";
   }
   
   /**

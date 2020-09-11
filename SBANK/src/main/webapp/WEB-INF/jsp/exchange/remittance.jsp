@@ -127,8 +127,8 @@
       /* alert(afterHashIpt) */
 
       if (afterHashIpt == 1) {
-        $(".modal-title").append("외화 선물하기");
-        $(".modal-body").append('환전을 진행하시겠습니까?');
+        $(".modal-title").append("외화 송금하기");
+        $(".modal-body").append('외화를 송금하시겠습니까?');
         $("input[type=submit]").prop('disabled', false);
         let aa = $("#exampleModal").modal("show");
         return false;
@@ -136,8 +136,8 @@
           return true;
         }
       } else {
-        $(".modal-title").append("외화 선물하기");
-        $(".modal-body").append('선물 받으시는 분의 계좌번호와 이름을 다시 확인해주세요');
+        $(".modal-title").append("외화 송금하기");
+        $(".modal-body").append('송금 받으시는 분의 계좌번호와 이름을 다시 확인해주세요');
         $("input[type=submit]").prop('disabled', true);
         $("#exampleModal").modal("show");
         return false;
@@ -154,7 +154,7 @@
       <div class="col-xl-12">
         <!-- <div class="section_title text-center mb-50"> -->
         <header class="section_title mb-50 major" >
-          <h3>외화 선물하기</h3>
+          <h3>외화 송금하기</h3>
         </header>
       </div>
     </div>

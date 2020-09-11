@@ -109,7 +109,8 @@
                 
                 //성공시 이동할 페이지
                 <%-- location.href='<%=request.getContextPath()%>/order/paySuccess?msg='+msg; --%>
-                location.href='<%=request.getContextPath()%>/';
+                location.href='/SBANK/exchange/myExchangeKakao';
+                
             } else {
                 msg = '결제에 실패하였습니다.';
                 msg += '에러내용 : ' + rsp.error_msg;
