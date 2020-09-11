@@ -35,7 +35,7 @@ public class ReplyServiceImpl implements ReplyService {
 		System.out.println("replyVO.getBoardNo()"+replyVO.getBoardNo());
 		System.out.println("replyVO"+replyVO);
 		replyDAO.insert(replyVO);
-		boardDAO.incrementReplyCnt(replyVO.getBoardNo());
+//		boardDAO.incrementReplyCnt(replyVO.getBoardNo());   //BOARD 테이블 +1 
 	}
 
 	@Override
@@ -58,7 +58,7 @@ public class ReplyServiceImpl implements ReplyService {
 	public void removeReply(int replyNo) {
 		int boardNo = replyDAO.selectBoardNo(replyNo);
 		replyDAO.delete(replyNo);
-		boardDAO.reduceReplyCnt(boardNo);
+//		boardDAO.reduceReplyCnt(boardNo); //BOARD 테이블 -1 
 	}
 
 	/*

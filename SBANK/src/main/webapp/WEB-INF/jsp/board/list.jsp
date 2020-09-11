@@ -6,6 +6,7 @@
 
 
 <%@ include file="/WEB-INF/jsp/include/head.jsp"%>
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <script type="text/javascript">
   function goWriteForm() {
@@ -15,6 +16,42 @@
     //location.href="${ pageContext.request.contextPath }/board/detail?no="+boardNo;
     location.href = "${ pageContext.request.contextPath }/board/" + boardNo; //REST방식
   }
+  
+  $(document).ready(function() {
+    
+    
+    $("#modal_show").click(function() {
+      var no =$(this).val();
+      $(".modal-title").append("활성화여부 수정하기");
+      alert(no);
+      
+      var str = '<input type="hidden" id="exchangeNo" name="exchangeNo" value="'+no+'" >';
+      str += '활성화 여부를 수정하시겠습니까?<br>';
+      $(".modal-body").append(str);
+      $("#exampleModal").modal("show");
+      
+        $("#close_submit").click(function() {
+          $("#exampleModal").modal("hide");
+          $(".modal-title").empty();
+          $(".modal-body").empty();
+          location.href='/SBANK/board/changeStatus/34';
+        });
+        
+      no="";
+      str="";
+    });
+    
+
+    
+    $("#close_cancel").click(function() {
+      $("#exampleModal").modal("hide");
+      $(".modal-title").empty();
+      $(".modal-body").empty();
+    });
+    
+    
+  });
+  
 </script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
@@ -38,21 +75,24 @@
     
     <div class="table-wrapper">
       <c:if test="${ not empty loginVO }">
-                <button class="btn btn-outline-dark" onclick="goWriteForm()">공지 등록</button><br>
+                <button class="btn btn-outline-dark" onclick="goWriteForm()">공지 등록</button><br><br>
                 <!--인라인 방식의 이벤트 처리-->
                 <!--  button 등으로 이벤트 넣으려면 js나 jquery 필요!! -->
             </c:if>
     
     
     
-    
+            <%-- <form method="post" action="${pageContext.request.contextPath }/board/changeStatus"> --%>
             <table border="1" class="table table-bordered ">
                 <tr>
                     <th width="6%">번호</th>
                     <th>제목</th>
-                    <th width="16%">글쓴이</th>
-                    <th width="15%">등록일</th>
-                    <th width="8%">조회수</th>
+                    <th width="11%">글쓴이</th>
+                    <th width="11%">등록일</th>
+                    <th width="10%">공지기간</th>
+                    <th width="10%">활성화</th>
+                    <th width="10%">공지여부</th>
+                    <th width="16%">활성화토글버튼</th>
                 </tr>
                 <c:forEach items="${ boardList }" var="board" varStatus="loop">
                     <tr <c:if test="${ loop.count mod 2 eq 0}"> class="even" </c:if>>
@@ -71,10 +111,57 @@
                         </c:choose>
                         <td>${ board.writer }</td>
                         <td>${ board.regDate }</td>
-                        <td>${ board.viewCnt }</td>
+                        <c:choose>
+                          <c:when test="${ board.viewCnt== '1' }">
+                            <td>Y</td>
+                          </c:when>
+                          <c:otherwise><td>N</td></c:otherwise>
+                        </c:choose>
+                        <c:choose>
+                          <c:when test="${ board.reply_cnt== '1' }">
+                            <td>Y</td>
+                          </c:when>
+                          <c:otherwise><td>N</td></c:otherwise>
+                        </c:choose>
+                         <c:choose>
+                          <c:when test="${ board.reply_cnt== '1'  and board.viewCnt== '1' }">
+                            <td>Y</td>
+                          </c:when>
+                          <c:otherwise><td>N</td></c:otherwise>
+                        </c:choose>
+                        <td>
+                          <button class="btn btn-outline-dark" id="modal_show" name="no" value="${ board.no }" data-toggle="modal" data-target="#myModal" >활성화여부 토글</button>
+                        </td>
                     </tr>
                 </c:forEach>
-            </table>
+                
+                
+                
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <!-- 여기에 제목넣기 -->
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body"></div>
+                      <!-- 여기에 내용 넣기 -->
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close_cancel" onclick="return false">취소</button>
+                        <input type="submit" class="btn btn-success btn-md" id="close_submit" value="확인" >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+        
+        
+        
+      </table>
+      <%-- </form> --%>
             <br>
             <c:if test="${ not empty loginVO }">
                 <button class="btn btn-outline-dark" onclick="goWriteForm()">공지 등록</button>

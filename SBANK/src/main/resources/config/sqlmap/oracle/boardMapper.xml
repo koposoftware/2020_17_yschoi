@@ -9,8 +9,19 @@
 		<result column="reg_date" property="regDate" />
 	</resultMap>
 	
+	<select id="selectSaveNameList" resultType="boardFileVO">
+	select FILE_SAVE_NAME as fileSaveName from S_BOARD_FILE where BOARD_NO in (
+    select no from (
+      select no,title,writer,content,reply_cnt,start_date,end_date,reg_date, 
+        case  
+          <![CDATA[ when TO_CHAR(start_date,'YYYYMMDD')<=TO_CHAR(SYSDATE, 'YYYYMMDD') and TO_CHAR(end_date,'YYYYMMDD')>=TO_CHAR(SYSDATE, 'YYYYMMDD')  then 1 ]]>
+          else 0 
+        end as view_cnt 
+    from s_board ) where view_cnt=1 and reply_cnt=1)
+	</select>
+	
 	<select id="selectByNo" resultMap="boardMap" parameterType="int">
-		select no, title, writer, content, view_cnt,  
+		select no, title, writer, content, view_cnt,   reply_cnt,
 		  to_char(reg_date, 'yyyy-mm-dd') as reg_date, to_char(start_date, 'yyyy-mm-dd') as start_date, to_char(end_date, 'yyyy-mm-dd') as end_date
 		  from s_board 
 		 where no = #{no}
@@ -24,11 +35,11 @@
 	</select>  -->
 	
 	<select id="selectAll" resultType="boardVO">
-		select no,title,writer,content,reply_cnt,start_date,end_date,reg_date,  
+		select no,title,writer,content,reply_cnt,start_date,end_date,to_char(reg_date, 'yyyy-mm-dd') as regDate,  
     case 
     <![CDATA[when TO_CHAR(start_date,'YYYYMMDD') <= TO_CHAR(SYSDATE, 'YYYYMMDD') and TO_CHAR(end_date,'YYYYMMDD') >= TO_CHAR(SYSDATE, 'YYYYMMDD')  then 1]]>
         else 0 
-    end as view_cnt 
+    end as viewCnt 
     from s_board order by no desc 
 	</select>
 	

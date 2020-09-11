@@ -3,7 +3,6 @@ package kr.ac.kopo.board.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.DecimalFormat;
 import java.util.List;
 import java.util.UUID;
 
@@ -40,6 +39,31 @@ public class BoardController {
 	
 	@Resource(name = "uploadPath")
 	String uploadPath;
+	
+	
+	
+	@GetMapping("/")
+  public ModelAndView index() {
+    ModelAndView mav = new ModelAndView("index");
+    
+    List<BoardFileVO> nameList = boardService.selectSaveNameList();
+    
+    mav.addObject("nameList", "nameList");
+    mav.addObject("a", "aaaaaaaaaaa");
+    
+    for(BoardFileVO a : nameList) {
+      a.setBoardNo(0);
+      a.setFileOriName("");
+      a.setFileSize(0);
+      a.setNo(0);
+      System.out.println(a.getFileSaveName());
+    }
+    
+    return mav;
+  }
+	
+	
+	
 	
 	
 	@RequestMapping("/board")
@@ -231,7 +255,27 @@ public class BoardController {
     return "redirect:/board/changeCommission";
   }
 	
+	@GetMapping("/board/changeStatus/${no}")
+	public String changeStatus(@PathVariable("no") int no) {
+	  
+	  System.out.println(no);
+	  System.out.println(no);
+	  System.out.println(no);
+	  System.out.println(no);
+	  System.out.println(no);
+	  
+	  return "board/list";
+	}
 	
+	
+	@GetMapping("/board/changeStatus/${no}")
+  public String changeStatuss(@PathVariable("no") String no) {
+    
+    System.out.println(no);
+    System.out.println(no);
+    
+    return "board/list";
+  }
 
 }
 

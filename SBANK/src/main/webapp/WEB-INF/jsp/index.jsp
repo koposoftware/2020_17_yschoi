@@ -1,6 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+  pageEncoding="UTF-8"%>
 
 <%-- <%@ include file="head.jsp"%> --%>
 <jsp:include page="/WEB-INF/jsp/include/head.jsp" /> 
@@ -19,7 +20,7 @@ $(document).ready(function() {
 
     // 슬리아딩 자동 순환 지연 시간
     // false면 자동 순환하지 않는다.
-    interval : 10,
+    interval : 1,
     // hover를 설정하면 마우스를 가져대면 자동 순환이 멈춘다.
     pause : 'hover',
     // 순환 설정, true면 1 -> 2가면 다시 1로 돌아가서 반복
@@ -41,120 +42,45 @@ $(document).ready(function() {
     <!-- service_area_start -->
     <div class="service_area">
         <div class="container">
-            <div class="row">
-            
-                          <!-- carousel를 구성할 영역 설정 -->
-              <!-- <div style="width: 300px;margin: 100px;">
-              carousel를 사용하기 위해서는 class에 carousel와 slide 설정한다.
-              carousel는 특이하게 id를 설정해야 한다.
-              <div id="carousel-example-generic" class="carousel slide" >
-              carousel의 지시자
-              지시자라고는 하는데 ol태그의 class에 carousel-indicators를 넣는다.
+          <div class="row">
+            <!-- 공지에 대한 이미지 슬라이드 -->
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
               <ol class="carousel-indicators">
-              li는 이미지 개수만큼 추가하고 data-target은 carousel id를 가르킨다.
-              data-slide-to는 순서대로 0부터 올라가고 0은 active를 설정한다.
-              딱히 이 부분은 옵션별로 설정하게 없다.
-              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-              <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
               </ol>
-              실제 이미지 아이템
-              class는 carousel-inner로 설정하고 role은 listbox에서 설정한다.
+              <!-- Wrapper for slides -->
               <div class="carousel-inner" role="listbox">
-              이미지의 개수만큼 item을 만든다. 중요한 포인트는 carousel-indicators의 li 태그 개수와 item의 개수는 일치해야 한다.
-              <div class="item active">
-              아미지 설정-
-              <img src="https://tistory2.daumcdn.net/tistory/1041549/skin/images/nowonbuntistory.png" style="width:100%">
-              캡션 설정 (생략 가능)
-              글자 색은 검은색
-              <div class="carousel-caption" style="color:black;">
-              명월 일지입니다.
+                <div class="item active">
+                  <img src="${pageContext.request.contextPath }/resources/upload/SBANK-4fb900de-ccd2-42c4-81c7-64c29b419075" alt="...">
+                  <div class="carousel-caption">...</div>
+                </div>
+                <c:forEach items="${nameList}" var="name" varStatus="loop">
+                  <div class="item">
+                    <img src="${pageContext.request.contextPath }/resources/upload/" alt="...">
+                    <div class="carousel-caption"><%-- ${name.fileSaveName} --%></div>
+                  </div>
+                </c:forEach>
               </div>
-              </div>
-              <div class="item">
-              <img src="https://www.nowonbun.com/img/nowonbuntistory1.png" style="width:100%">
-              <div class="carousel-caption" style="color:black;">
-              明月開発ストーリ
-              </div>
-              </div>
-              </div>
-              왼쪽 화살표 버튼
-              href는 carousel의 id를 가르킨다.
-              <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-              왼쪽 화살표
-              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <!-- Controls -->
+              <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span>
+              </a> <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span>
               </a>
-              오른쪽 화살표 버튼
-              href는 carousel의 id를 가르킨다.
-              <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-              오른쪽 화살표
-              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-              </a>
-              </div>
-              </div> -->
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img src="/SBANK/resources/upload/SBANK-4fb900de-ccd2-42c4-81c7-64c29b419075" alt="...">
-      <div class="carousel-caption">
-        ...
-      </div>
-    </div>
-    <div class="item">
-      <img src="..." alt="...">
-      <div class="carousel-caption">
-        ...
-      </div>
-    </div>
-    ...
-  </div>
-
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-              
-              
-              
-              
-              
-
-
-            
-            
             </div>
-            <div class="row">
+          </div>
+          
+          
+          
+          
+          
+          
+          <div class="row">
                 <div class="col-xl-12">
                     <div class="section_title text-center mb-50">
-                        <h3>What we Do 원래자리   index.jsp  ${a } </h3>
+                        <h3>What we Do 바꾼자리   index.jsp  ${a } </h3>
                     </div>
                 </div>
             </div>

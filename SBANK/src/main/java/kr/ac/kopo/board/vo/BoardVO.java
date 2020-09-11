@@ -21,6 +21,7 @@ public class BoardVO {
 	@NotEmpty(message = "필수항목입니다")
 	private String content;
 	private int viewCnt;
+	private int reply_cnt;
 	private String start_date;
 	private String end_date;
 	private String regDate;
@@ -50,6 +51,21 @@ public class BoardVO {
     this.writer = writer;
     this.content = content;
     this.viewCnt = viewCnt;
+    this.start_date = start_date;
+    this.end_date = end_date;
+    this.regDate = regDate;
+  }
+	
+	
+
+  public BoardVO(int no, @Pattern(regexp = "^[A-Za-z0-9]*$", message = "특수기호는 사용하실 수 없습니다.") @Length(min = 3, max = 200, message = "제목은 3글자 이상 입력하셔야 합니다.") String title, @NotEmpty(message = "필수항목입니다") String writer, @NotEmpty(message = "필수항목입니다") String content, int viewCnt, int reply_cnt, String start_date, String end_date, String regDate) {
+    super();
+    this.no = no;
+    this.title = title;
+    this.writer = writer;
+    this.content = content;
+    this.viewCnt = viewCnt;
+    this.reply_cnt = reply_cnt;
     this.start_date = start_date;
     this.end_date = end_date;
     this.regDate = regDate;
@@ -97,7 +113,15 @@ public class BoardVO {
 	
 	
 
-	public String getStart_date() {
+	public int getReply_cnt() {
+    return reply_cnt;
+  }
+
+  public void setReply_cnt(int reply_cnt) {
+    this.reply_cnt = reply_cnt;
+  }
+
+  public String getStart_date() {
     return start_date;
   }
 
@@ -123,8 +147,10 @@ public class BoardVO {
 
   @Override
   public String toString() {
-    return "BoardVO [no=" + no + ", title=" + title + ", writer=" + writer + ", content=" + content + ", viewCnt=" + viewCnt + ", start_date=" + start_date + ", end_date=" + end_date + ", regDate=" + regDate + "]";
+    return "BoardVO [no=" + no + ", title=" + title + ", writer=" + writer + ", content=" + content + ", viewCnt=" + viewCnt + ", reply_cnt=" + reply_cnt + ", start_date=" + start_date + ", end_date=" + end_date + ", regDate=" + regDate + "]";
   }
+
+  
 
 	
 	

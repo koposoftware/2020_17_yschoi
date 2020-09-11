@@ -9,6 +9,16 @@ import kr.ac.kopo.board.vo.BoardVO;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
 
 public interface BoardService {
+  
+  
+  /**
+   * 활성화된 공지와 관련된 파일의 savename에 대한 list를 select
+   * @return
+   */
+  List<BoardFileVO> selectSaveNameList();
+  
+  
+  
 	/**
 	 * 전체게시글 조회
 	 */

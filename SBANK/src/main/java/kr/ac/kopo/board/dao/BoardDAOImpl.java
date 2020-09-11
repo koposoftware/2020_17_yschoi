@@ -17,7 +17,18 @@ public class BoardDAOImpl implements BoardDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
+	
+	/**
+   * 활성화된 공지와 관련된 파일의 savename에 대한 list를 select
+   * @return
+   */
 	@Override
+  public List<BoardFileVO> selectSaveNameList() {
+	  List<BoardFileVO> namelist = sqlSession.selectList("board.dao.BoardDAO.selectSaveNameList");
+    return namelist;
+  }
+
+  @Override
 	public List<BoardVO> selectAll() {
 		
 		List<BoardVO> boardList = sqlSession.selectList("board.dao.BoardDAO.selectAll");

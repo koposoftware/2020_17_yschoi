@@ -683,6 +683,7 @@ $(document).ready(function() {
 
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <style>
 .stepwizard-step p {
@@ -872,7 +873,7 @@ $(document).ready(function() {
     </div>
 </div>
 <%-- <form role="form"> --%>
-<form method="post" action="${pageContext.request.contextPath }/exchange/doExchange" role="form">
+<form method="post" action="${pageContext.request.contextPath }/exchange/doExchange" role="form" >
     <div class="row setup-content" id="step-1">
         <div class="col-xs-12">
             <div class="col-md-12">
@@ -1015,11 +1016,11 @@ $(document).ready(function() {
                 
                 
                 
-                <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >css버튼</button>
+                <!-- <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >css버튼</button> -->
                 
                 <input type="hidden" id="" name="" value="${loginVO.id}">
                 <input type="submit" value="환전쓰">
-                <button class="btn btn-outline-dark" id="subm" name="subm" data-toggle="modal" data-target="#myModal">환전하기</button>
+                <button class="btn btn-outline-dark" id="subm" name="subm" data-toggle="modal" data-target="#myModal" >환전하기</button>
                 
                 
                 

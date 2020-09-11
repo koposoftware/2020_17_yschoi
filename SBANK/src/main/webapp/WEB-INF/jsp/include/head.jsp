@@ -148,7 +148,7 @@
                             </c:when>
                             <c:otherwise>
                               <li><a href="${pageContext.request.contextPath }/exchange/doExchange">환전하기</a></li>
-                              <%-- <li><a href="${pageContext.request.contextPath }/exchange/doExchange2">환전하기222</a></li> --%>
+                              <li><a href="${pageContext.request.contextPath }/exchange/doExchange2">환전하기222</a></li>
                               <li><a href="${pageContext.request.contextPath }/exchange/doReserve">목표 환전 예약하기</a></li>
                               <li><a href="${pageContext.request.contextPath }/exchange/doRevExchange">재환전하기</a></li>
                               <div class="dropdown-divider"></div>

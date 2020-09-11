@@ -18,8 +18,20 @@ public class BoardServiceImpl implements  BoardService {
 	
 	@Autowired
 	private BoardDAO boardDAO;
+	
 
+	/**
+   * 활성화된 공지와 관련된 파일의 savename에 대한 list를 select
+   * @return
+   */
 	@Override
+  public List<BoardFileVO> selectSaveNameList() {
+	  List<BoardFileVO> namelist = boardDAO.selectSaveNameList();
+    return namelist;
+  }
+	
+
+  @Override
 	public List<BoardVO> selectAllBoard() {
 		List<BoardVO> boardList = boardDAO.selectAll();
 		
