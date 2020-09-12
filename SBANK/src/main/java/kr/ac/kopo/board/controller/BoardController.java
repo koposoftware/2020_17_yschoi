@@ -255,7 +255,7 @@ public class BoardController {
     return "redirect:/board/changeCommission";
   }
 	
-	@PostMapping("/board/changeStatus")
+	@GetMapping("/board/changeStatus")
 	public String changeStatus(int no) {
 	  
 	  System.out.println(no);
@@ -264,18 +264,19 @@ public class BoardController {
 	  System.out.println(no);
 	  System.out.println(no);
 	  
-	  return "board/list";
+	  return "redirect:/board";
 	}
 	
 	
   
-    @GetMapping("/board/changeStatus/${no}") 
+    /*@GetMapping("/board/changeStatus/${no}") 
     public String changeStatuss(@PathVariable("no") int no) {
     
-    System.out.println(no); 
-    System.out.println(no);
-    
-    return "board/list"; }
+      System.out.println(no); 
+      System.out.println(no);
+      
+      return "board/list"; 
+    }*/
    
 
 }

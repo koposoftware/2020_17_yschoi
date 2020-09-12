@@ -20,12 +20,11 @@
   $(document).ready(function() {
     
     
-    $("#modal_show").click(function() {
-      let no =$(this).val();
-      var name =$(this).attr('name');
+    $(".modal_show").click(function() {
+      var idd =$(this).attr('id');
+      //alert(idd); 
+      
       $(".modal-title").append("활성화여부 수정하기");
-      alert(no);
-      alert(name); 
       /* var str = '<input type="hidden" id="no" name="no" value="'+name+'" >'; */
       var str = '활성화 여부를 수정하시겠습니까?<br>';
       $(".modal-body").append(str);
@@ -33,13 +32,11 @@
       
 
       $("#close_submit").click(function() {
-            alert(no);
-            alert(name);
-            /* alert(no); */
+        /* alert(idd); */
             $("#exampleModal").modal("hide");
             $(".modal-title").empty();
             $(".modal-body").empty();
-            location.href = 'redirect:/board/changeStatus?no=' + name;
+            location.href = '/SBANK/board/changeStatus?no=' + idd;
       });
 
       no = "";
@@ -96,47 +93,52 @@
                     <th width="9%">공지여부</th>
                     <th width="16%">활성화토글버튼</th>
                 </tr>
-                <c:forEach items="${ boardList }" var="board" >
-                    <tr>
-                        <td>${board.no}</td>
-                        <c:choose>
-                            <c:when test="${ not empty resultVO  }">
-                                <td>
-                                    <%-- <a href="viewCnt.jsp?no=${ board.no }"> --%> <a href="datail.jsp?type=list&no=${ board.no }"> <c:out value="${ board.title }" />
-                                </a>
-                                </td>
-                            </c:when>
-                            <c:otherwise>
-                                <td><a href="javascript:doAction(${ board.no })"> <c:out value="${ board.title }" />
-                                </a></td>
-                            </c:otherwise>
-                        </c:choose>
-                        <td>${ board.writer }</td>
-                        <td>${ board.regDate }</td>
-                        <c:choose>
-                          <c:when test="${ board.viewCnt== '1' }">
-                            <td>Y</td>
-                          </c:when>
-                          <c:otherwise><td>N</td></c:otherwise>
-                        </c:choose>
-                        <c:choose>
-                          <c:when test="${ board.reply_cnt== '1' }">
-                            <td>Y</td>
-                          </c:when>
-                          <c:otherwise><td>N</td></c:otherwise>
-                        </c:choose>
-                         <c:choose>
-                          <c:when test="${ board.reply_cnt== '1'  and board.viewCnt== '1' }">
-                            <td><img src="${pageContext.request.contextPath }/resources/img/board/green-light-small.png" /></td>
-                          </c:when>
-                          <c:otherwise>
-                            <td><img src="${pageContext.request.contextPath }/resources/img/board/red-light-small.png" /></td>
-                          </c:otherwise>
-                        </c:choose>
+                <c:forEach items="${ boardList }" var="board">
+                  <tr>
+                    <td>${board.no}</td>
+                    <c:choose>
+                      <c:when test="${ not empty resultVO  }">
                         <td>
-                          <button class="btn btn-outline-dark" id="modal_show" name="${board.no}" value="${board.no}" data-toggle="modal" data-target="#myModal" >활성화여부 토글</button>
+                          <a href="datail.jsp?type=list&no=${ board.no }"> <c:out value="${ board.title }" /></a>
                         </td>
-                    </tr>
+                      </c:when>
+                      <c:otherwise>
+                        <td>
+                          <a href="javascript:doAction(${ board.no })"> <c:out value="${ board.title }" /></a>
+                        </td>
+                      </c:otherwise>
+                    </c:choose>
+                    <td>${ board.writer }</td>
+                    <td>${ board.regDate }</td>
+                    <c:choose>
+                      <c:when test="${ board.viewCnt== '1' }">
+                        <td>Y</td>
+                      </c:when>
+                      <c:otherwise>
+                        <td>N</td>
+                      </c:otherwise>
+                    </c:choose>
+                    <c:choose>
+                      <c:when test="${ board.reply_cnt== '1' }">
+                        <td>Y</td>
+                      </c:when>
+                      <c:otherwise>
+                        <td>N</td>
+                      </c:otherwise>
+                    </c:choose>
+                    <c:choose>
+                      <c:when test="${ board.reply_cnt== '1'  and board.viewCnt== '1' }">
+                        <td><img src="${pageContext.request.contextPath }/resources/img/board/green-light-small.png" /></td>
+                      </c:when>
+                      <c:otherwise>
+                        <td><img src="${pageContext.request.contextPath }/resources/img/board/red-light-small.png" /></td>
+                      </c:otherwise>
+                    </c:choose>
+                    <td>
+                      <button class="btn btn-outline-dark modal_show" id="${board.no}" name="${board.no}" value="${board.no}" data-toggle="modal" data-target="#myModal">활성화여부 토글</button>
+                      
+                    </td>
+                  </tr>
                 </c:forEach>
             </table>
                 
