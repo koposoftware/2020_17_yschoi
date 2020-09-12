@@ -72,14 +72,14 @@ $(document).ready(function() {
                 /* 뭘해줘야할까 */
         }
       })
-      
+});   
       
 
       
       
       
       
-      
+$(document).ready(function() {      
    $.ajax({
         url : '${ pageContext.request.contextPath }/exchange/getCurAccount_num',
         type : 'get',
@@ -102,14 +102,15 @@ $(document).ready(function() {
         }, complete : function() {
                 /* 뭘해줘야할까 */
         }
-      })    
+      })
+});
       
       
   
   
   
   
-  
+$(document).ready(function() {  
   $('#currencycode').change(function() {   //통화를 선택하면에 대한 function 시작
     let currency = $(this).val(); // 통화코드추출
     //alert(currency)
@@ -143,7 +144,7 @@ $(document).ready(function() {
       }
     })
   })   //통화를 선택하면에 대한 function 끝.
-  
+});  
   
   
   
@@ -156,7 +157,57 @@ $(document).ready(function() {
   
   
   /////////////여기여기//////////////
-/*   $(document).on('change', '#account_num', function() { */
+$(document).ready(function() {
+  
+  
+  var list='';
+  
+  
+  $(document).on("keyup","#user_code",function(){  // 구글 OTP인증코드 적으면 함수
+    var ipt = $(this).val()
+    console.log(ipt);
+    var keyofgoogle = list[0]
+    
+    if(ipt.length == 6){
+      console.log('6');
+      console.log(keyofgoogle);
+      
+      $.ajax({
+        url : '${ pageContext.request.contextPath }/otp/chkk',
+        type : 'post',
+        data : {
+          encodedKey : keyofgoogle,
+          user_code : ipt
+        },
+        async:false,
+        success : function(data) {
+          result = JSON.parse(data);
+          console.log(result);
+          
+          if(result=='true'){
+            $("input[type=submit]").prop('disabled',false);
+          } else{
+            $("#setresult").text('인증코드를 확인하여주세요')
+          }
+
+          return false;
+        }, 
+        error : function() {
+          alert('실패')
+        }
+      });
+    }
+    
+  });// 구글 OTP인증코드 적으면 함수 끝
+  
+  
+  
+  
+  
+  
+  
+  
+  
   $(document).on('click', '#subm', function() {
       //alert('!')
       //let bal = $(this).attr('id');
@@ -212,9 +263,54 @@ $(document).ready(function() {
 
       
       if(afterHashIpt == realpwd){
+        
+        
+        
+        var strr='';
+        
+        
+        $.ajax({
+          url : '${ pageContext.request.contextPath }/otp/genn',
+          type : 'get',
+          async:false,
+          success : function(data) {
+            list = JSON.parse(data);
+            console.log(list);
+            return false;
+          }, 
+          error : function() {
+            alert('실패')
+          }
+        });
+        console.log(list[0]);
+        console.log(list[1]);
+        console.log(list[2]);
+        
+        
+        
+        
+        strr+='재환전을 원하시면 Google OTP로 본인인증을 진행하여주세요.<br><br>';
+        strr+='인증키는 ';
+        strr+=list[0];
+        strr+='입니다.<br>';
+        strr+='<a href="';
+        strr+=list[1];
+        strr+='" target="_blank"> QR코드확인하기 </a> 입니다.<br>';
+        /* strr+='<img src="${pageContext.request.contextPath }/resources/upload/';
+        strr+=list[2];
+        strr+='"><br>'; */
+        <%-- strr+='<form action="<%=request.getContextPath() %>/otp/chkk" method="post">'; --%>
+        strr+='  code : <input  name="user_code" id="user_code"  type="text" ">';
+        strr+='  <input name="encodedKey" type="hidden" readonly="readonly" value="'+list[0]+'"><br><br>';
+        strr+='  <span id="setresult" name="setresult" ></span<br><br>';
+        /* strr+='  <input type="submit" value="전송!">'; */
+        /* strr+='</form>'; */
+        
+        
+        
         $(".modal-title").append("환전하기");
-        $(".modal-body").append('환전을 진행하시겠습니까?');
-        $("input[type=submit]").prop('disabled',false);
+        $(".modal-body").append(strr);
+        /* $("input[type=submit]").prop('disabled',false); */
         let aa =$("#exampleModal").modal("show");
         return false;
         if(aa){
@@ -236,13 +332,13 @@ $(document).ready(function() {
       
       
     });
+});
 
 
 
 
 
-
-
+$(document).ready(function() {
   $('#account_num').change(function() {
     /* alert($("#account_num > option:selected").attr('name'));  */
     let realpwd = $("#account_num > option:selected").attr('name'); // 선택된 옵션의 name의 값을 가져오기
@@ -251,7 +347,7 @@ $(document).ready(function() {
 
 
   });
-  
+});  
   
 
   
@@ -263,7 +359,7 @@ $(document).ready(function() {
   
   
   
-})
+
 
 
 

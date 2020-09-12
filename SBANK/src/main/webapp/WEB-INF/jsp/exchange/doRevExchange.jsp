@@ -181,9 +181,6 @@ $(document).ready(function() {
           alert('실패')
         }
       });
-      
-      
-      
     }
     
   });// 구글 OTP인증코드 적으면 함수 끝
