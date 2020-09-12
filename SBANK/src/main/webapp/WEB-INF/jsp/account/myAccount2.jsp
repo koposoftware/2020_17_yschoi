@@ -14,10 +14,10 @@
 <section>
 <div class="row">
 	<div class="col-4">
-		<%@ include file="/WEB-INF/jsp/include/aside.jsp"%>
+		<%-- <%@ include file="/WEB-INF/jsp/include/aside.jsp"%> --%>
 	</div>
 	<div class="section_title mb-50">
-					<h3>내 계좌 조회</h3>
+					<h3>내 계좌 조회 - 사이드바 테스트</h3>
 				</div>
 	<div class="col-8">
 		<div class="table-wrapper">

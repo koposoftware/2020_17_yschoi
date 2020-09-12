@@ -5,7 +5,7 @@
 <%@ page import="com.google.zxing.qrcode.QRCodeWriter, com.google.zxing.common.BitMatrix, com.google.zxing.BarcodeFormat, com.google.zxing.client.j2se.MatrixToImageWriter" %>  
 
 <%  
-    String url = request.getParameter("url");  
+   /*  String url = request.getParameter("url");  
     int nCheck = 1;  
     String savedFileName = "";  
   
@@ -15,7 +15,7 @@
     }  
     else {  
         // 파일 설정  
-        File path = new File(application.getRealPath("/") + "/resources/upload/qrcode/images/");  
+        File path = new File("C:\\Users\\cysun31\\git\\2020_17_yschoi\\SBANK\\src\\main\\webapp\\resources\\upload");  
         savedFileName = UUID.randomUUID().toString().replace("-", "");  
         if (!path.exists()) path.mkdirs();  
           
@@ -26,19 +26,20 @@
         BufferedImage qrImage = MatrixToImageWriter.toBufferedImage(qrCode);  
           
         ImageIO.write(qrImage, "PNG", new File(path, savedFileName+".png"));  
-    }  
+    } */  
 %> 
 당신의 키는 → ${encodedKey } 입니다. <br>
-당신의 바코드 주소는 → ${url} 입니다. <br><br>
+당신의 바코드 주소는 → <a href="${url }" target="_blank"> QR코드로 확인하기 </a> 입니다. <br><br>
+<img src="${pageContext.request.contextPath }/resources/upload/${savedFileName}">
 
 <%  
-    if (nCheck == 1) {  
+    /* if (nCheck == 1) {  
         String qrcode = request.getContextPath() + "/qrcode/images/" + savedFileName + ".png";  
         out.print("<img src='" + qrcode + "'/><p/>");  
     }  
     else {  
         out.print("잘못된 URL 입니다.<p/>");  
-    }  
+    }  */ 
 %> 
  
 <form action="<%=request.getContextPath() %>/otp/chk" method="post">

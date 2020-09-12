@@ -141,6 +141,7 @@
             <allowedPattern><![CDATA[['"]?\s*http://.*]]></allowedPattern>
         </attribute>
         <attribute name="href">
+            <allowedPattern><![CDATA[['"]?\s*http://.*]]></allowedPattern> <!-- 추가해봄 -->
             <notAllowedPattern><![CDATA[(?i:script)]]></notAllowedPattern>
             <notAllowedPattern><![CDATA[(?i:\.css)]]></notAllowedPattern>
         </attribute>

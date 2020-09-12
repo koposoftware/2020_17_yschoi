@@ -49,15 +49,15 @@ public class BoardController {
     List<BoardFileVO> nameList = boardService.selectSaveNameList();
     
     mav.addObject("nameList", nameList);
-    mav.addObject("a", "aaaaaaaaaaa");
+//    mav.addObject("a", "aaaaaaaaaaa");
     
-    for(BoardFileVO a : nameList) {
+    /*for(BoardFileVO a : nameList) {
       a.setBoardNo(0);
       a.setFileOriName("");
       a.setFileSize(0);
       a.setNo(0);
       System.out.println(a);
-    }
+    }*/
     
     return mav;
   }

@@ -14,9 +14,49 @@ import javax.servlet.http.HttpServlet;
 import org.apache.commons.codec.binary.Base32;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class OtpResultServlet extends HttpServlet {
+  
+  
+  @ResponseBody
+  @PostMapping("/otp/chkk")
+  public String otpchkk(String user_code, String encodedKey) {
+      System.out.println("==================컨트롤러진입함=====================");
+      System.out.println(user_code);
+      System.out.println(encodedKey);
+      
+      String user_codeStr="";
+      
+      long user_code2 = Integer.parseInt(user_code);
+      
+      long l = new Date().getTime();
+      long ll =  l / 30000;
+       
+      boolean check_code = false;
+      try {
+          // 키, 코드, 시간으로 일회용 비밀번호가 맞는지 일치 여부 확인.
+          check_code = check_code(encodedKey, user_code2, ll);
+      } catch (InvalidKeyException e) {
+          e.printStackTrace();
+      } catch (NoSuchAlgorithmException e) {
+          e.printStackTrace();
+      }
+       
+      // 일치한다면 true.
+      System.out.println("결과쓰 check_code : " + check_code);
+      
+      if ( check_code == true ) {
+        return "true"; 
+      }
+      else {
+        return "false";
+      }
+  }
+  
+  
+  
     
   
     @PostMapping("/otp/chk")

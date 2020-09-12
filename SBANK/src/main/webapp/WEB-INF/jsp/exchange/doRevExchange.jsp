@@ -13,6 +13,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+
+
+
+
+
+
+
+
+
+
+
 function keyevent() {
 
   var exchangeCharge = document.getElementById("exchangeprice").value; //환전금액(외화)
@@ -131,7 +142,66 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-  $(document).on('click', '#subm', function() {
+  var list='';
+  
+  
+  
+  
+  
+  $(document).on("keyup","#user_code",function(){  // 구글 OTP인증코드 적으면 함수
+    var ipt = $(this).val()
+    console.log(ipt);
+    var keyofgoogle = list[0]
+    
+    if(ipt.length == 6){
+      console.log('6');
+      console.log(keyofgoogle);
+      
+      $.ajax({
+        url : '${ pageContext.request.contextPath }/otp/chkk',
+        type : 'post',
+        data : {
+          encodedKey : keyofgoogle,
+          user_code : ipt
+        },
+        async:false,
+        success : function(data) {
+          result = JSON.parse(data);
+          console.log(result);
+          
+          if(result=='true'){
+            $("input[type=submit]").prop('disabled',false);
+          } else{
+            $("#setresult").text('인증코드를 확인하여주세요')
+          }
+
+          return false;
+        }, 
+        error : function() {
+          alert('실패')
+        }
+      });
+      
+      
+      
+    }
+    
+  });// 구글 OTP인증코드 적으면 함수 끝
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  $(document).on('click', '#subm', function() {  //모달에서 확인버튼 누르면 함수
     
     let iptval = $('#exchangeprice').val();  // 사용자가 입력할 재환전 할 금액
     let ownval = $("#currencycode > option:selected").attr('id'); // 사용자가 선택한 외화의 잔액
@@ -171,11 +241,49 @@ $(document).ready(function() {
       }
     });
     
+    
     /* alert(afterHashIpt) */
     if(afterHashIpt == realpwd){
+      
+      var strr='';
+      
+      $.ajax({
+        url : '${ pageContext.request.contextPath }/otp/genn',
+        type : 'get',
+        async:false,
+        success : function(data) {
+          list = JSON.parse(data);
+          console.log(list);
+          return false;
+        }, 
+        error : function() {
+          alert('실패')
+        }
+      });
+      console.log(list[0]);
+      console.log(list[1]);
+      console.log(list[2]);
+      
+      strr+='재환전을 원하시면 Google OTP로 본인인증을 진행하여주세요.<br><br>';
+      strr+='인증키는 ';
+      strr+=list[0];
+      strr+='입니다.<br>';
+      strr+='<a href="';
+      strr+=list[1];
+      strr+='" target="_blank"> QR코드확인하기 </a> 입니다.<br>';
+      /* strr+='<img src="${pageContext.request.contextPath }/resources/upload/';
+      strr+=list[2];
+      strr+='"><br>'; */
+      <%-- strr+='<form action="<%=request.getContextPath() %>/otp/chkk" method="post">'; --%>
+      strr+='  code : <input  name="user_code" id="user_code"  type="text" ">';
+      strr+='  <input name="encodedKey" type="hidden" readonly="readonly" value="'+list[0]+'"><br><br>';
+      strr+='  <span id="setresult" name="setresult" ></span<br><br>';
+      /* strr+='  <input type="submit" value="전송!">'; */
+      /* strr+='</form>'; */
+      
       $(".modal-title").append("재환전하기");
-      $(".modal-body").append('재환전을 진행하시겠습니까?');
-      $("input[type=submit]").prop('disabled',false);
+      $(".modal-body").append(strr);
+      /* $("input[type=submit]").prop('disabled',false); */
       let aa =$("#exampleModal").modal("show");
       return false;
       if(aa){
@@ -193,7 +301,7 @@ $(document).ready(function() {
     
     return false;
     
-  })
+  })// 구글 OTP인증코드 적으면 함수 끝
   
 });
 

@@ -211,7 +211,7 @@ $(document).ready(function() {
         <div class="col-xl-12">
           <!-- <div class="section_title text-center mb-50"> -->
           <header class="section_title mb-50 major">
-            <h3>재환전하기</h3>
+            <h3>재환전하기 - 구글 otp연동하기 전 save</h3>
           </header>
         </div>
       </div>
