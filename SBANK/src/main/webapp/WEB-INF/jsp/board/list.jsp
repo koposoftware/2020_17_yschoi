@@ -21,37 +21,39 @@
     
     
     $("#modal_show").click(function() {
-      var no =$(this).val();
+      let no =$(this).val();
+      var name =$(this).attr('name');
       $(".modal-title").append("활성화여부 수정하기");
       alert(no);
-      
-      var str = '<input type="hidden" id="exchangeNo" name="exchangeNo" value="'+no+'" >';
-      str += '활성화 여부를 수정하시겠습니까?<br>';
+      alert(name); 
+      /* var str = '<input type="hidden" id="no" name="no" value="'+name+'" >'; */
+      var str = '활성화 여부를 수정하시겠습니까?<br>';
       $(".modal-body").append(str);
       $("#exampleModal").modal("show");
       
-        $("#close_submit").click(function() {
-          $("#exampleModal").modal("hide");
-          $(".modal-title").empty();
-          $(".modal-body").empty();
-          location.href='/SBANK/board/changeStatus/34';
-        });
-        
-      no="";
-      str="";
-    });
-    
 
-    
+      $("#close_submit").click(function() {
+            alert(no);
+            alert(name);
+            /* alert(no); */
+            $("#exampleModal").modal("hide");
+            $(".modal-title").empty();
+            $(".modal-body").empty();
+            location.href = 'redirect:/board/changeStatus?no=' + name;
+      });
+
+      no = "";
+      name = "";
+      str = "";
+    });
+
     $("#close_cancel").click(function() {
       $("#exampleModal").modal("hide");
       $(".modal-title").empty();
       $(".modal-body").empty();
     });
-    
-    
+
   });
-  
 </script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
@@ -74,11 +76,11 @@
 
     
     <div class="table-wrapper">
-      <c:if test="${ not empty loginVO }">
+      <c:if test="${ loginVO.type == 'M' }">
                 <button class="btn btn-outline-dark" onclick="goWriteForm()">공지 등록</button><br><br>
                 <!--인라인 방식의 이벤트 처리-->
                 <!--  button 등으로 이벤트 넣으려면 js나 jquery 필요!! -->
-            </c:if>
+      </c:if>
     
     
     
@@ -89,13 +91,13 @@
                     <th>제목</th>
                     <th width="11%">글쓴이</th>
                     <th width="11%">등록일</th>
-                    <th width="10%">공지기간</th>
-                    <th width="10%">활성화</th>
-                    <th width="10%">공지여부</th>
+                    <th width="9%">공지기간</th>
+                    <th width="9%">활성화</th>
+                    <th width="9%">공지여부</th>
                     <th width="16%">활성화토글버튼</th>
                 </tr>
-                <c:forEach items="${ boardList }" var="board" varStatus="loop">
-                    <tr <c:if test="${ loop.count mod 2 eq 0}"> class="even" </c:if>>
+                <c:forEach items="${ boardList }" var="board" >
+                    <tr>
                         <td>${board.no}</td>
                         <c:choose>
                             <c:when test="${ not empty resultVO  }">
@@ -125,18 +127,21 @@
                         </c:choose>
                          <c:choose>
                           <c:when test="${ board.reply_cnt== '1'  and board.viewCnt== '1' }">
-                            <td>Y</td>
+                            <td><img src="${pageContext.request.contextPath }/resources/img/board/green-light-small.png" /></td>
                           </c:when>
-                          <c:otherwise><td>N</td></c:otherwise>
+                          <c:otherwise>
+                            <td><img src="${pageContext.request.contextPath }/resources/img/board/red-light-small.png" /></td>
+                          </c:otherwise>
                         </c:choose>
                         <td>
-                          <button class="btn btn-outline-dark" id="modal_show" name="no" value="${ board.no }" data-toggle="modal" data-target="#myModal" >활성화여부 토글</button>
+                          <button class="btn btn-outline-dark" id="modal_show" name="${board.no}" value="${board.no}" data-toggle="modal" data-target="#myModal" >활성화여부 토글</button>
                         </td>
                     </tr>
                 </c:forEach>
+            </table>
                 
                 
-                
+                <%-- <form action="${ pageContext.request.contextPath }/board/changeStatus" method="post"> --%>
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -156,14 +161,13 @@
                     </div>
                   </div>
                 </div>
+                <%-- </form> --%>
         
         
         
-        
-      </table>
       <%-- </form> --%>
             <br>
-            <c:if test="${ not empty loginVO }">
+            <c:if test="${ loginVO.type == 'M' }">
                 <button class="btn btn-outline-dark" onclick="goWriteForm()">공지 등록</button>
                 <!--인라인 방식의 이벤트 처리-->
                 <!--  button 등으로 이벤트 넣으려면 js나 jquery 필요!! -->

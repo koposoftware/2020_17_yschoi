@@ -37,5 +37,8 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/ojdbc8.jar"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/core.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/javase.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

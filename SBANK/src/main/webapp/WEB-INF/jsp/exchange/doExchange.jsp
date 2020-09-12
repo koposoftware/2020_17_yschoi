@@ -195,6 +195,7 @@ $(document).ready(function() {
         type : 'get',
         async:false,
         success : function(data) {
+          
           var list = JSON.parse(data);
           afterHashIpt=list;
           afterHashIpt2=data;

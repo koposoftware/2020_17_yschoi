@@ -29,6 +29,17 @@ $(document).ready(function() {
     keyboard : true
     });
   });
+  
+$(document).ready(function(){
+  var str = "${nameList}";  //자바스크립트에서 파라미터(모델클래스 객체) 접근하기
+  console.log(str);
+  
+  
+  
+  
+  
+});
+  
 </script>
 
 
@@ -48,9 +59,9 @@ $(document).ready(function() {
               <!-- Indicators -->
               <ol class="carousel-indicators">
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                <c:forEach items="${nameList}" var="name" varStatus="loop">
+                  <li data-target="#carousel-example-generic" data-slide-to="${loop.count }"></li>
+                </c:forEach>
               </ol>
               <!-- Wrapper for slides -->
               <div class="carousel-inner" role="listbox">
@@ -60,7 +71,7 @@ $(document).ready(function() {
                 </div>
                 <c:forEach items="${nameList}" var="name" varStatus="loop">
                   <div class="item">
-                    <img src="${pageContext.request.contextPath }/resources/upload/" alt="...">
+                    <img src="${pageContext.request.contextPath }/resources/upload/${name.fileSaveName}" alt="로고사진쓰" height="400" width="300" >
                     <div class="carousel-caption"><%-- ${name.fileSaveName} --%></div>
                   </div>
                 </c:forEach>

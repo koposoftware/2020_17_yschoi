@@ -48,7 +48,7 @@ public class BoardController {
     
     List<BoardFileVO> nameList = boardService.selectSaveNameList();
     
-    mav.addObject("nameList", "nameList");
+    mav.addObject("nameList", nameList);
     mav.addObject("a", "aaaaaaaaaaa");
     
     for(BoardFileVO a : nameList) {
@@ -56,7 +56,7 @@ public class BoardController {
       a.setFileOriName("");
       a.setFileSize(0);
       a.setNo(0);
-      System.out.println(a.getFileSaveName());
+      System.out.println(a);
     }
     
     return mav;
@@ -255,8 +255,8 @@ public class BoardController {
     return "redirect:/board/changeCommission";
   }
 	
-	@GetMapping("/board/changeStatus/${no}")
-	public String changeStatus(@PathVariable("no") int no) {
+	@PostMapping("/board/changeStatus")
+	public String changeStatus(int no) {
 	  
 	  System.out.println(no);
 	  System.out.println(no);
@@ -268,14 +268,15 @@ public class BoardController {
 	}
 	
 	
-	@GetMapping("/board/changeStatus/${no}")
-  public String changeStatuss(@PathVariable("no") String no) {
+  
+    @GetMapping("/board/changeStatus/${no}") 
+    public String changeStatuss(@PathVariable("no") int no) {
     
-    System.out.println(no);
+    System.out.println(no); 
     System.out.println(no);
     
-    return "board/list";
-  }
+    return "board/list"; }
+   
 
 }
 
