@@ -9,23 +9,37 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpSession;
 
- 
 import org.apache.commons.codec.binary.Base32;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import kr.ac.kopo.member.service.MemberService;
+import kr.ac.kopo.member.vo.MemberVO;
 
 @Controller
 public class OtpResultServlet extends HttpServlet {
   
   
+  @Autowired
+  private MemberService memberService;
+  
+  
   @ResponseBody
   @PostMapping("/otp/chkk")
-  public String otpchkk(String user_code, String encodedKey) {
+  public String otpchkk(String user_code, String encodedKey,HttpSession session) {
       System.out.println("==================컨트롤러진입함=====================");
       System.out.println(user_code);
       System.out.println(encodedKey);
+      
+      
+      MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
+      String id = userVO.getId(); // id와 같은 record에 저장된 otpcode이제 가져오자~
+      encodedKey = memberService.getOtpCodeById(id);
+      
       
       String user_codeStr="";
       

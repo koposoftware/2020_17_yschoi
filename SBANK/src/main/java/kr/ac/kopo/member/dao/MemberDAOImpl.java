@@ -28,7 +28,26 @@ public class MemberDAOImpl implements MemberDAO {
   }
 	
 	
-	
+  /**
+   * 구글 OTP코드 연동하기
+   * @param encodedKey
+   */
+  @Override
+  public void otpCodeSave(MemberVO member) {
+    sqlSession.update("member.dao.MemberDAO.otpCodeSave", member);
+  }
+  
+  
+  /**
+   * 로그인 한 아이디의 otpcode 가져오기
+   * @param id
+   * @return
+   */
+  @Override
+  public String getOtpCodeById(String id) {
+    String code = sqlSession.selectOne("member.dao.MemberDAO.getOtpCodeById",id);
+    return code;
+  }
 	
 	
 	

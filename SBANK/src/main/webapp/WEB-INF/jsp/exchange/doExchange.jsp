@@ -302,7 +302,7 @@ $(document).ready(function() {
         <%-- strr+='<form action="<%=request.getContextPath() %>/otp/chkk" method="post">'; --%>
         strr+='  code : <input  name="user_code" id="user_code"  type="text" ">';
         strr+='  <input name="encodedKey" type="hidden" readonly="readonly" value="'+list[0]+'"><br><br>';
-        strr+='  <span id="setresult" name="setresult" ></span<br><br>';
+        strr+='  <span id="setresult" name="setresult" ></span><br><br>';
         /* strr+='  <input type="submit" value="전송!">'; */
         /* strr+='</form>'; */
         

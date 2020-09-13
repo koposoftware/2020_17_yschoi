@@ -124,6 +124,7 @@
                           <ul class="submenu">
                             <li><a href="${pageContext.request.contextPath }/account/myAccount">모든 계좌 조회</a></li>
                             <li><a href="${pageContext.request.contextPath }/account/create">계좌 개설</a></li>
+                            <li><a href="${pageContext.request.contextPath }/otp/gen">Google OTP 연동</a></li>
                             <%--	<div class="dropdown-divider"></div>
 													<li><a
                             href="${pageContext.request.contextPath }/account/myExchange">외화 계좌 개설</a></li>

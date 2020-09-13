@@ -14,4 +14,25 @@ public interface MemberDAO {
 	public String chkAccountOwnName(String id);
 	
 	
+	
+	/**
+   * 구글 OTP코드 연동하기
+   * @param encodedKey
+   */
+  public void otpCodeSave(MemberVO member);
+  
+  
+  /**
+   * 로그인 한 아이디의 otpcode 가져오기
+   * @param id
+   * @return
+   */
+  public String getOtpCodeById(String id);
+  
+  
+  
+  
+  
+	
+	
 }

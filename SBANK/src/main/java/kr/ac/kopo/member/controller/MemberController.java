@@ -93,5 +93,23 @@ public class MemberController {
 		status.setComplete(); //세션에 등록된거 다 지워. 
 		return "redirect:/";
 	}
+	
+	
+	
+	
+	@PostMapping("/otp/save")
+	public String otpCodeSave(String encodedKey,HttpSession session) {
+	  MemberVO member = new MemberVO();
+	  member.setOtpcode(encodedKey);
+	  MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
+    String id = userVO.getId();
+	  member.setId(id);
+	  memberService.otpCodeSave(member);
+	  return "redirect:/";
+	}
+	
+	
+	
+	
 }
 
