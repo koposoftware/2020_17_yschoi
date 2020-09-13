@@ -86,6 +86,15 @@ public class BoardServiceImpl implements  BoardService {
     boardDAO.changeCommission(currencyVO);
     
   }
+
+  /**
+   * 공지 활성화 상태 토글버튼
+   */
+  @Override
+  public void changeStatus(int boardNo) {
+    // TODO Auto-generated method stub
+    boardDAO.changeStatus(boardNo);
+  }
   
   
 	

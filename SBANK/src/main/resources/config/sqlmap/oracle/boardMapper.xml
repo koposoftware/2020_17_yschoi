@@ -85,5 +85,12 @@
 	   where CURRENCY = #{currency}
 	</update>
 	
+	<update id="changeStatus" parameterType="int">
+	   update s_board set reply_cnt= case 
+        when reply_cnt=1 then 0 
+        when reply_cnt=0 then 1
+        end where no =#{boardNo}
+	</update>
+	
 	
 </mapper>

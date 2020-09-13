@@ -64,5 +64,12 @@ public interface BoardService {
 	public void changeCommission(CurrencyVO currencyVO);
 	
 	
+	/**
+	 * 공지 활성화 상태 토글
+	 * @param boardNo
+	 */
+	public void changeStatus(int boardNo);
+	
+	
 	
 }

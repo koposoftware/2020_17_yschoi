@@ -104,7 +104,15 @@ public class BoardDAOImpl implements BoardDAO {
 
   
   
-  
+  /**
+   * 공지 활성화 상태 토글버튼
+   */
+  @Override
+  public void changeStatus(int boardNo) {
+    // TODO Auto-generated method stub
+    
+    sqlSession.update("board.dao.BoardDAO.changeStatus", boardNo);
+  }
 	
 	
 	

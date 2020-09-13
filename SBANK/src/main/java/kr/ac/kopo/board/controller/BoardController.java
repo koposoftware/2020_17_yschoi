@@ -260,9 +260,8 @@ public class BoardController {
 	  
 	  System.out.println(no);
 	  System.out.println(no);
-	  System.out.println(no);
-	  System.out.println(no);
-	  System.out.println(no);
+
+	  boardService.changeStatus(no);
 	  
 	  return "redirect:/board";
 	}
