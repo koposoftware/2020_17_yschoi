@@ -185,8 +185,11 @@ $(document).ready(function() {
           console.log(result);
           
           if(result=='true'){
+            $("#setresult").text('');
+            $("#setresult").text('아래 확인 버튼을 눌러 환전을 진행하여주세요.');
             $("input[type=submit]").prop('disabled',false);
           } else{
+            $("#setresult").text('')
             $("#setresult").text('인증코드를 확인하여주세요')
           }
 
@@ -290,16 +293,17 @@ $(document).ready(function() {
         
         
         strr+='재환전을 원하시면 Google OTP로 본인인증을 진행하여주세요.<br><br>';
-        strr+='인증키는 ';
+        /*strr+='인증키는 ';
         strr+=list[0];
         strr+='입니다.<br>';
         strr+='<a href="';
         strr+=list[1];
-        strr+='" target="_blank"> QR코드확인하기 </a> 입니다.<br>';
+        strr+='" target="_blank"> QR코드확인하기 </a> 입니다.<br>';*/
         /* strr+='<img src="${pageContext.request.contextPath }/resources/upload/';
         strr+=list[2];
         strr+='"><br>'; */
         <%-- strr+='<form action="<%=request.getContextPath() %>/otp/chkk" method="post">'; --%>
+        strr+='  OTP 번호를 입력하여주세요.';
         strr+='  code : <input  name="user_code" id="user_code"  type="text" ">';
         strr+='  <input name="encodedKey" type="hidden" readonly="readonly" value="'+list[0]+'"><br><br>';
         strr+='  <span id="setresult" name="setresult" ></span><br><br>';

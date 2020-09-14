@@ -266,16 +266,18 @@ public class BoardController {
 	  return "redirect:/board";
 	}
 	
+	/**
+	 * 통계
+	 * @return
+	 */
+	@GetMapping("/board/dashBoard")
+	public ModelAndView dashBoard(){
 	
-  
-    /*@GetMapping("/board/changeStatus/${no}") 
-    public String changeStatuss(@PathVariable("no") int no) {
-    
-      System.out.println(no); 
-      System.out.println(no);
-      
-      return "board/list"; 
-    }*/
+	  ModelAndView mav = new ModelAndView("board/dashBoard");
+	
+	  return mav;
+	}
+
    
 
 }
