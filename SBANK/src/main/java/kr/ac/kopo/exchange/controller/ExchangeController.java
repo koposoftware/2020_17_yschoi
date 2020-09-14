@@ -1,36 +1,35 @@
 package kr.ac.kopo.exchange.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.ac.kopo.account.service.AccountService;
 import kr.ac.kopo.account.vo.AccountVO;
-import kr.ac.kopo.board.vo.BoardVO;
 import kr.ac.kopo.exchange.service.ExchangeService;
 import kr.ac.kopo.exchange.vo.CurlistVO;
+import kr.ac.kopo.exchange.vo.CurrencyStrVO;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
 import kr.ac.kopo.exchange.vo.PresentVO;
 import kr.ac.kopo.exchange.vo.ReserveVO;
 import kr.ac.kopo.exchange.vo.RevExchangeVO;
 import kr.ac.kopo.member.vo.MemberVO;
-import kr.ac.kopo.reply.vo.ReplyVO;
-
+import kr.ac.kopo.util.*;
 
 @Controller
 public class ExchangeController {
@@ -49,23 +48,50 @@ public class ExchangeController {
 	 * 
 	 * @return 환율정보들
 	 */
-	@RequestMapping("/rate/rateInfo")
-	public ModelAndView selectAll() {
-		System.out.println("ExchangeController - selectAll 진입");
-		List<CurrencyVO> currencyList = exchangeService.selectAllCurrency();
-
-		ModelAndView mav = new ModelAndView("rate/rateInfo");
-		mav.addObject("currencyList", currencyList);
-
-		return mav;
-	}
+  @RequestMapping("/rate/rateInfo")
+  public ModelAndView selectAll() {
+    System.out.println("ExchangeController - selectAll 진입");
+    List<CurrencyVO> currencyList = exchangeService.selectAllCurrency();
+    List<CurrencyStrVO> currencyStrVO = new ArrayList<CurrencyStrVO>();
+    
+    for (CurrencyVO Currency : currencyList) {
+//      System.out.println(Currency);
+      CurrencyStrVO strvo = new CurrencyStrVO();
+      strvo.setCurrency(Currency.getCurrency());
+      strvo.setCashbuyrate(MakeUtil.makeMoneyType(Currency.getCashbuyrate()));
+      strvo.setCashbuyspread(MakeUtil.makeMoneyType(Currency.getCashbuyspread()));
+      strvo.setCashsellrate(MakeUtil.makeMoneyType(Currency.getCashsellrate()));
+      strvo.setCashsellspread(MakeUtil.makeMoneyType(Currency.getCashsellspread()));
+      strvo.setRemittance(MakeUtil.makeMoneyType(Currency.getRemittance()));
+      strvo.setReceive(MakeUtil.makeMoneyType(Currency.getReceive()));
+      strvo.setTcbuy(MakeUtil.makeMoneyType(Currency.getTcbuy()));
+      strvo.setFcsell(MakeUtil.makeMoneyType(Currency.getFcsell()));
+      strvo.setBasicrate(MakeUtil.makeMoneyType(Currency.getBasicrate()));
+      strvo.setConversion(MakeUtil.makeMoneyType2(Currency.getConversion()));
+      strvo.setUsdrate(MakeUtil.makeMoneyType2(Currency.getUsdrate()));
+//      System.out.println(strvo);
+      currencyStrVO.add(strvo);
+//      System.out.println(Currency);
+    }
+    
+    ModelAndView mav = new ModelAndView("rate/rateInfo");
+    mav.addObject("currencyList", currencyStrVO);
+    
+    return mav;
+  }
 	
-	@ResponseBody
+	
+
+  @ResponseBody
 	@GetMapping("/rate/rateInfodummy")
   public List<String> selectdummy() {
     System.out.println("ExchangeController - rateInfodummy 진입");
 
     List<String> dummy =exchangeService.selectdummy();
+    
+    for(String a : dummy) {
+      System.out.println(a);
+    }
 
 
     return dummy;

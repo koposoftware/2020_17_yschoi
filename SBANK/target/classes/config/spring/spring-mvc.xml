@@ -106,6 +106,8 @@
 			<mvc:exclude-mapping path="/kakao" />
 			<mvc:exclude-mapping path="/kakaologin/**" />
 			<mvc:exclude-mapping path="/" />
+			<mvc:exclude-mapping path="/rate/rateInfo" />
+			<mvc:exclude-mapping path="/rate/rateInfodummy" /> <!-- ajax까지 넣어줘야함 아오 -->
 			<!-- <mvc:exclude-mapping path="/" /> -->
 			<ref bean="LoginInterceptor" />
 		</mvc:interceptor>
