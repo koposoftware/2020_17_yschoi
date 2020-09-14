@@ -151,14 +151,14 @@ $(document).ready(function() {
   $(document).on("keyup","#user_code",function(){  // 구글 OTP인증코드 적으면 함수
     var ipt = $(this).val()
     console.log(ipt);
-    var keyofgoogle = list[0]
+    var keyofgoogle = 'a';
     
     if(ipt.length == 6){
       console.log('6');
       console.log(keyofgoogle);
       
       $.ajax({
-        url : '${ pageContext.request.contextPath }/otp/chkk',
+        url : '${ pageContext.request.contextPath }/otp/chk',
         type : 'post',
         data : {
           encodedKey : keyofgoogle,
@@ -247,6 +247,7 @@ $(document).ready(function() {
       
       var strr='';
       
+      /*
       $.ajax({
         url : '${ pageContext.request.contextPath }/otp/genn',
         type : 'get',
@@ -262,7 +263,7 @@ $(document).ready(function() {
       });
       console.log(list[0]);
       console.log(list[1]);
-      console.log(list[2]);
+      console.log(list[2]);*/
       
       strr+='재환전을 원하시면 Google OTP로 본인인증을 진행하여주세요.<br><br>';
       /*strr+='인증키는 ';
@@ -277,7 +278,7 @@ $(document).ready(function() {
       <%-- strr+='<form action="<%=request.getContextPath() %>/otp/chkk" method="post">'; --%>
       strr+='  OTP 번호를 입력하여주세요.';
       strr+='  code : <input  name="user_code" id="user_code"  type="text" ">';
-      strr+='  <input name="encodedKey" type="hidden" readonly="readonly" value="'+list[0]+'"><br><br>';
+      strr+='  <input name="encodedKey" type="hidden" readonly="readonly" value="a"><br><br>';
       strr+='  <span id="setresult" name="setresult" ></span<br><br>';
       /* strr+='  <input type="submit" value="전송!">'; */
       /* strr+='</form>'; */

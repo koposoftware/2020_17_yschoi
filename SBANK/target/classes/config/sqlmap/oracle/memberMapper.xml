@@ -14,14 +14,20 @@
 	 select name from T_MEMBER where id=#{id}
 	</select>
 	
+	
+	
 	<!-- 구글otpcode 저장하기 -->
+	<!-- update t_member set otpcode = #{otpcode} where id =#{id} -->
 	<update id="otpCodeSave" parameterType="string">
-	   update t_member set otpcode = #{otpcode} where id =#{id}
+	   update t_member set otpcode = ( select ENCRYPTION_AES.ENC_AES( #{otpcode}) from dual ) where id =#{id}
 	</update>
 	
+	
+	
 	<!-- 아이디 기준으로 구글 otpcode 가져오기 -->
+	<!-- select otpcode from t_member where id =#{id} -->
 	<select id="getOtpCodeById" parameterType="string" resultType="string">
-	   select otpcode from t_member where id =#{id}
+	   select (select ENCRYPTION_AES.DEC_AES(otpcode) from dual) from t_member where id =#{id}
 	</select>
 	
 	

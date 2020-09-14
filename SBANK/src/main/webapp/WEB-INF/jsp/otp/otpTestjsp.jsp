@@ -43,7 +43,7 @@ $(document).ready(function() {
           return false;
         }, 
         error : function() {
-          alert('실패')
+          alert('실패nnnn')
         }
       });
     }

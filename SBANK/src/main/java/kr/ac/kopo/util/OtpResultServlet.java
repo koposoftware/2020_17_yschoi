@@ -27,23 +27,24 @@ public class OtpResultServlet extends HttpServlet {
   @Autowired
   private MemberService memberService;
   
-  
+//구글 otp연동에서 거침
   @ResponseBody
   @PostMapping("/otp/chkk")
   public String otpchkk(String user_code, String encodedKey,HttpSession session) {
       System.out.println("==================컨트롤러진입함=====================");
-      System.out.println(user_code);
-      System.out.println(encodedKey);
+      System.out.println("user_code : "+user_code);
+      System.out.println("encodedKey : "+encodedKey);
       
       
-      MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
-      String id = userVO.getId(); // id와 같은 record에 저장된 otpcode이제 가져오자~
-      encodedKey = memberService.getOtpCodeById(id);
+//      MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
+//      String id = userVO.getId(); // id와 같은 record에 저장된 otpcode이제 가져오자~
+//      encodedKey = memberService.getOtpCodeById(id);
       
       
-      String user_codeStr="";
+//      String user_codeStr="";
       
       long user_code2 = Integer.parseInt(user_code);
+      System.out.println("user_code2 : "+ user_code2);
       
       long l = new Date().getTime();
       long ll =  l / 30000;
@@ -72,14 +73,19 @@ public class OtpResultServlet extends HttpServlet {
   
   
     
-  
+  //환전하기 재환전하기 예약하기에서 거침
+    @ResponseBody
     @PostMapping("/otp/chk")
-    public String otpchk(String user_code, String encodedKey) {
-        System.out.println("==================컨트롤러진입함=====================");
+    public String otpchk(String user_code, String encodedKey,HttpSession session) {
+        System.out.println("==================/otp/chk=============/otp/chk========");
+        
+        MemberVO userVO = (MemberVO) session.getAttribute("loginVO"); //자바에서로그인아이디가져오기
+        String id = userVO.getId(); // id와 같은 record에 저장된 otpcode이제 가져오자~
+        encodedKey = memberService.getOtpCodeById(id);
+        
         System.out.println(user_code);
         System.out.println(encodedKey);
-        
-        String user_codeStr="";
+//        String user_codeStr="";
         
         long user_code2 = Integer.parseInt(user_code);
         
@@ -100,16 +106,21 @@ public class OtpResultServlet extends HttpServlet {
         System.out.println("결과쓰 check_code : " + check_code);
         
         if ( check_code == true ) {
-          return "redirect:/otp/gen/a"; 
+          return "true"; 
         }
         else {
-          return "redirect:/otp/gen";
+          return "false";
         }
     }
  
     private static boolean check_code(String secret, long code, long t) throws NoSuchAlgorithmException, InvalidKeyException {
         Base32 codec = new Base32();
         byte[] decodedKey = codec.decode(secret);
+        
+        System.out.println("check_code 진입 ---------------------");
+        System.out.println(secret);
+        System.out.println(code);
+        System.out.println(t);
  
         // Window is used to check codes generated in the near past.
         // You can use this value to tune how far you're willing to go.
@@ -133,6 +144,8 @@ public class OtpResultServlet extends HttpServlet {
         for (int i = 8; i-- > 0; value >>>= 8) {
             data[i] = (byte) value;
         }
+        
+        System.out.println("key :: "+key);
  
         SecretKeySpec signKey = new SecretKeySpec(key, "HmacSHA1");
         Mac mac = Mac.getInstance("HmacSHA1");
