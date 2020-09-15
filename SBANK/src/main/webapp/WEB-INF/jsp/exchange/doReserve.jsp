@@ -1211,8 +1211,8 @@ $(document).ready(function() {
                </td>
             </tr>
                   </table>
-                    <button class="btn btn-outline-dark" id="subm" name="subm" >환전하기</button>
-                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Siguiente</button>
+                    <button class="btn btn-outline-dark pull-right" id="subm" name="subm" >환전하기</button>
+                    <!-- <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Siguiente</button> -->
                 </div>
             </div>
         </div>
