@@ -71,7 +71,7 @@
 <!-- 수정할부분 시작 -->
 <section>
 
-  <div class="container class="col-xl-12"">
+  <div class="container class="col-xl-12">
     <div class="row">
       <div class="col-xl-12">
         <!-- <div class="section_title text-center mb-50"> -->
