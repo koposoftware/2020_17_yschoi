@@ -282,7 +282,42 @@ public class ExchangeDAOImpl implements ExchangeDAO {
     List<RevExchangeVO> revExchangeCntSeven = sqlSession.selectList("exchange.dao.ExchangeDAO.revExchangeCntSeven");
     return revExchangeCntSeven;
   }
+
+  /**
+   * 오늘 하루 환전 수 구하기
+   * @return
+   */
+  @Override
+  public int exchangeCntOne() {
+    int exchangeCntOne = sqlSession.selectOne("exchange.dao.ExchangeDAO.exchangeCntOne");
+    return exchangeCntOne;
+  }
+
+
+  /**
+   * 오늘 하루 환전 예약 수 구하기
+   * @return
+   */
+  @Override
+  public int reserveCntOne() {
+    int reserveCntOne = sqlSession.selectOne("exchange.dao.ExchangeDAO.reserveCntOne");
+    return reserveCntOne;
+  }
+
+
+  /**
+   * 오늘 하루 재환전 수 구하기
+   * @return
+   */
+  @Override
+  public int revExchangeCntOne() {
+    int revExchangeCntOne = sqlSession.selectOne("exchange.dao.ExchangeDAO.revExchangeCntOne");
+    return revExchangeCntOne;
+  }
 	
+  
+  
+  
 	
 	
   

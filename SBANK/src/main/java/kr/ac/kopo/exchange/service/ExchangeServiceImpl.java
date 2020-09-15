@@ -309,8 +309,8 @@ public class ExchangeServiceImpl implements ExchangeService {
    */
   @Override
   public int exchangeCntOne() {
-    // TODO Auto-generated method stub
-    return 0;
+    int exchangeCntOne = exchangeDAO.exchangeCntOne();
+    return exchangeCntOne;
   }
 
 
@@ -321,8 +321,8 @@ public class ExchangeServiceImpl implements ExchangeService {
    */
   @Override
   public int reserveCntOne() {
-    // TODO Auto-generated method stub
-    return 0;
+    int reserveCntOne = exchangeDAO.reserveCntOne();
+    return reserveCntOne;
   }
 
 
@@ -333,8 +333,8 @@ public class ExchangeServiceImpl implements ExchangeService {
    */
   @Override
   public int revExchangeCntOne() {
-    // TODO Auto-generated method stub
-    return 0;
+    int revExchangeCntOne = exchangeDAO.revExchangeCntOne();
+    return revExchangeCntOne;
   }
 	
   

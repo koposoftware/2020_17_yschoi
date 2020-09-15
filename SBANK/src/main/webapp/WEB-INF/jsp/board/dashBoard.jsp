@@ -37,9 +37,9 @@ $(document).ready(function(){
   </c:forEach>
   
   
-  console.log(JSON.stringify(exchangeResult));
+  /* console.log(JSON.stringify(exchangeResult));
   console.log(JSON.stringify(reserveResult));
-  console.log(JSON.stringify(revExchangeResult));
+  console.log(JSON.stringify(revExchangeResult)); */
   
   
   
@@ -149,7 +149,7 @@ $(document).ready(function(){
                 </div>
                 <h3>
                   <!-- <span class="counter">97</span> <span>%</span> -->
-                  <span class="counter">${reserveCntOne }</span> <span>%</span>
+                  <span class="counter">${exchangeCntOne}</span> <span>%</span>
                 </h3>
                 <p>Business Success</p>
               </div>
@@ -161,7 +161,7 @@ $(document).ready(function(){
                 </div>
                 <h3>
                   <!-- <span class="counter">5628</span> -->
-                  <span class="counter">${revExchangeCntOne }</span>
+                  <span class="counter">${reserveCntOne }</span>
                 </h3>
                 <p>Happy Client</p>
               </div>
@@ -173,7 +173,7 @@ $(document).ready(function(){
                 </div>
                 <h3>
                   <!-- <span class="counter">5637</span> -->
-                  <span class="counter">56</span>
+                  <span class="counter">${revExchangeCntOne }</span>
                 </h3>
                 <p>Business Done</p>
               </div>

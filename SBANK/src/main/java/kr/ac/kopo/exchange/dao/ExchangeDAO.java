@@ -153,6 +153,24 @@ public interface ExchangeDAO {
    */
   public List<RevExchangeVO> revExchangeCntSeven();
   
+  /**
+   * 오늘 하루 환전 수 구하기
+   * @return
+   */
+  public int exchangeCntOne();
+  
+  /**
+   * 오늘 하루 환전 예약 수 구하기
+   * @return
+   */
+  public int reserveCntOne();
+  
+  /**
+   * 오늘 하루 재환전 수 구하기
+   * @return
+   */
+  public int revExchangeCntOne();
+  
   
   
   

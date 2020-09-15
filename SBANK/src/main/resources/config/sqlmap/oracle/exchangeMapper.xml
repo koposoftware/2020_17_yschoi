@@ -140,5 +140,20 @@
     order by REG_DATE
   </select>
   
+  <!-- 오늘 하루 환전 수 구하기 -->
+  <select id="exchangeCntOne" resultType="int">
+    select count(*) as exchangeNo from S_EXCHANGE WHERE TO_CHAR(REG_DATE,'YYYYMMDD') = TO_CHAR(SYSDATE,'YYYYMMDD')
+  </select>
+  
+  <!-- 오늘 하루 환전 예약 수 구하기 -->
+  <select id="reserveCntOne" resultType="int">
+    select count(*) as reserveno from  S_RESERVATION WHERE TO_CHAR(REG_DATE,'YYYYMMDD') = TO_CHAR(SYSDATE,'YYYYMMDD')
+  </select>
+  
+  <!--  오늘 하루 재환전 수 구하기 -->
+  <select id="revExchangeCntOne" resultType="int">
+    select count(*) as exchangeNo from  S_REVEXCHANGE WHERE TO_CHAR(REG_DATE,'YYYYMMDD') = TO_CHAR(SYSDATE,'YYYYMMDD')
+  </select>
+  
   
 </mapper>
