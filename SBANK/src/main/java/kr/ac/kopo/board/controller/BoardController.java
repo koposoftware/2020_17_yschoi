@@ -29,6 +29,7 @@ import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
 import kr.ac.kopo.exchange.vo.ReserveVO;
 import kr.ac.kopo.exchange.vo.RevExchangeVO;
+import kr.ac.kopo.member.service.MemberService;
 
 @Controller
 public class BoardController {
@@ -38,6 +39,9 @@ public class BoardController {
 	
 	@Autowired
 	private ExchangeService exchangeService;
+	
+	@Autowired
+	private MemberService memberService;
 	
 	
 	@Resource(name = "uploadPath")
@@ -282,6 +286,8 @@ public class BoardController {
 	  int exchangeCntOne = exchangeService.exchangeCntOne();
 	  int reserveCntOne = exchangeService.reserveCntOne();
 	  int revExchangeCntOne = exchangeService.revExchangeCntOne();
+	  int normalCntOne = memberService.normalCntOne();
+	  int kakaoCntOne = memberService.kakaoCntOne();
 	
 	  ModelAndView mav = new ModelAndView("board/dashBoard");
 	  mav.addObject("exchangeCntSeven",exchangeCntSeven );
@@ -290,6 +296,8 @@ public class BoardController {
 	  mav.addObject("exchangeCntOne",exchangeCntOne );
 	  mav.addObject("reserveCntOne",reserveCntOne );
 	  mav.addObject("revExchangeCntOne",revExchangeCntOne );
+	  mav.addObject("normalCntOne",normalCntOne );
+	  mav.addObject("kakaoCntOne",kakaoCntOne );
 	  
 //	  for(ExchangeVO a : exchangeCntSeven) {
 //	    System.out.println(a);

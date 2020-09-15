@@ -54,7 +54,9 @@ public class MemberServiceImpl implements MemberService {
    */
   @Override
   public void setCntPlusNormal() {
+    System.out.println("service까지 옴");
     memberDAO.setCntPlusNormal();
+    System.out.println("service 돌아 옴");
   }
   
   /**
@@ -63,10 +65,38 @@ public class MemberServiceImpl implements MemberService {
   @Override
   public void setCntPlusKakao() {
     // TODO Auto-generated method stub
+    System.out.println("service까지 옴");
     memberDAO.setCntPlusKakao();
+    System.out.println("service 돌아 옴");
+  }
+  
+  
+  /**
+   * 일반사용자 오늘 하루 cnt 수 
+   * @return
+   */
+  @Override
+  public int normalCntOne() {
+    int normalCntOne = memberDAO.normalCntOne();
+    return normalCntOne;
+  }
+  
+  /**
+   * 카카오 아이디 오늘 하루 cnt 수 
+   * @return
+   */
+  @Override
+  public int kakaoCntOne() {
+    int kakaoCntOne = memberDAO.kakaoCntOne();
+    return kakaoCntOne;
   }
 	
 	
+  
+  
+  
+  
+  
   
   
   

@@ -30,13 +30,25 @@
 	   select (select ENCRYPTION_AES.DEC_AES(otpcode) from dual) from t_member where id =#{id}
 	</select>
 	
+	<!-- 통계를 위해 일반사용자 +1 -->
 	<update id="setCntPlusNormal">
 	   update dummy2 set normal = normal+1 WHERE TO_CHAR(REG_DATE,'YYYYMMDD') = TO_CHAR(SYSDATE,'YYYYMMDD')
 	</update>
 	
+	<!-- 통계를 위해 카카오로그인 +1 -->
 	<update id="setCntPlusKakao">
 	   update dummy2 set kakao = kakao+1 WHERE TO_CHAR(REG_DATE,'YYYYMMDD') = TO_CHAR(SYSDATE,'YYYYMMDD')
 	</update>
+	
+	<select id="normalCntOne" resultType="int">
+	   select normal from dummy2 WHERE TO_CHAR(REG_DATE,'YYYYMMDD') = TO_CHAR(SYSDATE,'YYYYMMDD')
+	</select>
+	
+	<select id="kakaoCntOne" resultType="int">
+	   select kakao from dummy2 WHERE TO_CHAR(REG_DATE,'YYYYMMDD') = TO_CHAR(SYSDATE,'YYYYMMDD')
+	</select>
+	
+	
 	
 	
 </mapper>

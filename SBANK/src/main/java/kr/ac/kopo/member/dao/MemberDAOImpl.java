@@ -55,6 +55,7 @@ public class MemberDAOImpl implements MemberDAO {
   @Override
   public void setCntPlusNormal() {
     // TODO Auto-generated method stub
+    System.out.println("dao까지 옴");
     sqlSession.update("member.dao.MemberDAO.setCntPlusNormal");
   }
   
@@ -64,10 +65,29 @@ public class MemberDAOImpl implements MemberDAO {
   @Override
   public void setCntPlusKakao() {
     // TODO Auto-generated method stub
+    System.out.println("dao까지 옴");
     sqlSession.update("member.dao.MemberDAO.setCntPlusKakao");
   }
   
+  /**
+   * 일반사용자 오늘 하루 cnt 수 
+   * @return
+   */
+  @Override
+  public int normalCntOne() {
+    int normalCntOne = sqlSession.selectOne("member.dao.MemberDAO.normalCntOne");
+    return normalCntOne;
+  }
   
+  /**
+   * 카카오 아이디 오늘 하루 cnt 수 
+   * @return
+   */
+  @Override
+  public int kakaoCntOne() {
+    int kakaoCntOne = sqlSession.selectOne("member.dao.MemberDAO.kakaoCntOne");
+    return kakaoCntOne;
+  }
   
   
   

@@ -39,6 +39,19 @@ public interface MemberService {
 	public void setCntPlusKakao();
 	
 	
+	/**
+	 * 일반사용자 오늘 하루 cnt 수 
+	 * @return
+	 */
+	public int normalCntOne();
+	
+	/**
+   * 카카오 아이디 오늘 하루 cnt 수 
+   * @return
+   */
+	public int kakaoCntOne();
+	
+	
 	
 	
 	
