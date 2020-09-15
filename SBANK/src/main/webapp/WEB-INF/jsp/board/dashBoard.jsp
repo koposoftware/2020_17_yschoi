@@ -10,30 +10,6 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 <script>
 $(document).ready(function(){
-  new Morris.Line({
-    // ID of the element in which to draw the chart.
-    element: 'myfirstchart',
-    // Chart data records -- each entry in this array corresponds to a point on
-    // the chart.
-    data: [
-      { year: '2008', value: 20 },
-      { year: '2009', value: 10 },
-      { year: '2010', value: 5 },
-      { year: '2011', value: 5 },
-      { year: '2012', value: 20 }
-    ],
-    // The name of the data record attribute that contains x-values.
-    xkey: 'year',
-    // A list of names of data record attributes that contain y-values.
-    ykeys: ['value'],
-    // Labels for the ykeys -- will be displayed when you hover over the
-    // chart.
-    labels: ['Value']
-  });
-});
-
-/* $(function() { */
-$(document).ready(function(){
 
   var exchangeResult = new Array();
   var reserveResult = new Array();
@@ -45,12 +21,14 @@ $(document).ready(function(){
     json.value="${exchange.exchangeNo}"
     exchangeResult.push(json)
   </c:forEach>
+    
   <c:forEach items="${reserveCntSeven}" var="exchange">
     var json = new Object();
     json.reg_date="${exchange.reg_date}"
     json.value="${exchange.reserveno}"
     reserveResult.push(json)
   </c:forEach>
+    
   <c:forEach items="${revExchangeCntSeven}" var="exchange">
     var json = new Object();
     json.reg_date="${exchange.reg_date}"
@@ -81,6 +59,38 @@ $(document).ready(function(){
   });
   
   
+  new Morris.Line({
+    // ID of the element in which to draw the chart.
+    element: 'reserveCntSeven',
+    // Chart data records -- each entry in this array corresponds to a point on
+    // the chart.
+    data: reserveResult,
+    // The name of the data record attribute that contains x-values.
+    xkey: 'reg_date',
+    // A list of names of data record attributes that contain y-values.
+    ykeys: ['value'],
+    // Labels for the ykeys -- will be displayed when you hover over the
+    // chart.
+    labels: ['Value']
+  });
+  
+  
+  new Morris.Line({
+    // ID of the element in which to draw the chart.
+    element: 'revExchangeCntSeven',
+    // Chart data records -- each entry in this array corresponds to a point on
+    // the chart.
+    data: revExchangeResult,
+    // The name of the data record attribute that contains x-values.
+    xkey: 'reg_date',
+    // A list of names of data record attributes that contain y-values.
+    ykeys: ['value'],
+    // Labels for the ykeys -- will be displayed when you hover over the
+    // chart.
+    labels: ['Value']
+  });
+  
+  
   
 
   
@@ -91,7 +101,7 @@ $(document).ready(function(){
   
 });
 </script>
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 <style>
 
 </style>
@@ -111,22 +121,12 @@ $(document).ready(function(){
       </div>
     </div>
     
-    
-    
-    <!-- 1주일현황 시작 -->
-    <div id="myfirstchart" style="height: 250px;"></div>
-    <div id="exchangeCntSeven" style="height: 250px;"></div>
-    <div id="reserveCntSeven" style="height: 250px;"></div>
-    <div id="revExchangeCntSeven" style="height: 250px;"></div>
-    <!-- 1주일현황 끝 -->
-    <br><br><br><br><br>
-    
-    
-    
+    <header class="section_title mb-50 major">
+      <h5>오늘 현황</h5>   
+    </header>
     
     
     <!-- 오늘현황 시작 -->
-    
       <div class="counter_area counter_bg_1 overlay_03">
         <div class="container">
           <div class="row">
@@ -181,8 +181,30 @@ $(document).ready(function(){
           </div>
         </div>
       </div>
-    
     <!-- 오늘현황 끝 -->
+    
+    
+    
+    
+    
+    
+    <br><br><br><br>
+    <header class="section_title mb-50 major">
+      <h5>1주일 현황</h5>   
+    </header>
+    
+    <!-- 1주일현황 시작 -->
+    <div id="exchangeCntSeven" style="height: 250px;"></div><br>
+    <div id="reserveCntSeven" style="height: 250px;"></div><br>
+    <div id="revExchangeCntSeven" style="height: 250px;"></div><br>
+    <!-- 1주일현황 끝 -->
+    <br><br><br><br><br>
+    
+    
+    
+    
+    
+    
     
     
     <br><br><br><br><br>

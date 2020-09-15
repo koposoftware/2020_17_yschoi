@@ -270,7 +270,7 @@ public class BoardController {
 	}
 	
 	/**
-	 * 통계
+	 * 통계 - 1주일치
 	 * @return
 	 */
 	@GetMapping("/board/dashBoard")
@@ -279,26 +279,29 @@ public class BoardController {
 	  List<ExchangeVO> exchangeCntSeven = exchangeService.exchangeCntSeven();
 	  List<ReserveVO> reserveCntSeven = exchangeService.reserveCntSeven();
 	  List<RevExchangeVO> revExchangeCntSeven = exchangeService.revExchangeCntSeven();
+	  int exchangeCntOne = exchangeService.exchangeCntOne();
+	  int reserveCntOne = exchangeService.reserveCntOne();
+	  int revExchangeCntOne = exchangeService.revExchangeCntOne();
 	
 	  ModelAndView mav = new ModelAndView("board/dashBoard");
 	  mav.addObject("exchangeCntSeven",exchangeCntSeven );
 	  mav.addObject("reserveCntSeven",reserveCntSeven );
 	  mav.addObject("revExchangeCntSeven",revExchangeCntSeven );
-	  mav.addObject("exchangeCntOne",10 );
-	  mav.addObject("reserveCntOne",20 );
-	  mav.addObject("revExchangeCntOne",30 );
+	  mav.addObject("exchangeCntOne",exchangeCntOne );
+	  mav.addObject("reserveCntOne",reserveCntOne );
+	  mav.addObject("revExchangeCntOne",revExchangeCntOne );
 	  
-	  for(ExchangeVO a : exchangeCntSeven) {
-	    System.out.println(a);
-	  }
-	  System.out.println("----------------------------------------");
-	  for(ReserveVO a : reserveCntSeven) {
-      System.out.println(a);
-    }
-	  System.out.println("----------------------------------------");
-	  for(RevExchangeVO a : revExchangeCntSeven) {
-      System.out.println(a);
-    }
+//	  for(ExchangeVO a : exchangeCntSeven) {
+//	    System.out.println(a);
+//	  }
+//	  System.out.println("----------------------------------------");
+//	  for(ReserveVO a : reserveCntSeven) {
+//      System.out.println(a);
+//    }
+//	  System.out.println("----------------------------------------");
+//	  for(RevExchangeVO a : revExchangeCntSeven) {
+//      System.out.println(a);
+//    }
 	  
 	  return mav;
 	}

@@ -300,7 +300,45 @@ public class ExchangeServiceImpl implements ExchangeService {
     List<RevExchangeVO> revExchangeCntSeven =exchangeDAO.revExchangeCntSeven();
     return revExchangeCntSeven;
   }
+
+
+
+  /**
+   * 오늘 하루 환전 수 구하기
+   * @return
+   */
+  @Override
+  public int exchangeCntOne() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+
+
+  /**
+   * 오늘 하루 환전 예약 수 구하기
+   * @return
+   */
+  @Override
+  public int reserveCntOne() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+
+
+  /**
+   * 오늘 하루 재환전 수 구하기
+   * @return
+   */
+  @Override
+  public int revExchangeCntOne() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
 	
+  
+  
   
   
   
