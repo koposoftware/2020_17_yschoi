@@ -48,6 +48,29 @@ public class MemberDAOImpl implements MemberDAO {
     String code = sqlSession.selectOne("member.dao.MemberDAO.getOtpCodeById",id);
     return code;
   }
+
+  /**
+   * 일반사용자 통계 plus
+   */
+  @Override
+  public void setCntPlusNormal() {
+    // TODO Auto-generated method stub
+    sqlSession.update("member.dao.MemberDAO.setCntPlusNormal");
+  }
+  
+  /**
+   * 카카오 아이디 사용자 통계 plus
+   */
+  @Override
+  public void setCntPlusKakao() {
+    // TODO Auto-generated method stub
+    sqlSession.update("member.dao.MemberDAO.setCntPlusKakao");
+  }
+  
+  
+  
+  
+  
 	
 	
 	

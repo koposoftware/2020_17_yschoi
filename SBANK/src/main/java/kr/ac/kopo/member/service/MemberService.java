@@ -28,6 +28,18 @@ public interface MemberService {
 	 */
 	public String getOtpCodeById(String id);
 	
+	/**
+	 * 일반사용자 통계 plus
+	 */
+	public void setCntPlusNormal();
+	
+	/**
+   * 카카오 아이디 사용자 통계 plus
+   */
+	public void setCntPlusKakao();
+	
+	
+	
 	
 	
 }

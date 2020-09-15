@@ -46,6 +46,7 @@ public class MemberController {
 		} else { //로그인 성공 시
 
 			String dest = (String) session.getAttribute("dest");
+			memberService.setCntPlusNormal();
 
 			if (dest == null) {
 				mav.setViewName("redirect:/");
@@ -70,6 +71,7 @@ public class MemberController {
 	  loginVO.setId(kid);
 	  loginVO.setType("K");
 	  loginVO.setPassword(kid);
+	  memberService.setCntPlusKakao();
 	  
 	  System.out.println("kid in controller "+kid);
 

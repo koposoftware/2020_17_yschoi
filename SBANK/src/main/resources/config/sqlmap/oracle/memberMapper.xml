@@ -30,5 +30,13 @@
 	   select (select ENCRYPTION_AES.DEC_AES(otpcode) from dual) from t_member where id =#{id}
 	</select>
 	
+	<update id="setCntPlusNormal">
+	   update dummy2 set normal = normal+1 WHERE TO_CHAR(REG_DATE,'YYYYMMDD') = TO_CHAR(SYSDATE,'YYYYMMDD')
+	</update>
+	
+	<update id="setCntPlusKakao">
+	   update dummy2 set kakao = kakao+1 WHERE TO_CHAR(REG_DATE,'YYYYMMDD') = TO_CHAR(SYSDATE,'YYYYMMDD')
+	</update>
+	
 	
 </mapper>

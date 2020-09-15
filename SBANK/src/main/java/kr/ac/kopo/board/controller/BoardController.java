@@ -270,7 +270,7 @@ public class BoardController {
 	}
 	
 	/**
-	 * 통계 - 1주일치
+	 * 통계 - 1주일치(List) & 그날것(int)
 	 * @return
 	 */
 	@GetMapping("/board/dashBoard")

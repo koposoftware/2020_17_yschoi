@@ -48,6 +48,23 @@ public class MemberServiceImpl implements MemberService {
     String code = memberDAO.getOtpCodeById(id);
     return code;
   }
+  
+  /**
+   * 일반사용자 통계 plus
+   */
+  @Override
+  public void setCntPlusNormal() {
+    memberDAO.setCntPlusNormal();
+  }
+  
+  /**
+   * 카카오 아이디 사용자 통계 plus
+   */
+  @Override
+  public void setCntPlusKakao() {
+    // TODO Auto-generated method stub
+    memberDAO.setCntPlusKakao();
+  }
 	
 	
   
