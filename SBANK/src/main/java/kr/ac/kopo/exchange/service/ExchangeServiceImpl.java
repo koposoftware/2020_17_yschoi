@@ -264,6 +264,42 @@ public class ExchangeServiceImpl implements ExchangeService {
     
     exchangeDAO.changeInfo(exchangeVO); // 개인소유던 수령이던 UPDATE는 해야함~
   }
+
+
+
+  /**
+   * 최근 7일동안 환전 수 구하기
+   * @return
+   */
+  @Override
+  public List<ExchangeVO> exchangeCntSeven() {
+    List<ExchangeVO> exchangeCntSeven =  exchangeDAO.exchangeCntSeven();
+    return exchangeCntSeven;
+  }
+
+
+
+  /**
+   * 최근 7일동안 환전 예약 수 구하기
+   * @return
+   */
+  @Override
+  public List<ReserveVO> reserveCntSeven() {
+    List<ReserveVO> reserveCntSeven = exchangeDAO.reserveCntSeven();
+    return reserveCntSeven;
+  }
+
+
+
+  /**
+   * 최근 7일동안 재환전 수 구하기
+   * @return
+   */
+  @Override
+  public List<RevExchangeVO> revExchangeCntSeven() {
+    List<RevExchangeVO> revExchangeCntSeven =exchangeDAO.revExchangeCntSeven();
+    return revExchangeCntSeven;
+  }
 	
   
   

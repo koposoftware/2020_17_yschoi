@@ -238,9 +238,54 @@ public class ExchangeDAOImpl implements ExchangeDAO {
     // TODO Auto-generated method stub
     sqlSession.update("exchange.dao.ExchangeDAO.changeInfo", exchangeVO);
   }
+
+
+
+
+
+
+
+  /**
+   * 최근 7일동안 환전 수 구하기
+   * @return
+   */
+  @Override
+  public List<ExchangeVO> exchangeCntSeven() {
+    List<ExchangeVO> exchangeCntSeven = sqlSession.selectList("exchange.dao.ExchangeDAO.exchangeCntSeven");
+    return exchangeCntSeven;
+  }
+
+
+
+
+
+  /**
+   * 최근 7일동안 환전 예약 수 구하기
+   * @return
+   */
+  @Override
+  public List<ReserveVO> reserveCntSeven() {
+    List<ReserveVO> reserveCntSeven = sqlSession.selectList("exchange.dao.ExchangeDAO.reserveCntSeven");
+    return reserveCntSeven;
+  }
+
+
+
+
+
+  /**
+   * 최근 7일동안 재환전 수 구하기
+   * @return
+   */
+  @Override
+  public List<RevExchangeVO> revExchangeCntSeven() {
+    List<RevExchangeVO> revExchangeCntSeven = sqlSession.selectList("exchange.dao.ExchangeDAO.revExchangeCntSeven");
+    return revExchangeCntSeven;
+  }
 	
 	
 	
+  
   
   
   

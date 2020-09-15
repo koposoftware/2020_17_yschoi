@@ -135,6 +135,28 @@ public interface ExchangeDAO {
 	public void changeInfo(ExchangeVO exchangeVO);
 	
 	
+	/**
+   * 최근 7일동안 환전 수 구하기
+   * @return
+   */
+  public List<ExchangeVO> exchangeCntSeven();
+  
+  /**
+   * 최근 7일동안 환전 예약 수 구하기
+   * @return
+   */
+  public List<ReserveVO> reserveCntSeven();
+  
+  /**
+   * 최근 7일동안 재환전 수 구하기
+   * @return
+   */
+  public List<RevExchangeVO> revExchangeCntSeven();
+  
+  
+  
+  
+	
 	
 	
 	

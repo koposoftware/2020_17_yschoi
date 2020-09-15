@@ -26,6 +26,9 @@ import kr.ac.kopo.board.vo.BoardFileVO;
 import kr.ac.kopo.board.vo.BoardVO;
 import kr.ac.kopo.exchange.service.ExchangeService;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
+import kr.ac.kopo.exchange.vo.ExchangeVO;
+import kr.ac.kopo.exchange.vo.ReserveVO;
+import kr.ac.kopo.exchange.vo.RevExchangeVO;
 
 @Controller
 public class BoardController {
@@ -272,9 +275,31 @@ public class BoardController {
 	 */
 	@GetMapping("/board/dashBoard")
 	public ModelAndView dashBoard(){
+	  
+	  List<ExchangeVO> exchangeCntSeven = exchangeService.exchangeCntSeven();
+	  List<ReserveVO> reserveCntSeven = exchangeService.reserveCntSeven();
+	  List<RevExchangeVO> revExchangeCntSeven = exchangeService.revExchangeCntSeven();
 	
 	  ModelAndView mav = new ModelAndView("board/dashBoard");
-	
+	  mav.addObject("exchangeCntSeven",exchangeCntSeven );
+	  mav.addObject("reserveCntSeven",reserveCntSeven );
+	  mav.addObject("revExchangeCntSeven",revExchangeCntSeven );
+	  mav.addObject("exchangeCntOne",10 );
+	  mav.addObject("reserveCntOne",20 );
+	  mav.addObject("revExchangeCntOne",30 );
+	  
+	  for(ExchangeVO a : exchangeCntSeven) {
+	    System.out.println(a);
+	  }
+	  System.out.println("----------------------------------------");
+	  for(ReserveVO a : reserveCntSeven) {
+      System.out.println(a);
+    }
+	  System.out.println("----------------------------------------");
+	  for(RevExchangeVO a : revExchangeCntSeven) {
+      System.out.println(a);
+    }
+	  
 	  return mav;
 	}
 
