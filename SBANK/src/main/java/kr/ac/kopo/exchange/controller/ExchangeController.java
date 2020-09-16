@@ -308,17 +308,17 @@ public class ExchangeController {
     List<ExchangeVO> exchangeList = exchangeService.selectExchange(id); // 환전내역 가져오기
     List<ReserveVO> reserveList = exchangeService.selectReserve(id); //환전 예약 내역 가져오기
     List<RevExchangeVO> revExchangeList = exchangeService.selectRevExchange(id); // 재환전내역
+    
+    
+    for (RevExchangeVO Exchange : revExchangeList) {
+      Exchange.setExchangerate(MakeUtil.makeMoneyType(Double.parseDouble(Exchange.getExchangerate())));
+    }
 
     ModelAndView mav = new ModelAndView("account/myExchange");
     mav.addObject("exchangeList", exchangeList);
     mav.addObject("reserveList", reserveList);
     mav.addObject("revExchangeList", revExchangeList);
     
-//  for(ReserveVO account : reserveList) {
-//    System.out.println(account);
-//  }
-    
-
     return mav;
   }
   

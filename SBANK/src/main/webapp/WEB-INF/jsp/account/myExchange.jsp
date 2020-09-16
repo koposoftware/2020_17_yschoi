@@ -197,6 +197,42 @@ $(document).ready(function() {  //환전 예약내역 숫자는 콤마 넣자 �
 
 
 
+
+
+$(document).ready(function() {  //재환전내역 숫자는 콤마 넣자 시작 
+  
+  
+  var revExchangeResult = new Array();
+  let budget = "${reserveList}";
+  //console.log(budget);
+  
+  <c:forEach items="${revExchangeList}" var="exchange">
+    var json = new Object();
+    json.exchangeNo="${exchange.exchangeNo}"
+    json.exchangeprice=numberWithCommas("${exchange.exchangeprice}")
+    json.exchangecharge=numberWithCommas("${exchange.exchangecharge}")
+    revExchangeResult.push(json)
+  </c:forEach>
+
+  //console.log(reserveResult);
+  
+  $.each(revExchangeResult, function() {
+    
+    var price = '#revPrice';
+    var charge = '#revCharge';
+     
+     price += $(this)[0].exchangeNo
+     charge += $(this)[0].exchangeNo 
+     
+     
+    $(price).text($(this)[0].exchangeprice)
+    $(charge).text($(this)[0].exchangecharge) 
+  });  
+}) //재환전내역 숫자는 콤마 넣자 끝 
+
+
+
+
 </script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <style>
@@ -423,9 +459,9 @@ $(document).ready(function() {  //환전 예약내역 숫자는 콤마 넣자 �
                     <tbody>
                     <tr>
                       <td>${account.currencycode}</td>
-                      <td class="ali">${account.exchangeprice}</td>
+                      <td class="ali"><span id="revPrice${account.exchangeNo}"></span></td>
                       <td class="ali">${account.exchangerate}</td>
-                      <td class="ali">${account.exchangecharge}</td>
+                      <td class="ali"><span id="revCharge${account.exchangeNo}"></span></td>
                       <td>${account.reg_date}</td>
                     </tr>
                     </tbody>
