@@ -87,12 +87,12 @@ $(document).ready(function() {
         
         let rate =list.cashsellrate; /* 송금받을때 */
         let basicrate=list.basicrate; /* 매매기준율 */
-        let commission = list.commission;
+        let commission = list.commission3;
         let commrate = basicrate - ((rate-basicrate)*commission); //실제로 적용될 환율임
         
         $("#rate").text((list.cashsellrate).toFixed(2));
         $("#commrate").text(commrate.toFixed(2));
-        $("#commission").text(list.commission2);
+        $("#commission").text(list.commission4);
         
         /* document.getElementById('rateHidden').value = list.commission2; */
         

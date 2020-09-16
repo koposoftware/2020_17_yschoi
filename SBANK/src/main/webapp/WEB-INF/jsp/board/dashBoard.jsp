@@ -194,14 +194,22 @@ $(document).ready(function(){
     
     
     <br><br><br><br>
-    <header class="section_title mb-50 major">
-      <h5>1주일 현황</h5>   
-    </header>
     
+    <header class="section_title mb-50 major">
+      <h5>최근 1주일 환전 현황</h5>   
+    </header>
     <!-- 1주일현황 시작 -->
-    <div id="exchangeCntSeven" style="height: 250px;"></div><br>
-    <div id="reserveCntSeven" style="height: 250px;"></div><br>
-    <div id="revExchangeCntSeven" style="height: 250px;"></div><br>
+    <div id="exchangeCntSeven" style="height: 250px;"></div><br><br>
+    
+    <header class="section_title mb-50 major">
+      <h5>최근 1주일 목표 환전 예약 현황</h5>   
+    </header>
+    <div id="reserveCntSeven" style="height: 250px;"></div><br><br>
+    
+    <header class="section_title mb-50 major">
+      <h5>최근 1주일 재환전 현황</h5>   
+    </header>
+    <div id="revExchangeCntSeven" style="height: 250px;"></div><br><br>
     <!-- 1주일현황 끝 -->
     <br><br><br><br><br>
     
