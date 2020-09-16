@@ -1191,7 +1191,7 @@ $(document).ready(function() {
                       <tr>
                         <td>마지막 환전일</td>
                         <td>
-                          <input type="date" id="max_date" name="max_date" class="form-control" aria-describedby="inputGroupSuccess1Status" /><br>
+                          <input type="date" id="max_date" name="max_date" class="form-control" aria-describedby="inputGroupSuccess1Status" max="2021-09-23" /><br>
                                                           값을 비워주시면 자동적으로 1년이 설정됩니다.
                         </td>
                       </tr>

@@ -73,7 +73,7 @@ $(document).ready(function() {
     str += '수령인<br>';
     str += '<input type="text" id="name" name="name" class="form-control" aria-describedby="inputGroupSuccess1Status" ><br><br>' ;
     str += '수령일<br>'
-    str += '<input type="date" id="exchange_date" name="exchange_date" class="form-control" aria-describedby="inputGroupSuccess1Status" ><br><br>' ;
+    str += '<input type="date" id="exchange_date" name="exchange_date" class="form-control" aria-describedby="inputGroupSuccess1Status" max="2020-12-23" ><br><br>' ;
     str += '수령지점<br>'
     str += '<select name="exchange_place" id="exchange_place"  onchange="categoryChange(this)" class="form-control" aria-describedby="inputGroupSuccess1Status" >';
     str += '  <option value="a" selected disabled  >- 수령지점 / 개인 소유 여부를 선택하세요 -</option> ';

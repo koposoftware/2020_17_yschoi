@@ -74,7 +74,7 @@ $(document).ready(function() {
     str += '수령일<br>'
     str += '<input type="date" id="exchange_date" name="exchange_date" class="form-control" aria-describedby="inputGroupSuccess1Status" ><br><br>' ;
     str += '수령지점<br>'
-    str += '<select name="exchange_place" id="exchange_place"  onchange="categoryChange(this)" class="form-control" aria-describedby="inputGroupSuccess1Status" >';
+    str += '<select name="exchange_place" id="exchange_place"  onchange="categoryChange(this)" class="form-control" aria-describedby="inputGroupSuccess1Status" max="2020-12-23" >';
     str += '  <option value="a" selected disabled  >- 수령지점을 선택하세요 -</option> ';
     str += '  <option value="인천국제공항">인천국제공항</option>';
     str += '  <option value="김포공항">김포공항</option>';

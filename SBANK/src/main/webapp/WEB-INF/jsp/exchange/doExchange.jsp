@@ -1190,7 +1190,7 @@ $(document).ready(function() {
                 </tr>
                 <tr>
                   <th>외화수령일</th>
-                  <td><input type="date" id="exchange_date" name="exchange_date" value="" class="form-control" aria-describedby="inputGroupSuccess1Status"  /></td>
+                  <td><input type="date" id="exchange_date" name="exchange_date" value="" class="form-control" aria-describedby="inputGroupSuccess1Status" max="2020-12-23"  /></td>
                 </tr>
               </table>
               <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">다음으로</button>
