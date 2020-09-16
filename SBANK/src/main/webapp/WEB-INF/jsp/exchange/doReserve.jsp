@@ -1027,7 +1027,7 @@ $(document).ready(function() {
             </div>
             <div class="stepwizard-step">
                 <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
-                <p>환전신청내역</p>
+                <p>출금정보</p>
             </div>
         </div>
     </div>
@@ -1155,14 +1155,14 @@ $(document).ready(function() {
                       </tr>
                   </table>
                     
-                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Siguiente</button>
+                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >다음으로</button>
                 </div>
             </div>
         </div>
         <div class="row setup-content" id="step-2">
             <div class="col-xs-12">
                 <div class="col-md-12">
-                    <h3> Datos Fisicos</h3>
+                    <h3>출금정보</h3>
                     <!-- <div class="form-group">
                         <label class="control-label">Estatura</label>
                         <input maxlength="200" type="text" required="required" class="form-control" placeholder="Ingrese una estatura" />

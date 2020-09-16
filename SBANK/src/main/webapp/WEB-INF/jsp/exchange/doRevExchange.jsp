@@ -983,7 +983,7 @@ $(document).ready(function () {
                         
                     </div> -->
                     
-                    
+                    <h3>환전신청내역</h3>
                     <table border="1" class="table table-bordered">
                       <tr>
                         <th>통화종류</th>
@@ -1025,14 +1025,14 @@ $(document).ready(function () {
                       </tr>
                     </table>
                     
-                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Siguiente</button>
+                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >다음으로</button>
                 </div>
             </div>
         </div>
         <div class="row setup-content" id="step-2">
             <div class="col-xs-12">
                 <div class="col-md-12">
-                    <h3> Datos Fisicos</h3>
+                    <h3>출금정보</h3>
                     <!-- <div class="form-group">
                         <label class="control-label">Estatura</label>
                         <input maxlength="200" type="text" required="required" class="form-control" placeholder="Ingrese una estatura" />
@@ -1065,14 +1065,14 @@ $(document).ready(function () {
                         </td>
                       </tr>
                     </table>
-                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Siguiente</button>
+                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >다음으로</button>
                 </div>
             </div>
         </div>
         <div class="row setup-content" id="step-3">
             <div class="col-xs-12">
                 <div class="col-md-12">
-                    <h3> Dirección</h3>
+                    <h3>입금정보</h3>
                     <!-- <div class="form-group">
                         <label class="control-label">Provincia</label>
                         <input maxlength="200" type="text" required="required" class="form-control" placeholder="Aquí va a haber un dropdown para proviencia" />

@@ -1144,7 +1144,7 @@ $(document).ready(function() {
                   </td>
                 </tr>
               </table>
-              <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Siguiente</button>
+              <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">다음으로</button>
             </div>
           </div>
         </div>
@@ -1193,7 +1193,7 @@ $(document).ready(function() {
                   <td><input type="date" id="exchange_date" name="exchange_date" value="" class="form-control" aria-describedby="inputGroupSuccess1Status"  /></td>
                 </tr>
               </table>
-              <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Siguiente</button>
+              <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">다음으로</button>
             </div>
           </div>
         </div>
