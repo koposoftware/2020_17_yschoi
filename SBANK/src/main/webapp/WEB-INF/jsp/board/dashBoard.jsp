@@ -154,9 +154,7 @@ $(document).ready(function(){
                   <img src="${pageContext.request.contextPath }/resources/img/svg_icon/cart.svg" alt="">
                 </div>
                 <h3>
-                  <!-- <span class="counter">97</span> <span>%</span> -->
-                  <%-- <span class="counter">${exchangeCntOne}</span> --%>
-                  <span class="counter">${normalCntOne}</span> <span> +</span> <span class="counter">${kakaoCntOne}</span>
+                  <!-- <span class="counter"> --><span>${normalCntOne}</span> <span> +</span> <span>${kakaoCntOne}</span>
                 </h3>
                 <!-- <p>환전건수</p>  --><p>normal + kakao</p>
               </div>
@@ -168,7 +166,7 @@ $(document).ready(function(){
                 </div>
                 <h3>
                   <!-- <span class="counter">5628</span> -->
-                  <span class="counter">${exchangeCntOne }</span>
+                  <span>${exchangeCntOne }</span>
                 </h3>
                 <p>환전+재환전 건수</p>
               </div>
@@ -180,7 +178,7 @@ $(document).ready(function(){
                 </div>
                 <h3>
                   <!-- <span class="counter">5637</span> -->
-                  <span class="counter">${reserveCntOne }</span>
+                  <span>${reserveCntOne }</span>
                 </h3>
                 <p>환전예약건수</p>
               </div>

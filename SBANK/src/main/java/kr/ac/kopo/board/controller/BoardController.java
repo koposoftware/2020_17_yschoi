@@ -294,9 +294,11 @@ public class BoardController {
 	  mav.addObject("exchangeCntSeven",exchangeCntSeven );
 	  mav.addObject("reserveCntSeven",reserveCntSeven );
 	  mav.addObject("revExchangeCntSeven",revExchangeCntSeven );
-	  mav.addObject("exchangeCntOne",exchangeCntOne+reserveCntOne );
-    /* mav.addObject("reserveCntOne",reserveCntOne ); */
-	  mav.addObject("revExchangeCntOne",revExchangeCntOne );
+	  
+	  mav.addObject("exchangeCntOne",exchangeCntOne+revExchangeCntOne );
+    mav.addObject("reserveCntOne",reserveCntOne ); 
+    /* mav.addObject("revExchangeCntOne",revExchangeCntOne ); */
+	  
 	  mav.addObject("normalCntOne",normalCntOne );
 	  mav.addObject("kakaoCntOne",kakaoCntOne );
 	  mav.addObject("currency",currency );
