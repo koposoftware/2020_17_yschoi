@@ -336,6 +336,18 @@ public class ExchangeServiceImpl implements ExchangeService {
     int revExchangeCntOne = exchangeDAO.revExchangeCntOne();
     return revExchangeCntOne;
   }
+
+
+
+  /**
+   * 오늘 가장 인기 있었던 외화코드 가져오기
+   * @return
+   */
+  @Override
+  public String currencyCodeCntOne() {
+    String currency = exchangeDAO.currencyCodeCntOne();
+    return currency;
+  }
 	
   
   

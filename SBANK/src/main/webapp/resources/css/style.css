@@ -1503,14 +1503,15 @@ h3 {
 
 /* line 14, ../../Arafath/CL/CL October/216. Consulting/HTML/scss/_counter.scss */
 .counter_area .single_counter h3 span {
-  font-size: 46px;
-  font-weight: 300;
+  font-size: 48px;
+  font-weight: 500;
   color: #fff;
 }
 
 /* line 20, ../../Arafath/CL/CL October/216. Consulting/HTML/scss/_counter.scss */
 .counter_area .single_counter p {
-  font-weight: 15px;
+  font-size:22px;
+  font-weight: 600;
   color: #E8E8E8;
   margin-bottom: 0;
 }

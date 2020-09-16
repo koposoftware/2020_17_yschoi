@@ -288,16 +288,18 @@ public class BoardController {
 	  int revExchangeCntOne = exchangeService.revExchangeCntOne();
 	  int normalCntOne = memberService.normalCntOne();
 	  int kakaoCntOne = memberService.kakaoCntOne();
+	  String currency = exchangeService.currencyCodeCntOne();
 	
 	  ModelAndView mav = new ModelAndView("board/dashBoard");
 	  mav.addObject("exchangeCntSeven",exchangeCntSeven );
 	  mav.addObject("reserveCntSeven",reserveCntSeven );
 	  mav.addObject("revExchangeCntSeven",revExchangeCntSeven );
-	  mav.addObject("exchangeCntOne",exchangeCntOne );
-	  mav.addObject("reserveCntOne",reserveCntOne );
+	  mav.addObject("exchangeCntOne",exchangeCntOne+reserveCntOne );
+    /* mav.addObject("reserveCntOne",reserveCntOne ); */
 	  mav.addObject("revExchangeCntOne",revExchangeCntOne );
 	  mav.addObject("normalCntOne",normalCntOne );
 	  mav.addObject("kakaoCntOne",kakaoCntOne );
+	  mav.addObject("currency",currency );
 	  
 //	  for(ExchangeVO a : exchangeCntSeven) {
 //	    System.out.println(a);

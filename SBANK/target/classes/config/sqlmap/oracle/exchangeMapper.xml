@@ -155,5 +155,17 @@
     select count(*) as exchangeNo from  S_REVEXCHANGE WHERE TO_CHAR(REG_DATE,'YYYYMMDD') = TO_CHAR(SYSDATE,'YYYYMMDD')
   </select>
   
+  <!-- 오늘 하루 가장 인기 있었던 통화의 코드 구하기 -->
+  <select id="currencyCodeCntOne" resultType="string">
+    select CURRENCYCODE from (
+      select count(*) as cnt,CURRENCYCODE from 
+        (select CURRENCYCODE from S_REVEXCHANGE WHERE TO_CHAR(REG_DATE,'YYYYMMDD') = TO_CHAR(SYSDATE,'YYYYMMDD')
+          union all
+        (select CURRENCYCODE from S_EXCHANGE WHERE TO_CHAR(REG_DATE,'YYYYMMDD') = TO_CHAR(SYSDATE,'YYYYMMDD')
+        union all
+      select CURRENCYCODE from S_RESERVATION WHERE TO_CHAR(REG_DATE,'YYYYMMDD') = TO_CHAR(SYSDATE,'YYYYMMDD'))) group by CURRENCYCODE
+      order by cnt desc) where rownum=1
+  </select>
+  
   
 </mapper>

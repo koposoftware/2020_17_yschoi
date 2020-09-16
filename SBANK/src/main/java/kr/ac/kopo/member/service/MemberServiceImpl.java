@@ -54,9 +54,9 @@ public class MemberServiceImpl implements MemberService {
    */
   @Override
   public void setCntPlusNormal() {
-    System.out.println("service까지 옴");
+//    System.out.println("service까지 옴");
     memberDAO.setCntPlusNormal();
-    System.out.println("service 돌아 옴");
+//    System.out.println("service 돌아 옴");
   }
   
   /**
@@ -65,9 +65,9 @@ public class MemberServiceImpl implements MemberService {
   @Override
   public void setCntPlusKakao() {
     // TODO Auto-generated method stub
-    System.out.println("service까지 옴");
+//    System.out.println("service까지 옴");
     memberDAO.setCntPlusKakao();
-    System.out.println("service 돌아 옴");
+//    System.out.println("service 돌아 옴");
   }
   
   

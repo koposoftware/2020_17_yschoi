@@ -155,6 +155,12 @@ public interface ExchangeService {
    */
 	public int revExchangeCntOne();
 	
+	/**
+	 * 오늘 가장 인기 있었던 외화코드 가져오기
+	 * @return
+	 */
+	public String currencyCodeCntOne();
+	
 	
 	
 	

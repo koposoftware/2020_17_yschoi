@@ -137,9 +137,10 @@ $(document).ready(function(){
                 </div>
                 <h3>
                   <!-- <span class="counter">200</span> <span> +</span> -->
-                  <span class="counter">${normalCntOne}</span> <span> +</span> <span class="counter">${kakaoCntOne}</span>
+                  <%-- <span class="counter">${normalCntOne}</span> <span> +</span> <span class="counter">${kakaoCntOne}</span> --%>
+                  <span>${currency}</span>
                 </h3>
-                <p>normal + kakao</p>
+                <p>인기 외화</p>
               </div>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-3">
@@ -149,9 +150,10 @@ $(document).ready(function(){
                 </div>
                 <h3>
                   <!-- <span class="counter">97</span> <span>%</span> -->
-                  <span class="counter">${exchangeCntOne}</span> <span>%</span>
+                  <%-- <span class="counter">${exchangeCntOne}</span> --%>
+                  <span class="counter">${normalCntOne}</span> <span> +</span> <span class="counter">${kakaoCntOne}</span>
                 </h3>
-                <p>환전건수</p>
+                <!-- <p>환전건수</p>  --><p>normal + kakao</p>
               </div>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-3">
@@ -161,9 +163,9 @@ $(document).ready(function(){
                 </div>
                 <h3>
                   <!-- <span class="counter">5628</span> -->
-                  <span class="counter">${reserveCntOne }</span>
+                  <span class="counter">${exchangeCntOne }</span>
                 </h3>
-                <p>환전예약건수</p>
+                <p>환전+재환전 건수</p>
               </div>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-3">
@@ -173,9 +175,9 @@ $(document).ready(function(){
                 </div>
                 <h3>
                   <!-- <span class="counter">5637</span> -->
-                  <span class="counter">${revExchangeCntOne }</span>
+                  <span class="counter">${reserveCntOne }</span>
                 </h3>
-                <p>재환전건수</p>
+                <p>환전예약건수</p>
               </div>
             </div>
           </div>
