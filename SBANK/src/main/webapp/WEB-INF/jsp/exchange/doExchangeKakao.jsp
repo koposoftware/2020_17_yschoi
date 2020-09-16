@@ -212,13 +212,7 @@ $(document).ready(function() {
                 <option value="김포공항">김포공항</option>
                 <option value="김해공항">김해공항</option>
                 <option value="제주공항">제주공항</option>
-                <option value="강남지점">강남지점</option>
-                <option value="분당서현지점">분당서현지점</option>
-                <option value="부천부평지점">부천부평지점</option>
-                <option value="부산역지점">부산역지점</option>
-                <option value="강릉점">강릉점</option>
-                <option value="철산점">철산점</option>
-
+                <option value="서울역점">서울역점</option>
               </select>
             </td>
           </tr>

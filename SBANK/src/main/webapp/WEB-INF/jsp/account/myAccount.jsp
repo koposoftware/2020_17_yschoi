@@ -12,6 +12,65 @@
 
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+
+$(document).ready(function() {  //원화계좌 숫자는 콤마 넣자 시작 
+
+  var accountListResult = new Array();
+  let budget = "${accountList}";
+  //console.log(budget);
+  
+  <c:forEach items="${accountList}" var="exchange">
+    var json = new Object();
+    json.account_num="${exchange.account_num}"
+    json.balance=numberWithCommas("${exchange.balance}")
+    accountListResult.push(json)
+  </c:forEach>
+
+  //console.log(reserveResult);
+  
+  $.each(accountListResult, function() {
+    
+    var price = '#krwBalance';
+    price += $(this)[0].account_num
+
+    $(price).text($(this)[0].balance)
+
+  });  
+}) //원화계좌 숫자는 콤마 넣자 끝 
+
+
+$(document).ready(function() {  //보유외화 숫자는 콤마 넣자 시작 
+
+  var curListResult = new Array();
+  let budget = "${curlist}";
+  //console.log(budget);
+  
+  <c:forEach items="${curlist}" var="exchange">
+    var json = new Object();
+    json.currencycode="${exchange.currencycode}"
+    json.balance=numberWithCommas("${exchange.balance}")
+    curListResult.push(json)
+  </c:forEach>
+
+  //console.log(reserveResult);
+  
+  $.each(curListResult, function() {
+    
+    var price = '#curListBalance';
+    price += $(this)[0].currencycode
+
+    $(price).text($(this)[0].balance)
+
+  });  
+}) //보유외화 숫자는 콤마 넣자 끝 
+
+
+</script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <style>
 .project-tab {
@@ -53,7 +112,12 @@
   color: #333;
   font-weight: 600;
 }
-
+.ali{
+  text-align: right !important;
+}
+.centerLine{
+  text-align: center;
+}
 
 </style>
 
@@ -88,7 +152,7 @@
               <c:forEach items="${accountList}" var="account" varStatus="loop">
               <br>
                 <form action="${pageContext.request.contextPath }/account/accountTransfer" method="post" id="formm">
-                  <table border="1" class="table table-bordered">
+                  <table border="1" class="table table-bordered centerLine">
                     <input type="hidden" id="account_num" name="account_num" value="${account.account_num}">
                     <tr>
                       <th>계좌번호</th>
@@ -98,8 +162,8 @@
                       <td><button class="btn btn-outline-dark">계좌이체하기</button></td>
                     </tr>
                     <tr>
-                      <th>잔액</th>
-                      <td>${account.balance}</td>
+                      <th>잔액(원)</th>
+                      <td class="ali"><span id="krwBalance${account.account_num}"></span></td>
                       <th>별칭</th>
                       <td>${account.nick_name}</td>
                       <td><button class="btn btn-outline-dark">계좌별칭수정</button></td>
@@ -113,7 +177,7 @@
               <c:forEach items="${accountCurList}" var="account" varStatus="loop">
               <br>
                 <form action="${pageContext.request.contextPath }/" method="post" id="formm">
-                  <table border="1" class="table table-bordered">
+                  <table border="1" class="table table-bordered centerLine">
                     <thead>
                       <tr>
                         <th>계좌번호</th>
@@ -135,18 +199,18 @@
               <c:forEach items="${curlist}" var="account" varStatus="loop">
               <br>
                 <form action="${pageContext.request.contextPath }/" method="post" id="formm">
-                  <table border="1" class="table table-bordered">
+                  <table border="1" class="table table-bordered centerLine">
                     <thead>
                       <tr>
                         <th>계좌번호</th>
                         <th>통화명</th>
-                        <th>잔액</th>
+                        <th>잔액(외화)</th>
                       </tr>
                     </thead>
                     <tbody>
                       <td>${account.account_num}</td>
                       <td>${account.currencycode}</td>
-                      <td>${account.balance}</td>
+                      <td class="ali"><span id="curListBalance${account.currencycode}"></span></td>
                     </tbody>
                   </table>
                 </form>

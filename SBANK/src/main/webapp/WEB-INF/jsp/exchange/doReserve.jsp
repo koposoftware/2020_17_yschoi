@@ -1144,7 +1144,7 @@ $(document).ready(function() {
                       </tr>
                       <tr>
                         <td colspan="3">
-                              목표환율 : <input type="text" id="reserverate" name="reserverate" onkeyup="keyevent(this);" placeholder ="목표환율을 입력하세요" class="form-control" aria-describedby="inputGroupSuccess1Status" >
+                              목표가격 : <input type="text" id="reserverate" name="reserverate" onkeyup="keyevent(this);" placeholder ="목표환율을 입력하세요" class="form-control" aria-describedby="inputGroupSuccess1Status" >
                         </td>
                       </tr>
                       <tr>

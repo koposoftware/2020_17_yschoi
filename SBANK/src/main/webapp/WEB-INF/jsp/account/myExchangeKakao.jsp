@@ -75,11 +75,12 @@ $(document).ready(function() {
     str += '<input type="date" id="exchange_date" name="exchange_date" class="form-control" aria-describedby="inputGroupSuccess1Status" ><br><br>' ;
     str += '수령지점<br>'
     str += '<select name="exchange_place" id="exchange_place"  onchange="categoryChange(this)" class="form-control" aria-describedby="inputGroupSuccess1Status" >';
-    str += '  <option value="a" selected disabled  >- 수령지점 / 개인 소유 여부를 선택하세요 -</option> ';
-    str += '  <option value="own" disabled>개인소유</option>';
+    str += '  <option value="a" selected disabled  >- 수령지점을 선택하세요 -</option> ';
     str += '  <option value="인천국제공항">인천국제공항</option>';
     str += '  <option value="김포공항">김포공항</option>';
     str += '  <option value="김해공항">김해공항</option>';
+    str += '  <option value="제주공항">제주공항</option>';
+    str += '  <option value="서울역점">서울역점</option>';
     str += '</select>';
     $(".modal-body").append(str);
     $("#exampleModal").modal("show");
@@ -106,16 +107,39 @@ $(document).ready(function() {
 });
   
   
-$(document).ready(function() {
-  
-  
-  
-  
-  
-  
-});
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
+$(document).ready(function() {  //환전내역 숫자는 콤마 넣자 시작 
+  
+  
+  var exchangeResult = new Array();
+  let budget = "${exchangeList}";
+  //console.log(budget);
+  
+  <c:forEach items="${exchangeList}" var="exchange">
+    var json = new Object();
+    json.exchangeNo="${exchange.exchangeNo}"
+    json.exchangeprice=numberWithCommas("${exchange.exchangeprice}")
+    exchangeResult.push(json)
+  </c:forEach>
 
+  //console.log(reserveResult);
+  
+  $.each(exchangeResult, function() {
+    
+    var price = '#excPrice';
+
+     
+     price += $(this)[0].exchangeNo
+
+     
+     
+    $(price).text($(this)[0].exchangeprice)
+
+  });  
+}) //환전내역 숫자는 콤마 넣자 끝 
 
 </script>
 
@@ -160,7 +184,13 @@ $(document).ready(function() {
   color: #333;
   font-weight: 600;
 }
+.ali{
 
+  text-align: right !important;
+}
+.centerLine{
+  text-align: center;
+}
 
 </style>
 
@@ -193,7 +223,7 @@ $(document).ready(function() {
           
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
             <br>
-                  <table border="1" class="table table-bordered">
+                  <table border="1" class="table table-bordered centerLine">
                   <thead>
                     <tr>
                       <th>환전일</th>
@@ -212,7 +242,7 @@ $(document).ready(function() {
                     <tr>
                       <td>${exchange.reg_date}</td>
                       <td>${exchange.currencycode}</td>
-                      <td>${exchange.exchangeprice}</td>
+                      <td class="ali"><span id="excPrice${exchange.exchangeNo}"></span></td>
                       <%-- <td>${exchange.exchangerate}</td>
                       <td>${exchange.exchangecharge}</td> --%>
                       <td>${exchange.name}</td>

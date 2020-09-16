@@ -337,13 +337,13 @@ public class ExchangeController {
     String id = userVO.getId();
 
     List<ExchangeVO> exchangeList = exchangeService.selectExchange(id); // 환전내역 가져오기
-    List<ReserveVO> reserveList = exchangeService.selectReserve(id); //환전 예약 내역 가져오기
-    List<RevExchangeVO> revExchangeList = exchangeService.selectRevExchange(id); // 재환전내역
+//    List<ReserveVO> reserveList = exchangeService.selectReserve(id); //환전 예약 내역 가져오기
+//    List<RevExchangeVO> revExchangeList = exchangeService.selectRevExchange(id); // 재환전내역
 
     ModelAndView mav = new ModelAndView("account/myExchangeKakao");
     mav.addObject("exchangeList", exchangeList);
-    mav.addObject("reserveList", reserveList);
-    mav.addObject("revExchangeList", revExchangeList);
+//    mav.addObject("reserveList", reserveList);
+//    mav.addObject("revExchangeList", revExchangeList);
     
 //  for(ReserveVO account : reserveList) {
 //    System.out.println(account);
@@ -499,7 +499,7 @@ public class ExchangeController {
      
     exchangeService.changeInfo(exchangeVO);
     if(type.equals('K')) {
-      return "redirect:/exchange/myExchangeKakao";
+      return "redirect:/account/myExchangeKakao";
     }
     if (exchangeVO.getExchange_place().equals("own")) { 
       return "redirect:/account/myAccount"; // 개인소유인 경우 보유외화 봐야함
