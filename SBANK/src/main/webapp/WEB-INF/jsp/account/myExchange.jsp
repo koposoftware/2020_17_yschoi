@@ -112,12 +112,55 @@ $(document).ready(function() {
   
   
 });
+
+
+
+
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+
+
+
+
+$(document).ready(function() {  //환전내역 숫자는 콤마 넣자 시작 
   
   
-$(document).ready(function() {
-  function numberWithCommas(x) {
-      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
+  var exchangeResult = new Array();
+  let budget = "${exchangeList}";
+  //console.log(budget);
+  
+  <c:forEach items="${exchangeList}" var="exchange">
+    var json = new Object();
+    json.exchangeNo="${exchange.exchangeNo}"
+    json.exchangeprice=numberWithCommas("${exchange.exchangeprice}")
+    exchangeResult.push(json)
+  </c:forEach>
+
+  //console.log(reserveResult);
+  
+  $.each(exchangeResult, function() {
+    
+    var price = '#excPrice';
+
+     
+     price += $(this)[0].exchangeNo
+
+     
+     
+    $(price).text($(this)[0].exchangeprice)
+
+  });  
+}) //환전내역 숫자는 콤마 넣자 끝 
+
+
+
+
+
+$(document).ready(function() {  //환전 예약내역 숫자는 콤마 넣자 시작 
+  
   
   var reserveResult = new Array();
   let budget = "${reserveList}";
@@ -132,7 +175,7 @@ $(document).ready(function() {
     reserveResult.push(json)
   </c:forEach>
 
-  console.log(reserveResult);
+  //console.log(reserveResult);
   
   $.each(reserveResult, function() {
     
@@ -144,26 +187,14 @@ $(document).ready(function() {
      rate += $(this)[0].reserveno
      charge += $(this)[0].reserveno 
      
-     console.log($(this)[0].reserveno)
-     console.log(rate)
-     console.log(charge) 
      
     $(price).text($(this)[0].exchangeprice)
     $(rate).text($(this)[0].exchangerate)
     $(charge).text($(this)[0].exchangecharge) 
   });  
-  
+}) //환전 예약내역 숫자는 콤마 넣자 끝 
 
 
-  /* let totalBudget = numberWithCommas(budget);
-  let living_money = numberWithCommas(living);
-  let extra_money = numberWithCommas(extra); */
-  
-/*   // text 변경
-  $('.total_budget').text(totalBudget);
-  $('.living_money').text(living_money);
-  $('.extra_money').text(extra_money); */
-})
 
 
 </script>
@@ -266,9 +297,7 @@ $(document).ready(function() {
                     <tr>
                       <td>${exchange.reg_date}</td>
                       <td>${exchange.currencycode}</td>
-                      <td class="ali">${exchange.exchangeprice}</td>
-                      <%-- <td>${exchange.name}</td>
-                      <td>${exchange.exchange_date}</td> --%>
+                      <td class="ali"><span id="excPrice${exchange.exchangeNo}"></span></td>
                       <c:choose>
                         <c:when test="${exchange.exchange_place != 'own'  }">
                           <td>${exchange.name}</td>
