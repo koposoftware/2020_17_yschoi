@@ -34,7 +34,7 @@ $(document).ready(function() {
           if(result=='true'){
             $("#setresult").text('');
             $("input[type=submit]").prop('disabled',false);
-            $("#setresult").text('인증에 성공하였습니다. 해당 OTP코드를 저장하고 싶으신 경우에는 저장버튼을 눌려주세요.');
+            $("#setresult").text('인증에 성공하였습니다. 해당 OTP코드를 저장하고 싶으신 경우에는 OTP코드저장버튼을 눌려주세요.');
           } else{
             $("#setresult").text('');
             $("#setresult").text('인증코드를 확인하여주세요');
@@ -51,6 +51,7 @@ $(document).ready(function() {
   });// 구글 OTP인증코드 적으면 함수 끝
 });
 </script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <%  
    /*  String url = request.getParameter("url");  
     int nCheck = 1;  
@@ -107,11 +108,11 @@ $(document).ready(function() {
 %> 
    
    
-    code : <input id="user_code" name="user_code" type="text"><br><br>
+       인증코드 입력  <input id="user_code" name="user_code" type="text" class="form-control" aria-describedby="inputGroupSuccess1Status" style="width: 30%;"><br><br>
    <form action="<%=request.getContextPath() %>/otp/save" method="post">
      
-      <input name="encodedKey" id="encodedKey" type="hidden" readonly="readonly" value="${encodedKey }"><br><br>
-      <input type="submit" value="저장" disabled="disabled">
+      <input name="encodedKey" id="encodedKey" type="hidden" readonly="readonly" value="${encodedKey }" ><br><br>
+      <input type="submit" value="OTP코드저장" disabled="disabled" class="btn btn-outline-dark pull-right" >
      
    </form>
    

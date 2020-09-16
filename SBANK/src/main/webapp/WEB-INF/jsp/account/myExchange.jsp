@@ -2,6 +2,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
+<%@ page import="kr.ac.kopo.util.*" %> 
 
 
 
@@ -114,13 +115,55 @@ $(document).ready(function() {
   
   
 $(document).ready(function() {
+  function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
   
+  var reserveResult = new Array();
+  let budget = "${reserveList}";
+  //console.log(budget);
   
+  <c:forEach items="${reserveList}" var="exchange">
+    var json = new Object();
+    json.reserveno="${exchange.reserveno}"
+    json.exchangeprice=numberWithCommas("${exchange.exchangeprice}")
+    json.exchangerate=numberWithCommas("${exchange.exchangerate}")
+    json.exchangecharge=numberWithCommas("${exchange.exchangecharge}")
+    reserveResult.push(json)
+  </c:forEach>
+
+  console.log(reserveResult);
   
+  $.each(reserveResult, function() {
+    
+    var price = '#resPrice';
+    var rate = '#resRate';
+    var charge = '#resCharge';
+     
+     price += $(this)[0].reserveno
+     rate += $(this)[0].reserveno
+     charge += $(this)[0].reserveno 
+     
+     console.log($(this)[0].reserveno)
+     console.log(rate)
+     console.log(charge) 
+     
+    $(price).text($(this)[0].exchangeprice)
+    $(rate).text($(this)[0].exchangerate)
+    $(charge).text($(this)[0].exchangecharge) 
+  });  
   
+
+
+  /* let totalBudget = numberWithCommas(budget);
+  let living_money = numberWithCommas(living);
+  let extra_money = numberWithCommas(extra); */
   
-  
-});
+/*   // text 변경
+  $('.total_budget').text(totalBudget);
+  $('.living_money').text(living_money);
+  $('.extra_money').text(extra_money); */
+})
 
 
 </script>
@@ -165,7 +208,13 @@ $(document).ready(function() {
   color: #333;
   font-weight: 600;
 }
+.ali{
 
+  text-align: right !important;
+}
+.centerLine{
+  text-align: center;
+}
 
 </style>
 
@@ -200,14 +249,12 @@ $(document).ready(function() {
           
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
             <br>
-                  <table border="1" class="table table-bordered">
+                  <table border="1" class="table table-bordered centerLine" >
                   <thead>
                     <tr>
                       <th>환전일</th>
                       <th>통화명</th>
                       <th>외화금액</th>
-                      <!-- <th>우대적용 환율</th>
-                      <th>환전금액(원)</th> -->
                       <th>수령인</th>
                       <th>수령일</th>
                       <th>수령점</th>
@@ -219,12 +266,33 @@ $(document).ready(function() {
                     <tr>
                       <td>${exchange.reg_date}</td>
                       <td>${exchange.currencycode}</td>
-                      <td>${exchange.exchangeprice}</td>
-                      <%-- <td>${exchange.exchangerate}</td>
-                      <td>${exchange.exchangecharge}</td> --%>
-                      <td>${exchange.name}</td>
-                      <td>${exchange.exchange_date}</td>
-                      <td>${exchange.exchange_place}</td>
+                      <td class="ali">${exchange.exchangeprice}</td>
+                      <%-- <td>${exchange.name}</td>
+                      <td>${exchange.exchange_date}</td> --%>
+                      <c:choose>
+                        <c:when test="${exchange.exchange_place != 'own'  }">
+                          <td>${exchange.name}</td>
+                        </c:when>
+                        <c:otherwise>
+                          <td>-</td>
+                        </c:otherwise>
+                      </c:choose>
+                      <c:choose>
+                        <c:when test="${exchange.exchange_place != 'own'  }">
+                          <td>${exchange.exchange_date}</td>
+                        </c:when>
+                        <c:otherwise>
+                          <td>-</td>
+                        </c:otherwise>
+                      </c:choose>
+                      <c:choose>
+                        <c:when test="${exchange.exchange_place == 'own'  }">
+                          <td>개인소유</td>
+                        </c:when>
+                        <c:otherwise>
+                          <td>${exchange.exchange_place}</td>
+                        </c:otherwise>
+                      </c:choose>
                       <td>
                       <c:choose>
                         <c:when test="${exchange.exchange_place != 'own'  }">
@@ -232,7 +300,7 @@ $(document).ready(function() {
                                 class="modal_show btn btn-outline-dark">수령정보 수정</button>
                          </c:when>
                          <c:otherwise>
-                                                            수정불가
+                             -
                          </c:otherwise>
                       </c:choose>
                       </td>
@@ -273,26 +341,26 @@ $(document).ready(function() {
             <br>
               <span data-toggle="tooltip" align="right" data-placement="bottom" title="Y: 환전완료, N:환전미완료, E: 잔액부족으로 환전 실패"><strong>환전여부 확인하기</strong></span>
               <br>
-              <table border="1" class="table table-bordered">
+              <table border="1" class="table table-bordered centerLine">
                   <thead>
                     <tr>
                       <th>통화명</th>
-                      <th>환전예정금액(외화 기준)</th>
+                      <th>환전예정금액(외화)</th>
                       <th>우대적용 환율</th>
-                      <th>환전금액(원)</th>
+                      <th>환전금액(원화)</th>
                       <th>환전여부</th>
                       <th>최대환전일</th>
                       <th>예약일</th>
-                      <th>출금예정계좌번호</th>
+                      <th>출금계좌번호</th>
                     </tr>
                   </thead>
                 <c:forEach items="${reserveList}" var="reserve" varStatus="loop">
                   <tbody>
                     <tr>
                       <td>${reserve.currencycode}</td>
-                      <td>${reserve.exchangeprice}</td>
-                      <td>${reserve.exchangerate}</td>
-                      <td>${reserve.exchangecharge}</td>
+                      <td class="ali"><span id="resPrice${reserve.reserveno}"></span></td>
+                      <td class="ali"><span id="resRate${reserve.reserveno}"></span></td>
+                      <td class="ali"><span id="resCharge${reserve.reserveno}"></span></td> 
                       <td>${reserve.isexchange}</td>
                       <td>${reserve.max_date}</td>
                       <td>${reserve.reg_date}</td>
@@ -312,7 +380,7 @@ $(document).ready(function() {
             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
               <br>
                 
-                  <table border="1" class="table table-bordered">
+                  <table border="1" class="table table-bordered centerLine">
                     <thead>
                       <tr>
                         <th>통화명</th>
@@ -326,9 +394,9 @@ $(document).ready(function() {
                     <tbody>
                     <tr>
                       <td>${account.currencycode}</td>
-                      <td>${account.exchangeprice}</td>
-                      <td>${account.exchangerate}</td>
-                      <td>${account.exchangecharge}</td>
+                      <td class="ali">${account.exchangeprice}</td>
+                      <td class="ali">${account.exchangerate}</td>
+                      <td class="ali">${account.exchangecharge}</td>
                       <td>${account.reg_date}</td>
                     </tr>
                     </tbody>

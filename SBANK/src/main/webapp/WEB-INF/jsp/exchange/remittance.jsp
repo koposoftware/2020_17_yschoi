@@ -154,7 +154,7 @@
       <div class="col-xl-12">
         <!-- <div class="section_title text-center mb-50"> -->
         <header class="section_title mb-50 major" >
-          <h3>외화 송금하기</h3>
+          <h3>외화 당행 송금하기</h3>
         </header>
       </div>
     </div>
@@ -174,25 +174,25 @@
               </td>
             </tr>
             <tr>
-              <th>선물할 금액</th>
+              <th>송금액</th>
               <td>
                 <input type="number" class="form-control" aria-describedby="inputGroupSuccess1Status" id="balance" name="balance" >
               </td>
             </tr>
             <tr>
-              <th>선물받을 분 계좌</th>
+              <th>송금받을 분 계좌</th>
               <td>
                 <input type="text" class="form-control" aria-describedby="inputGroupSuccess1Status" id="account_num_to" name="account_num_to">
               </td>
             </tr>
             <tr>
-              <th>선물받을 분 이름</th>
+              <th>송금받을 분 이름</th>
               <td>
                 <input type="text" id="name" name="name" class="form-control" aria-describedby="inputGroupSuccess1Status" >
               </td>
             </tr>
           </table>
-          <button class="btn btn-outline-dark" id="subm" name="subm" data-toggle="modal" data-target="#myModal">선물하기</button>
+          <button class="btn btn-outline-dark pull-right" id="subm" name="subm" data-toggle="modal" data-target="#myModal">송금하기</button>
 								<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 										<div class="modal-dialog" role="document">
 												<div class="modal-content">

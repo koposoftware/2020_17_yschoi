@@ -1010,6 +1010,11 @@ $(document).ready(function() {
     color: #245269;
     cursor: pointer;
 }
+
+
+
+
+
 </style>
 <section>
   <div class="container class="col-xl-12"">
@@ -1081,7 +1086,7 @@ $(document).ready(function() {
                 </div>
               </div>  -->
               <h3>환전신청내역</h3>
-              <table border="1" class="table table-bordered">
+              <table border="1" class="table table-bordered" >
                 <tr>
                   <th>통화종류</th>
                   <td><select name="currencycode" id="currencycode"

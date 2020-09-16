@@ -55,7 +55,8 @@ $(document).ready(function(){
     ykeys: ['value'],
     // Labels for the ykeys -- will be displayed when you hover over the
     // chart.
-    labels: ['Value']
+    labels: ['Value'],
+    hideHover:'auto'
   });
   
   
@@ -71,7 +72,9 @@ $(document).ready(function(){
     ykeys: ['value'],
     // Labels for the ykeys -- will be displayed when you hover over the
     // chart.
-    labels: ['Value']
+    labels: ['Value'],
+    xLabels:'day',
+    hideHover:'auto'
   });
   
   
@@ -87,7 +90,9 @@ $(document).ready(function(){
     ykeys: ['value'],
     // Labels for the ykeys -- will be displayed when you hover over the
     // chart.
-    labels: ['Value']
+    labels: ['Value'],
+    xLabels:'day',
+    hideHover:'auto'
   });
   
   
