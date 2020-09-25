@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-    404 페이지입니다.
+    <a href="${pageContext.request.contextPath }/"><img src="${pageContext.request.contextPath }/resources/img/errmsg.jpg" width="100%" ></a>
+    위 이미지를 클릭하시면 메인화면으로 이동합니다.
 </body>
 </html>

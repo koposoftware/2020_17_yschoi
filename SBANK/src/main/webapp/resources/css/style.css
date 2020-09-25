@@ -1270,8 +1270,8 @@ h3 {
 /* line 329, ../../Arafath/CL/CL October/216. Consulting/HTML/scss/_header.scss */
 .header-area .header-top_area .header_left p {
   color: #727272;
-  font-weight: 400;
-  font-size: 13px;
+  font-weight: 600;
+  font-size: 18px;
   margin-bottom: 0;
 }
 
@@ -1294,7 +1294,8 @@ h3 {
 
 /* line 344, ../../Arafath/CL/CL October/216. Consulting/HTML/scss/_header.scss */
 .header-area .header-top_area .short_contact_list ul li a {
-  font-size: 13px;
+  font-size: 16px;
+  font-weight:400;
   color: #919191;
   margin-right: 50px;
 }

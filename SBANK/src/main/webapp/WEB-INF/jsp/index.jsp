@@ -41,7 +41,11 @@ $(document).ready(function(){
 });
   
 </script>
-
+<style>
+.haha{
+  margin: 0 0 0.6em 0 !important;
+}
+</style>
 
 
 
@@ -54,6 +58,15 @@ $(document).ready(function(){
     <div class="service_area">
         <div class="container">
           <div class="row">
+          
+            <div class="col-xl-12 haha">
+              <header class="section_title mb-50 major haha">
+                <h3 class="haha">NOTICE</h3>
+              </header>
+            </div>
+          
+          
+          
             <!-- 공지에 대한 이미지 슬라이드 -->
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
               <!-- Indicators -->
@@ -81,6 +94,11 @@ $(document).ready(function(){
               </a> <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span>
               </a>
             </div>
+            
+            
+            
+            
+            
           </div>
           
           

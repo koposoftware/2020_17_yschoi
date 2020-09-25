@@ -56,7 +56,7 @@ public class OtpServlet  {
        
 //    String url = getQRBarcodeURL(userName, hostName, secretKeyStr);
       // userName과 hostName은 변수로 받아서 넣어야 하지만, 여기선 테스트를 위해 하드코딩 해줬다.
-      String url = getQRBarcodeURL("cysun31", "SBANK", encodedKey); // 생성된 바코드 주소!
+      String url = getQRBarcodeURL("a", "SBANK", encodedKey); // 생성된 바코드 주소!
       System.out.println("URL : " + url);
       
       
@@ -130,7 +130,7 @@ public class OtpServlet  {
          
 //      String url = getQRBarcodeURL(userName, hostName, secretKeyStr);
         // userName과 hostName은 변수로 받아서 넣어야 하지만, 여기선 테스트를 위해 하드코딩 해줬다.
-        String url = getQRBarcodeURL("cysun31", "SBANK", encodedKey); // 생성된 바코드 주소!
+        String url = getQRBarcodeURL("a", "SBANK", encodedKey); // 생성된 바코드 주소!
         System.out.println("URL : " + url);
         
         

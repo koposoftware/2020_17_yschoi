@@ -1001,10 +1001,20 @@ $(document).ready(function() {
     color: #245269;
     cursor: pointer;
 }
+.table th {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+.styleee {
+  font-size: 15px !important;
+  font-weight: 400 !important;
+}
 
 </style>
 <section>
-
+<br>
+<br>
+<br><br><br><br>
   <div class="container class="col-xl-12"">
     <div class="row">
       <div class="col-xl-12">
@@ -1074,47 +1084,89 @@ $(document).ready(function() {
                         </div>
                         
                     </div> -->
+                    <br><br>
                     <h3>환전신청내역</h3>
+                    <br><br>
                     <table border="1" class="table table-bordered">
-                      <!-- <tr>
-                        <td colspan="3">
-                          <div class="chart_control_area">
-                            <dl class="line">
-                              <dd>
-                                <ul>
-                                  <li class="month"><a href="#" onclick="showChart('month');">1개월</a></li>
-                                  <li class="month3"><a href="#" class="on" onclick="showChart('month3');">3개월</a></li>
-                                  <li class="year"><a href="#" onclick="showChart('year');">1년</a></li>
-                                  <li class="year3"><a href="#" onclick="showChart('year3');">3년</a></li>
-                                  <li class="year5"><a href="#" onclick="showChart('year5');">5년</a></li>
-                                  <li class="year10"><a href="#" onclick="showChart('year10');">10년</a></li>
-                                </ul>
-                              </dd>
-                            </dl>
-                          </div>
-                        </td>
-                      </tr> -->
+                    <tr>
+                      <th colspan="2">외화 매입 예약 통화</td>
+                      <td colspan="2">
+                        <select name="currencycode" id="currencycode" class="form-control" aria-describedby="inputGroupSuccess1Status">
+                                  <option value="a" selected="selected"  disabled>- 통화를 선택하세요 -</option>
+                                  <option value="USD">미국달러(USD)</option>
+                                  <option value="EUR">유럽유로(EUR)</option>
+                                  <option value="JPY">일본엔(JPY)</option>
+                                  <option value="GBP">영국파운드(GBP)</option>
+                                  <option value="CAD">캐나다달러(CAD)</option>
+                                  <option value="CHF">스위스프랑(CHF)</option>
+                                  <option value="HKD">홍콩달러(HKD)</option>
+                                  <option value="AUD">호주달러(AUD)</option>
+                                  <option value="SGD">싱가폴달러(SGD)</option>
+                                  <option value="NZD">뉴질랜드달러(NZD)</option>
+                                  <option value="CNY">중국위안(CNY)</option>
+                                  <option value="THB">태국바트(THB)</option>
+                                  <option value="MYR">말레이지아링기트(MYR)</option>
+                                  <option value="TWD">대만달러(TWD)</option>
+                                  <option value="PHP">필리핀페소(PHP)</option>
+                                  <option value="IDR">인도네시아루피아(IDR)</option>
+                                  <option value="AED">U.A.D디히람(AED)</option>
+                                  <option value="VND">베트남동(VND)</option>
+                          </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="4">
+                        <strong><h3>최근 3개월 동안의 지표</h3></strong>
+                        <img id="style-img" class="centered " crossorigin="anonymous" src="" width="90%" align="center" ></img>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th width="24.5%">현재 현찰살때의 가격</th>
+                      <td width="24.5%"><span id="rate" name="rate"  class="styleee"></span>
+                              <input type="hidden" id="rateHidden" name="rateHidden" value="">
+                              <input type="hidden" id="basicrate" name="basicrate" value="">
+                      </td>
+                      <th width="24.5%">우대환율</th>
+                      <td width="24.5%"><span id="commission2" name="commission2"  class="styleee"></span>
+                              <input type="hidden" id="commission" name="commission" value="">
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>매입 예약 환율</th>
+                      <td><input type="text" id="reserverate" name="reserverate" onkeyup="keyevent(this);" placeholder ="목표환율을 입력하세요" class="form-control" aria-describedby="inputGroupSuccess1Status" ></td>
+                      <th>우대 적용 환율</th>
+                      <td><span id = "commrate" name = "commrate"  class="styleee"></span>
+                             <input type="hidden" id="exchangerate" name="exchangerate" value="" >
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>외화 매입 예약 금액</th>
+                      <td><input type="text" id="exchangeprice" name="exchangeprice" onkeyup="keyevent(this);" placeholder ="환전 원하는 금액을 입력하세요" class="form-control" aria-describedby="inputGroupSuccess1Status" ></td>
+                      <th>원화 출금 예정 금액</th>
+                      <td><span id="exchangeChargeKRW" name="exchangeChargeKRW"  class="styleee"></span> 
+                            <input type="hidden" id="exchangecharge" name="exchangecharge" value="" />
+                      </td>
+                    </tr>
+                    </table>
+                    
+                    <!-- <table border="1" class="table table-bordered">
+
                       <tr>
                         <td colspan="3">
-                          <!-- <div>
-                            <div class="left">
-                                
-                            </div>
-                            <div class="right"><img id="style-img" class="centered " crossorigin="anonymous" src="" ></img></div>
-                          </div> -->
-                          <strong>최근 3개월 동안의 지표</strong>
+
+                          <strong><h3>최근 3개월 동안의 지표</h3></strong>
                           <img id="style-img" class="centered " crossorigin="anonymous" src="" width="90%" align="center" ></img>
                         </td>
                       </tr>
                       <tr>
                           <td colspan="3">
-                              환전을 원하는 통화를 선택 및 금액을 입력하세요<br> 
-                              오늘의 현찰살때가격 : <span id="rate" name="rate"></span>
+                              <span class="styleee">환전을 원하는 통화를 선택 및 금액을 입력하세요<br> 오늘의 현찰살때가격 : </span>
+                              <span id="rate" name="rate"  class="styleee"></span>
                               <input type="hidden" id="rateHidden" name="rateHidden" value="">
                               <input type="hidden" id="basicrate" name="basicrate" value="">
                               
                           </td>
-                          <!-- <td rowspan="4">그래프으</td> -->
+
                       </tr>
                       <tr>
                           <td><select name="currencycode" id="currencycode" class="form-control" aria-describedby="inputGroupSuccess1Status">
@@ -1149,11 +1201,11 @@ $(document).ready(function() {
                       </tr>
                       <tr>
                           <td colspan="2">
-                              우대율 : <span id="commission2" name="commission2"></span>
+                              우대율 : <span id="commission2" name="commission2"  class="styleee"></span>
                               <input type="hidden" id="commission" name="commission" value="">
                           </td>
                       </tr>
-                  </table>
+                  </table> -->
                     
                     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >다음으로</button>
                 </div>
@@ -1162,6 +1214,7 @@ $(document).ready(function() {
         <div class="row setup-content" id="step-2">
             <div class="col-xs-12">
                 <div class="col-md-12">
+                <br><br>
                     <h3>출금정보</h3>
                     <!-- <div class="form-group">
                         <label class="control-label">Estatura</label>
@@ -1175,24 +1228,25 @@ $(document).ready(function() {
                         <label class="control-label">Tipo de sangre</label>
                         <input maxlength="200" type="text" required="required" class="form-control" placeholder="Seleccione tipo de sangre"  />
                     </div> -->
+                    <br><br>
                     <table border="1" class="table table-bordered">
-                      <tr>
+                     <!--  <tr>
                           <td>
                                                               결제금액(원) : 
-                            <span id="exchangeChargeKRW" name="exchangeChargeKRW"></span> 
+                            <span id="exchangeChargeKRW" name="exchangeChargeKRW"  class="styleee"></span> 
                             <input type="hidden" id="exchangecharge" name="exchangecharge" value="" />
                           </td>
                           <td>
                                                           적용 우대환율:
-                            <span id = "commrate" name = "commrate"></span>
+                            <span id = "commrate" name = "commrate"  class="styleee"></span>
                              <input type="hidden" id="exchangerate" name="exchangerate" value="" >
                           </td>
-                      </tr>
+                      </tr> -->
                       <tr>
-                        <td>마지막 환전일</td>
+                        <th>마지막 환전일</th>
                         <td>
                           <input type="date" id="max_date" name="max_date" class="form-control" aria-describedby="inputGroupSuccess1Status" max="2021-09-23" /><br>
-                                                          값을 비워주시면 자동적으로 1년이 설정됩니다. 마지막  환전일까지 목표 환율에 도달하지 못하면, 마지막 환전일 22시에 자동으로 환전이 진행됩니다.
+                                                           마지막  환전일까지 목표 환율에 도달하지 못하면, 마지막 환전일 22시에 자동으로 환전이 진행됩니다. 원하지 않으시면 값을 비워주세요
                         </td>
                       </tr>
                       <tr>

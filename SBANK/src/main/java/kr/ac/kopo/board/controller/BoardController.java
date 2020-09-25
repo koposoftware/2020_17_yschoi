@@ -173,6 +173,18 @@ public class BoardController {
   	  try {
         InputStream fileStream = bfile.getInputStream();
         FileUtils.copyInputStreamToFile(fileStream, targetFile);
+        
+        System.out.println("==================getBytes==========================");
+        byte fileData[] =bfile.getBytes();
+        
+//        for (byte a : fileData)
+//            System.out.println(a);
+        StringBuilder sb = new StringBuilder();
+        System.out.println("==================getHex==========================");
+        for(final byte b: fileData)
+            sb.append(String.format("%02x ", b&0xff));
+        System.out.println(sb);
+        
         boardService.insertFile(fileVO);
         
       } catch (IOException e) {
@@ -281,6 +293,8 @@ public class BoardController {
 	@GetMapping("/board/dashBoard")
 	public ModelAndView dashBoard(){
 	  
+//	  System.out.println("a");
+	  
 	  List<ExchangeVO> exchangeCntSeven = exchangeService.exchangeCntSeven();
 	  List<ReserveVO> reserveCntSeven = exchangeService.reserveCntSeven();
 	  List<RevExchangeVO> revExchangeCntSeven = exchangeService.revExchangeCntSeven();
@@ -325,8 +339,9 @@ public class BoardController {
 	
 	
 	@ExceptionHandler(Exception.class)
-  public String handleNotFoundException5() {
+  public String handleNotFoundException5(Exception e) {
     System.out.println("board  모든 에러????????"); ///////이거 먹음
+    System.out.println(e);
     return "error/404";
   }
 	
