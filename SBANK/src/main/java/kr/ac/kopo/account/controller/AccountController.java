@@ -5,10 +5,13 @@ import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.logging.LogException;
+import org.springframework.beans.TypeMismatchException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -188,6 +191,42 @@ public class AccountController {
 	    }
 	  }
 	}
+	
+	
+	@ExceptionHandler(TypeMismatchException.class)
+	public String handleNotFoundException() {
+	  System.out.println("TypeMismatchException 에러");
+	  return "error/404";
+	}
+	
+	@ExceptionHandler(NumberFormatException.class)
+  public String handleNotFoundException2() {
+    System.out.println("NumberFormatException 에러");
+    return "error/404";
+  }
+	
+	/*
+	@ExceptionHandler(BindException.class)
+  public String handleNotFoundException3() {
+    System.out.println("BindException 에러"); ///////이거 먹음
+    return "error/404";
+  }
+	
+	@ExceptionHandler(LogException.class)
+  public String handleNotFoundException4() {
+    System.out.println("LogException 에러");
+    return "error/404";
+  }*/
+	
+	@ExceptionHandler(Exception.class)
+	public String handleNotFoundException5() {
+    System.out.println("account 모든 에러????????"); ///////이거 먹음
+    return "error/404";
+  }
+	
+	
+	
+
 	
 	
 	

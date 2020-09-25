@@ -2,12 +2,17 @@ package kr.ac.kopo.account.service;
 
 import java.util.List;
 
+import org.apache.ibatis.logging.LogException;
+import org.springframework.beans.TypeMismatchException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.BindException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import kr.ac.kopo.account.dao.AccountDAO;
 import kr.ac.kopo.account.vo.AccountVO;
-import kr.ac.kopo.board.vo.BoardVO;
+
 
 @Service
 public class AccountServiceImpl implements AccountService {
@@ -75,6 +80,7 @@ public class AccountServiceImpl implements AccountService {
   /**
 	 * 계좌 이체
 	 */
+	@Transactional
 	@Override
 	public void transfer(AccountVO account) {
 		
@@ -105,7 +111,28 @@ public class AccountServiceImpl implements AccountService {
   }
 	
 	
-	
+  @ExceptionHandler(TypeMismatchException.class)
+  public String handleNotFoundException() {
+    System.out.println("TypeMismatchException 에러 - service");
+    return "error/404";
+  }
+  
+  @ExceptionHandler(NumberFormatException.class)
+  public String handleNotFoundException2() {
+    System.out.println("NumberFormatException 에러 - service");
+    return "error/404";
+  }
+  
+  @ExceptionHandler(BindException.class)
+  public String handleNotFoundException3() {
+    System.out.println("BindException 에러 - service");
+    return "error/404";
+  }
+  @ExceptionHandler(LogException.class)
+  public String handleNotFoundException4() {
+    System.out.println("LogException 에러  - service");
+    return "error/404";
+  }
   
   
 	

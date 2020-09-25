@@ -13,6 +13,7 @@ import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -317,6 +318,25 @@ public class BoardController {
 	  
 	  return mav;
 	}
+	
+	
+	
+	
+	
+	
+	@ExceptionHandler(Exception.class)
+  public String handleNotFoundException5() {
+    System.out.println("board  모든 에러????????"); ///////이거 먹음
+    return "error/404";
+  }
+	
+	
+	
+	
+	
+	
+	
+	
 
    
 

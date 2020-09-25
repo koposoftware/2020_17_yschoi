@@ -64,14 +64,14 @@ $(document).ready(function(){
                 </c:forEach>
               </ol>
               <!-- Wrapper for slides -->
-              <div class="carousel-inner" role="listbox">
+              <div class="carousel-inner" role="listbox" style="width: 100%;">
                 <div class="item active">
-                  <img src="${pageContext.request.contextPath }/resources/upload/SBANK-4fb900de-ccd2-42c4-81c7-64c29b419075" alt="...">
+                  <img src="${pageContext.request.contextPath }/resources/upload/mainmain.png" alt="..." width="1920px">
                   <div class="carousel-caption">...</div>
                 </div>
                 <c:forEach items="${nameList}" var="name" varStatus="loop">
                   <div class="item">
-                    <img src="${pageContext.request.contextPath }/resources/upload/${name.fileSaveName}" alt="로고사진쓰" height="400" width="300" >
+                    <img src="${pageContext.request.contextPath }/resources/upload/${name.fileSaveName}" alt="로고사진쓰" width="100%" >
                     <div class="carousel-caption"><%-- ${name.fileSaveName} --%></div>
                   </div>
                 </c:forEach>
@@ -88,14 +88,14 @@ $(document).ready(function(){
           
           
           
-          <div class="row">
+          <%-- <div class="row">
                 <div class="col-xl-12">
                     <div class="section_title text-center mb-50">
-                        <h3>What we Do 바꾼자리   index.jsp  ${a } </h3>
+                        <h3>What we Do 바꾼자리   index.jspPPPPPPPPP  ${a } </h3>
                     </div>
                 </div>
-            </div>
-            <div class="row">
+          </div> --%>
+            <!-- <div class="row">
                 <div class="col-xl-4 col-md-6 col-lg-4">
                     <div class="single_service text-center">
                         <div class="service_icon">
@@ -156,13 +156,13 @@ $(document).ready(function(){
                         <a href="#" class="learn_more">Learn More</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- service_area_end -->
 
     <!-- about_info_area start  -->
-    <div class="about_info_area">
+    <!-- <div class="about_info_area">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-6">
@@ -180,11 +180,11 @@ $(document).ready(function(){
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- /about_info_area end  -->
 
     <!-- counter_area  -->
-    <div class="counter_area counter_bg_1 overlay_03">
+    <!-- <div class="counter_area counter_bg_1 overlay_03">
         <div class="container">
             <div class="row">
                 <div class="col-xl-3 col-lg-3 col-md-3">
@@ -225,11 +225,11 @@ $(document).ready(function(){
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- /counter_area  -->
 
     <!-- case_study_area  -->
-    <div class="case_study_area">
+    <!-- <div class="case_study_area">
         <div class="container">
             <div class="border_bottom">
                     <div class="row">
@@ -291,11 +291,11 @@ $(document).ready(function(){
                         </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- /case_study_area  -->
 
     <!-- accordion  -->
-    <div class="accordion_area">
+    <!-- <div class="accordion_area">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-xl-6 col-lg-6">
@@ -351,10 +351,10 @@ $(document).ready(function(){
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- accordion  -->
 
-    <div class="testimonial_area overlay ">
+    <!-- <div class="testimonial_area overlay ">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -414,11 +414,11 @@ $(document).ready(function(){
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <!-- team_area  -->
-    <div class="team_area">
+    <!-- <div class="team_area">
             <div class="container">
                 <div class="border_bottom">
                     <div class="row">
@@ -515,10 +515,10 @@ $(document).ready(function(){
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     <!-- /team_area  -->
 
-    <div class="contact_form_quote">
+    <%-- <div class="contact_form_quote">
         <div class="container">
             <div class="row">
                 <div class="col-xl-5 col-lg-6">
@@ -539,7 +539,7 @@ $(document).ready(function(){
                 </div>
             </div>
         </div>
-    </div>
+    </div> --%>
 
 
 

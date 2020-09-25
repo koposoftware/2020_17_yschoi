@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,6 +45,8 @@ public class MemberController {
 			mav.setViewName("redirect:/login");
 
 		} else { //로그인 성공 시
+		  
+		  System.out.println("aaaaaaaaaa 인터셉터 지나가나여???");
 
 			String dest = (String) session.getAttribute("dest");
 			memberService.setCntPlusNormal();
@@ -109,6 +112,25 @@ public class MemberController {
 	  memberService.otpCodeSave(member);
 	  return "redirect:/";
 	}
+	
+	
+	
+	
+	
+	
+	@ExceptionHandler(Exception.class)
+  public String handleNotFoundException5() {
+    System.out.println("member  모든 에러????????"); ///////이거 먹음
+    return "error/404";
+  }
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
