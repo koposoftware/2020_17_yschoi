@@ -7,7 +7,8 @@
 			<div class="col-xl-8">
 				<div class="info_text text-center">
 					<h3>For Any Information Call Us</h3>
-					<p>Esteem spirit temper too say adieus who direct esteem.</p>
+          <p>&nbsp;</p>
+					<!-- <p>Esteem spirit temper too say adieus who direct esteem.</p> -->
 					<a class="boxed-btn3" href="#">+10 673 763 6786</a>
 				</div>
 			</div>
@@ -17,7 +18,7 @@
 
 
 <!-- footer start -->
-    <footer class="footer">
+    <%-- <footer class="footer">
         <div class="footer_top">
             <div class="container">
                 <div class="row">
@@ -97,7 +98,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --%>
+        <footer class="footer">
         <div class="copy-right_text">
             <div class="container">
                 <div class="footer_border"></div>
