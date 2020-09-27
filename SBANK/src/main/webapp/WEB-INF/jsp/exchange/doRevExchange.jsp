@@ -882,7 +882,9 @@ $(document).ready(function () {
     color: #245269;
     cursor: pointer;
 }
-
+th {
+  background-color: #f4f8f9;
+}
 </style>
 
 
@@ -911,15 +913,15 @@ $(document).ready(function () {
         <div class="stepwizard-row setup-panel">
             <div class="stepwizard-step">
                 <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
-                <p>환전신청내역</p>
+                <p><h1>환전신청내역</h1></p>
             </div>
             <div class="stepwizard-step">
                 <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
-                <p>출금정보</p>
+                <p><h1>출금정보</h1></h1></p>
             </div>
             <div class="stepwizard-step">
                 <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
-                <p>입금정보</p>
+                <p><h1>입금정보</h1></p>
             </div>
             
             <!-- <div class="stepwizard-step">
@@ -985,8 +987,9 @@ $(document).ready(function () {
                         
                     </div> -->
                     
-                    <h3>환전신청내역</h3>
-                    <table border="1" class="table table-bordered">
+                    <!-- <h3>환전신청내역</h3> -->
+                    <br><br>
+                    <table style="width: 90%;" class="table">
                       <tr>
                         <th>통화종류</th>
                         <td><select name="currencycode" id="currencycode" onchange="chageCurrencySelect()" class="form-control" aria-describedby="inputGroupSuccess1Status">
@@ -1027,14 +1030,14 @@ $(document).ready(function () {
                       </tr>
                     </table>
                     
-                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >다음으로</button>
+                    <button class="btn btn-outline-dark pull-right nextBtn" type="button" style="margin-right: 90px;">다음으로</button>
                 </div>
             </div>
         </div>
         <div class="row setup-content" id="step-2">
             <div class="col-xs-12">
                 <div class="col-md-12">
-                    <h3>출금정보</h3>
+                    <!-- <h3>출금정보</h3> -->
                     <!-- <div class="form-group">
                         <label class="control-label">Estatura</label>
                         <input maxlength="200" type="text" required="required" class="form-control" placeholder="Ingrese una estatura" />
@@ -1047,7 +1050,8 @@ $(document).ready(function () {
                         <label class="control-label">Tipo de sangre</label>
                         <input maxlength="200" type="text" required="required" class="form-control" placeholder="Seleccione tipo de sangre"  />
                     </div> -->
-                    <table border="1" class="table table-bordered">
+                    <br><br>
+                    <table style="width: 90%;" class="table">
                       <tr>
                         <th>출금계좌번호</th>
                         <td>
@@ -1067,14 +1071,14 @@ $(document).ready(function () {
                         </td>
                       </tr>
                     </table>
-                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >다음으로</button>
+                    <button class="btn btn-outline-dark pull-right nextBtn" type="button" >다음으로</button>
                 </div>
             </div>
         </div>
         <div class="row setup-content" id="step-3">
             <div class="col-xs-12">
                 <div class="col-md-12">
-                    <h3>입금정보</h3>
+                    <!-- <h3>입금정보</h3> -->
                     <!-- <div class="form-group">
                         <label class="control-label">Provincia</label>
                         <input maxlength="200" type="text" required="required" class="form-control" placeholder="Aquí va a haber un dropdown para proviencia" />
@@ -1083,7 +1087,8 @@ $(document).ready(function () {
                         <label class="control-label">Canton</label>
                         <input maxlength="200" type="text" required="required" class="form-control" placeholder="Aquí va a haber un dropdown para proviencia"  />
                     </div> -->
-                    <table border="1" class="table table-bordered">
+                    <br><br>
+                    <table style="width: 90%;" class="table">
                       <tr>
                         <th>입금계좌번호</th>
                         <td>
@@ -1097,7 +1102,7 @@ $(document).ready(function () {
                       </tr>
                     </table>
                     <!-- <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Siguiente</button> -->
-                    <button class="btn btn-outline-dark pull-right" id="subm" name="subm" data-toggle="modal" data-target="#myModal">환전하기</button>
+                    <button class="btn btn-outline-dark pull-right" id="subm" name="subm" data-toggle="modal" data-target="#myModal" style="margin-right: 90px;">환전하기</button>
                 </div>
             </div>
         </div>
