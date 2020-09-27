@@ -191,7 +191,11 @@ $(document).ready(function() {  //환전내역 숫자는 콤마 넣자 시작
 .centerLine{
   text-align: center;
 }
-
+th {
+  background-color: #f4f8f9;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
 </style>
 
 
@@ -223,7 +227,7 @@ $(document).ready(function() {  //환전내역 숫자는 콤마 넣자 시작
           
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
             <br>
-                  <table border="1" class="table table-bordered centerLine">
+                  <table class="table table-bordered centerLine">
                   <thead>
                     <tr>
                       <th>환전일</th>

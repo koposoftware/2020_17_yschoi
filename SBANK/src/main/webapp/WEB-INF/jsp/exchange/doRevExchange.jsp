@@ -885,9 +885,16 @@ $(document).ready(function () {
 th {
   background-color: #f4f8f9;
 }
+
+.table th {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+.styleee {
+  font-size: 15px !important;
+  font-weight: 400 !important;
+}
 </style>
-
-
 
 
 <section>
@@ -988,7 +995,7 @@ th {
                     </div> -->
                     
                     <!-- <h3>환전신청내역</h3> -->
-                    <br><br>
+                    <br><br><br><br>
                     <table style="width: 90%;" class="table">
                       <tr>
                         <th>통화종류</th>
@@ -1006,25 +1013,25 @@ th {
                       <tr>
                         <th>현재 고시환율(원)</th>
                         <td>
-                          <span id="rate" name="rate"></span> 
+                          <span id="rate" name="rate" class="styleee"></span> 
                           <!-- <input type="hidden" id="rateHidden" name="rateHidden" value=""> -->
                         </td>
                       </tr>
                       <tr>
                         <th>우대 적용환율(원)</th>
                         <td>
-                          <span id="commrate" name="commrate"></span> 
+                          <span id="commrate" name="commrate" class="styleee"></span> 
                           <input type="hidden" id="exchangerate" name="exchangerate" value="">
                         </td>
                       </tr>
                       <tr>
                         <th>우대율(%)</th>
-                        <td><span id="commission" name="commission"></span></td>
+                        <td><span id="commission" name="commission" class="styleee"></span></td>
                       </tr>
                       <tr>
                         <th>환전금액(원)</th>
                         <td>
-                          <span id="exchangeChargeKRW" name="exchangeChargeKRW"></span> 
+                          <span id="exchangeChargeKRW" name="exchangeChargeKRW" class="styleee"></span> 
                           <input type="hidden" id="exchangecharge" name="exchangecharge" value="" />
                         </td>
                       </tr>
@@ -1050,7 +1057,7 @@ th {
                         <label class="control-label">Tipo de sangre</label>
                         <input maxlength="200" type="text" required="required" class="form-control" placeholder="Seleccione tipo de sangre"  />
                     </div> -->
-                    <br><br>
+                    <br><br><br><br>
                     <table style="width: 90%;" class="table">
                       <tr>
                         <th>출금계좌번호</th>
@@ -1087,7 +1094,7 @@ th {
                         <label class="control-label">Canton</label>
                         <input maxlength="200" type="text" required="required" class="form-control" placeholder="Aquí va a haber un dropdown para proviencia"  />
                     </div> -->
-                    <br><br>
+                    <br><br><br><br>
                     <table style="width: 90%;" class="table">
                       <tr>
                         <th>입금계좌번호</th>

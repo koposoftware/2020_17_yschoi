@@ -118,7 +118,11 @@ $(document).ready(function() {  //보유외화 숫자는 콤마 넣자 시작
 .centerLine{
   text-align: center;
 }
-
+th {
+  background-color: #f4f8f9;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
 </style>
 
 

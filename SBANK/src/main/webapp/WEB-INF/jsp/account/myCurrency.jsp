@@ -7,7 +7,13 @@
 
 <%@ include file="/WEB-INF/jsp/include/head.jsp"%>
 
-
+<style>
+th {
+  background-color: #f4f8f9;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+</style>
 
 
 <!-- 수정할부분 시작 -->

@@ -53,7 +53,13 @@
   });
 </script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-
+<style>
+th {
+  background-color: #f4f8f9;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+</style>
 
 
 

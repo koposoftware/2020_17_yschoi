@@ -146,6 +146,16 @@
     });
   });
 </script>
+<style>
+th {
+  background-color: #f4f8f9;
+}
+
+.table th {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+</style>
 <!-- 수정할부분 시작 -->
 <section>
 
@@ -164,7 +174,7 @@
     <div class="table-wrapper">
       
         <form action="${pageContext.request.contextPath }/exchange/exchangeTransfer" method="post" >
-          <table border="1" class="table table-bordered">
+          <table style="width: 90%;" class="table">
             <tr>
               <th>통화 선택</th>
               <td>
