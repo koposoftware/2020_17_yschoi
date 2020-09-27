@@ -68,7 +68,16 @@ $(document).ready(function(){
 </script>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-
+<style>
+.table th {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+.form-control{
+  font-size: 17px !important;
+  height: calc(2.25rem + 10px) !important;
+}
+</style>
 
 
 
@@ -87,7 +96,7 @@ $(document).ready(function(){
 		<div class="table-wrapper">
 									<form:form commandName="accountVO" method="post">
 				<!-- commandName과 관련이 있는 form이다. 명시해주자 -->
-				<table border="1" style="width: 80%" class="table table-bordered">
+				<table style="width: 90%;" class="table">
 					<tr>
 						<th width="23%">아이디</th>
 						<td>

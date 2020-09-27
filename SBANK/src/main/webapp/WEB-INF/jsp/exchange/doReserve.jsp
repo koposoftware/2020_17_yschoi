@@ -192,10 +192,12 @@ $(document).ready(function() {
           if(result=='true'){
             $("#setresult").text('');
             $("#setresult").text('아래 확인 버튼을 눌러 환전예약을 진행하여주세요.');
+            $("#setresult").css("fontSize","16px");
             $("input[type=submit]").prop('disabled',false);
           } else{
             $("#setresult").text('');
             $("#setresult").text('인증코드를 확인하여주세요');
+            $("#setresult").css("fontSize","16px");
           }
 
           return false;
@@ -229,6 +231,8 @@ $(document).ready(function() {
         $(".modal-title").append("환전예약하기");
         $(".modal-body").append('선택하신 계좌의 잔액을 확인해주세요. 잔액이 부족합니다.');
         $("#exampleModal").modal("show");
+        $(".modal-body").css("fontSize","16px");
+        $(".modal-title").css("fontSize","16px");
         return false;
 
       }
@@ -263,7 +267,7 @@ $(document).ready(function() {
 
       if (afterHashIpt == realpwd) {
         
-        var strr='';
+        var strr='<span id="aaa">';
         
         
         /*$.ajax({
@@ -297,9 +301,9 @@ $(document).ready(function() {
         strr+='"><br>'; */
         <%-- strr+='<form action="<%=request.getContextPath() %>/otp/chkk" method="post">'; --%>
         strr+='  OTP 번호를 입력하여주세요.';
-        strr+='  code : <input  name="user_code" id="user_code"  type="text" ">';
+        strr+='  code : </span> <input  name="user_code" id="user_code"  type="text" ">';
         strr+='  <input name="encodedKey" type="hidden" readonly="readonly" value="a"><br><br>';
-        strr+='  <span id="setresult" name="setresult" ></span<br><br>';
+        strr+='  <span id="setresult" name="setresult" ></span><br><br>';
         /* strr+='  <input type="submit" value="전송!">'; */
         /* strr+='</form>'; */
         
@@ -308,6 +312,8 @@ $(document).ready(function() {
         $(".modal-body").append(strr);
         /* $("input[type=submit]").prop('disabled', false); */
         let aa = $("#exampleModal").modal("show");
+        $("#aaa").css("fontSize","16px");
+        $(".modal-title").css("fontSize","16px");
         return false;
         if (aa) {
           return true;
@@ -858,7 +864,10 @@ $(document).ready(function() {
 th {
   background-color: #f4f8f9;
 }
-
+.form-control{
+  font-size: 17px !important;
+  height: calc(2.25rem + 10px) !important;
+}
 
 
 
@@ -1251,7 +1260,7 @@ th {
                           </td>
                       </tr> -->
                       <tr>
-                        <th>마지막 환전일</th>
+                        <th width="20%">마지막 환전일</th>
                         <td>
                           <input type="date" id="max_date" name="max_date" class="form-control" aria-describedby="inputGroupSuccess1Status" max="2021-09-23" /><br>
                           <p>마지막  환전일까지 목표 환율에 도달하지 못하면, 마지막 환전일 22시에 자동으로 환전이 진행됩니다.</p> 
@@ -1261,7 +1270,7 @@ th {
                       <tr>
               <th>출금계좌번호</th>
               <td>
-                <select name="account_num" id="account_num" class="account_num" class="form-control" aria-describedby="inputGroupSuccess1Status" >
+                <select name="account_num" id="account_num" class="account_num form-control" class="form-control" aria-describedby="inputGroupSuccess1Status" >
                   <option value="a" selected disabled  >- 출금 계좌를 선택하세요 -</option>
                 </select>
               </td>

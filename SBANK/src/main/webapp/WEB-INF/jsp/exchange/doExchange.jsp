@@ -1023,6 +1023,10 @@ $(document).ready(function() {
 th {
   background-color: #f4f8f9;
 }
+.form-control{
+  font-size: 17px !important;
+  height: calc(2.25rem + 10px) !important;
+}
 </style>
 <section>
 <br>
@@ -1186,7 +1190,7 @@ th {
                 <tr>
                   <th>수령지점 / 소유여부</th>
                   <td>
-                    <select name="exchange_place" id="exchange_place" class="accountnum" onchange="categoryChange(this)" class="form-control" aria-describedby="inputGroupSuccess1Status" >
+                    <select name="exchange_place" id="exchange_place" class="accountnum form-control" onchange="categoryChange(this)" class="form-control" aria-describedby="inputGroupSuccess1Status" >
                       <option value="a" selected disabled  >- 수령지점 / 개인 소유 여부를 선택하세요 -</option>
                       <option value="own">개인소유</option>
                       <option value="인천국제공항">인천국제공항</option>

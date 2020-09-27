@@ -709,7 +709,8 @@ h3 {
 
 /* line 13, ../../Arafath/CL/CL October/216. Consulting/HTML/scss/_slick-nav.scss */
 .slicknav_menu .slicknav_nav {
-  background: #fff;
+  /* background: #fff; */
+  background : #001D38;
   float: right;
   margin-top: 0;
   padding: 0;
@@ -1124,7 +1125,7 @@ h3 {
   top: 160%;
   background: #001D38; /* 끄앙찾음!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
   
-  width: 220px;
+  width: 260px;
   z-index: 2;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.02);
   opacity: 0.5;

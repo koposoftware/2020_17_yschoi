@@ -155,6 +155,10 @@ th {
   font-size: 15px !important;
   font-weight: 600 !important;
 }
+.form-control{
+  font-size: 17px !important;
+  height: calc(2.25rem + 10px) !important;
+}
 </style>
 <!-- 수정할부분 시작 -->
 <section>

@@ -894,6 +894,10 @@ th {
   font-size: 15px !important;
   font-weight: 400 !important;
 }
+.form-control{
+  font-size: 17px !important;
+  height: calc(2.25rem + 10px) !important;
+}
 </style>
 
 

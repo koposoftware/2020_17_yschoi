@@ -8,10 +8,10 @@
 <%@ include file="/WEB-INF/jsp/include/head.jsp"%>
 
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script> -->
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
 <script type="text/javascript">
 /* function chageCurrencySelect(){
   var currencySelect = document.getElementById("currency");
@@ -508,6 +508,7 @@ $(document).ready(function() {
  
 </script>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <style>
 
 
@@ -656,8 +657,19 @@ $(document).ready(function() {
 }
 
 
-
-
+th {
+  background-color: #f4f8f9;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+.styleee {
+  font-size: 15px !important;
+  font-weight: 400 !important;
+}
+.form-control{
+  font-size: 17px !important;
+  height: calc(2.25rem + 10px) !important;
+}
 </style>
 
 
@@ -683,7 +695,7 @@ $(document).ready(function() {
       <div class="col-xl-12">
         <!-- <div class="section_title text-center mb-50"> -->
         <header class="section_title mb-50 major">
-          <h3>환전하기</h3>
+          <h3>비회원 환전하기</h3>
         </header>
       </div>
     </div>
@@ -748,7 +760,7 @@ $(document).ready(function() {
               <br><br>
               <!-- <h3>환전신청내역</h3> -->
               <br><br>
-              <table border="1" class="table table-bordered">
+              <table  style="width: 90%;" class="table">
                 <tr>
                   <th>통화종류</th>
                   <td><select name="currencycode" id="currencycode"
@@ -781,32 +793,33 @@ $(document).ready(function() {
                 <tr>
                   <th>현재 고시환율(원)</th>
                   <td>
-                    <span id = "rate" name = "rate"></span>
+                    <span id = "rate" name = "rate" class="styleee"></span>
                     <input type="hidden" id="rateHidden" name="rateHidden" value="" >
                   </td>
                 </tr>
                 <tr>
                   <th>우대 적용환율(원)</th>
                   <td>
-                    <span id = "commrate" name = "commrate"></span>
+                    <span id = "commrate" name = "commrate" class="styleee"></span>
                     <input type="hidden" id="exchangerate" name="exchangerate" value="" >
                   </td>
                 </tr>
                 <tr>
                   <th>우대율(%)</th>
                   <td>
-                    <span id = "commission" name = "commission"></span>
+                    <span id = "commission" name = "commission" class="styleee"></span>
                   </td>
                 </tr>
                 <tr>
                   <th>환전금액(원)</th>
                   <td>
-                    <span id = "exchangeChargeKRW" name = "exchangeChargeKRW"></span>
+                    <span id = "exchangeChargeKRW" name = "exchangeChargeKRW" class="styleee"></span>
                     <input type="hidden" id="exchangecharge" name="exchangecharge" value="" />
                   </td>
                 </tr>
               </table>
               <button class="btn btn-outline-dark pull-right nextBtn" type="button" style="margin-right: 90px;">다음으로</button>
+              <br><br><br><br>
             </div>
           </div>
         </div>
@@ -825,7 +838,7 @@ $(document).ready(function() {
                 <label class="control-label">Tipo de sangre</label> <input maxlength="200" type="text" required="required" class="form-control" placeholder="Seleccione tipo de sangre" />
               </div> -->
               <br><br>
-              <table border="1" class="table table-bordered">
+              <table  style="width: 90%;" class="table">
                 <tr>
                   <th>수령인</th>
                   <td>
@@ -850,7 +863,7 @@ $(document).ready(function() {
                   </td>
                 </tr>
               </table>
-              <button class="btn btn-outline-dark pull-right nextBtn" type="button" style="margin-right: 90px;">다음으로</button>
+              <button class="btn btn-outline-dark pull-right nextBtn" type="button" style="margin-right: 90px;">다음으로</button><br><br><br><br>
             </div>
           </div>
         </div>
@@ -866,7 +879,7 @@ $(document).ready(function() {
                 <label class="control-label">Canton</label> <input maxlength="200" type="text" required="required" class="form-control" placeholder="Aquí va a haber un dropdown para proviencia" />
               </div> -->
               <br><br>
-              <table border="1" class="table table-bordered">
+              <table  style="width: 90%;" class="table">
                 <tr>
                   <th>결제방식</th>
                   <td>
@@ -877,7 +890,7 @@ $(document).ready(function() {
                 </tr>
               </table>
               <input type="hidden" id="" name="" value="${loginVO.id}" >
-              <button class="btn btn-outline-dark pull-right" id="subm" name="subm" data-toggle="modal" data-target="#myModal" style="margin-right: 90px;" >환전하기</button>
+              <button class="btn btn-outline-dark pull-right" id="subm" name="subm" data-toggle="modal" data-target="#myModal"  style="margin-right: 90px;">환전하기</button><br><br><br><br>
               <!-- <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Siguiente</button> -->
             </div>
           </div>
