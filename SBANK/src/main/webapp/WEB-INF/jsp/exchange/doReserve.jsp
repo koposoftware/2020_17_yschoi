@@ -855,7 +855,9 @@ $(document).ready(function() {
 }
 
 
-
+th {
+  background-color: #f4f8f9;
+}
 
 
 
@@ -1033,11 +1035,11 @@ $(document).ready(function() {
         <div class="stepwizard-row setup-panel">
             <div class="stepwizard-step">
                 <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
-                <p>환전신청내역</p>
+                <p><h1>환전신청내역</h1></p>
             </div>
             <div class="stepwizard-step">
                 <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
-                <p>출금정보</p>
+                <p><h1>출금정보</h1></p>
             </div>
         </div>
     </div>
@@ -1085,9 +1087,9 @@ $(document).ready(function() {
                         
                     </div> -->
                     <br><br>
-                    <h3>환전신청내역</h3>
+                    <!-- <h3>환전신청내역</h3> -->
                     <br><br>
-                    <table border="1" class="table table-bordered">
+                    <table style="width: 90%;" class="table">
                     <tr>
                       <th colspan="2">외화 매입 예약 통화</td>
                       <td colspan="2">
@@ -1116,10 +1118,14 @@ $(document).ready(function() {
                     </tr>
                     <tr>
                       <td colspan="4">
+                        <br>
                         <strong><h3>최근 3개월 동안의 지표</h3></strong>
-                        <img id="style-img" class="centered " crossorigin="anonymous" src="" width="90%" align="center" ></img>
+                        <img id="style-img" class="centered " crossorigin="anonymous" src="" width="100%" align="center"  ></img>
                       </td>
                     </tr>
+                    </table>
+                    <br><br>
+                    <table class="table" style="width: 90%;" >
                     <tr>
                       <th width="24.5%">현재 현찰살때의 가격</th>
                       <td width="24.5%"><span id="rate" name="rate"  class="styleee"></span>
@@ -1207,7 +1213,9 @@ $(document).ready(function() {
                       </tr>
                   </table> -->
                     
-                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >다음으로</button>
+                    <button class="btn btn-outline-dark pull-right nextBtn" type="button" style="margin-right: 90px;" >다음으로</button>
+                    
+                    
                 </div>
             </div>
         </div>
@@ -1215,7 +1223,7 @@ $(document).ready(function() {
             <div class="col-xs-12">
                 <div class="col-md-12">
                 <br><br>
-                    <h3>출금정보</h3>
+                    <!-- <h3>출금정보</h3> -->
                     <!-- <div class="form-group">
                         <label class="control-label">Estatura</label>
                         <input maxlength="200" type="text" required="required" class="form-control" placeholder="Ingrese una estatura" />
@@ -1229,7 +1237,7 @@ $(document).ready(function() {
                         <input maxlength="200" type="text" required="required" class="form-control" placeholder="Seleccione tipo de sangre"  />
                     </div> -->
                     <br><br>
-                    <table border="1" class="table table-bordered">
+                    <table  class="table table-bordered" style="width: 90%">
                      <!--  <tr>
                           <td>
                                                               결제금액(원) : 
@@ -1246,7 +1254,8 @@ $(document).ready(function() {
                         <th>마지막 환전일</th>
                         <td>
                           <input type="date" id="max_date" name="max_date" class="form-control" aria-describedby="inputGroupSuccess1Status" max="2021-09-23" /><br>
-                                                           마지막  환전일까지 목표 환율에 도달하지 못하면, 마지막 환전일 22시에 자동으로 환전이 진행됩니다. 원하지 않으시면 값을 비워주세요
+                          <p>마지막  환전일까지 목표 환율에 도달하지 못하면, 마지막 환전일 22시에 자동으로 환전이 진행됩니다.</p> 
+                          <p>자동 환전을 원하지 않으시면 값을 비워주세요</p>
                         </td>
                       </tr>
                       <tr>
@@ -1265,7 +1274,7 @@ $(document).ready(function() {
                </td>
             </tr>
                   </table>
-                    <button class="btn btn-outline-dark pull-right" id="subm" name="subm" >환전하기</button>
+                    <button class="btn btn-outline-dark pull-right" id="subm" name="subm" style="margin-right: 90px;" >환전하기</button>
                     <!-- <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Siguiente</button> -->
                 </div>
             </div>
