@@ -74,12 +74,12 @@ $(document).ready(function() {
         BufferedImage qrImage = MatrixToImageWriter.toBufferedImage(qrCode);  
           
         ImageIO.write(qrImage, "PNG", new File(path, savedFileName+".png"));  
-    } */  
+    } */
 %> 
 
 
 <section>
-  <div class="container class="col-xl-12"">
+  <div class="container class="col-xl-12">
     <div class="row">
       <div class="col-xl-12">
         <!-- <div class="section_title text-center mb-50"> -->
@@ -93,7 +93,8 @@ $(document).ready(function() {
     
         당신의 키는 → ${encodedKey } 입니다. <br>
         당신의 바코드 주소는 → <a href="${url }" target="_blank"> QR코드로 확인하기 </a> 입니다. <br><br>
-   <img src="${pageContext.request.contextPath }/resources/upload/${savedFileName}">
+   <%-- <img src="${pageContext.request.contextPath }/resources/upload/${savedFileName}"> --%>
+   <img src="/${savedFileName}">
    <span id="setresult" name="setresult" ></span><br>
 
 

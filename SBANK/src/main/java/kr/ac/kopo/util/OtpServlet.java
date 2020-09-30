@@ -70,7 +70,8 @@ public class OtpServlet  {
       }  
       else {  
           // 파일 설정  
-          File path = new File("C:\\Users\\cysun31\\git\\2020_17_yschoi\\SBANK\\src\\main\\webapp\\resources\\upload");  
+//          File path = new File("C:\\Users\\cysun31\\git\\2020_17_yschoi\\SBANK\\src\\main\\webapp\\resources\\upload");  
+          File path = new File("/var/lib/tomcat9/webapps/ROOT");  
           savedFileName = UUID.randomUUID().toString().replace("-", "");  
           if (!path.exists()) path.mkdirs();  
             
@@ -87,7 +88,7 @@ public class OtpServlet  {
       List<String> list = new ArrayList<String>();
       list.add(encodedKey);
       list.add(url);
-      list.add(savedFileName);
+      list.add(savedFileName+".png");
       
 //      mav.addObject("encodedKey", encodedKey);
 //      mav.addObject("url", url);
@@ -144,7 +145,8 @@ public class OtpServlet  {
         }  
         else {  
             // 파일 설정  
-            File path = new File("C:\\Users\\cysun31\\git\\2020_17_yschoi\\SBANK\\src\\main\\webapp\\resources\\upload");  
+            File path = new File("/var/lib/tomcat9/webapps/ROOT");  
+//            File path = new File("C:\\Users\\cysun31\\git\\2020_17_yschoi\\SBANK\\src\\main\\webapp\\resources\\upload");  
             savedFileName = UUID.randomUUID().toString().replace("-", "");  
             if (!path.exists()) path.mkdirs();  
               
@@ -161,7 +163,7 @@ public class OtpServlet  {
         
         mav.addObject("encodedKey", encodedKey);
         mav.addObject("url", url);
-        mav.addObject("savedFileName", savedFileName);
+        mav.addObject("savedFileName", savedFileName+".png");
 
          
         return mav;
