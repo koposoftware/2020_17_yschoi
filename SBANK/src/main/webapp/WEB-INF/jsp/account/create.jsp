@@ -98,7 +98,7 @@ $(document).ready(function(){
 				<!-- commandName과 관련이 있는 form이다. 명시해주자 -->
 				<table style="width: 90%;" class="table">
 					<tr>
-						<th width="23%">아이디</th>
+						<th>아이디</th>
 						<td>
 							<%-- <form:input path="id"/>   --%> ${loginVO.id } <form:hidden
 								path="id" value="${loginVO.id }" />
@@ -113,19 +113,19 @@ $(document).ready(function(){
 					 </td>
 					</tr>
 					<tr>
-						<th width="23%">비밀번호</th>
+						<th>비밀번호</th>
 						<td><form:input type="password" path="bank_name" class="form-control" aria-describedby="inputGroupSuccess1Status" /> <form:errors
 								path="bank_name" cssStyle="color :red;" /></td>
 					</tr>
 					<tr>
-						<th width="23%">첫입금액</th>
+						<th>첫입금액</th>
 						<td>
               <form:input path="balance" class="form-control" aria-describedby="inputGroupSuccess1Status" /> <form:errors path="balance" cssStyle="color :red;" /> 
               <span id="alarm2" name="alarm2" ></span>
             </td>
 					</tr>
 					<tr>
-						<th width="23%">계좌별칭</th>
+						<th>계좌별칭</th>
 						<td><form:input path="nick_name" class="form-control" aria-describedby="inputGroupSuccess1Status" /> <form:errors
 								path="nick_name" cssStyle="color :red;" /></td>
 					</tr>
