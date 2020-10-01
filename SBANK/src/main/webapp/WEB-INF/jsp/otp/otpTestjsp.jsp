@@ -34,10 +34,12 @@ $(document).ready(function() {
           if(result=='true'){
             $("#setresult").text('');
             $("input[type=submit]").prop('disabled',false);
-            $("#setresult").text('인증에 성공하였습니다. 해당 OTP코드를 저장하고 싶으신 경우에는 OTP코드저장버튼을 눌려주세요.');
+            $("#setresult").text('인증에 성공하였습니다. OTP코드저장버튼을 눌려주세요.');
+            $("#setresult").css("fontSize","20px");
           } else{
             $("#setresult").text('');
             $("#setresult").text('인증코드를 확인하여주세요');
+            $("#setresult").css("fontSize","20px");
           }
 
           return false;
@@ -51,6 +53,9 @@ $(document).ready(function() {
   });// 구글 OTP인증코드 적으면 함수 끝
 });
 </script>
+<style>
+
+</style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <%  
    /*  String url = request.getParameter("url");  
@@ -91,12 +96,12 @@ $(document).ready(function() {
     
     
     
-        당신의 키는 → ${encodedKey } 입니다. <br>
-        당신의 바코드 주소는 → <a href="${url }" target="_blank"> QR코드로 확인하기 </a> 입니다. <br><br>
+        인증키 : ${encodedKey } <br>
+        당신의 바코드 주소는 → <a href="${url }" target="_blank"> QR코드로 확인하기 </a> 입니다. <br><br> 
    <%-- <img src="${pageContext.request.contextPath }/resources/upload/${savedFileName}"> --%>
    <img src="/${savedFileName}">
-   <span id="setresult" name="setresult" ></span><br>
-
+   <br>
+   <span>인증키 입력 혹은 QR코드를 인식하여 인증을 진행하여주세요.</span>
 
 <%  
     /* if (nCheck == 1) {  
@@ -108,15 +113,14 @@ $(document).ready(function() {
     }  */ 
 %> 
    
-   
-       인증코드 입력  <input id="user_code" name="user_code" type="text" class="form-control" aria-describedby="inputGroupSuccess1Status" style="width: 30%;"><br><br>
+   <br><br>
+       인증코드 입력  <input id="user_code" name="user_code" type="text" class="form-control" aria-describedby="inputGroupSuccess1Status" style="width: 30%;">
    <form action="<%=request.getContextPath() %>/otp/save" method="post">
-     
       <input name="encodedKey" id="encodedKey" type="hidden" readonly="readonly" value="${encodedKey }" ><br><br>
       <input type="submit" value="OTP코드저장" disabled="disabled" class="btn btn-outline-dark pull-right" >
-     
    </form>
    
+   <span id="setresult" name="setresult" ></span><br>
     
     
     

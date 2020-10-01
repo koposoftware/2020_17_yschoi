@@ -271,7 +271,7 @@ th {
             
             
             <!-- 모달창 시작 -->
-            <form action="${pageContext.request.contextPath }/exchange/changeInfo" method="post" id="formmm">
+            <form action="${pageContext.request.contextPath }/exchange/changeInfo2" method="post" id="formmm">
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">

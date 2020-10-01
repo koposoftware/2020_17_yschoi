@@ -714,7 +714,7 @@ th {
           </div>
           <div class="stepwizard-step">
             <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
-            <p><h1>출금정보</h1></p>
+            <p><h1>결제하기</h1></p>
           </div>
          
           
@@ -878,19 +878,22 @@ th {
               <div class="form-group">
                 <label class="control-label">Canton</label> <input maxlength="200" type="text" required="required" class="form-control" placeholder="Aquí va a haber un dropdown para proviencia" />
               </div> -->
-              <br><br>
+              <br><br><br><br>
               <table  style="width: 90%;" class="table">
                 <tr>
-                  <th>결제방식</th>
+                  <th>결제수단</th>
                   <td>
-                                           비회원고객은 카카오페이 결제만 가능합니다.<br>
+                                         
                       <input type="hidden" id="id" name="id" value="${loginVO.id}" >
-                      <button class="btn"><img src="${pageContext.request.contextPath }/resources/img/pay.png" /></button>
+                      <%-- <button class="btn"><img src="${pageContext.request.contextPath }/resources/img/pay.png" /></button> --%>
+                      <button class="btn"><img src="${pageContext.request.contextPath }/resources/img/pay_medium.png" /></button>
+                      <span style="font-size: 16px;">비회원고객은 카카오페이 결제만 가능합니다.</span>
                   </td>
                 </tr>
               </table>
               <input type="hidden" id="" name="" value="${loginVO.id}" >
-              <button class="btn btn-outline-dark pull-right" id="subm" name="subm" data-toggle="modal" data-target="#myModal"  style="margin-right: 90px;">환전하기</button><br><br><br><br>
+              <!-- <button class="btn btn-outline-dark pull-right" id="subm" name="subm" data-toggle="modal" data-target="#myModal"  style="margin-right: 90px;">환전하기</button> -->
+              <br><br><br><br>
               <!-- <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Siguiente</button> -->
             </div>
           </div>
