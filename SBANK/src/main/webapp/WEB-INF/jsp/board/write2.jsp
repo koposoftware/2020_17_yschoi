@@ -30,38 +30,21 @@
   }
   
   function checkExt(obj){
-    //alert('확장자 체크');
-    let allow_Name=['jpg','gif','png','jpeg'];
+    let forbidName=['exe','bat','js','class','jsp','php','sh','dll'];
     let fileName = obj.value;
     let searchIdx = fileName.lastIndexOf('.'); //인덱스 0부터 시작
     let ext = fileName.substring(searchIdx+1); // 파일의 확장자 = ext로 뽑아냄
-    //alert(ext);
     
-    if(ext == ""){
-      return false;
-    }
-    
-    var boole ="";
-    
-    for(let i = 0 ;   i < allow_Name.length  ; i++ ){
-      //alert(allow_Name[i]);
-      if(allow_Name[i] == ext){
-        boole= 'same';
-        break;
-      } else{
-        boole= 'notsame';
+    for(let i = 0 ; i <forbidName.length; i++ ){
+      
+      if(forbidName[i] == ext){
+        alert('['+ext+'] 확장자는 파일 업로드 정책에 위배됩니다');
+        obj.value='';
+        return true;
       }
-      //console.log(allow_Name[i]+' : '+boole);
     }
     
-    
-    if(boole =='same'){
-      return false;
-    }
-    else{
-      alert('업로드 가능한 확장자 : jpg, gif, png, jpeg');
-      return true;
-    }
+    return false;
   }
   
   
