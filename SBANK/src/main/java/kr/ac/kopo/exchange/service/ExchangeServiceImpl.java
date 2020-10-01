@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.ac.kopo.account.dao.AccountDAO;
 import kr.ac.kopo.account.vo.AccountVO;
@@ -72,10 +73,18 @@ public class ExchangeServiceImpl implements ExchangeService {
 		
 		return currencyVO;
 	}
+	
+	
+	
+	
+	
+	
+	
 
 	/**
 	 * 환전하기 기능
 	 */
+	@Transactional
 	@Override
   public void doExchange(ExchangeVO exchangeVO) {
     
@@ -190,6 +199,7 @@ public class ExchangeServiceImpl implements ExchangeService {
   /**
    * 외화 선물하기
    */
+  @Transactional
   @Override
   public void exchangeTransfer(PresentVO presentVO) {
     
@@ -212,9 +222,12 @@ public class ExchangeServiceImpl implements ExchangeService {
     return hashpwd;
   }
 
+  
+  
   /**
    * 원화를 재환전하기
    */
+  @Transactional
   @Override
   public void doRevExchange(RevExchangeVO revExchangeVO) {
     PresentVO presentVO = new PresentVO();
