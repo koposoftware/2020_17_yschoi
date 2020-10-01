@@ -164,15 +164,9 @@
                  <input type="button" value="삭제" onclick="doAction('D')" class="btn btn-outline-dark">&nbsp;&nbsp; 
                  <input type="button" value="목록" onclick="doAction('L')" class="btn btn-outline-dark">&nbsp;&nbsp; 
             <br><br>
-            <hr>
+            
             <br><br>
-            <form name="rform">
-                               이름 : <input type="text" name="writer" size="10" class="btn btn-outline-dark">
-                              댓글 : <input type="text" name="content" size="50" class="btn btn-outline-dark"> 
-                       &nbsp;&nbsp;&nbsp; 
-              <input type="button" value="댓글추가" id="replyAddBtn" class="btn btn-outline-dark">
-            </form>
-            <div id="replyList"></div>
+            
     </div>
     
     

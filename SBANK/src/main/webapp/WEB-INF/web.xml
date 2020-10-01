@@ -54,7 +54,7 @@
   </filter>
   <filter-mapping>
     <filter-name>xssEscapeServletFilter</filter-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/*</url-pattern> <!-- 모든 주소에 적용 -->
     <!-- <url-pattern>/**</url-pattern>
     <url-pattern>/account/**</url-pattern>
     <url-pattern>/exchange/**</url-pattern>
