@@ -54,8 +54,13 @@
   </filter>
   <filter-mapping>
     <filter-name>xssEscapeServletFilter</filter-name>
-    <url-pattern>/board/**</url-pattern>
-    <url-pattern>/**</url-pattern>
+    <url-pattern>/*</url-pattern>
+    <!-- <url-pattern>/**</url-pattern>
+    <url-pattern>/account/**</url-pattern>
+    <url-pattern>/exchange/**</url-pattern>
+    <url-pattern>/member/**</url-pattern>
+    <url-pattern>/reply/**</url-pattern>
+    <url-pattern>/board/**</url-pattern> -->
   </filter-mapping>
 
 

@@ -31,6 +31,7 @@ import kr.ac.kopo.exchange.vo.ExchangeVO;
 import kr.ac.kopo.exchange.vo.ReserveVO;
 import kr.ac.kopo.exchange.vo.RevExchangeVO;
 import kr.ac.kopo.member.service.MemberService;
+import kr.ac.kopo.util.HTMLInputFilter;
 
 @Controller
 public class BoardController {
@@ -146,6 +147,16 @@ public class BoardController {
 	  
 	  int seq =boardService.selectBoardSeq();//board시퀀스 가져오기 
 	  boardVO.setNo(seq); //boardVO에 위에서 가져온 시퀀스 set
+	  System.out.println("======================필터링 전=========================");
+	  System.out.println(boardVO);
+	  System.out.println("======================필터링 후=========================");
+	  boardVO.setContent(new HTMLInputFilter().filter( boardVO.getContent() ));
+	  boardVO.setTitle(new HTMLInputFilter().filter( boardVO.getTitle() ));
+	  boardVO.setWriter(new HTMLInputFilter().filter( boardVO.getWriter() ));
+	  boardVO.setStart_date(new HTMLInputFilter().filter( boardVO.getStart_date() ));
+	  boardVO.setEnd_date(new HTMLInputFilter().filter( boardVO.getEnd_date() ));
+	  System.out.println(boardVO);
+	  
 	  boardService.insertPost(boardVO);
 	  
 	  

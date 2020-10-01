@@ -40,5 +40,6 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/commons-codec-1.9.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/core.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/javase.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/junit-3.8.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
