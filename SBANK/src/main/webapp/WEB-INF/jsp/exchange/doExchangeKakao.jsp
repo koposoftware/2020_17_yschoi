@@ -7,11 +7,9 @@
 
 <%@ include file="/WEB-INF/jsp/include/head.jsp"%>
 
-<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
-<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script> -->
-<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="//cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
 <script type="text/javascript">
 /* function chageCurrencySelect(){
   var currencySelect = document.getElementById("currency");
@@ -508,7 +506,7 @@ $(document).ready(function() {
  
 </script>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <style>
 
 

@@ -95,13 +95,13 @@ $(document).ready(function() {
     </div>
     
     
+   <span style="font-size: 20px;">인증키 입력 혹은 QR코드를 인식하여 인증을 진행하여주세요.</span><br><br>
     
         인증키 : ${encodedKey } <br>
-        당신의 바코드 주소는 → <a href="${url }" target="_blank"> QR코드로 확인하기 </a> 입니다. <br><br> 
+       <%--  당신의 바코드 주소는 → <a href="${url }" target="_blank"> QR코드로 확인하기 </a> 입니다. <br><br>  --%>
    <%-- <img src="${pageContext.request.contextPath }/resources/upload/${savedFileName}"> --%>
-   <img src="/${savedFileName}">
+   <img src="${url}">
    <br>
-   <span>인증키 입력 혹은 QR코드를 인식하여 인증을 진행하여주세요.</span>
 
 <%  
     /* if (nCheck == 1) {  
