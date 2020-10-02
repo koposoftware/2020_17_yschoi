@@ -120,23 +120,28 @@
   </update>
   
   <!-- 최근 7일동안 환전 수 구하기 -->
+  <!-- <select id="exchangeCntSeven" resultType="exchangeVO">
+    select count(*) as exchangeNo,to_char(REG_DATE, 'YYYY-MM-DD') as REG_DATE 
+    from S_EXCHANGE WHERE REG_DATE >= TO_CHAR(SYSDATE-6,'YYYY-MM-DD') group by to_char(REG_DATE, 'YYYY-MM-DD') 
+    order by REG_DATE
+  </select> -->
   <select id="exchangeCntSeven" resultType="exchangeVO">
-    select count(*) as exchangeNo,to_char(REG_DATE, 'yyyy-mm-dd') as REG_DATE 
-    from S_EXCHANGE WHERE REG_DATE >= TO_CHAR(SYSDATE-6,'YYYYMMDD') group by to_char(REG_DATE, 'yyyy-mm-dd') 
+    select count(*) as exchangeNo,to_char(REG_DATE, 'YYYY-MM-DD') as REG_DATE 
+    from S_EXCHANGE WHERE to_char(REG_DATE, 'YYYY-MM-DD') >= TO_CHAR(SYSDATE-6,'YYYY-MM-DD') group by to_char(REG_DATE, 'YYYY-MM-DD') 
     order by REG_DATE
   </select>
   
   <!-- 최근 7일동안 환전 예약 수 구하기 -->
   <select id="reserveCntSeven" resultType="reserveVO">
-    select count(*) as reserveno,to_char(REG_DATE, 'yyyy-mm-dd') as REG_DATE 
-    from S_RESERVATION WHERE REG_DATE >= TO_CHAR(SYSDATE-6,'YYYYMMDD') group by to_char(REG_DATE, 'yyyy-mm-dd') 
+    select count(*) as reserveno,to_char(REG_DATE, 'YYYY-MM-DD') as REG_DATE 
+    from S_RESERVATION WHERE to_char(REG_DATE, 'YYYY-MM-DD') >= TO_CHAR(SYSDATE-6,'YYYY-MM-DD') group by to_char(REG_DATE, 'YYYY-MM-DD') 
     order by REG_DATE
   </select>
   
  <!--  최근 7일동안 재환전 수 구하기 -->
   <select id="revExchangeCntSeven" resultType="revExchangeVO">
     select count(*) as exchangeNo,to_char(REG_DATE, 'yyyy-mm-dd') as REG_DATE 
-    from S_REVEXCHANGE WHERE REG_DATE >= TO_CHAR(SYSDATE-6,'YYYYMMDD') group by to_char(REG_DATE, 'yyyy-mm-dd') 
+    from S_REVEXCHANGE WHERE to_char(REG_DATE, 'yyyy-mm-dd') >= TO_CHAR(SYSDATE-6,'yyyy-mm-dd') group by to_char(REG_DATE, 'yyyy-mm-dd') 
     order by REG_DATE
   </select>
   
