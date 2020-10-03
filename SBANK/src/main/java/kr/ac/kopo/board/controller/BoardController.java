@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.ac.kopo.board.service.BoardService;
 import kr.ac.kopo.board.vo.BoardFileVO;
 import kr.ac.kopo.board.vo.BoardVO;
+import kr.ac.kopo.board.vo.ControlVO;
 import kr.ac.kopo.exchange.service.ExchangeService;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
 import kr.ac.kopo.exchange.vo.ExchangeVO;
@@ -306,6 +307,7 @@ public class BoardController {
 	  
 //	  System.out.println("a");
 	  
+	  List<ControlVO> ControlList = boardService.getControlList();
 	  List<ExchangeVO> exchangeCntSeven = exchangeService.exchangeCntSeven();
 	  List<ReserveVO> reserveCntSeven = exchangeService.reserveCntSeven();
 	  List<RevExchangeVO> revExchangeCntSeven = exchangeService.revExchangeCntSeven();
@@ -315,8 +317,10 @@ public class BoardController {
 	  int normalCntOne = memberService.normalCntOne();
 	  int kakaoCntOne = memberService.kakaoCntOne();
 	  String currency = exchangeService.currencyCodeCntOne();
+	  
 	
 	  ModelAndView mav = new ModelAndView("board/dashBoard");
+	  mav.addObject("ControlList", ControlList);
 	  mav.addObject("exchangeCntSeven",exchangeCntSeven );
 	  mav.addObject("reserveCntSeven",reserveCntSeven );
 	  mav.addObject("revExchangeCntSeven",revExchangeCntSeven );

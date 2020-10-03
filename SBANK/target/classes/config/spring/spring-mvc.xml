@@ -74,8 +74,8 @@
     <property name="maxUploadSize" value="10485760"/>
   </bean>
   <bean id="uploadPath" class="java.lang.String">
-     <constructor-arg value="C:\Users\cysun31\git\2020_17_yschoi\SBANK\src\main\webapp\resources\upload"  />
-     <!-- <constructor-arg value="/var/lib/tomcat9/webapps/ROOT"  /> -->
+     <!-- <constructor-arg value="C:\Users\cysun31\git\2020_17_yschoi\SBANK\src\main\webapp\resources\upload"  /> -->
+     <constructor-arg value="/var/lib/tomcat9/webapps/ROOT"  />
   </bean>
   
     <!-- 

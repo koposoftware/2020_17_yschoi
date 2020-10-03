@@ -539,13 +539,13 @@ public class ExchangeController {
   
   
   
-  
+  /*
   @ExceptionHandler(Exception.class)
   public String handleNotFoundException5() {
     System.out.println("exchange  모든 에러????????"); ///////이거 먹음
     return "error/404";
   }
-  
+  */
   
   
   

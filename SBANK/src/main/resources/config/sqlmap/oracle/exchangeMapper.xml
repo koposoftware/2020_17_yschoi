@@ -41,13 +41,13 @@
 	<insert id="doExchange" parameterType="exchangeVO">
 		insert into S_EXCHANGE(exchangeNo,id,currencycode,exchangeprice,exchangerate,exchangecharge,name,exchange_date,exchange_place,account_num)  
 		values(seq_S_EXCHANGE_no.nextval,#{id},#{currencycode},#{exchangeprice},#{exchangerate},#{exchangecharge},
-				#{name},#{exchange_date},#{exchange_place},#{account_num} )
+				#{name},TO_DATE(#{exchange_date},'YYYY-MM-DD'),#{exchange_place},#{account_num} )
 	</insert>
   
   <!-- 환전예약하기 기능 -->
   <insert id="doReserve" parameterType="reserveVO">
     insert into S_RESERVATION(reserveno,id,account_num,currencycode,exchangeprice,exchangerate,exchangecharge,max_date) 
-      values(seq_S_RESERVATION_no.nextval,#{id},#{account_num},#{currencycode},#{exchangeprice},#{exchangerate},#{exchangecharge},#{max_date} )
+      values(seq_S_RESERVATION_no.nextval,#{id},#{account_num},#{currencycode},#{exchangeprice},#{exchangerate},#{exchangecharge},TO_DATE(#{max_date},'YYYY-MM-DD') )
   </insert>
   <insert id="doReserve2" parameterType="reserveVO">
     insert into S_RESERVATION(reserveno,id,account_num,currencycode,exchangeprice,exchangerate,exchangecharge) 
@@ -58,7 +58,7 @@
   <insert id="doKakaoExchange" parameterType="exchangeVO">
     insert into S_EXCHANGE(exchangeNo,id,currencycode,exchangeprice,exchangerate,exchangecharge,name,exchange_date,exchange_place,account_num)  
     values(seq_S_EXCHANGE_no.nextval,#{id},#{currencycode},#{exchangeprice},#{exchangerate},#{exchangecharge},
-        #{name},#{exchange_date},#{exchange_place},#{account_num} )
+        #{name},TO_DATE(#{exchange_date},'YYYY-MM-DD'),#{exchange_place},#{account_num} )
   </insert>
   
   <!-- 환전내역조회 -->
@@ -115,7 +115,7 @@
   
   <!-- 환전내역에서 수령일 수령일 수령지점 수정하기 -->
   <update id="changeInfo" parameterType="exchangeVO">
-    update s_exchange set name=#{name}, exchange_date=#{exchange_date}, exchange_place=#{exchange_place} 
+    update s_exchange set name=#{name}, exchange_date=TO_DATE(#{exchange_date},'YYYY-MM-DD'), exchange_place=#{exchange_place} 
     where exchangeNo=#{exchangeNo} 
   </update>
   

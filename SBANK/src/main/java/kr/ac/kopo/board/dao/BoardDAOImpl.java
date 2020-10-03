@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.board.vo.BoardFileVO;
 import kr.ac.kopo.board.vo.BoardVO;
+import kr.ac.kopo.board.vo.ControlVO;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
 
 
@@ -113,6 +114,24 @@ public class BoardDAOImpl implements BoardDAO {
     
     sqlSession.update("board.dao.BoardDAO.changeStatus", boardNo);
   }
+  
+  
+  
+  /**
+   * dashboard에서 ip 차단 리스트
+   * @return
+   */
+  @Override
+  public List<ControlVO> getControlList() {
+
+    List<ControlVO> ControlList = sqlSession.selectList("board.dao.BoardDAO.getControlList");
+    return ControlList;
+  }
+  
+  
+  
+  
+  
 	
 	
 	

@@ -6,6 +6,7 @@ import java.util.List;
 
 import kr.ac.kopo.board.vo.BoardFileVO;
 import kr.ac.kopo.board.vo.BoardVO;
+import kr.ac.kopo.board.vo.ControlVO;
 import kr.ac.kopo.exchange.vo.CurrencyVO;
 
 public interface BoardService {
@@ -69,6 +70,13 @@ public interface BoardService {
 	 * @param boardNo
 	 */
 	public void changeStatus(int boardNo);
+	
+	
+	/**
+	 * dashboard에서 ip 차단 리스트
+	 * @return
+	 */
+	public List<ControlVO> getControlList();
 	
 	
 	

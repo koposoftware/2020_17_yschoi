@@ -46,7 +46,7 @@
 	
 	<insert id="insert" parameterType="boardVO">
       	insert into s_board(no, title, writer, content,start_date,end_date) 
-      	values(#{no}, #{title}, #{writer}, #{content}, #{start_date}  ,#{end_date})
+      	values(#{no}, #{title}, #{writer}, #{content}, TO_DATE(#{start_date},'YYYY-MM-DD')  ,TO_DATE(#{end_date},'YYYY-MM-DD'))
     </insert>
     
     
@@ -85,12 +85,21 @@
 	   where CURRENCY = #{currency}
 	</update>
 	
+	<!-- 공지 토글인가...? 기억이... -->
 	<update id="changeStatus" parameterType="int">
 	   update s_board set reply_cnt= case 
         when reply_cnt=1 then 0 
         when reply_cnt=0 then 1
         end where no =#{boardNo}
 	</update>
+	
+	
+	<select id="getControlList" resultType="controlVO">
+	   select controlno,ip,pattern,to_char(reg_date,'yyyy-mm-dd') as reg_date,is_lift from S_CONTROL order by controlno desc
+	</select>
+	
+	
+	
 	
 	
 </mapper>

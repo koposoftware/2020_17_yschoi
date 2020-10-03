@@ -81,7 +81,7 @@ public class OtpServlet  {
             
           BufferedImage qrImage = MatrixToImageWriter.toBufferedImage(qrCode);  
             
-          ImageIO.write(qrImage, "PNG", new File(path, savedFileName+".png"));  
+//          ImageIO.write(qrImage, "PNG", new File(path, savedFileName+".png"));  
           System.out.println("savedFileName : qr  : "+savedFileName);
       }  
        
@@ -156,7 +156,7 @@ public class OtpServlet  {
               
             BufferedImage qrImage = MatrixToImageWriter.toBufferedImage(qrCode);  
               
-            ImageIO.write(qrImage, "PNG", new File(path, savedFileName+".png"));  
+//            ImageIO.write(qrImage, "PNG", new File(path, savedFileName+".png"));  
             System.out.println("savedFileName : qr  : "+savedFileName);
         }  
          
