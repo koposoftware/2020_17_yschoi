@@ -887,15 +887,15 @@ th {
 }
 
 .table th {
-  font-size: 15px !important;
+  font-size: 18px !important;
   font-weight: 600 !important;
 }
 .styleee {
-  font-size: 15px !important;
+  font-size: 18px !important;
   font-weight: 400 !important;
 }
 .form-control{
-  font-size: 17px !important;
+  font-size: 18px !important;
   height: calc(2.25rem + 10px) !important;
 }
 </style>

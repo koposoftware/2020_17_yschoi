@@ -192,12 +192,12 @@ $(document).ready(function() {
           if(result=='true'){
             $("#setresult").text('');
             $("#setresult").text('아래 확인 버튼을 눌러 환전예약을 진행하여주세요.');
-            $("#setresult").css("fontSize","16px");
+            $("#setresult").css("fontSize","20px");
             $("input[type=submit]").prop('disabled',false);
           } else{
             $("#setresult").text('');
             $("#setresult").text('인증코드를 확인하여주세요');
-            $("#setresult").css("fontSize","16px");
+            $("#setresult").css("fontSize","20px");
           }
 
           return false;
@@ -231,8 +231,8 @@ $(document).ready(function() {
         $(".modal-title").append("환전예약하기");
         $(".modal-body").append('선택하신 계좌의 잔액을 확인해주세요. 잔액이 부족합니다.');
         $("#exampleModal").modal("show");
-        $(".modal-body").css("fontSize","16px");
-        $(".modal-title").css("fontSize","16px");
+        $(".modal-body").css("fontSize","20px");
+        $(".modal-title").css("fontSize","20px");
         return false;
 
       }
@@ -289,7 +289,7 @@ $(document).ready(function() {
         
         
         
-        strr+='환전예약을 원하시면 Google OTP로 본인인증을 진행하여주세요.<br><br>';
+        strr+='환전예약을 원하시면 Google OTP로 <br>본인인증을 진행하여주세요.<br><br>';
         /*strr+='인증키는 ';
         strr+=list[0];
         strr+='입니다.<br>';
@@ -300,7 +300,7 @@ $(document).ready(function() {
         strr+=list[2];
         strr+='"><br>'; */
         <%-- strr+='<form action="<%=request.getContextPath() %>/otp/chkk" method="post">'; --%>
-        strr+='  OTP 번호를 입력하여주세요.';
+        strr+='  OTP 번호를 입력하여주세요.<br>';
         strr+='  code : </span> <input  name="user_code" id="user_code"  type="text" ">';
         strr+='  <input name="encodedKey" type="hidden" readonly="readonly" value="a"><br><br>';
         strr+='  <span id="setresult" name="setresult" ></span><br><br>';
@@ -312,8 +312,8 @@ $(document).ready(function() {
         $(".modal-body").append(strr);
         /* $("input[type=submit]").prop('disabled', false); */
         let aa = $("#exampleModal").modal("show");
-        $("#aaa").css("fontSize","16px");
-        $(".modal-title").css("fontSize","16px");
+        $("#aaa").css("fontSize","20px");
+        $(".modal-title").css("fontSize","20px");
         return false;
         if (aa) {
           return true;
@@ -1013,11 +1013,11 @@ th {
     cursor: pointer;
 }
 .table th {
-  font-size: 15px !important;
+  font-size: 18px !important;
   font-weight: 600 !important;
 }
 .styleee {
-  font-size: 15px !important;
+  font-size: 18px !important;
   font-weight: 400 !important;
 }
 

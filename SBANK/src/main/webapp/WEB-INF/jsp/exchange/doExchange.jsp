@@ -1011,11 +1011,11 @@ $(document).ready(function() {
     cursor: pointer;
 }
 .table th {
-  font-size: 15px !important;
+  font-size: 18px !important;
   font-weight: 600 !important;
 }
 .styleee {
-  font-size: 15px !important;
+  font-size: 18px !important;
   font-weight: 400 !important;
 }
 

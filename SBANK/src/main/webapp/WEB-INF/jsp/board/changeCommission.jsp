@@ -71,8 +71,14 @@
 </script>
 <style>
 .card{
-  width: 180px !important ;
-  height: 220px !important ;
+  width: 185px !important ;
+  height: 233px !important ;
+}
+.card-header{
+  font-size: 20px !important ;
+}
+.card-body{
+  font-size: 17px !important ; 
 }
 </style>
 

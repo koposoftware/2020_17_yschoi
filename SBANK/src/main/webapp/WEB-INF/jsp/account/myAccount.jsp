@@ -89,7 +89,7 @@ $(document).ready(function() {  //보유외화 숫자는 콤마 넣자 시작
   background-color: transparent;
   border-color: transparent transparent #f3f3f3;
   border-bottom: 3px solid !important;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
 }
 .project-tab .nav-link {
@@ -97,7 +97,7 @@ $(document).ready(function() {  //보유외화 숫자는 콤마 넣자 시작
     border-top-left-radius: .25rem;
     border-top-right-radius: .25rem;
     color: #0062cc;
-    font-size: 16px;
+    font-size: 19px;
     font-weight: 600;
 }
 .project-tab .nav-link:hover {
@@ -118,10 +118,14 @@ $(document).ready(function() {  //보유외화 숫자는 콤마 넣자 시작
 .centerLine{
   text-align: center;
 }
-th {
+th{
   background-color: #f4f8f9;
-  font-size: 15px !important;
+  font-size: 19px !important;
   font-weight: 600 !important;
+}
+td{
+  font-size: 17px !important;
+  font-weight: 400 !important;
 }
 </style>
 

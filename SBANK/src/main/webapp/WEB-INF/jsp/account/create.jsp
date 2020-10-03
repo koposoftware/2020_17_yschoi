@@ -70,11 +70,11 @@ $(document).ready(function(){
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <style>
 .table th {
-  font-size: 15px !important;
+  font-size: 18px !important;
   font-weight: 600 !important;
 }
 .form-control{
-  font-size: 17px !important;
+  font-size: 18px !important;
   height: calc(2.25rem + 10px) !important;
 }
 </style>
