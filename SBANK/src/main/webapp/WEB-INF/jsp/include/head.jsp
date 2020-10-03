@@ -5,7 +5,7 @@
 <html class="no-js" lang="zxx">
 
 <head>
-<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title>SBANK</title>

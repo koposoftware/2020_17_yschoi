@@ -7,7 +7,7 @@
 
 <%@ include file="/WEB-INF/jsp/include/head.jsp"%>
 
-<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>

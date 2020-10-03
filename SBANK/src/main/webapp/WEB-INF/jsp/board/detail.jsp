@@ -7,7 +7,7 @@
 
 <%@ include file="/WEB-INF/jsp/include/head.jsp"%>
 
-<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
   function getReplyList() {
     // 해당게시물의 댓글리스트 조회 => <div id="replyList"></div> 조회데이터 업데이트

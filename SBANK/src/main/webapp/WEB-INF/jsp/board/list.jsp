@@ -6,7 +6,7 @@
 
 
 <%@ include file="/WEB-INF/jsp/include/head.jsp"%>
-<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <script type="text/javascript">
   function goWriteForm() {
