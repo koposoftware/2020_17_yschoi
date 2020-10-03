@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <table style="width: 50%" class="">
                     <tr>
                         <th>ID</th>
-                        <td><input type="text" name="id" class="form-control" aria-describedby="inputGroupSuccess1Status"></td>
+                        <td><input type="text" autocomplete=off name="id" class="form-control" aria-describedby="inputGroupSuccess1Status"></td>
                     </tr>
                     <tr>
                         <th><br>PASSWORD</th>
