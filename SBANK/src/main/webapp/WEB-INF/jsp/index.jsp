@@ -79,12 +79,12 @@ $(document).ready(function(){
               <!-- Wrapper for slides -->
               <div class="carousel-inner" role="listbox" style="width: 100%;">
                 <div class="item active">
-                  <img src="${pageContext.request.contextPath }/resources/upload/mainmain.png" alt="..." width="1920px">
+                  <img src="/mainmain.png" alt="..." width="1920px">
                   <div class="carousel-caption">...</div>
                 </div>
                 <c:forEach items="${nameList}" var="name" varStatus="loop">
                   <div class="item">
-                    <img src="${pageContext.request.contextPath }/resources/upload/${name.fileSaveName}" alt="로고사진쓰" width="100%" >
+                    <img src="/${name.fileSaveName}" alt="NOTICE 사진" width="100%" >
                     <div class="carousel-caption"><%-- ${name.fileSaveName} --%></div>
                   </div>
                 </c:forEach>
