@@ -301,7 +301,7 @@ $(document).ready(function() {
         strr+='"><br>'; */
         <%-- strr+='<form action="<%=request.getContextPath() %>/otp/chkk" method="post">'; --%>
         strr+='  OTP 번호를 입력하여주세요.<br>';
-        strr+='  code : </span> <input  name="user_code" id="user_code"  type="text" ">';
+        strr+='  code : </span> <input  name="user_code" id="user_code" autocomplete=off  type="text" ">';
         strr+='  <input name="encodedKey" type="hidden" readonly="readonly" value="a"><br><br>';
         strr+='  <span id="setresult" name="setresult" ></span><br><br>';
         /* strr+='  <input type="submit" value="전송!">'; */
@@ -1148,7 +1148,7 @@ th {
                     </tr>
                     <tr>
                       <th>매입 예약 환율</th>
-                      <td><input type="text" id="reserverate" name="reserverate" onkeyup="keyevent(this);" placeholder ="목표환율을 입력하세요" class="form-control" aria-describedby="inputGroupSuccess1Status" ></td>
+                      <td><input type="text" autocomplete=off id="reserverate" name="reserverate" onkeyup="keyevent(this);" placeholder ="목표환율을 입력하세요" class="form-control" aria-describedby="inputGroupSuccess1Status" ></td>
                       <th>우대 적용 환율</th>
                       <td><span id = "commrate" name = "commrate"  class="styleee"></span>
                              <input type="hidden" id="exchangerate" name="exchangerate" value="" >
@@ -1156,7 +1156,7 @@ th {
                     </tr>
                     <tr>
                       <th>외화 매입 예약 금액</th>
-                      <td><input type="text" id="exchangeprice" name="exchangeprice" onkeyup="keyevent(this);" placeholder ="환전 원하는 금액을 입력하세요" class="form-control" aria-describedby="inputGroupSuccess1Status" ></td>
+                      <td><input type="text" autocomplete=off id="exchangeprice" name="exchangeprice" onkeyup="keyevent(this);" placeholder ="환전 원하는 금액을 입력하세요" class="form-control" aria-describedby="inputGroupSuccess1Status" ></td>
                       <th>원화 출금 예정 금액</th>
                       <td><span id="exchangeChargeKRW" name="exchangeChargeKRW"  class="styleee"></span> 
                             <input type="hidden" id="exchangecharge" name="exchangecharge" value="" />

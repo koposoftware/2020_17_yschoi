@@ -786,7 +786,7 @@ th {
                 </tr>
                 <tr>
                   <th>환전금액(외화)</th>
-                  <td><input type="text" id="exchangeprice" name="exchangeprice" onkeyup="keyevent(this);" class="form-control" aria-describedby="inputGroupSuccess1Status" /></td>
+                  <td><input type="text" autocomplete=off id="exchangeprice" name="exchangeprice" onkeyup="keyevent(this);" class="form-control" aria-describedby="inputGroupSuccess1Status" /></td>
                 </tr>
                 <tr>
                   <th>현재 고시환율(원)</th>
@@ -840,7 +840,7 @@ th {
                 <tr>
                   <th>수령인</th>
                   <td>
-                    <input type="text" id="name" name="name" class="form-control" aria-describedby="inputGroupSuccess1Status" />
+                    <input type="text" autocomplete=off id="name" name="name" class="form-control" aria-describedby="inputGroupSuccess1Status" />
                   </td>
                 </tr>
                 <tr>

@@ -71,7 +71,7 @@ $(document).ready(function() {
     str += '<input type="hidden" id="reg_date" name="reg_date" value="'+CurAccount_num+'" >';
     str += '<input type="hidden" id="exchangeprice" name="exchangeprice" value="'+exchangeprice+'" >';
     str += '수령인<br>';
-    str += '<input type="text" id="name" name="name" class="form-control" aria-describedby="inputGroupSuccess1Status" ><br><br>' ;
+    str += '<input type="text" autocomplete=off id="name" name="name" class="form-control" aria-describedby="inputGroupSuccess1Status" ><br><br>' ;
     str += '수령일<br>'
     str += '<input type="date" id="exchange_date" name="exchange_date" class="form-control" aria-describedby="inputGroupSuccess1Status" max="2020-12-23" ><br><br>' ;
     str += '수령지점<br>'

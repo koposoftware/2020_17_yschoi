@@ -114,7 +114,7 @@ $(document).ready(function() {
 %> 
    
    <br><br>
-       인증코드 입력  <input id="user_code" name="user_code" type="text" class="form-control" aria-describedby="inputGroupSuccess1Status" style="width: 30%;">
+       인증코드 입력  <input id="user_code" name="user_code" type="text" autocomplete=off class="form-control" aria-describedby="inputGroupSuccess1Status" style="width: 30%;">
    <form action="<%=request.getContextPath() %>/otp/save" method="post">
       <input name="encodedKey" id="encodedKey" type="hidden" readonly="readonly" value="${encodedKey }" ><br><br>
       <input type="submit" value="OTP코드저장" disabled="disabled" class="btn btn-outline-dark pull-right" >
