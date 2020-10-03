@@ -6,10 +6,11 @@
 		<div class="row justify-content-center align-items-center">
 			<div class="col-xl-8">
 				<div class="info_text text-center">
-					<h3>For Any Information Call Us</h3>
+          <br><br><br>
+					<h3>Thank You For Visiting SBANK</h3>
           <p>&nbsp;</p>
 					<!-- <p>Esteem spirit temper too say adieus who direct esteem.</p> -->
-					<a class="boxed-btn3" href="#">+10 673 763 6786</a>
+					<!-- <a class="boxed-btn3" href="#">+10 673 763 6786</a> -->
 				</div>
 			</div>
 		</div>
@@ -99,22 +100,22 @@
                 </div>
             </div>
         </div> --%>
-        <footer class="footer">
+        <!-- <footer class="footer">
         <div class="copy-right_text">
             <div class="container">
                 <div class="footer_border"></div>
                 <div class="row">
                     <div class="col-xl-12">
                         <p class="copy_right text-center">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> -->
     <!--/ footer end  -->
 
     <!-- link that opens popup -->
