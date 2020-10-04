@@ -79,11 +79,9 @@ th {
 
     
     <div class="table-wrapper">
-      <c:if test="${ loginVO.type == 'M' }">
+      <%-- <c:if test="${ loginVO.type == 'M' }">
                 <button class="btn btn-outline-dark" onclick="goWriteForm()">공지 등록</button><br><br>
-                <!--인라인 방식의 이벤트 처리-->
-                <!--  button 등으로 이벤트 넣으려면 js나 jquery 필요!! -->
-      </c:if>
+      </c:if> --%>
     
     
     
@@ -99,9 +97,9 @@ th {
                     <th width="9%">공지여부</th>
                     <th width="16%">활성화토글버튼</th>
                 </tr>
-                <c:forEach items="${ boardList }" var="board">
+                <c:forEach items="${ boardList }" var="board" varStatus="loop">
                   <tr>
-                    <td>${board.no}</td>
+                    <td>${loop.count}</td>
                     <c:choose>
                       <c:when test="${ not empty resultVO  }">
                         <td>

@@ -172,9 +172,9 @@
                       <c:if test="${loginVO.type == 'M'  }">
                         <li><a href="#">관리자<i class="ti-angle-down"></i></a>
                         <ul class="submenu">
-                          <li><a href="${pageContext.request.contextPath }/board">공지 업로드</a></li>
                           <li><a href="${pageContext.request.contextPath }/board/changeCommission">수수료 조정</a></li>
-                          <li><a href="${pageContext.request.contextPath }/board/dashBoard">통계</a></li>
+                          <li><a href="${pageContext.request.contextPath }/board/dashBoard">Dashboard</a></li>
+                          <li><a href="${pageContext.request.contextPath }/board">공지 업로드</a></li>
                         </ul></li>
                       </c:if>
                       

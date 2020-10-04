@@ -43,9 +43,9 @@
       $(".modal-title").append("수수료 조정하기");
       var str = '<input type="hidden" id="currency" name="currency" value="'+currency+'" >';
       str += '현찰 살 때 수수료<br>';
-      str += '<input type="text" id="commission2" name="commission2" min="0" max="100" step="5" class="form-control" aria-describedby="inputGroupSuccess1Status" value="'+commission2+'"" >%<br><br>';
+      str += '<input type="text"  autocomplete=off  id="commission2" name="commission2" min="0" max="100" step="5" class="form-control" aria-describedby="inputGroupSuccess1Status" value="'+commission2+'"" >%<br><br>';
       str += '송금 받을 때 수수료<br>'
-      str += '<input type="text" id="commission4" name="commission4" min="0" max="100" step="5" class="form-control" aria-describedby="inputGroupSuccess1Status" value="'+commission4+'"" >%<br><br>';
+      str += '<input type="text"  autocomplete=off  id="commission4" name="commission4" min="0" max="100" step="5" class="form-control" aria-describedby="inputGroupSuccess1Status" value="'+commission4+'"" >%<br><br>';
       $(".modal-body").append(str);
       $("#exampleModal").modal("show");
     });
