@@ -155,7 +155,7 @@
                 <tr>
                     <th>첨부파일</th>
                     <td><c:if test="${ not empty file }" >
-                            <a href="/SBANK/resources/upload/${ file.fileSaveName }"> ${ file.fileOriName } </a>
+                            <a href="/${ file.fileSaveName }"> ${ file.fileOriName } </a>
                               (${ file.fileSize } bytes)<br>
                         </c:if></td>
                 </tr>

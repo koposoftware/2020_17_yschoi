@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.nhncorp.lucy.security.xss.XssPreventer;
+
 import kr.ac.kopo.board.service.BoardService;
 import kr.ac.kopo.board.vo.BoardFileVO;
 import kr.ac.kopo.board.vo.BoardVO;
@@ -151,11 +153,19 @@ public class BoardController {
 	  System.out.println("======================필터링 전=========================");
 	  System.out.println(boardVO);
 	  System.out.println("======================필터링 후=========================");
-	  boardVO.setContent(new HTMLInputFilter().filter( boardVO.getContent() ));
-	  boardVO.setTitle(new HTMLInputFilter().filter( boardVO.getTitle() ));
-	  boardVO.setWriter(new HTMLInputFilter().filter( boardVO.getWriter() ));
-	  boardVO.setStart_date(new HTMLInputFilter().filter( boardVO.getStart_date() ));
-	  boardVO.setEnd_date(new HTMLInputFilter().filter( boardVO.getEnd_date() ));
+//	  boardVO.setContent(new HTMLInputFilter().filter( boardVO.getContent() ));
+//	  boardVO.setTitle(new HTMLInputFilter().filter( boardVO.getTitle() ));
+//	  boardVO.setWriter(new HTMLInputFilter().filter( boardVO.getWriter() ));
+//	  boardVO.setStart_date(new HTMLInputFilter().filter( boardVO.getStart_date() ));
+//	  boardVO.setEnd_date(new HTMLInputFilter().filter( boardVO.getEnd_date() ));
+	  
+	  
+	  boardVO.setContent(XssPreventer.escape(boardVO.getContent()));
+	  boardVO.setTitle(XssPreventer.escape(boardVO.getTitle()));
+	  boardVO.setWriter(XssPreventer.escape(boardVO.getWriter()));
+	  boardVO.setStart_date(XssPreventer.escape(boardVO.getStart_date()));
+	  boardVO.setEnd_date(XssPreventer.escape(boardVO.getEnd_date()));
+	  
 	  System.out.println(boardVO);
 	  
 	  boardService.insertPost(boardVO);
