@@ -174,20 +174,35 @@ public class BoardController {
 	  
 	  //파일이름 수정하기
   	if (bfile.getSize() > 0 ) {
-  	  String name = bfile.getOriginalFilename(); // 파일 원래이름
-  	  
-  	  fileVO.setFileOriName(name); // 파일 원래이름 set
-  	  fileVO.setFileSize(bfile.getSize()); // 파일크기 set
-  	  fileVO.setBoardNo(seq); //fileVO에 boardNo변수에도 set
+  	   
+  	  String name = bfile.getOriginalFilename(); // 파일 원래이름 가져오기
   	  
   	  System.out.println("파일saveName 구하기 시작");
   	  String ext = "";
   	  int dot = name.lastIndexOf(".");
   	  if (dot != -1) {
-        ext = name.substring(dot); 
-      } else {
-        ext = "";
-      }
+  	    ext = name.substring(dot);  // .png 이렇게 확장자 뽑음
+  	  } else {
+  	    ext = "";
+  	  }
+  	  
+  	  String oriname = name.substring(0, dot);
+  	  System.out.println("oriname"+oriname);
+  	  
+  	  
+  	  oriname=oriname.replace(".", "");
+  	  oriname=oriname.replaceAll("\\/", "");
+  	  System.out.println("oriname"+oriname);
+  	  
+  	  
+  	  System.out.println("oriname : "+oriname);
+  	  System.out.println("oriname+ext : "+oriname+ext);
+
+  	  
+  	  fileVO.setFileOriName(oriname+ext); // 파일 원래이름 set
+  	  fileVO.setFileSize(bfile.getSize()); // 파일크기 set
+  	  fileVO.setBoardNo(seq); //fileVO에 boardNo변수에도 set
+  	  
   	  String str = "SBANK-" + UUID.randomUUID();
   	  fileVO.setFileSaveName(str);  // 저장될 파일 이름
   	  File targetFile = new File(uploadPath,str);
@@ -205,7 +220,7 @@ public class BoardController {
         System.out.println("==================getHex==========================");
         for(final byte b: fileData)
             sb.append(String.format("%02x ", b&0xff));
-        System.out.println(sb);
+//        System.out.println(sb);
         
         boardService.insertFile(fileVO);
         
