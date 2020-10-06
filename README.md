@@ -1,5 +1,5 @@
 # 안전한 환전지갑
-[프로젝트 홈페이지 - https://koposoftware.github.io/template/](https://koposoftware.github.io/template/)
+[서버 구축 과정 관련 정리](https://www.notion.so/luciddd/Project-729ed3357834484483f7348842362f07)
 
 
 # 2. 프로젝트 제안서
@@ -16,9 +16,9 @@ id  = mina
 pwd = mina13
 
 ## 발표 ppt 
-   <iframe type="text/html" width="640" height="360" src="/제안서_2060340021_최윤선.pptx"/>[발표자료](/2060340021_최윤선_발표PPT.pptx)<br>
+   <img src="/제안서_2060340021_최윤선.pptx"/>[발표자료](/2060340021_최윤선_발표PPT.pptx)<br>
 
 ## 시연 동영상 
 
-   
+   클릭시 이동하여 영상 확인 
 [![Video Label](http://img.youtube.com/vi/uLR1RNqJ1Mw/0.jpg)](https://youtu.be/O__Uk9bp5tY)
