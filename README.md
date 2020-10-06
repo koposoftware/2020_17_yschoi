@@ -17,7 +17,7 @@ id  = mina
 pwd = mina13
 
 ## 발표 ppt 
-   <iframe type="text/html" width="640" height="360" src="/제안서_2060340021_최윤선.pptx"/>[발표자료](/제안서_2060340021_최윤선.pptx)<br>
+   <iframe type="text/html" width="640" height="360" src="/제안서_2060340021_최윤선.pptx"/>[발표자료](/2060340021_최윤선_발표PPT.pptx)<br>
 
 ## 시연 동영상 
 
