@@ -24,5 +24,5 @@
 
    <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://youtu.be/O__Uk9bp5tY" frameborder="0"></iframe>
    <iframe width="560" height="315" src="https://youtu.be/O__Uk9bp5tY" frameborder="0" allowfullscreen></iframe>
-   [![예제](http://img.youtube.com/vi/RlQEoJaLQRA/0.jpg)](https://youtu.be/O__Uk9bp5tY) 
-[![Video Label](http://img.youtube.com/vi/uLR1RNqJ1Mw/0.jpg)](https://youtu.be/O__Uk9bp5tY)
+   [![예제](https://youtu.be/O__Uk9bp5tY)](https://youtu.be/O__Uk9bp5tY) 
+[![Video Label](https://youtu.be/O__Uk9bp5tY)](https://youtu.be/O__Uk9bp5tY)
