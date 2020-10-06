@@ -23,3 +23,4 @@
 ## 시연 동영상 
 
    <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://youtu.be/O__Uk9bp5tY" frameborder="0"></iframe>
+   <iframe width="560" height="315" src="https://youtu.be/O__Uk9bp5tY" frameborder="0" allowfullscreen></iframe>
