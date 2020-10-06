@@ -28,7 +28,7 @@
 
 본인 소개를 추가하세요
 
-|이름 |고길동|![gdKO](/gdko.jpg)|
+|이름 |최윤선|![gdKO](/gdko.jpg)|
 |연락처 | gdko(@)kopo.ac.kr|
 |skill set| Frontend - HTML, CSS, Javascript|
 | | Backend - Java, Spring, Oracle|
@@ -36,19 +36,4 @@
 |수상| |
 |특기사항|  TOEIC 990 |
 
-# 5. 기타
-그외 프로젝트를 더욱 설명할수 있는 것들을 추가하세요
 
-# 홈페이지 설정
- 본인 repository에서 "Setting"를 들어가서 GitHub Pages에서 설정 변경.
- <Source>
- Source에서 원하는 branch와 directory 설정한다. 
- 기본값은 master 에 root를 설정 
- Save 버튼 꼭 누른다.
- 
- <Theme Chooser>
- theme을 변경하여 좀더 이쁜 홈페이지를 만든다.
-   
-   <img src="homepage.JPG"/><br>
-   
- 
