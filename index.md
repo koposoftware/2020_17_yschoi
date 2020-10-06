@@ -6,7 +6,7 @@
 
 
 # 1. 프로젝트 제안서
-   <img src="/제안서-첫장.png"/>[발표자료](/제안서_2060340021_최윤선.pdf)<br>
+   <img src="https://github.com/koposoftware/2020_17_yschoi/blob/gh-pages/%EC%A0%9C%EC%95%88%EC%84%9C-%EC%B2%AB%EC%9E%A5.png"/>[발표자료](/제안서_2060340021_최윤선.pdf)<br>
 
 
 
