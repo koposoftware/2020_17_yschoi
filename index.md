@@ -1,37 +1,25 @@
-## Welcome to GitHub Pages
+# 안전한 환전지갑
+[서버 구축 과정 관련 정리](https://www.notion.so/luciddd/Project-729ed3357834484483f7348842362f07)
 
-You can use the [editor on GitHub](https://github.com/koposoftware/2020_17_yschoi/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+# 1. 프로젝트 제안서
+   <img src="/제안서-첫장.png"/>[발표자료](/제안서_2060340021_최윤선.pdf)<br>
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
+# 2. 프로젝트 결과
+홈페이지 주소 : https://sbank.ml/SBANK/     
+id  = mina      
+pwd = mina13
 
-**Bold** and _Italic_ and `Code` text
+## 발표 ppt 
+   <img src="/제안서-첫장.png"/>[발표자료](/2060340021_최윤선_발표PPT.pdf)<br>
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## 시연 동영상 
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/koposoftware/2020_17_yschoi/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+   클릭시 이동하여 영상 확인      
+[![Video Label](http://img.youtube.com/vi/uLR1RNqJ1Mw/0.jpg)](https://youtu.be/O__Uk9bp5tY)
