@@ -7,10 +7,6 @@
 
 # 2. 프로젝트 제안서
    <img src="/제안서-첫장.png"/>[발표자료](/제안서_2060340021_최윤선.pdf)<br>
-   <a target="_blank" rel="noopener noreferrer" href="/Doc/FinalProject_proposal.pdf">
-      <img src="/제안서-첫장.png" style="max-width:100%;"></a><br>
-  <a href="/제안서_2060340021_최윤선.pdf">발표자료</a>
- 
 
 
 
