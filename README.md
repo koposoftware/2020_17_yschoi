@@ -20,5 +20,5 @@ pwd = mina13
 
 ## 시연 동영상 
 
-   클릭시 이동하여 영상 확인 
+   클릭시 이동하여 영상 확인      
 [![Video Label](http://img.youtube.com/vi/uLR1RNqJ1Mw/0.jpg)](https://youtu.be/O__Uk9bp5tY)
