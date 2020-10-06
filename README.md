@@ -20,7 +20,8 @@ id  = mina
 pwd = mina13
 
 ## 발표 ppt 
-   <img src="/발표-첫장.png"/>[발표자료](/2060340021_최윤선_발표PPT.pptx)<br>
+   <img src="/제안서-첫장.png"/>[발표자료](/2060340021_최윤선_발표PPT.pdf)<br>
+
 
 ## 시연 동영상 
 
