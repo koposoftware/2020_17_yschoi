@@ -13,7 +13,7 @@
 
 # 3. 프로젝트 결과
 홈페이지 주소 : https://sbank.ml/SBANK/     
-id  = mina 
+id  = mina      
 pwd = mina13
 
 ## 발표 ppt 
