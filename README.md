@@ -11,14 +11,14 @@
 프로젝트 제안서를 설명하세요. 발표자료와 동영상을 추가하세요. 시스템의 아키텍쳐 설명도 추가하세요.
 
    <img src="ppt.jpg"/>[발표자료](/project.pptx)<br>
-   <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/6LxbdIjWP04" frameborder="0"></iframe>
+   <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://github.com/koposoftware/2020_17_yschoi/blob/master/%EC%A0%9C%EC%95%88%EC%84%9C_2060340021_%EC%B5%9C%EC%9C%A4%EC%84%A0.pptx" frameborder="0"></iframe>
  
 
 # 3. 프로젝트 결과
 프로젝트 결과를 추가하세요. 발표자료. 시연동영상을 추가하세요.
 
 ## 발표 ppt 
-   <img src="ppt.jpg"/>[발표자료](/project.pptx)<br>
+   <img src="ppt.jpg"/>[발표자료](/제안서_2060340021_최윤선.pptx)<br>
 
 ## 시연 동영상 
 
