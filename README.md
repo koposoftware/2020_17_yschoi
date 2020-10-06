@@ -2,10 +2,15 @@
 [서버 구축 과정 관련 정리](https://www.notion.so/luciddd/Project-729ed3357834484483f7348842362f07)
 
 
+
+
+
 # 2. 프로젝트 제안서
    <img src="/제안서-첫장.png"/>[발표자료](/제안서_2060340021_최윤선.pptx)<br>
 
  
+
+
 
 # 3. 프로젝트 결과
 홈페이지 주소 : https://sbank.ml/SBANK/     
