@@ -18,8 +18,8 @@
 프로젝트 결과를 추가하세요. 발표자료. 시연동영상을 추가하세요.
 
 ## 발표 ppt 
-   <img src="/제안서_2060340021_최윤선.pptx"/>[발표자료](/제안서_2060340021_최윤선.pptx)<br>
+   <iframe type="text/html" width="640" height="360" src="/제안서_2060340021_최윤선.pptx"/>[발표자료](/제안서_2060340021_최윤선.pptx)<br>
 
 ## 시연 동영상 
 
-   <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/6LxbdIjWP04" frameborder="0"></iframe>
+   <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://youtu.be/O__Uk9bp5tY" frameborder="0"></iframe>
