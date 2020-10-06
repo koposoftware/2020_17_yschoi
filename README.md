@@ -15,7 +15,9 @@
  
 
 # 3. 프로젝트 결과
-프로젝트 결과를 추가하세요. 발표자료. 시연동영상을 추가하세요.
+홈페이지 주소 : https://sbank.ml/SBANK/
+id  = mina 
+pwd = mina13
 
 ## 발표 ppt 
    <iframe type="text/html" width="640" height="360" src="/제안서_2060340021_최윤선.pptx"/>[발표자료](/제안서_2060340021_최윤선.pptx)<br>
