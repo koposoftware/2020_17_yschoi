@@ -33,6 +33,6 @@
 
 ## 시연 동영상 
 
-   클릭시 이동하여 영상 확인      
+   이미지 클릭시 이동하여 영상 확인      
 [![Video Label](http://img.youtube.com/vi/uLR1RNqJ1Mw/0.jpg)](https://youtu.be/O__Uk9bp5tY).
 <iframe width="560" height="315" src="https://www.youtube.com/embed/O__Uk9bp5tY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
