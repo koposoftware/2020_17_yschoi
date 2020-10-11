@@ -26,7 +26,7 @@
     <script>
     $(function(){
         var IMP = window.IMP; // 생략가능
-        IMP.init(''); //'iamport' 대신 부여받은 "가맹점 식별코드"를 사용   //#$#$#$키 넣자 -2
+        IMP.init('imp44552637'); //'iamport' 대신 부여받은 "가맹점 식별코드"를 사용   //#$#$#$키 넣자 -2
         var msg;
         //alert('아이디')
         
@@ -109,7 +109,7 @@
                 
                 //성공시 이동할 페이지
                 <%-- location.href='<%=request.getContextPath()%>/order/paySuccess?msg='+msg; --%>
-                location.href='/SBANK/exchange/myExchangeKakao';
+                location.href='${ pageContext.request.contextPath }/exchange/myExchangeKakao';
                 
             } else {
                 msg = '결제에 실패하였습니다.';

@@ -343,6 +343,15 @@ public class ExchangeController {
 
     ModelAndView mav = new ModelAndView("account/myExchangeKakao");
     mav.addObject("exchangeList", exchangeList);
+    
+    System.out.println("=======================================================");
+    for (ExchangeVO Exchange : exchangeList) {
+      System.out.println(Exchange);
+    }
+    
+    
+    
+    System.out.println("매핑 타나??");
 //    mav.addObject("reserveList", reserveList);
 //    mav.addObject("revExchangeList", revExchangeList);
     
