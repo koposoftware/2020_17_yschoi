@@ -21,22 +21,10 @@
 
 
 
-# 3. 프로젝트 결과
-홈페이지 (주소 : https://sbank.ml/SBANK/  : 무료 서버 반납으로 현재 사용 불가능합니다. ) <br>
-포트폴리어 문서 [자료확인하기](/2060340021_포트폴리오-제출용.pdf)<br><br><br>
-
-## 발표 ppt 
-   <img src="/발표-첫장.png" height="350px"/><br>
-   [발표자료확인하기](/2060340021_최윤선_PPT_GIT.pdf)<br><br>
 
 
 
-## 시연 동영상 
-
-   이미지 클릭시 이동하여 영상 확인      
-[![Video Label](http://img.youtube.com/vi/uLR1RNqJ1Mw/0.jpg)](https://youtu.be/O__Uk9bp5tY).<br><br><br>
-
-## 프로젝트 요약
+## 3. 프로젝트 요약
 ### 안전한 환전지갑의 특징
 하나은행과 타깃 경쟁사인 신한은행의 서비스 중 장점이라 여겨지는 부분 벤치마킹한 후 보안성을 높임.<br><br><br>
 
@@ -44,6 +32,7 @@
 <br><br><br>
 
 ### 아키텍쳐
+<br><br><br>
 
 ### 요구사항
 -1 계좌 개설
@@ -59,6 +48,20 @@
    통화별 수수료 조정
    IP 차단 내역 확인
    서비스 이용 추이 확인
- 
+ <br><br><br>
 ### 사용기술
 
+<br><br><br>
+
+# 4. 프로젝트 결과
+홈페이지 (주소 : https://sbank.ml/SBANK/  : 무료 서버 반납으로 현재 사용 불가능합니다. ) <br>
+포트폴리어 문서 [자료확인하기](/2060340021_포트폴리오-제출용.pdf)<br><br><br>
+
+## 발표 ppt 
+   <img src="/발표-첫장.png" height="350px"/><br>
+   [발표자료확인하기](/2060340021_최윤선_PPT_GIT.pdf)<br><br>
+
+## 시연 동영상 
+
+   이미지 클릭시 이동하여 영상 확인      
+[![Video Label](http://img.youtube.com/vi/uLR1RNqJ1Mw/0.jpg)](https://youtu.be/O__Uk9bp5tY).<br><br><br>
