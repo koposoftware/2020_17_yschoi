@@ -29,10 +29,10 @@
 하나은행과 타깃 경쟁사인 신한은행의 서비스 중 장점이라 여겨지는 부분 벤치마킹한 후 **보안성을 높임.**<br><br><br>
 
 ### ERD
-<img src="ERD-1.PNG" height="400px"/><br><br><br><br>
+<img src="ERD-1.PNG" /><br><br><br><br>
 
 ### 아키텍쳐
-<img src="깃허브용_4.png" height="400px"  /><br><br><br><br>
+<img src="깃허브용_4.png" /><br><br><br><br>
 
 ### 주요기능
 <img src="깃허브용_5.png" height="400px"  /><br><br>
