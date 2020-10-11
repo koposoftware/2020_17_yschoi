@@ -32,7 +32,7 @@
 <img src="ERD-1.PNG" height="350px"/><br><br><br><br>
 
 ### 아키텍쳐
-<img src="간트차트.PNG"/><br><br><br><br>
+<img src="깃허브용_4.png" height="400px"  /><br><br><br><br>
 
 ### 요구사항
 
