@@ -11,9 +11,7 @@
 
 
 # 2. 프로젝트 결과
-홈페이지 주소 : https://sbank.ml/SBANK/     
-id  = mina      
-pwd = mina13
+홈페이지 (주소 : https://sbank.ml/SBANK/ ) 
 
 ## 발표 ppt 
    <img src="/발표-첫장.png"/>[발표자료](/2060340021_최윤선_발표PPT.pdf)<br>
