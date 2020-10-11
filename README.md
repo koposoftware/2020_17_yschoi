@@ -34,13 +34,17 @@
 ### 아키텍쳐
 <img src="깃허브용_4.png" height="400px"  /><br><br><br><br>
 
-### 요구사항
+### 주요기능
+<img src="깃허브용_5.png" height="400px"  /><br><br>
 
- <br><br><br>
 
 ### 사용기술
+<img src="깃허브용_7.png" height="400px"  /><br><br>
 
-<br><br><br>
+### 보안관련
+<img src="깃허브용_6.png" height="400px"  /><br><br>
+<img src="깃허브용_9.png" height="400px"  /><br><br>
+<img src="깃허브용_10.png" height="400px"  /><br><br>
 
 # 4. 프로젝트 결과
 홈페이지 (주소 : https://sbank.ml/SBANK/  : 무료 서버 반납으로 현재 사용 불가능합니다. ) <br>
