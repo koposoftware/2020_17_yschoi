@@ -112,7 +112,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.13</version>
+			<version>4.13.1</version>
 			<scope>test</scope>   <!-- 전체 코드가 아닌 내가 만든 코드에 대해서만 조각내서 테스트 하는 것임 so, main 아닌 test에 적용된다. -->
 		</dependency>
 
